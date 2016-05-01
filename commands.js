@@ -15,8 +15,6 @@
 
 'use strict';
 
-/* eslint no-else-return: "error" */
-
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
@@ -97,7 +95,7 @@ exports.commands = {
 		if (!target) return this.parse('/avatars');
 		let parts = target.split(',');
 		let avatar = parseInt(parts[0]);
-		if (parts[0] === '#bw2elesa' || parts[0] === '#teamrocket' || parts[0] === '#yellow' || parts[0] === '#zinnia') {
+		if (parts[0] === '#bw2elesa' || parts[0] === '#teamrocket' || parts[0] === '#yellow') {
 			avatar = parts[0];
 		}
 		if (typeof avatar === 'number' && (!avatar || avatar > 294 || avatar < 1)) {
@@ -237,7 +235,13 @@ exports.commands = {
 		let message = '|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + target;
 
 		user.send(message);
-		if (targetUser !== user) targetUser.send(message);
+		if (targetUser !== user) {
+            if (Users.ShadowBan.checkBanned(user)) {
+                Users.ShadowBan.addMessage(user, "Private to " + targetUser.getIdentity(), target);
+            } else {
+                targetUser.send(message);
+            }
+        }
 		targetUser.lastPM = user.userid;
 		user.lastPM = targetUser.userid;
 	},
@@ -319,26 +323,27 @@ exports.commands = {
 		if (!id) return this.parse('/help makechatroom');
 		// Check if the name already exists as a room or alias
 		if (Rooms.search(id)) return this.errorReply("The room '" + target + "' already exists.");
-		if (!Rooms.global.addChatRoom(target)) return this.errorReply("An error occurred while trying to create the room '" + target + "'.");
-
-		if (cmd === 'makeprivatechatroom') {
-			let targetRoom = Rooms.search(target);
-			targetRoom.isPrivate = true;
-			targetRoom.chatRoomData.isPrivate = true;
-			Rooms.global.writeChatRoomData();
-			if (Rooms.get('upperstaff')) {
-				Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Private chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
+		if (Rooms.global.addChatRoom(target)) {
+			if (cmd === 'makeprivatechatroom') {
+				let targetRoom = Rooms.search(target);
+				targetRoom.isPrivate = true;
+				targetRoom.chatRoomData.isPrivate = true;
+				Rooms.global.writeChatRoomData();
+				if (Rooms.get('upperstaff')) {
+					Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Private chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
+				}
+				return this.sendReply("The private chat room '" + target + "' was created.");
+			} else {
+				if (Rooms.get('staff')) {
+					Rooms.get('staff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
+				}
+				if (Rooms.get('upperstaff')) {
+					Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
+				}
+				return this.sendReply("The chat room '" + target + "' was created.");
 			}
-			this.sendReply("The private chat room '" + target + "' was created.");
-		} else {
-			if (Rooms.get('staff')) {
-				Rooms.get('staff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
-			}
-			if (Rooms.get('upperstaff')) {
-				Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Tools.escapeHTML(target) + '</b></div>').update();
-			}
-			this.sendReply("The chat room '" + target + "' was created.");
 		}
+		return this.errorReply("An error occurred while trying to create the room '" + target + "'.");
 	},
 	makechatroomhelp: ["/makechatroom [roomname] - Creates a new room named [roomname]. Requires: & ~"],
 
@@ -387,6 +392,7 @@ exports.commands = {
 		if (Rooms.search(roomid)) return this.errorReply("A group chat named '" + title + "' already exists.");
 		// Tab title is prefixed with '[G]' to distinguish groupchats from
 		// registered chatrooms
+		title = title;
 
 		if (Monitor.countGroupChat(connection.ip)) {
 			this.errorReply("Due to high load, you are limited to creating 4 group chats every hour.");
@@ -394,7 +400,9 @@ exports.commands = {
 		}
 
 		// Privacy settings, default to hidden.
-		let privacy = (toId(targets[1]) === 'private') ? true : 'hidden';
+		let privacy = toId(targets[1]) || 'hidden';
+		let privacySettings = {private: true, hidden: 'hidden', public: false};
+		if (!(privacy in privacySettings)) privacy = 'hidden';
 
 		let groupChatLink = '<code>&lt;&lt;' + roomid + '>></code>';
 		let groupChatURL = '';
@@ -410,7 +418,7 @@ exports.commands = {
 		}
 		let targetRoom = Rooms.createChatRoom(roomid, '[G] ' + title, {
 			isPersonal: true,
-			isPrivate: privacy,
+			isPrivate: privacySettings[privacy],
 			auth: {},
 			introMessage: '<h2 style="margin-top:0">' + titleHTML + '</h2><p>There are several ways to invite people:<br />- in this chat: <code>/invite USERNAME</code><br />- anywhere in PS: link to <code>&lt;&lt;' + roomid + '>></code>' + (groupChatURL ? '<br />- outside of PS: link to <a href="' + groupChatURL + '">' + groupChatURL + '</a>' : '') + '</p><p>This room will expire after 40 minutes of inactivity or when the server is restarted.</p><p style="margin-bottom:0"><button name="send" value="/roomhelp">Room management</button>',
 		});
@@ -423,7 +431,7 @@ exports.commands = {
 		}
 		return this.errorReply("An unknown error occurred while trying to create the room '" + title + "'.");
 	},
-	makegroupchathelp: ["/makegroupchat [roomname], [hidden|private] - Creates a group chat named [roomname]. Leave off privacy to default to hidden. Requires global voice or roomdriver+ in a public room to make a groupchat."],
+	makegroupchathelp: ["/makegroupchat [roomname], [private|hidden|public] - Creates a group chat named [roomname]. Leave off privacy to default to hidden. Requires global voice or roomdriver+ in a public room to make a groupchat."],
 
 	deregisterchatroom: function (target, room, user) {
 		if (!this.can('makeroom')) return;
@@ -519,7 +527,6 @@ exports.commands = {
 		}
 
 		if (target === 'off' || !setting) {
-			if (room.isPersonal) return this.errorReply("This room can't be made public.");
 			delete room.isPrivate;
 			this.addModCommand("" + user.name + " made this room public.");
 			if (room.chatRoomData) {
@@ -636,7 +643,7 @@ exports.commands = {
 		if (!target) {
 			if (!this.runBroadcast()) return;
 			if (!room.introMessage) return this.sendReply("This room does not have an introduction set.");
-			this.sendReply('|raw|<div class="infobox infobox-limited">' + room.introMessage + '</div>');
+			this.sendReply('|raw|<div class="infobox">' + room.introMessage + '</div>');
 			if (!this.broadcasting && user.can('declare', null, room)) {
 				this.sendReply('Source:');
 				this.sendReplyBox('<code>/roomintro ' + Tools.escapeHTML(room.introMessage) + '</code>');
@@ -655,7 +662,7 @@ exports.commands = {
 
 		room.introMessage = target;
 		this.sendReply("(The room introduction has been changed to:)");
-		this.sendReply('|raw|<div class="infobox infobox-limited">' + target + '</div>');
+		this.sendReply('|raw|<div class="infobox">' + target + '</div>');
 
 		this.privateModCommand("(" + user.name + " changed the roomintro.)");
 		this.logEntry(target);
@@ -926,25 +933,25 @@ exports.commands = {
 		if (group) {
 			buffer.push('Global auth: ' + group.charAt(0));
 		}
-		for (let id in Rooms.rooms) {
-			let curRoom = Rooms.rooms[id];
+		for (let i = 0; i < Rooms.global.chatRooms.length; i++) {
+			let curRoom = Rooms.global.chatRooms[i];
 			if (!curRoom.auth || curRoom.isPrivate) continue;
 			group = curRoom.auth[targetId];
 			if (!group) continue;
-			innerBuffer.push(group + id);
+			innerBuffer.push(group + curRoom.id);
 		}
 		if (innerBuffer.length) {
 			buffer.push('Room auth: ' + innerBuffer.join(', '));
 		}
 		if (targetId === user.userid || user.can('lock')) {
 			innerBuffer = [];
-			for (let id in Rooms.rooms) {
-				let curRoom = Rooms.rooms[id];
+			for (let i = 0; i < Rooms.global.chatRooms.length; i++) {
+				let curRoom = Rooms.global.chatRooms[i];
 				if (!curRoom.auth || !curRoom.isPrivate) continue;
 				if (curRoom.isPrivate === true) continue;
 				let auth = curRoom.auth[targetId];
 				if (!auth) continue;
-				innerBuffer.push(auth + id);
+				innerBuffer.push(auth + curRoom.id);
 			}
 			if (innerBuffer.length) {
 				buffer.push('Hidden room auth: ' + innerBuffer.join(', '));
@@ -1148,8 +1155,8 @@ exports.commands = {
 		let muteDuration = ((cmd === 'hm' || cmd === 'hourmute') ? HOURMUTE_LENGTH : MUTE_LENGTH);
 		if (!this.can('mute', targetUser, room)) return false;
 		let canBeMutedFurther = ((room.getMuteTime(targetUser) || 0) <= (muteDuration * 5 / 6));
-		if (targetUser.locked || (room.isMuted(targetUser) && !canBeMutedFurther) || room.isRoomBanned(targetUser)) {
-			let problem = " but was already " + (targetUser.locked ? "locked" : room.isMuted(targetUser) ? "muted" : "room banned");
+		if ((room.isMuted(targetUser) && !canBeMutedFurther) || targetUser.locked) {
+			let problem = " but was already " + (targetUser.locked ? "locked" : "muted");
 			if (!target) {
 				return this.privateModCommand("(" + targetUser.name + " would be muted by " + user.name + problem + ".)");
 			}
@@ -1235,7 +1242,7 @@ exports.commands = {
 
 		targetUser.popup("|modal|" + user.name + " has locked you from talking in chats, battles, and PMing regular users." + (target ? "\n\nReason: " + target : "") + "\n\nIf you feel that your lock was unjustified, you can still PM staff members (%, @, &, and ~) to discuss it" + (Config.appealurl ? " or you can appeal:\n" + Config.appealurl : ".") + "\n\nYour lock will expire in a few days.");
 
-		this.addModCommand("" + name + " was locked from talking by " + user.name + "." + (target ? " (" + target + ")" : ""), " (" + targetUser.latestIp + ")");
+		this.addModCommand("" + name + " was locked from talking by " + user.name + "." + (target ? " (" + target + ")" : ""));
 		let alts = targetUser.getAlts();
 		let acAccount = (targetUser.autoconfirmed !== userid && targetUser.autoconfirmed);
 		if (alts.length) {
@@ -1498,10 +1505,9 @@ exports.commands = {
 		if (!cmd.startsWith('global')) {
 			let groupid = Config.groups[nextGroup].id;
 			if (!groupid && nextGroup === Config.groupsranking[0]) groupid = 'deauth';
-			if (Config.groups[nextGroup].globalonly) return this.errorReply('Did you mean /global' + groupid + '"?');
 			return this.errorReply('Did you mean "/room' + groupid + '" or "/global' + groupid + '"?');
 		}
-		if (Config.groups[nextGroup].roomonly || Config.groups[nextGroup].battleonly) {
+		if (Config.groups[nextGroup].roomonly) {
 			return this.errorReply("Group '" + nextGroup + "' does not exist as a global rank.");
 		}
 
@@ -1612,6 +1618,7 @@ exports.commands = {
 		case 'off':
 		case 'false':
 		case 'no':
+		case ' ':
 			room.modchat = false;
 			break;
 		case 'ac':
@@ -1662,7 +1669,7 @@ exports.commands = {
 		if (!this.can('declare', null, room)) return false;
 		if (!this.canTalk()) return;
 
-		this.add('|raw|<div class="broadcast-blue"><b>' + Tools.escapeHTML(target) + '</b></div>');
+		this.add('|raw|<div class="broadcast-blue"><b>' + target + '</b></div>');
 		this.logModCommand(user.name + " declared " + target);
 	},
 	declarehelp: ["/declare [message] - Anonymously announces a message. Requires: # & ~"],
@@ -1744,6 +1751,51 @@ exports.commands = {
 	},
 	forcerenamehelp: ["/forcerename OR /fr [username], [reason] - Forcibly change a user's name and shows them the [reason]. Requires: % @ & ~"],
 
+	/* Darkero was namelocked and we couldnt unnamelock, lets wait till main finishes this function
+	nl: 'namelock',
+	namelock: function (target, room, user) {
+		if (!target) return this.parse('/help namelock');
+
+		let reason = this.splitTarget(target, true);
+		let targetUser = this.targetUser;
+
+		if (!targetUser) {
+			return this.errorReply("User '" + this.targetUsername + "' not found.");
+		}
+		if (!this.can('forcerename', targetUser)) return false;
+
+		let entry = targetUser.name + " was namelocked by " + user.name + (reason ? ": " + reason : "");
+		this.privateModCommand("(" + entry + ")");
+		Rooms.global.cancelSearch(targetUser);
+		targetUser.lockName();
+		targetUser.popup("|modal|" + user.name + " has locked your name and you can't change names anymore." + (reason ? ": " + reason : "."));
+		return true;
+	},
+	namelockhelp: ["/namelock OR /nl [username], [reason] - Name locks a user and shows them the [reason]. Requires: % @ & ~"],
+
+	unl: 'unnamelock',
+	unnamelock: function (target, room, user) {
+		if (!target) return this.parse('/help unnamelock');
+		if (!this.can('forcerename')) return false;
+
+		let targetUser = Users.get(target);
+		let reason = '';
+		if (targetUser && targetUser.namelocked) {
+			reason = ' (' + targetUser.namelocked + ')';
+		}
+
+		let unlocked = Users.unnamelock(target);
+
+		if (unlocked) {
+			this.addModCommand(unlocked + " was unnamelocked by " + user.name + "." + reason);
+			if (!reason) this.globalModlog("UNNAMELOCK", target, " by " + user.name);
+			if (targetUser) targetUser.popup("" + user.name + " has unnamelocked you.");
+		} else {
+			this.errorReply("User '" + target + "' is not namelocked.");
+		}
+	},
+	unnamelockhelp: ["/unnamelock [username] - Unnamelocks the user. Requires: % @ & ~"],*/
+	
 	hidetext: function (target, room, user) {
 		if (!target) return this.parse('/help hidetext');
 
@@ -1812,8 +1864,8 @@ exports.commands = {
 				room.chatRoomData.banwords = room.banwords;
 				Rooms.global.writeChatRoomData();
 			}
-		},
-
+        },
+        
 		delete: function (target, room, user) {
 			if (!target) return this.parse('/help banword');
 			if (!user.can('declare', null, room)) return;
@@ -1860,6 +1912,8 @@ exports.commands = {
 	banwordhelp: ["/banword add [words] - Adds the comma-separated list of phrases (& or ~ can also input regex) to the banword list of the current room. Requires: # & ~",
 					"/banword delete [words] - Removes the comma-separated list of phrases from the banword list. Requires: # & ~",
 					"/banword list - Shows the list of banned words in the current room. Requires: @ # & ~"],
+
+
 
 	modlog: function (target, room, user, connection) {
 		let lines = 0;
@@ -2164,7 +2218,7 @@ exports.commands = {
 		}
 		if (Rooms.global.lockdown === true) {
 			for (let id in Rooms.rooms) {
-				if (id !== 'global') Rooms.rooms[id].addRaw("<div class=\"broadcast-green\"><b>The server restart was canceled.</b></div>");
+				if (id !== 'global') Rooms.rooms[id].addRaw("<div class=\"broadcast-green\"><b>The server shutdown was canceled.</b></div>");
 			}
 		} else {
 			this.sendReply("Preparation for the server shutdown was canceled.");
@@ -2926,9 +2980,13 @@ exports.commands = {
 					if (!namespace[targets[i]]) return this.errorReply("Help for the command '" + target + "' was not found. Try /help for general help");
 					namespace = namespace[targets[i]];
 				}
-				if (typeof namespace[helpCmd] === 'object') return this.sendReply(namespace[helpCmd].join('\n'));
-				if (typeof namespace[helpCmd] === 'function') return this.parse('/' + targets.slice(0, targets.length - 1).concat(helpCmd).join(' '));
-				return this.errorReply("Help for the command '" + target + "' was not found. Try /help for general help");
+				if (typeof namespace[helpCmd] === 'object') {
+					return this.sendReply(namespace[helpCmd].join('\n'));
+				} else if (typeof namespace[helpCmd] === 'function') {
+					return this.parse('/' + targets.slice(0, targets.length - 1).concat(helpCmd).join(' '));
+				} else {
+					return this.errorReply("Help for the command '" + target + "' was not found. Try /help for general help");
+				}
 			} else {
 				helpCmd = target + 'help';
 			}
