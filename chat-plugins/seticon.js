@@ -1,7 +1,10 @@
-/*
-* Created by: Master Float.
-* Edited by: Kevinxzllz
-*/
+/*************************************************
+* Icon and CM Set Plugin						 *
+*												 *
+* Icon Credits: Master Float					 *
+*  												 *
+* CM Set Credits: Steel Sciz using the Icon Code *
+**************************************************/
 
 'use strict';
 
@@ -23,7 +26,7 @@ function logMoney(message) {
 
 exports.commands = {
 	seticon: function (target, room, user) {
-		if (!this.can('eval')) return this.errorReply("Access denied.");
+		if (!this.can('hotpatch')) return this.errorReply("Access denied.");
 
 		let args = target.split(',');
 		if (args.length < 3) return this.parse('/help seticon');
@@ -41,4 +44,19 @@ exports.commands = {
 		writeIconCSS();
 	},
 	seticonhelp: ["/seticon [username], [image], [room 1], [room 2], etc. - Sets an icon to a user in chosen rooms."],
+
+    cmset: function (target, room, user) {
+		if (!this.can('hotpatch')) return this.errorReply("Access denied.");
+        let args = target.split(',');
+        if (args.length < 2) return this.parse('/help cmset');
+        let username = toId(args.shift());
+        let image = 'color:' + args.shift().trim() + '';
+        selectors = '\n\n' + '.chat.chatmessage-' + username +   '  em';
+        selectors += ' { \n' + '    ' + image +  ' !important;\n  }';
+ 
+        this.privateModCommand("(" + user.name + " has set an custom message to " + username + ")");
+        writeIconCSS();
+    },
+    cmsethelp: ["/cmset [username], [color] - Sets an custom message to a user for all rooms."],
+
 };
