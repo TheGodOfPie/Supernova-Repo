@@ -6,15 +6,14 @@
 'use strict';
 
 class Poll {
-	constructor(room, questionData, options) {
+	constructor(room, question, options) {
 		if (room.pollNumber) {
 			room.pollNumber++;
 		} else {
 			room.pollNumber = 1;
 		}
 		this.room = room;
-		this.question = questionData.source;
-		this.supportHTML = questionData.supportHTML;
+		this.question = question;
 		this.voters = {};
 		this.voterIps = {};
 		this.totalVotes = 0;
@@ -58,40 +57,39 @@ class Poll {
 	}
 
 	generateVotes() {
-		let output = '<div class="infobox"><p style="margin: 2px 0 5px 0"><span style="border:1px solid #6A6;color:#484;border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> Poll</span> <strong style="font-size:11pt">' + this.getQuestionMarkup() + '</strong></p>';
+		let output = '<div class="infoboxu"><p style="margin: 2px 0 5px 0"><span style="border: 1px solid #783C61;color: #783C61;border-radius: 4px;padding: 0 3px;font-size: 18px;background: #E9C2DA;text-shadow: 0 0 2px #fff"><i class="fa fa-bar-chart"></i>SUPERNOVA POLL</span> <strong style="font-size:11pt">' + Tools.escapeHTML(this.question) + '</strong></p>';
 		this.options.forEach((option, number) => {
-			output += '<div style="margin-top: 5px"><button value="/poll vote ' + number + '" name="send" title="Vote for ' + number + '. ' + Tools.escapeHTML(option.name) + '">' + number + '. <strong>' + Tools.escapeHTML(option.name) + '</strong></button></div>';
+			output += '<button class=super-button value="/poll vote ' + number + '" name="send" title="Vote for ' + number + '. ' + Tools.escapeHTML(option.name) + '">' + number + '. <strong>' + Tools.escapeHTML(option.name) + '</strong></button>&nbsp;&nbsp;';
 		});
-		output += '<div style="margin-top: 7px; padding-left: 12px"><button value="/poll results" name="send" title="View results - you will not be able to vote after viewing results"><small>(View results)</small></button></div>';
+		output += '<div style="margin-top: 7px; padding-left: 12px"><button class=viewresults value="/poll results" name="send" title="See Results - you will not be able to vote after viewing results"><small>(See results)</small></button><br></div>';
 		output += '</div>';
 
 		return output;
 	}
 
 	generateResults(ended, option) {
-		let icon = '<span style="border:1px solid #' + (ended ? '777;color:#555' : '6A6;color:#484') + ';border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> ' + (ended ? "Poll ended" : "Poll") + '</span>';
-		let output = '<div class="infobox"><p style="margin: 2px 0 5px 0">' + icon + ' <strong style="font-size:11pt">' + this.getQuestionMarkup() + '</strong></p>';
+		let icon = '<span style="border: 1px solid #783C61;color: #783C61;border-radius: 4px;padding: 0 3px;font-size: 18px;background: #E9C2DA;text-shadow: 0 0 2px #fff"><i class="fa fa-bar-chart"></i> ' + (ended ? "Poll ended" : "Poll") + '</span>';
+		let output = '<div class="infoboxui"><p style="margin: 2px 0 5px 0">' + icon + ' <strong style="font-size:11pt">' + Tools.escapeHTML(this.question) + '</strong></p>';
 		let iter = this.options.entries();
 
-		let i = iter.next();
+	let i = iter.next();
 		let c = 0;
-		let colors = ['#79A', '#8A8', '#88B'];
+		let colors = ['#79A', '#8A8', '#88B', '#DF013A', '#AEB404', '#80FF00'];
+	
 		while (!i.done) {
-			let percentage = Math.round((i.value[1].votes * 100) / (this.totalVotes || 1));
-			output += '<div style="margin-top: 3px">' + i.value[0] + '. <strong>' + (i.value[0] === option ? '<em>' : '') + Tools.escapeHTML(i.value[1].name) + (i.value[0] === option ? '</em>' : '') + '</strong> <small>(' + i.value[1].votes + ' vote' + (i.value[1].votes === 1 ? '' : 's') + ')</small><br /><span style="font-size:7pt;background:' + colors[c % 3] + ';padding-right:' + (percentage * 3) + 'px"></span><small>&nbsp;' + percentage + '%</small></div>';
+			let percentage = Math.round((i.value[1].votes * 100) / (this.totalVotes || 1)); //<div style="width: 220px ; height: 10px ; border-radius: 3px ; border: 1px solid #aaa ; background: #f8f8f8"><div style="width: 33% ; height: 10px ; background: #337ab7"></div></div>
+			//output += '<div style="margin-top: 3px">' + i.value[0] + '. <strong>' + (i.value[0] === option ? '<em>' : '') + Tools.escapeHTML(i.value[1].name) + (i.value[0] === option ? '</em>' : '') + '</strong> <small> | <small>&nbsp;' + percentage + '%</small> (' + i.value[1].votes + ' vote' + (i.value[1].votes === 1 ? '' : 's') + ')</small><br /><span style="font-size:7pt;background:' + colors[c % 3] + ';padding-right:' + (percentage * 3) + 'px"></span></div>';
+				let color = colors[Math.floor(Math.random() * colors.length)];
+			output += '<div style="margin-top: 3px">' + i.value[0] + '. <strong>' + (i.value[0] === option ? '<em>' : '') + Tools.escapeHTML(i.value[1].name) + (i.value[0] === option ? '</em>' : '') + '</strong> <small> | <small>&nbsp;' + percentage + '%</small> (' + i.value[1].votes + ' vote' + (i.value[1].votes === 1 ? '' : 's') + ')</small><br /><div style="width: 220px ; height: 10px ; border-radius: 3px ; border: 1px solid #aaa ; background: #f8f8f8"><div style="width: '+ percentage +'% ; height: 10px ; background: ' + colors[c % 6] + ';"></div></div></div>';
 			i = iter.next();
 			c++;
 		}
-		if (option === 0 && !ended) output += '<div><small>(You can\'t vote after viewing results)</small></div>';
+		if (option === 0 && !ended) output += '<div><small>(You can\'t vote after looking at the results!)</small></div>';
 		output += '</div>';
 
 		return output;
 	}
 
-	getQuestionMarkup() {
-		if (this.supportHTML) return this.question;
-		return Tools.escapeHTML(this.question);
-	}
 
 	update() {
 		let results = [];
@@ -174,41 +172,57 @@ class Poll {
 
 exports.commands = {
 	poll: {
-		htmlcreate: 'new',
 		create: 'new',
 		new: function (target, room, user, connection, cmd, message) {
 			if (!target) return this.parse('/help poll new');
 			if (target.length > 1024) return this.errorReply("Poll too long.");
 			let params = target.split(target.includes('|') ? '|' : ',').map(param => param.trim());
-			const supportHTML = cmd === 'htmlcreate';
 
 			if (!this.can('minigame', null, room)) return false;
-			if (supportHTML && !this.can('declare', null, room)) return false;
 			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
 			if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
+
 			if (params.length < 3) return this.errorReply("Not enough arguments for /poll new.");
-
-			const questionSource = supportHTML ? this.canHTML(params[0]) : params[0];
-			if (!questionSource) return;
-
 			let options = [];
 
 			for (let i = 1; i < params.length; i++) {
 				options.push(params[i]);
 			}
 
-			if (options.length > 8) {
-				return this.errorReply("Too many options for poll (maximum is 8).");
-			}
-
-			room.poll = new Poll(room, {source: params[0], supportHTML: supportHTML}, options);
+			room.poll = new Poll(room, params[0], options);
 			room.poll.display();
 
 			this.logEntry("" + user.name + " used " + message);
 			return this.privateModCommand("(A poll was started by " + user.name + ".)");
 		},
 		newhelp: ["/poll create [question], [option1], [option2], [...] - Creates a poll. Requires: % @ # & ~"],
+		
+		tour: function (target, room, user) {
+			if (!this.can('minigame', null, room)) return false;
+			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
+			if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
+			let options = ['Random Battle', 'Anything Goes', 'OU', 'Ubers', 'LC', 'Challenge Cup 1v1', 'Monotype', 'Monotype Random Battle', 'Doubles OU', 'VGC 2016', 'Monocolor', '[Seasonal]'];
+			
+			room.poll = new Poll(room, 'Next Tour Tier ?', options);
+			room.poll.display();
 
+			this.logEntry("" + user.name + " created a tour poll ");
+			return this.privateModCommand("(A tour poll was started by " + user.name + ".)");
+		},
+
+		randoms: function (target, room, user) {
+			if (!this.can('minigame', null, room)) return false;
+			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
+			if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
+			let options = ['Randoms', 'Random Doubles', 'Random Triples', 'CC1v1', '1v1 Randoms', 'Monotype Randoms', 'Inverse Randoms', 'Haxmon Randoms', 'Uber Randoms', 'LC Randoms'];
+			
+			room.poll = new Poll(room, 'Next Tour Tier ?', options);
+			room.poll.display();
+
+			this.logEntry("" + user.name + " created a tour poll ");
+			return this.privateModCommand("(A tour poll was started by " + user.name + ".)");
+
+		},
 		vote: function (target, room, user) {
 			if (!room.poll) return this.errorReply("There is no poll running in this room.");
 			if (!target) return this.parse('/help poll vote');
@@ -247,12 +261,12 @@ exports.commands = {
 					room.poll.end();
 					delete room.poll;
 				}, (timeout * 60000));
-				room.add("The poll timer was turned on: the poll will end in " + timeout + " minute(s).");
-				return this.privateModCommand("(The poll timer was set to " + timeout + " minute(s) by " + user.name + ".)");
+				room.add("The poll timer was turned on: the poll will end in " + timeout + " minutes.");
+				return this.privateModCommand("(The poll timer was set to " + timeout + " minutes by " + user.name + ".)");
 			} else {
-				if (!this.runBroadcast()) return;
+				if (!this.canBroadcast()) return;
 				if (room.poll.timeout) {
-					return this.sendReply("The poll timer is on and will end in " + room.poll.timeoutMins + " minute(s).");
+					return this.sendReply("The poll timer is on and will end in " + room.poll.timeoutMins + " minutes.");
 				} else {
 					return this.sendReply("The poll timer is off.");
 				}
@@ -301,10 +315,12 @@ exports.commands = {
 	},
 	pollhelp: ["/poll allows rooms to run their own polls. These polls are limited to one poll at a time per room.",
 				"Accepts the following commands:",
-				"/poll create [question], [option1], [option2], [...] - Creates a poll. Requires: % @ # & ~",
+				"/poll create [question], [option1], [option2], [...] - Creates a poll. Requires: + % @ # & ~",
+				"/poll tour - Creates a poll for tour. Requires: + % @ # & ~",
+				"/poll randoms - Creates a poll for random tours. Requires: + % @ # & ~",
 				"/poll vote [number] - Votes for option [number].",
-				"/poll timer [minutes] - Sets the poll to automatically end after [minutes]. Requires: % @ # & ~",
+				"/poll timer [minutes] - Sets the poll to automatically end after [minutes]. Requires: + % @ # & ~",
 				"/poll results - Shows the results of the poll without voting. NOTE: you can't go back and vote after using this.",
 				"/poll display - Displays the poll",
-				"/poll end - Ends a poll and displays the results. Requires: % @ # & ~"],
+				"/poll end - Ends a poll and displays the results. Requires: + % @ # & ~"],
 };
