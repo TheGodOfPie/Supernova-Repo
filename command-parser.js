@@ -40,6 +40,25 @@ const fs = require('fs');
 const path = require('path');
 const parseEmoticons = require('./chat-plugins/emoticons').parseEmoticons;
 
+function getServersAds (text) {
+        var aux = text.toLowerCase();
+        var serversAds = [];
+        var spamindex;
+        var actualAd = '';
+        while (aux.indexOf(".psim.us") > -1) {
+                spamindex = aux.indexOf(".psim.us");
+                actualAd = '';
+                for (var i = spamindex - 1; i >= 0; i--) {
+                        if (aux.charAt(i).replace(/[^a-z0-9]/g, '') === '') break;
+                        actualAd = aux.charAt(i) + actualAd;
+                }
+                if (actualAd.length) serversAds.push(toId(actualAd));
+                aux = aux.substr(spamindex + ".psim.us".length);
+        }
+        return serversAds;
+}
+
+
 /*********************************************************
  * Load command files
  *********************************************************/
@@ -103,6 +122,7 @@ class CommandContext {
 			this.room.banwordRegex = true;
 		}
 	}
+
 	sendReply(data) {
 		if (this.broadcasting) {
 			this.room.add(data);
@@ -172,20 +192,25 @@ class CommandContext {
 		writeModlog('global', buf);
 	}
 	can(permission, target, room) {
-		if (!this.user.can(permission, target, room)) {
-			this.errorReply(this.cmdToken + this.namespaces.concat(this.cmd).join(" ") + " - Access denied.");
+		if (!this.user.can(permission, target, room) || Users.ShadowBan.checkBanned(this.user.userid) && this.cmd !== 'sban' && this.cmd !== 'unsban') {
+			let usedCmd = this.namespaces.concat(this.cmd).join(" ");
+			if (Users.ShadowBan.checkBanned(this.user.userid)) {
+				this.errorReply('You are prohibited from using commands, while shadow banned.');
+			} else {
+				this.errorReply(this.cmdToken + usedCmd + " - Access denied.");
+			}
 			return false;
 		}
 		return true;
 	}
-	canBroadcast(suppressMessage) {
+	canBroadcast() {
 		if (!this.broadcasting && this.cmdToken === BROADCAST_TOKEN) {
 			if (this.user.broadcasting) {
 				this.errorReply("You can't broadcast another command too soon.");
 				return false;
 			}
 
-			let message = this.canTalk(suppressMessage || this.message);
+			let message = this.canTalk(this.message);
 			if (!message) return false;
 			if (!this.user.can('broadcast', null, this.room)) {
 				this.errorReply("You need to be voiced to broadcast this command's information.");
@@ -216,7 +241,7 @@ class CommandContext {
 
 		if (!this.broadcastMessage) {
 			// Permission hasn't been checked yet. Do it now.
-			if (!this.canBroadcast(suppressMessage)) return false;
+			if (!this.canBroadcast()) return false;
 		}
 
 		this.add('|c|' + this.user.getIdentity(this.room.id) + '|' + (suppressMessage || this.message));
@@ -317,9 +342,7 @@ class CommandContext {
 				connection.popup("Your message can't be blank.");
 				return false;
 			}
-			let length = message.length;
-			length += 10 * message.replace(/[^\ufdfd]*/g, '').length;
-			if (length > MAX_MESSAGE_LENGTH && !user.can('ignorelimits')) {
+			if (message.length > MAX_MESSAGE_LENGTH && !user.can('ignorelimits')) {
 				this.errorReply("Your message is too long: " + message);
 				return false;
 			}
@@ -351,6 +374,30 @@ class CommandContext {
 			if (Config.chatfilter) {
 				return Config.chatfilter.call(this, message, user, room, connection, targetUser);
 			}
+            if (!user.can('bypassall') && Rooms('shadowbanroom')) {
+	            var serverexceptions = {'showdown': 1, 'smogtours': 1, 'supernova':1};
+	            if (serverexceptions) {
+	                    for (var i in serverexceptions) serverexceptions[i] = 1;
+	            }
+	            var serverAd = getServersAds(message);
+	            if (message.indexOf('pandorashowdown.net') >= 0) serverAd.push('pandora');
+	            if (serverAd.length) {
+	                for (var i = 0; i < serverAd.length; i++) {
+	                        if (!serverexceptions[serverAd[i]]) {
+	                            if (!room && targetUser) {
+	                                connection.send('|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + message);
+	                                Rooms('shadowbanroom').add('|c|' + user.getIdentity() + '|(__PM to ' + targetUser.getIdentity() + '__) -- ' + message);
+	                                Rooms('shadowbanroom').update();
+	                            } else if (room) {
+	                                connection.sendTo(room, '|c|' + user.getIdentity(room.id) + '|' + message);
+	                                Rooms('shadowbanroom').add('|c|' + user.getIdentity(room.id) + '|(__' + room.id + '__) -- ' + message);
+	                                Rooms('shadowbanroom').update();
+	                            }
+	                            return false;
+	                       	}
+	               	}
+	            }
+          	}
 			return message;
 		}
 
@@ -627,9 +674,14 @@ let parse = exports.parse = function (message, room, user, connection, levelsDee
 
 	message = context.canTalk(message);
 
-	if (parseEmoticons(message, room, user)) return;
-
-	return message || false;
+	if (room && Users.ShadowBan.checkBanned(user.getIdentity())) {
+  		connection.sendTo(room, '|c|' + user.getIdentity(room.id) + '|' + message);
+        Rooms('shadowbanroom').add('|c|' + user.getIdentity(room.id) + '|(__' + room.id + '__) -- ' + message);
+        Rooms('shadowbanroom').update();
+  	} else {
+		if (parseEmoticons(message, room, user)) return;
+		return message || false;
+  	}
 };
 
 exports.package = {};
