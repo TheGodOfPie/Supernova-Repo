@@ -2,16 +2,31 @@
 
 let fs = require('fs');
 let path = require('path');
+let color = require('../config/color')
+var bingoStatus = false;
+var bingoNumbers = [];
+var bingoSaidNumbers = {};
+var actualValue = 0;
+var tables = {};
+var bingoPrize = 0;
 
 let shop = [
+	['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 1],
+	['Ticket', 'Buys a lottery ticket, that adds you to the lottery draw. You could win major bucks.', 2],
+	['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 5],
 	['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
-	['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 10],
-	['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 20],
-	['League Room', 'Purchases a room at a reduced rate for use with a league.  A roster must be supplied with at least 10 members for this room.', 25],
-	['Trainer', 'Buys a trainer card which shows information through a command. (You supply, can be refused)', 40],
-	['Staff Help', 'Staff member will help set up roomintros and anything else needed in a room. Response may not be immediate.', 50],
+	['Night Club', 'Buys access to enabling Night Club for your room so you can have a party all night with your friends!', 10],	
+	['Trainer Card', 'Buys a trainer card which shows information through a command. (You supply, can be refused)', 10],
+	['Custom Title', 'Buys a custom title that will be applied to your profile. (PM an Administrator (~) after purchase)', 15],
+	['Declare', 'Buys a declare that will be broadcasted to all rooms. (Can be league advertisement, buck tours, etc)', 15],
+ 	['POTD', 'Buys the ability to set the Pokemon of the Day. The pokemon you set as POTD will be shown in Random Battles just for one day.', 20],
+ 	['PM', 'Buys a Global PM that will be broadcasted to all rooms. (Can be league advertisement, buck tours, etc)', 20],
 	['Icon', 'Buy a custom icon that can be applied to the rooms you want. You must take into account that the provided image should be 32 x 32', 75],
-	['Room', 'Buys a chatroom for you to own. (within reason, can be refused)', 100],
+	['Custom Emote', 'Buys a custom emote that will be added onto the list of emotes.', 50],
+	['Custom Message', 'Buys a custom message which can be applied to your username and will be shown when you talk in the chat or talk in PMs.', 50],
+	['Userlist Icon', 'Buys a userlist icon that can be applied to the userlist of 3 rooms.', 50],
+	['Room Shop', 'Buys a room/league shop that will be applied onto your room. Use /help roomshop for more information in knowing how to manage the room shop once you bought it.', 55],
+	['Custom Color', 'Buys a custom color which can be applied to your username and will be shown when you talk in the chat or talk in PMs.', 75],
 ];
 
 let shopDisplay = getShopDisplay(shop);
@@ -27,7 +42,7 @@ let shopDisplay = getShopDisplay(shop);
  * @param {Number} amount
  * @returns {String}
  */
-function currencyName(amount) {
+global.currencyName = function(amount) {
 	let name = " buck";
 	return amount === 1 ? name : name + "s";
 }
@@ -38,7 +53,7 @@ function currencyName(amount) {
  * @param {String} money
  * @return {String|Number}
  */
-function isMoney(money) {
+global.isMoney = function(money) {
 	let numMoney = Number(money);
 	if (isNaN(money)) return "Must be a number.";
 	if (String(money).includes('.')) return "Cannot contain a decimal.";
@@ -66,19 +81,82 @@ function logMoney(message) {
  * @return {String} display
  */
 function getShopDisplay(shop) {
-	let display = "<table border='1' cellspacing='0' cellpadding='5' width='100%'>" +
-					"<tbody><tr><th>Command</th><th>Description</th><th>Cost</th></tr>";
+	let display = '<table style="width: 100%; border-top-right-radius: 4px; border-top-left-radius: 4px; background: rgba(230, 0, 115, 0.6)"' +
+					'<tr><th color="#fff">Item</th><th color="#fff">Description</th><th color="white">Cost</th></tr>';
 	let start = 0;
 	while (start < shop.length) {
 		display += "<tr>" +
-						"<td align='center'><button name='send' value='/buy " + shop[start][0] + "'><b>" + shop[start][0] + "</b></button>" + "</td>" +
-						"<td align='center'>" + shop[start][1] + "</td>" +
-						"<td align='center'>" + shop[start][2] + "</td>" +
+						'<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;"><button name="send" value="/buy ' + shop[start][0] + '" style="border: 1px solid black; background: #cc3399; color: black; padding: 2px; border-radius: 4px;">' + shop[start][0] + '</button>' + '</td>' +
+						'<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][1] + '</td>' +
+						'<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][2] + '</td>' +
+		
 					"</tr>";
 		start++;
 	}
-	display += "</tbody></table><center>To buy an item from the shop, use /buy <em>command</em>.</center>";
+	display += '</table><div style="border: 1px solid rgba(255, 26, 140, 0.6); border-top: none; background: rgba(255, 26, 140, 0.6); color: black; text-shadow: 0px 0px 2px ; padding: 5px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">To buy an item from the shop, use /buy command.</div>';
 	return display;
+}
+
+/**
+ * Casino Game: Bingo
+ *
+ * These functions are used for managing a game of bingo.
+ *
+ *
+ */
+
+function getUserName (user) {
+	var targetUser = Users.get (user);
+	if (!targetUser) return toId(user);
+	return targetUser.name;
+}
+
+function getBingoNumbers() {
+	var data = [];
+	for (var i = 0; i < 50; ++i) {
+		data.push(i + 1);
+	}
+	return data;
+}
+
+function checkBingo(room) {
+	var winners = [];
+	var endGame = false;
+	var targetTable;
+	var tableComplete;
+	for (var i in tables) {
+		targetTable = tables[i];
+		tableComplete = 0
+		for (var j = 0; j < targetTable.length; ++j) {
+			if (!bingoSaidNumbers[targetTable[j]]) break;
+			++tableComplete;
+		}
+		if (tableComplete === targetTable.length) {
+			endGame = true;
+			winners.push(i);
+		}
+	}
+	if (endGame) {
+		var winData = '';
+		for (var n = 0; n < (winners.length - 1); ++n) {
+				var amnt = Db('money').get(winners[n]);
+				var tt = Db('money').set(winners[n], amnt + bingoPrize).get(winners[n]);
+			//Shop.giveMoney(toId(winners[n]), bingoPrize);
+			if (n === 0) {
+				winData += getUserName(winners[n]);
+			} else {
+				winData += ', ' + getUserName(winners[n]);
+			}
+		}
+				var amnt = Db('money').get(toId(winners[winners.length - 1]));
+				var tt = Db('money').set(toId(winners[winners.length - 1]), amnt + bingoPrize).get(winners[winners.length - 1]);
+		//Shop.giveMoney(toId(winners[winners.length - 1]), bingoPrize);
+		if (winners.length > 1) winData += ' et ';
+		winData += getUserName(winners[winners.length - 1]);
+		room.addRaw("<div class=\"broadcast-blue\"><b><h1>Someone has gotten a Bingo!<h1></b><br />Congratulations to  " + winData + " for winning the game of Bingo. He has won " + bingoPrize + " bucks for winning!</div>");
+		room.update();
+		bingoStatus = false;
+	}
 }
 
 
@@ -119,8 +197,23 @@ function handleBoughtItem(item, user, cost) {
 		this.sendReply("You have purchased a custom symbol. You can use /customsymbol to get your custom symbol.");
 		this.sendReply("You will have this until you log off for more than an hour.");
 		this.sendReply("If you do not want your custom symbol anymore, you may use /resetsymbol to go back to your old symbol.");
-	} else if (item === 'icon') {
-		this.sendReply('You purchased an icon, contact an administrator to obtain the article.');
+    } else if (item === 'pm') {
+        user.canShopPM = true;
+        this.sendReply('You have purchased a pm. You can use /shoppm to declare your message.');  
+    } else if (item === 'declare') {
+        user.canShopDeclare = true;
+        this.sendReply('You have purchased a declare. You can use /shopdeclare to declare your message.');
+	} else if (item === 'userlisticon') {
+		this.sendReply('You purchased an icon, contact an administrator to obtain the icon.');
+	} else if (item === 'customcolor') {
+		this.sendReply('You purchased an Custom Color, contact an administrator to obtain the color.');
+    } else if (item === 'potd') {
+        user.setpotd = true;
+        this.sendReply("You have bought the ability to set the POTD of the day.");
+        this.sendReply("Use /setpotd [pokémon] to set the Pokémon of the day.");
+	} else if (item === 'ticket') {
+		let generatedTicket = giveTicket(user.userid);
+		this.sendReplyBox('You have bought a ticket: <b>' + generatedTicket + '</b>. Use /tickets to see how many tickets do you have.');
 	} else {
 		let msg = '**' + user.name + " has bought " + item + ".**";
 		Rooms.rooms.staff.add('|c|~Shop Alert|' + msg);
@@ -239,8 +332,14 @@ exports.commands = {
 		let amount = Db('money').get(user.userid, 0);
 		let cost = findItem.call(this, target, amount);
 		if (!cost) return;
+		// Adds limit for tickets here
+		if (toId(target) === 'ticket') {
+			if (Db('tickets').has(toId(user))) {
+				if (Db('tickets').object()[toId(user)]['Tickets'].length >= 15) return this.errorReply('You can only have a maximum of 15 tickets at a moment.');
+			}
+		}
 		let total = Db('money').set(user.userid, amount - cost).get(user.userid);
-		this.sendReply("You have bought " + target + " for " + cost + currencyName(cost) + ". You now have " + total + currencyName(total) + " left.");
+		this.sendReply("You have bought " + target + " for " + cost +  currencyName(cost) + ". You now have " + total + currencyName(total) + " left.");
 		room.addRaw(user.name + " has bought <b>" + target + "</b> from the shop.");
 		logMoney(user.name + " has bought " + target + " from the shop. This user now has " + total + currencyName(total) + ".");
 		handleBoughtItem.call(this, target.toLowerCase(), user, cost);
@@ -293,7 +392,139 @@ exports.commands = {
 				connection.popup('|wide|' + topMsg + data.slice(-(numLines + 1)).join('\n'));
 			});
 		});
+
+    },
+
+    shopdeclare: function (target, room, user) {
+        if (!user.canShopDeclare) return this.errorReply('You need to buy this item from the shop to use.');
+        if (!target) return this.sendReply('/shopdeclare [message] - Send message to all rooms.');
+
+        for (var id in Rooms.rooms) {
+            if (id !== 'global') {
+                Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>' + target + '</b></div>');
+            }
+        }
+        this.logModCommand(user.name + " globally declared " + target);
+        user.canShopDeclare = false;
+    },
+ 
+ 	serverpm: 'shoppm',
+	shoppm: function (target, room, user) {
+        if (!user.canShopPM) return this.errorReply('You need to buy this item from the shop to use.');
+        if (!target) return this.sendReply('/shoppm [message] - PM all users in the server.');
+        if (target.indexOf('/html') >= 0) return this.sendReply('Cannot contain /html.');
+
+		let pmName = ' Server Shop PM';
+
+		Users.users.forEach(function (user) {
+			let message = '|pm|' + pmName + '|' + user.getIdentity() + '|' + target;
+			user.send(message);
+			});
+        
+        user.canShopPM = false;
+
+    },
+
+    setpotd: function (target, room, user) {
+        if (!user.setpotd) return this.errorReply("You need to buy this item from the shop to use.");
+        if (user.alreadysetpotd) return this.sendReply("The POTD was already set.");
+ 
+        Config.potd = target;
+        Simulator.SimulatorProcess.eval('Config.potd = \'' + toId(target) + '\'');
+        if (!target) return this.sendRepply("You need to choose a Pokémon to set as the POTD.");
+        if (Rooms.lobby) Rooms.lobby.addRaw('<div class="broadcast-blue"><b>The Pokémon of the Day is now ' + target + '!</b><br />This Pokemon will be guaranteed to show up in random battles.</div>');
+        this.logModCommand('The Pokemon of the Day was changed to ' + target + ' by ' + user.name + '.');
+        user.setpotd = false;
+        user.alreadysetpotd = true;
+
 	},
+
+	newbingo: function (target, room, user) {
+		if (room.id !== 'casino') return this.sendReply("Bingo can only be played in the Casino.");
+		if (room.game) return this.errorReply("There is already a game of " + room.game.title + " in progress in this room.");
+		if (!this.can('minigame', null, room)) return false;
+		if (bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
+		bingoStatus = true;
+		bingoNumbers = getBingoNumbers().randomize();
+		bingoSaidNumbers = {};
+		actualValue = 0;
+		tables = {};
+		bingoPrize = 0;
+		this.privateModCommand('(' + user.name + ' has started a game of Bingo.)');
+		room.addRaw("<div class=\"broadcast-blue\"><b>A Bingo game has started!</b><br />To participate, 15 bucks are required for you to buy a table (using /buytable).<br><center><button name='send' value='/buytable'>Join the Bingo Game!</button></center></div>");
+		Rooms('lobby').add("|raw|<div class=\"broadcast-blue\"><center>A session of <b>Bingo</b> is being played in the <button name=\"joinRoom\" value=" + room.id +">" + room.title + "</button>!</center></div>");
+		Rooms('lobby').update();
+		room.update();
+		var loop = function () {
+			setTimeout(function () {
+				if (!bingoStatus) return;
+				if (actualValue >= bingoNumbers.length) {
+					bingoStatus = false;
+		            clearRoom(room);
+					room.addRaw("<div class=\"broadcast-blue\"><b>Bingo has been terminated!</b><br />Try again after sometime.</div>");
+					room.update();
+					return;
+				}
+				room.add('|c| [Bingo Game]|**Bingo:** Number chosen: **' + bingoNumbers[actualValue] + '**');
+				bingoSaidNumbers[bingoNumbers[actualValue]] = 1;
+				++actualValue;
+				room.update();
+				checkBingo(room);
+				loop();
+			}, 1000 * 3);
+		};
+		loop();
+	},
+	
+
+	buytable: function (target, room, user) {
+		if (room.id !== 'casino') return this.sendReply("Bingo Commands can only be played in Casino.");
+		if (!bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
+		if (tables[user.userid]) return this.sendReply("You have already purchased a Bingo ticket.");
+		var amount = Db('money').get(user.userid, 0);
+		if (amount < 15) return this.sendReply("You do not have enough bucks to buy a table.");
+		var cost = 15;
+		var total = Db('money').set(user.userid, amount - cost).get(user.userid);
+
+		//if (Shop.getUserMoney(user.name) < 10) return this.sendReply("Vous n'avez pas assez d'argent.");
+		//Shop.removeMoney(user.name, 10);
+		//Shop.giveMoney('casino', 5);
+		var numbers = getBingoNumbers().randomize();
+		var cells = [];
+		for (var i = 0; i < 5; ++i) {
+			cells.push(numbers[i]);
+		}
+		tables[user.userid] = cells;
+		bingoPrize += 15;
+		this.sendReply("You have bought a ticket in order to participate in bingo. Type /bingo to see the current status of your table after the game of Bingo begins.");
+		this.parse('/bingo');
+		checkBingo(room);
+	},
+	
+	bingo: function (target, room, user) {
+		if (room.id !== 'casino') return this.sendReply("Bingo Commands can only be played in Casino.");
+		if (!this.canBroadcast()) return;
+		if (!bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
+		var targetUserId = user.userid;
+		if (tables[toId(target)]) targetUserId = toId(target);
+		if (tables[targetUserId]) {
+			var html = '<b>Bingo Table of</b>: ' + getUserName(targetUserId) + '<br /><br />';
+			html += '<table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody><tr>';
+			for (var n = 0; n < tables[targetUserId].length; ++n) {
+				if (!bingoSaidNumbers[tables[targetUserId][n]]) {
+					html += '<td><center><b>' + tables[targetUserId][n] + '</b></center></td>';
+				} else {
+					html += '<td><center><font color="red"><b>' + tables[targetUserId][n] + '</b></font></center></td>';
+				}
+			}
+			html += '</tr></tbody></table><br />';
+		} else {
+			var html = 'You need to purchase a ticket to participate in the current game of bingo. Do /buytable before it begins.<br /><br />';
+		}
+		html += '<b>Pot Money: </b>' + bingoPrize + ' bucks.';
+		this.sendReplyBox(html);
+
+    },
 
 	moneyladder: 'richestuser',
 	richladder: 'richestuser',
@@ -313,11 +544,15 @@ exports.commands = {
 		});
 		display += "</tbody></table>";
 		this.sendReply("|raw|" + display);
-	},
 
+     },	
+/***********
+    Dice
+************/
 	dicegame: 'startdice',
 	dicestart: 'startdice',
 	startdice: function (target, room, user) {
+        if (room.id !== 'casino') return this.errorReply('Dice games can only be played in Casino.');
 		if (!this.can('broadcast', null, room)) return false;
 		if (!target) return this.parse('/help startdice');
 		if (!this.canTalk()) return this.errorReply("You can not start dice games while unable to speak.");
@@ -333,11 +568,13 @@ exports.commands = {
 		// Prevent ending a dice game too early.
 		room.dice.startTime = Date.now();
 
-		room.addRaw("<div class='infobox'><h2><center><font color=#24678d>" + user.name + " has started a dice game for </font><font color=red>" + amount + "</font><font color=#24678d>" + currencyName(amount) + ".</font><br><button name='send' value='/joindice'>Click to join.</button></center></h2></div>");
+		room.addRaw('<div class="infobox"><h2><center><font color="' + color(user.userid) + '">' + user.name + '</font> <font color=black>has started a dice game for </font><font color="purple">' + target + 
+	 	         	' </font><font color=black>' + ((target === 1) ? " buck." : " bucks.") + '</font><br /><button class=supernova-button name="send" value="/joindice">Join the dice.</button></center></h2></div>');
 	},
 	startdicehelp: ["/startdice [bet] - Start a dice game to gamble for money."],
 
 	joindice: function (target, room, user) {
+        if (room.id !== 'casino') return this.errorReply('Dice games can only be played in Casino.');
 		if (!room.dice || (room.dice.p1 && room.dice.p2)) return this.errorReply("There is no dice game in it's signup phase in this room.");
 		if (!this.canTalk()) return this.errorReply("You may not join dice games while unable to speak.");
 		if (room.dice.p1 === user.userid) return this.errorReply("You already entered this dice game.");
@@ -345,11 +582,11 @@ exports.commands = {
 		Db('money').set(user.userid, Db('money').get(user.userid) - room.dice.bet);
 		if (!room.dice.p1) {
 			room.dice.p1 = user.userid;
-			room.addRaw("<b>" + user.name + " has joined the dice game.</b>");
+			room.addRaw("<font color=" + color(user.userid) +"><b>" + user.name + " </font><b>has joined the dice game.</b>");
 			return;
 		}
 		room.dice.p2 = user.userid;
-		room.addRaw("<b>" + user.name + " has joined the dice game.</b>");
+		room.addRaw("<font color=" + color(user.userid) +"><b>" + user.name + " </font><b>has joined the dice game.</b>");
 		let p1Number = Math.floor(6 * Math.random()) + 1;
 		let p2Number = Math.floor(6 * Math.random()) + 1;
 		let output = "<div class='infobox'>Game has two players, starting now.<br>Rolling the dice.<br>" + room.dice.p1 + " has rolled a " + p1Number + ".<br>" + room.dice.p2 + " has rolled a " + p2Number + ".<br>";
@@ -360,20 +597,22 @@ exports.commands = {
 			output += room.dice.p1 + " has rolled a " + p1Number + ".<br>" + room.dice.p2 + " has rolled a " + p2Number + ".<br>";
 		}
 		let winner = room.dice[p1Number > p2Number ? 'p1' : 'p2'];
-		output += "<font color=#24678d><b>" + winner + "</b></font> has won <font color=#24678d><b>" + room.dice.bet + "</b></font>" + currencyName(room.dice.bet) + ".<br>Better luck next time " + room.dice[p1Number < p2Number ? 'p1' : 'p2'] + "!</div>";
+		output += "<font color='purple'><b>" + winner + "</b></font> has won <font color=purple><b>" + room.dice.bet + "</b></font>" + currencyName(room.dice.bet) + ".<br>Better luck next time " + room.dice[p1Number < p2Number ? 'p1' : 'p2'] + "!</div>";
 		room.addRaw(output);
 		Db('money').set(winner, Db('money').get(winner, 0) + room.dice.bet * 2);
 		delete room.dice;
 	},
 
 	enddice: function (target, room, user) {
+        if (room.id !== 'casino') return this.errorReply('Dice games can only be played in Casino.');
 		if (!user.can('broadcast', null, room)) return false;
 		if (!room.dice) return this.errorReply("There is no dice game in this room.");
 		if ((Date.now() - room.dice.startTime) < 15000 && !user.can('broadcast', null, room)) return this.errorReply("Regular users may not end a dice game within the first minute of it starting.");
 		if (room.dice.p2) return this.errorReply("Dice game has already started.");
 		if (room.dice.p1) Db('money').set(room.dice.p1, Db('money').get(room.dice.p1, 0) + room.dice.bet);
-		room.addRaw("<b>" + user.name + " ended the dice game.</b>");
+		room.addRaw("<font color=" + color(user.userid) +"><b>" + user.name + " </font><b>ended the dice game.</b>");
 		delete room.dice;
+
 	},
 
 	bucks: 'economystats',
