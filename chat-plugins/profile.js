@@ -1,6 +1,8 @@
-'use strict';
-/*eslint no-restricted-modules: [0]*/
 
+
+'use strict';
+
+const geoip = require('geoip-ultralight');
 let color = require('../config/color');
 let moment = require('moment');
 
@@ -128,18 +130,45 @@ Profile.prototype.name = function () {
 	return label('Name') + bold(font(color(toId(this.username)), this.username));
 };
 
+
 Profile.prototype.seen = function (timeAgo) {
 	if (this.isOnline) return label('Last Seen') + font('#2ECC40', 'Currently Online');
 	if (!timeAgo) return label('Last Seen') + 'Never';
 	return label('Last Seen') + moment(timeAgo).fromNow();
 };
 
+Profile.prototype.dev = function (user) {
+	if (isDev(user)) return font('#800042', '(<b>Supernova Dev</b>)');
+	return '';
+};
+
+Profile.prototype.vip = function (user) {
+	if (isVip(user)) return font('#6390F0', '(<b>VIP User</b>)');
+	return '';
+};
+
+Profile.prototype.title = function (user) { 
+	// Check if the user has title or not first
+	if (Db('title').has(user)) return ('(<b>' + Db('title').get(user) + '</b>)');
+	return '';
+};
+
+Profile.prototype.flag = function (user) {
+	if (Users(user)) {
+		let userFlag = geoip.lookupCountry(Users(user).latestIp);
+		if (userFlag) {
+			return '<img src="https://github.com/kevogod/cachechu/blob/master/flags/' + userFlag.toLowerCase() + '.png?raw=true" height=10 title="' + userFlag + '">';
+		}
+	}
+	return '';
+};
+
 Profile.prototype.show = function (callback) {
 	let userid = toId(this.username);
 
 	return this.buttonAvatar() +
-		SPACE + this.name() + BR +
-		SPACE + this.group() + BR +
+		SPACE + this.name() + SPACE + this.flag(userid) + SPACE + this.title(userid) + BR +
+		SPACE + this.group() + SPACE + this.vip(userid) + SPACE + this.dev(userid) + BR +
 		SPACE + this.money(Db('money').get(userid, 0)) + BR +
 		SPACE + this.seen(Db('seen').get(userid)) +
 		'<br clear="all">';
@@ -159,4 +188,64 @@ exports.commands = {
 		this.sendReplyBox(profile.show());
 	},
 	profilehelp: ["/profile -	Shows information regarding user's name, group, money, and when they were last seen."],
+
+/* Fix
+	title: 'customtitle', 
+	customtitle: function (target, room, user, connection, cmd) {
+		if (!target) return this.sendReply("/customtitle (user), (<font color='(color)') - Sets a customtitle onto a user's profile. Requires Administrator or VIP.");
+		if (toId(cmd) == 'title') {
+			var targetUser = user; 
+		} else {
+			target = this.splitTarget(target);
+			var targetUser = this.targetUser;
+		}
+
+		if (!Users.vips[toId(user)] && !this.can('lockdown')) return this.errorReply("You need to be VIP or an Administrator in order to set a custom title."); 
+
+		if (Users.vips[toId(user)] && !this.can('lockdown')) {
+			if (toId(targetUser)!= toId(user)) return this.errorReply("You can be able to only set a customtitle for yourself, and not to other people."); 
+		}
+
+		console.log('USER: '+ user.name +', VIP?: '+ Users.vips[toId(user)] +', TARGET=USER?:'+ (toId(user) == toId(targetUser)))
+		//this.add(target)
+
+		if (!targetUser) return this.errorReply("This user has a customtitle already.");
+		if (!targetUser.connected) return this.errorReply(targetUser.name + " is not online.");1
+		if (!targetUser.registered) return this.errorReply(targetUser.name + " is not registered.");
+
+		Users.titles[targetUser.userid] = target;
+		targetUser.popup("|html|"+user.name +" has set your customtitle: <br><center><b>\""+ target.trim() +"\"</b></center>");
+		this.privateModCommand("(" + user.name + " has set a custom title for "+ targetUser.name + ":"+ target +")");
+		saveTitles();
+	},
+	customtitlehelp: ["/customtitle (user), (<font color='(color)') - Sets a customtitle onto a user's profile. Requires Administrator or VIP."],
+
+	deletetitle: function (target, room, user) {
+		if (!this.can('lockdown')) return false;
+		if (!target) return this.sendReply("Usage: /deletetitle [user]");
+		if (!Users.titles[toId(target)]) return this.sendReply("\"" + target + "\" doesn't have a custom title.");
+
+		delete Users.titles[toId(target)];
+		saveTitles();
+		this.privateModCommand("(" + user.name + " deleted the customtitle of " + target + ".)");
+	},
+	deletetitlehelp: ["/deletetitle (user) - Delete a user's custom title."],
+
+};
+
+let fs = require('fs');
+
+function loadTitles() {
+	try {
+		Users.titles = JSON.parse(fs.readFileSync('config/titles.json', 'utf8'));
+	} catch (e) {
+		Users.titles = {};
+	}
+}
+if (!Users.titles) loadTitles();
+
+function saveTitles() {
+	fs.writeFileSync('config/titles.json', JSON.stringify(Users.titles));
+
+*/
 };
