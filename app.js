@@ -59,6 +59,11 @@ const path = require('path');
 // Make sure our dependencies are available, and install them if they
 // aren't
 
+/* ----------------Data-Directory------------*/
+global.DATA_DIR = (process.env.OPENSHIFT_DATA_DIR) ? process.env.OPENSHIFT_DATA_DIR : './config/';
+global.LOGS_DIR = (process.env.OPENSHIFT_DATA_DIR) ? (process.env.OPENSHIFT_DATA_DIR + 'logs/') : './logs/';
+/* ------------------------------------------*/
+
 try {
 	require.resolve('sockjs');
 } catch (e) {
