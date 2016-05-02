@@ -1685,7 +1685,8 @@ spr: 'sprite',
 		this.popupReply('|html|The poof message "' + poofs[pos] + '" has been deleted.');
 		poofs.splice(pos, 1);
 		fs.writeFileSync(FILE_NAME, JSON.stringify(poofs, null, 1));
-	}
+	},
+	
 	// Credits command by clawliet
 	credit: 'credits',
     credits: function (target, room, user) {
