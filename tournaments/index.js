@@ -830,6 +830,16 @@ class Tournament {
 				Db('money').set(rid, Db('money').get(rid, 0) + secondMoney);
 				this.room.addRaw("<b><font color='" + color + "'>" + Tools.escapeHTML(runnerUp) + "</font> has won " +  "<font color='" + color + "'>" + secondMoney + "</font>" + currencyName(secondMoney) + " for winning the tournament!</b>");
 			}
+			// Pack Names
+                        const packs = ['xybase', 'xyflashfire', 'xyfuriousfists', 'xyphantomforces', 'xyprimalclash', 'xyroaringskies'];
+
+                        // Random Pack
+                        const pack = packs[Math.floor(Math.random() * packs.length)];
+
+                       // Award Pack
+                       tourPack(wid, pack);
+                       this.room.addRaw("<b><font color='" + color + "'>" + Tools.escapeHTML(winner) + "</font> has also won a " + "<button <button class=supernova-button2 name='send' value='/openpack " + pack + "'><b>" + pack + "</b></button>" + "  pack for winning the tournament!</b>");
+
 		}
 		delete exports.tournaments[this.room.id];
 		delete this.room.game;
