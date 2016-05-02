@@ -1,5 +1,5 @@
 /*Custom Avatar script. ~SilverTactic (Siiilver)*/
-/*
+
 'use strict';
 
 var fs = require('fs');
@@ -146,4 +146,3 @@ exports.commands = {
 	removeavatar: cmds.delete,
 	setavatar: cmds.set
 }
-*/
