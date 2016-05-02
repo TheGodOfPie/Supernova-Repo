@@ -1,0 +1,445 @@
+body {
+  background: url("https://i.ytimg.com/vi/C3ue7cEocvI/maxresdefault.jpg")!important;
+}
+
+.header {
+  background: rgba(204, 0, 102, 0.7) url("") no-repeat; 
+}
+.header .logo {
+  opacity: 0;
+}
+.maintabbarbottom {
+  background: #b30059;
+  border-color: #b30059;
+}
+.tabbar a.button.notifying {
+  background: #cc3399;
+  border: 1px solid #cc3399;
+  text-shadow: black;
+}
+.tabbar a.button.notifying:hover {
+  background: #cc6699;
+  border-color: #cc6699;
+}
+.tabbar a.button.cur,
+.tabbar a.button.cur:hover {
+  background: #99004d;
+  border-color: black;
+  color: black;
+  text-shadow: black;
+}
+.tabbar a.button {
+  border-color: black;
+  background: #e60073;
+  color: black;
+  text-shadow: none;
+}
+.tabbar a.button:hover {
+  background: #ff3399;
+}
+
+
+.pm-window h3.pm-notifying {
+  background: #cc6699;
+  border: 1px solid #cc6699;
+  text-shadow: none;
+  color: black;
+}
+.pm-window h3.pm-notifying:hover {
+  background: #e085c2;
+  border-color: #e085c2;
+  text-shadow: none;
+  color: black;
+}
+.pm-window h3 {
+  background: rgba(204, 51, 153, 0.7) url("") bottom right no-repeat;
+  background-position: 190px;
+  border-color: rgba(204, 51, 153, 0.7);
+  color: black;
+  text-shadow: none;
+}
+.pm-window h3:hover {
+  background: rgba(204, 51, 153, 0.7) url("") bottom right no-repeat;
+  background-position: 190px;
+  border-color: rgba(204, 51, 153, 0.7);
+  color: black;
+  text-shadow: none;
+}
+.pm-window.focused h3,
+.pm-window.focused h3:hover {
+  background: rgba(204, 51, 153, 0.7) url("") bottom right no-repeat;
+  background-position: 190px;
+  border-color: rgba(204, 51, 153, 0.7);
+  color: black;
+  text-shadow: none;
+}
+.pm-window h3 .closebutton:hover {
+  color: black;
+}
+.pm-window h3 .minimizebutton:hover {
+  color: black;
+}
+.pm-window h3 small {
+  color: black;
+}
+.pm-log-add,
+.pm-window.focused .pm-log-add {
+  border-color: rgba(204, 51, 153, 0.7);
+  background: rgba(204, 51, 153, 0.7);
+  color: black;
+  text-shadow: none;
+}
+
+.menugroup {
+  background: rgba(204, 51, 153, 0.4);
+  color: white;
+  text-shadow: 0px -1px 0px black;
+  border: 1px solid black;
+}
+.menugroup .button {
+  background: #99004d !important;
+  border-color: #99004d !important;
+  color: white !important;
+  text-shadow: none;
+}
+.menugroup .button:hover {
+  background: #e60073 !important;
+  border-color: #e60073!important;
+  color: white !important;
+  text-shadow: none;
+}
+.menugroup .select {
+  background: rgba(220, 249, 255, 0.85);
+  color: black!important;
+  text-shadow: none;
+  border-color: #121D2F !important;
+  box-shadow: none !important;
+}
+ 
+.broadcast-blue {
+  text-align: center;
+  font-family: sans-serif;
+  background: rgb(204, 0, 102);
+  color: #220033;
+  border: 1px solid #220033;
+  padding: 5px;
+  }
+ 
+  .broadcast-blue a {
+    color: #000000;
+  }
+ 
+  .broadcast-red {
+    background-color: #FFB3B3;
+    border: 1px solid #610B0B;
+    color: #610B0B;
+    font-family: sans-serif;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    text-shadow: 0px -1px 0px #FFD7D7;
+  }
+ 
+  .broadcast-red a {
+    color: #610B0B;
+  }
+ 
+  .broadcast-green {
+    background-color: #C3FFB3;
+    border: 1px solid #19610B;
+    color: #19610B;
+    font-family: sans-serif;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    text-shadow: 0px -1px 0px #D8FFD7;
+  }
+ 
+  .broadcast-green a {
+    color: #19610B;
+
+}
+.ps-popup hr {
+  border: none;
+  border-bottom: 2px solid black;
+}
+.ps-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.roomlist h2 {
+  color: black;
+  text-shadow: none;
+}
+.roomlist a.ilink {
+  background: rgba(204, 102, 153, 0.8);
+  color: black;
+  text-shadow: none;
+  border-color: black;
+}
+.roomlist a.ilink:hover {
+  background: rgba(255, 102, 204, 0.7);
+  color: black;
+  text-shadow: none;
+  border-color: black;
+}
+.roomcounters button {
+  background: rgba(204, 102, 153, 0.8);
+  border-color: black;
+  color: black;
+  text-shadow: none;
+}
+.roomcounters button:hover {
+  background: rgba(255, 102, 204, 0.7);
+  border-color: black;
+  color: black;
+  text-shadow: none;
+}
+
+.userlist {
+  background: rgba(242, 244, 240, 0.8);
+}
+.userlist li {
+  background: rgba(242, 244, 240, 0.8);
+}
+.userlist li em.group {
+  color: #81807F;
+}
+.userlist li button:hover,
+.userlist-minimized .userlist-count:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.chat-log {
+  background: rgba(242, 244, 240, 0.8) url("") top right no-repeat;
+}
+.chat-log .chat small {
+  color: #81807F;
+}
+.chat-log .chat.mine.chat small {
+  color: #81807F;
+}
+.chat.highlighted {
+  background: #D8F6CE;
+}
+.ps-room.ps-room-light {
+  background: rgba(204, 0, 102, 0.8);
+  border-color: black;
+}
+.ps-room.ps-room-light.scrollable {
+  background: rgba(204, 0, 102, 0.8);
+  color: black;
+  text-shadow: none;
+}
+.ps-room.ps-room-light.scrollable h3 {
+  background: none;
+  text-shadow: none;
+}
+.ps-room.ps-room-light.scrollable p {
+  background: none;
+  text-shadow: none;
+/* Poll CSS */
+}
+.infoboxui {
+    background: rgba(171, 126, 154, 0.49);
+    border-bottom: 2px solid #60284A;
+    color: #60284A;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+}
+
+.infoboxu {
+    background: rgba(124,68,101,0.35) url(http://img97.xooimage.com/files/9/8/3/palkia_192-copie-3f675ac.png) no-repeat;
+    background-position: 300px;
+    border-bottom: 8px solid #783C61;
+    color: #783C61;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+    border-right: 2px solid #783C61;
+}
+
+  .super-button {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #B86A9A;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+  
+  .super-button:hover {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #CD85B1;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+
+.viewresults {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.48);
+    color: #694060;
+}
+
+.viewresults:hover {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.65);
+    color: #694060;
+}
+/*Poll CSS ~end */
+
+}
+.profile-button {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-button:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-buttonn {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+.profile-buttonn:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+
+}
+
+.infoboxy {
+    padding: 5px;
+    color: #6BCA7A;
+    border: 4px solid #000;    
+    text-shadow: 0 0 2px #0B0B0B;
+}
+.fond-button {
+    border-bottom: 4px solid #30516B;
+    background: rgba(178, 212, 218, 0.42);
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+.fond-button:hover {
+    border-bottom: 4px solid #30516B;
+    background: rgba(178, 212, 218, 0.72);
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+} /*  */
+.infoboxy-bleuciel {
+    background: url(http://static.itnews.sk/a501/image/file/22/0070/EfMY.int_tri_myty_jpg.jpg);
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.gif), auto;
+    color: #CCDFFF;
+    border-bottom: 2px dashed #1665C8;
+    border-top: 2px dashed #1665C8;
+    text-shadow: 0 0 2px #000000;
+}
+.infoboxy-bleu {
+    background: url(http://img1.mxstatic.com/wallpapers/7de77086fbcce85c91d92c89b3199dd6_large.png);
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.gif), auto;
+    padding: 5px;
+    color: transparent;
+    border-bottom: 2px solid transparent;
+    text-shadow: 0 0 2px transparent;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+.infoboxy-supernova {
+    background: url(http://static.ddmcdn.com/gif/supernova-670x440-160114.jpg);
+    background-size:cover;
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.png), auto;
+    padding: 5px;
+    color: black;
+    border-bottom: 2px solid gold;
+    border-top: 2px solid gold;
+    border-left: 2px solid gold;
+    border-right: 2px solid gold;
+    border-: 2px solid gold;
+}
+.infoboxy-sombre {
+    background: url(http://i.imgur.com/qoHqPT5.jpg);
+    padding: 5px;
+    color: #CCCCFF;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-yellow { 
+    background: url(http://www.wallpapereast.com/static/images/G3_wallpaper_06.png);
+    padding: 5px;
+    color: #A9EAFE;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-red { 
+    background: url(http://i.imgur.com/jSwxJuY.png);
+    padding: 5px;
+    color: #FF6D50;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-grisnoir {
+    background: #2D2E30 url(http://image.noelshack.com/fichiers/2016/15/1460667309-graegerezgze.png);
+    padding: 5px;
+    color: #9A9A98;
+    border-bottom: 2px solid #888883;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #888883;
+    border-left: 2px solid #888883;
+    border-right: 2px solid #888883;
+    border-radius: 8px;
+}
+
+.userlist li button:hover {
+    background:rgba(244, 244, 244, 0.5)
+ 
+}
+
+.supernova-button2 {
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    background-color: rgba(148,51,144,0.5);
+}
+
+.supernova-button2:hover {
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    background-color: rgba(41, 41, 41, 0.8);
