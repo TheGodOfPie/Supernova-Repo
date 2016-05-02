@@ -341,3 +341,53 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- 120 BP
 	- 1/3 recoil (not in effect due to ability)
 	- Makes contact
+
+This Month's Changes
+----------------------------------------------------------------------
+### Username Changes
+- Mighty Sciz --> Steel Sciz
+- HorizonBoTT --> Supernova Robot
+- Chaotic --> Kie
+
+### Set Changes
+- Back At My Day... (full set)
+- +CLawliet (Strikes a KO quote)
+- @Supernova Robot (full set)
+- @TheGodOfPie (Quotes, innate ability, ability)
+- Volco (new addition)
+- @StarryWindy (spreads remade, replaced some moves)
+- Eternal Mayhem (Spreads remade, fixed grammar errors in quotes)
+- &Kie (Full set)
+- Changed everyone's movesets (majority of the users voted to not have the staffmons have moves they normally don't learn)
+
+### Removals
+- DeathlyPlays (locked)
+- Lord Haji (permabanned)
+- AA Leo
+- DearSunset
+- Paul71
+- Master Bui (inactivity)
+- Mystifi (inactivity)
+- TenucSkenuck (inactivity)
+- Arjunb (inactivity)
+- Tucci (inactivity)
+- Judicium (inactivity)
+- AzureLugia (inactivity)
+
+### Rank changes:
+- Everyone except Kie, Hydro, and Sciz
+### Move, item, and ability FIXES [tweaks, not complete changes]
+- Changed move some animations	
+- Dragon's Attack is now a locked move, confuses after 2-3 turns, +1 Atk & Spe per hit
+- Changed every special move's BP and secondary chances
+- Balanced most abilities
+- Hand Sonic name changed to Boundary Blade, added secondary effect
+- Added Wonder Barrier immunity message
+- Added additional move flags
+	- Dragon's Attack is now bite-based
+	- Victory Charge now auto-defrosts user, and no longer a contact move
+	- Boundary Blade is now punch-based
+### Other fixes
+- Replaced old SSB into new SSB Melee
+- Added README.md for future use if placed in a repository
+- Emotes now appear on the battle chat
