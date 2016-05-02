@@ -1648,4 +1648,52 @@ spr: 'sprite',
         // Output it all as a popup
         user.popup('|html|' + generateDisplay());
 	},
+	ssb: function (target, room, user) {
+        if (!this.runBroadcast()) return false;
+       	// if no mon is specified
+        if (!target) return this.parse('/help ssb');
+        let monName = toId(target);
+        // Replies if the target specified is not present
+        if (!Db('staffmons').has(monName)) return this.errorReply('Staffmon ' + monName + ' could not be found.');
+        // Generates Display
+        function generateDisplay() {
+        	let display = '';
+        	// The custom styling like background and stuff
+        	let styling = Db('staffmons').get([monName, 'styling']);
+        	// Staffmons Name
+        	let staffName = '<center><h3><b><u>' + Db('staffmons').get([monName, 'username']) + '</u></b></h3></center>';
+        	// Staffmon
+        	let staffMon = '<b>Staffmon: </b>' + Db('staffmons').get([monName, 'staffmon']);
+        	// Staffmon's Item
+        	let staffMonItem = '<b>Item: </b>' + Db('staffmons').get([monName, 'item']);
+        	// Staffmon's Ability
+        	let staffMonAbility = '<b>Ability: </b>' + Db('staffmons').get([monName, 'ability']);
+        	//Staffmon's Innate Ability (if it has one)
+        	let staffMonInnateAbility = '<b>Innate Ability: </b>' + Db('staffmons').get([monName, 'innate ability']);
+        	// Staffmon's Nature
+        	let staffMonNature = '<b>Nature: </b>' + Db('staffmons').get([monName, 'nature']);
+        	// Staffmon's Move Pool
+        	let staffMonMovePool = '<b>Move Pool: </b>' + Db('staffmons').get([monName, 'movepool']).join(', ');
+        	// Staffmon's Signature Move
+        	let staffMonSignatureMove = '<b>Signature Move: </b>' + Db('staffmons').get([monName, 'signature move']);
+        	// Staffmon's Evs
+        	let staffMonEvs = '<b>EVs: </b>' + Db('staffmons').get([monName, 'evs']).join(' / ');
+        	// A note on how the staffmon works and counters
+        	let note = '<b>NOTE: </b>' + Db('staffmons').get([monName, 'note']);
+        	// Line Break
+        	let BR = '<br /><br />';
+        	// Lets patch it all up here
+        	display += styling + staffName + '<br />' + staffMon + BR + staffMonItem + BR 
+        	+ staffMonAbility + BR + (Db('staffmons').has([monName, 'innate ability']) ? staffMonInnateAbility + BR : '') + staffMonNature + BR + staffMonMovePool + BR + 
+        	staffMonSignatureMove + BR + staffMonEvs + BR + note + '</div>';
+        	// Output it
+        	return display;
+        }
+        
+        this.sendReplyBox(generateDisplay());
+    },
+    ssbhelp: ['/ssb [staff name] - Shows the complete set of a member in SSSB.',
+    'Current members present in SSSB are:',
+    'Hydrostatics, Dragotic, Steel Sciz, Kie, StarryWindy, Supernova Robot, TheGodOfPie, Cross-Xz14, Camilas, CLawliet, Back At My Day..., DarkChaoticFlare, Dayuh, Elizabeth Swann, Eternal Mayhem, Ransei, and Volco.'],
+
 };
