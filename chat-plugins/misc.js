@@ -424,7 +424,7 @@ exports.commands = {
 	pmallstaffhelp: ["/pmallstaff [message] - Sends a PM to every staff member online."],
 
 	regdate: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!target || !toId(target)) return this.parse('/help regdate');
 		let username = toId(target);
 		request('http://pokemonshowdown.com/users/' + username, function (error, response, body) {
@@ -447,13 +447,13 @@ exports.commands = {
 
 	sb: 'showdownboilerplate',
 	showdownboilerplate: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		this.sendReply("|raw|This server uses <a href='https://github.com/CreaturePhil/Showdown-Boilerplate'>Showdown-Boilerplate</a>.");
 	},
 	showdownboilerplatehelp: ["/showdownboilerplate - Links to the Showdown-Boilerplate repository on Github."],
 
 	seen: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!target) return this.parse('/help seen');
 		let targetUser = Users.get(target);
 		if (targetUser && targetUser.connected) return this.sendReplyBox(targetUser.name + " is <b>currently online</b>.");
@@ -596,7 +596,7 @@ exports.commands = {
 		this.sendReplyBox(header + official.join(' ') + nonOfficial.join(' ') + privateRoom.join(' ') + (groupChats.length > 1 ? groupChats.join(' ') : '') + (battleRooms.length > 1 ? battleRooms.join(' ') : ''));
     },
 	randp: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		var shinyPoke = '';
 		var x = '';
 		if (/shiny/i.test(target)) {
@@ -778,7 +778,7 @@ exports.commands = {
 		this.logModCommand(user.name + ' mod declared ' + target);
 	},
 	helix: function(target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		var random = Math.floor(20 * Math.random()) + 1;
 		var results = '';
 		if (random == 1) {
@@ -846,7 +846,7 @@ exports.commands = {
 
 spr: 'sprite',
     sprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/sprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -890,7 +890,7 @@ spr: 'sprite',
 	},
     bwspr: 'bwsprite',
     bwsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/bwsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -934,7 +934,7 @@ spr: 'sprite',
 	},
 	dppspr: 'dppsprite',
         dppsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/dppsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -978,7 +978,7 @@ spr: 'sprite',
 	},
 	rsespr: 'rsesprite',
         rsesprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/rsesprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1022,7 +1022,7 @@ spr: 'sprite',
 	},
 	gscspr: 'gscsprite',
         gscsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/gscsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1066,7 +1066,7 @@ spr: 'sprite',
 	},
 	rbyspr: 'rbysprite',
         rbysprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/rbysprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1110,7 +1110,7 @@ spr: 'sprite',
 	},
 	greenspr: 'greensprite',
         greensprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/greensprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1150,7 +1150,7 @@ spr: 'sprite',
 	},
 	rbspr: 'rbsprite',
         rbsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/rbsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1192,7 +1192,7 @@ spr: 'sprite',
 	},
 	crystalspr: 'crystalsprite',
         crystalsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/crystalsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1234,7 +1234,7 @@ spr: 'sprite',
 	},
 	rflgspr: 'rflgsprite',
         rflgsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/rsesprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1278,7 +1278,7 @@ spr: 'sprite',
 	},
 	emeraldspr: 'emeraldsprite',
         emeraldsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/rsesprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1321,7 +1321,7 @@ spr: 'sprite',
 	},
 	afdspr: 'afdsprite',
         afdsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/afdsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1365,7 +1365,7 @@ spr: 'sprite',
 	},
 	xyspr: 'xysprite',
         xysprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/xysprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1407,7 +1407,7 @@ spr: 'sprite',
 	},
 	artspr: 'artsprite',
         artsprite: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/artsprite [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1446,7 +1446,7 @@ spr: 'sprite',
 		});
 	},
     model: function (target, room, user, connection, cmd) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!toId(target)) return this.sendReply('/model [Pokémon] - Allows you to view the sprite of a Pokémon');
 		target = target.toLowerCase().split(',');
 		var alt = '';
@@ -1501,23 +1501,10 @@ spr: 'sprite',
 		
 	},
 
-    cmset: function (target, room, user) {
-        if (user.userid !== 'steelsciz') return this.errorReply('/cmset - PM Steel Sciz to set your custom message.');
-        var args = target.split(',');
-        if (args.length < 2) return this.errorReply('/cmset [username], [color] - Sets an custom message to a user for all rooms.');
-        var username = toId(args.shift());
-        var image = 'color:' + args.shift().trim() + '';
-        selectors = '\n\n' + '.chat.chatmessage-' + username +   '  em';
-        selectors += ' { \n' + '    ' + image +  ' !important;\n  }';
- 
-        this.privateModCommand("(" + user.name + " has set an custom message to " + username + ")");
-        writeIconCSS();
-    },
-    setcmhelp: ["/cmset [username], [color] - Sets an custom message to a user for all rooms."],
 
 	tourelo: 'tourladder',
 	tourladder: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		var self = this;
 		if (!target || !target.trim()) {
 			tourLadder.load().then(function (users) {
@@ -1572,7 +1559,7 @@ spr: 'sprite',
 	anagram: function(target, room, user) {
 		if (!user.can('broadcast', null, room) || !this.canTalk()) return this.sendReply('/anagram - Access denied.');
 		if (!target && !room.anagram) return this.sendReply("Usage: /anagram [normal/pokemon]");
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (room.anagram) return this.sendReplyBox("Word: " + room.anagram.scrambledWord);
 		if (!room.anagram) room.anagram = {};
 
@@ -1631,7 +1618,7 @@ spr: 'sprite',
 
 	},
 	poofhelp: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		this.sendReplyBox('-/poof - Leaves a random message in the chat and disconnects the user from the server.<br>' +
 			'-/cpoof <em>Message</em> - Leaves a custom message in the chat and disconnects the user from the server. Requires %, @, # or ~<br>' +
 			'-/addpoof <em>Message</em> - Adds a poof message into the list of possible poofs. Adding "(user)" into a poof message replaces "(user)" with that user\'s name. Requires ~<br>' +
@@ -1699,7 +1686,6 @@ spr: 'sprite',
 		poofs.splice(pos, 1);
 		fs.writeFileSync(FILE_NAME, JSON.stringify(poofs, null, 1));
 	}
-};
 	// Credits command by clawliet
 	credit: 'credits',
     credits: function (target, room, user) {
