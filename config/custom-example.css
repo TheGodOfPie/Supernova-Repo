@@ -1,9 +1,352 @@
-/**
- * Custom CSS declarations
- *
- * If your server is registered, you can create a file named `custom.css`
- * in the `config` directory and populate it with CSS rules to override the
- * normal client styles, when the client is connected to your server. In
- * other words, you can use this facility to introduce a custom theme for
- * your server.
- */
+/* Supernova's CSS, Done By Dragotic. */
+
+/* Body CSS, consists of background. */
+
+body {
+	background: url("http://i.imgur.com/ILoe9lz.png?1") bottom left no-repeat !important;
+}
+
+/* Header CSS, consists of logo, tabbar, rooms and userbar. */
+
+.header {
+    background: rgba(167, 81, 167, 0.5) url("http://i.imgur.com/LtktGIK.png") bottom left no-repeat;
+}
+
+.header .logo {
+	opacity: 0;
+}
+
+.maintabbarbottom {
+	background: #9D4287;
+	border-color: #8D3B79;
+}
+
+.tabbar a.button.cur, .tabbar a.button.cur:hover {
+	background: #9D4287;
+    	border-color: #8D3B79;
+    	color: #E5E5E5;
+    	font-size: 8pt;
+	text-shadow: none;
+}
+
+.tabbar a.button {
+   	background: #B1579B;
+    	border-color: #B1579B;
+   	color: #E5E5E5;
+    	font-size: 8pt;
+	text-shadow: none;
+}
+
+.tabbar a.button:hover {
+	background: #9F4E8B;
+    	border-color: #9F4E8B;
+    	color: #E5E5E5;
+    	font-size: 8pt;
+	text-shadow: none;
+}
+
+.tabbar a.button.subtle-notifying {
+    	color: #E5E5E5;
+	text-shadow: none;
+}
+
+.tabbar a.button.notifying.closable {
+    	background: #C078AF;
+    	border-color: #C078AF;
+    	color: #E5E5E5;
+    	font-size: 8pt;   
+	text-shadow: none;
+}
+
+.tabbar a.button.notifying.closable:hover {
+    	background: #AC6C9D;
+    	border-color: #AC6C9D;
+    	color: #E5E5E5;
+    	font-size: 8pt;
+	text-shadow: none;
+}
+
+.tabbar .closebutton {
+	color: #E5E5E5;
+    	font-size: 9pt;
+	text-shadow: none;
+}
+
+.tabbar .closebutton:hover {
+	color: #E50000;
+    	font-size: 9pt;
+	text-shadow: none;
+}
+
+.userbar .username {
+	text-shadow: -1px -1px 0 #4C4C4C, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #4C4C4C;
+}
+
+.userbar button.icon {
+    background: #9D4287;
+    border-color: #8D3B79;
+    color: #E5E5E5;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+/* Userlist CSS */
+
+.userlist {
+    	background: rgba(157, 66, 135, 0.8);
+    	border-color: #9D4287;
+}
+
+.userlist li {
+	background: #EDDCE9;
+}
+
+.userlist li:hover {
+	background: rgba(244, 244, 244, 0.8);
+}
+
+/* Chat-Log CSS */
+
+.chat-log {
+	background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
+}
+
+.chat-log-add {
+    	background: rgba(157, 66, 135, 0.8);
+    	border-color: #9D4287;
+    	text-shadow: 1px 1px 1px #000000;
+}
+
+/* Roomlist CSS */
+
+.ps-room.ps-room-light.scrollable {
+    background: rgba(224, 102, 163, 0.8);
+    color: #E5E5E5;
+    text-shadow: none;
+}
+
+.roomlist h2 {
+    color: #E5E5E5;
+    text-shadow: -1px -1px 2px #E066A3, 1px -1px 2px #E066A3, -1px 1px 2px #E066A3, 1px 1px 2px #E066A3;
+}
+
+.roomlist a.ilink {
+	background: rgba(224, 102, 163, 1);
+    	color: #E5E5E5;
+	text-shadow: none;
+}
+
+.roomlist a.ilink:hover {
+	background: rgba(224, 102, 163, 0.8);
+    	color: #E5E5E5;
+	text-shadow: none;
+}
+
+.roomlist a.ilink small {
+	color: #E5E5E5;
+	text-shadow: none;
+}
+
+/* PM-Window CSS */
+
+.pm-window h3 {
+    background: rgba(157, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/dialga.png") no-repeat right bottom;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window h3:hover {
+    background: rgba(200, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/palkia.png") no-repeat right bottom;;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window h3.pm-notifying {
+    background: rgba(157, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/dialga.png") no-repeat right bottom;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window h3.pm-notifying:hover {
+    background: rgba(157, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/dialga.png") no-repeat right bottom;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window.focused h3 {
+    background: rgba(200, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/giratina.png") no-repeat right bottom;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window.focused h3:hover {
+    background: rgba(200, 66, 135, 0.8) url("http://www.pokestadium.com/assets/img/sprites/misc/icons/giratina.png") no-repeat right bottom;
+    border-color: #9D4287;
+    background-position: 215px;
+    color: #E5E5E5;
+}
+
+.pm-window h3:hover .minimizebutton, .pm-window h3 .closebutton, .pm-window h3 .minimizebutton {
+    color: #E5E5E5;
+    font-size: 9pt;
+}
+
+.pm-window h3 .closebutton:hover {
+    color: #E50000;
+    font-size: 9pt;
+}
+
+.pm-window h3 .minimizebutton:hover {
+	color: #C0FFFA;
+    font-size: 9pt;
+}
+
+.pm-window h3 .closebutton:hover+.minimizebutton {
+    color: #E5E5E5 !important;
+    font-size: 9pt;
+}
+
+/* PM-Log CSS */
+
+.pm-log-add {
+    background: rgba(157, 66, 135, 0.3);
+    border-color: #8D3B79;
+}
+
+.pm-log-add:focused {
+    background: rgba(157, 66, 135, 1);
+    border-color: #8D3B79;
+}
+
+/* Menugroup CSS */
+.menugroup {
+    background: rgba(157, 66, 135, 0.3);
+	border: none;
+    box-shadow: inset 1px 1px 2px #9F4E8B; 
+}
+
+.menugroup .button {
+    background: #99004D;
+    border-color: #99004D;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+.menugroup .button:hover {
+    background: #E60073;
+    border-color: #E60073;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+/* Misc CSS */
+
+.textbox {
+    background: #D8ABCD;
+    border-color: #C299B8;
+    box-shadow: inset 1px 1px 2px #C087B3;
+}
+
+.ps-popup {
+    background: #D8ABCD;
+    border-color: #C299B8;
+    box-shadow: inset 1px 1px 2px #C087B3;
+}
+/* Poll CSS */
+
+.infoboxui {
+    background: rgba(171, 126, 154, 0.49);
+    border-bottom: 2px solid #60284A;
+    color: #60284A;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+}
+
+.infoboxu {
+    background: rgba(124,68,101,0.35) url(http://img97.xooimage.com/files/9/8/3/palkia_192-copie-3f675ac.png) no-repeat;
+    background-position: 300px;
+    border-bottom: 8px solid #783C61;
+    color: #783C61;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+    border-right: 2px solid #783C61;
+}
+
+  .super-button {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #B86A9A;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+  
+  .super-button:hover {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #CD85B1;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+
+.viewresults {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.48);
+    color: #694060;
+}
+
+.viewresults:hover {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.65);
+    color: #694060;
+}
+/*Poll CSS ~end */
+/* Dark Mode CSS */
+
+.dark body {
+	background: url("http://i.imgur.com/ILoe9lz.png?1") bottom left no-repeat !important;
+}
+
+.dark .header {
+    background: rgba(167, 81, 167, 0.5) url("http://i.imgur.com/LtktGIK.png") bottom left no-repeat;
+}
+
+.dark .header .logo {
+	opacity: 0;
+}
+
+.dark .chat-log {
+	background: url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
+}
+
+.dark .chat-log-add {
+    background: rgba(157, 66, 135, 0.3);
+	border-color: #8D3B79;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.dark .pm-log-add {
+    background: rgba(157, 66, 135, 0.3);
+    border-color: #8D3B79;
+}
+
+.dark .userlist {
+    background: rgba(157, 66, 135, 0.3);
+    border-color: #9D4287;
+}
+
+.dark .userlist li {
+	background: #EDDCE9;
+}
+
+.dark .menugroup {
+	border: none;
+    box-shadow: inset 1px 1px 2px #4C4C4C;
+}
