@@ -144,3 +144,5 @@ exports.commands = {
 		} else {
 			return this.sendReply("Error al cambiar los datos.");
 		}
+   },
+ };
