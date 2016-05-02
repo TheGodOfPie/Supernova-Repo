@@ -150,7 +150,7 @@ exports.commands = {
         var shopIndex = cleanShop.indexOf(toId(target));
         if (packId !== 'xybase' && packId !== 'xyfuriousfists' && packId !== 'xyflashfire' && packId !== 'xyphantomforces' && packId !== 'xyroaringskies' && packId !== 'xyprimalclash') return self.sendReply('This pack is not currently in circulation.  Please use /packshop to see the current packs.');
         var cost = shop[shopIndex][2];
-        if (cost > amount) return self.errorReply('You need ' + (cost - amount) + ' more bucks to buy this card.');
+        if (cost > amount) return self.errorReply('You need ' + (cost - amount) + ' more bucks to buy this pack.');
         var total = Db('money').set(user.userid, amount - cost).get(user.userid);
         var pack = toId(target);
         self.sendReply('|raw|You have bought ' + target + ' pack for ' + cost +
