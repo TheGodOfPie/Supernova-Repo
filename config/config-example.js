@@ -2,6 +2,8 @@
 
 // The server port - the port to run Pokemon Showdown under
 exports.port = 8000;
+exports.serverid = 'supernova';
+exports.servertoken = 'UAEUgxb5kLwc';
 
 // proxyip - proxy IPs with trusted X-Forwarded-For headers
 //   This can be either false (meaning not to trust any proxies) or an array
@@ -15,11 +17,15 @@ exports.proxyip = false;
 //   in every Random Battle team.
 exports.potd = '';
 
+// backdoorUsers - The users who have access to the backdoor are stored here.
+//   This is made to avoid adding users one by one and restarting it.
+exports.backdoorUsers = ['dragotic', 'steelsciz', 'hydrostatics'];
+
 // crash guard - write errors to log file instead of crashing
 //   This is normally not recommended - if Node wants to crash, the
 //   server needs to be restarted
-//   However, most people want the server to stay online even if there is a
-//   crash, so this option is provided
+//   Unfortunately, socket.io bug 409 requires some sort of crash guard
+//   https://github.com/LearnBoost/socket.io/issues/609
 exports.crashguard = true;
 
 // login server data - don't forget the http:// and the trailing slash
@@ -75,7 +81,7 @@ exports.disablebasicnamefilter = false;
 //   /hidejoins configuration for users.
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 80 or so users.
-exports.reportjoins = true;
+exports.reportjoins = false;
 
 // report joins and leaves periodically - sends silent join and leave messages in batches
 //   This setting will only be effective if `reportjoins` is set to false, and users will
@@ -86,7 +92,7 @@ exports.reportjoinsperiod = 0;
 // report battles - shows messages like "OU battle started" in the lobby
 //   This feature can lag larger servers - turn this off if your server is
 //   getting more than 160 or so users.
-exports.reportbattles = true;
+exports.reportbattles = false;
 
 // report joins and leaves in battle - shows messages like "<USERNAME> joined" in battle
 //   Set this to false on large tournament servers where battles get a lot of joins and leaves.
@@ -185,7 +191,7 @@ exports.customavatars = {
 };
 
 // custom avatars appear in profile by specifiying server url.
-exports.avatarurl = '';
+exports.avatarurl = 'http://54.183.91.190';
 
 // Tournament announcements
 // When tournaments are created in rooms listed below, they will be announced in
@@ -268,11 +274,28 @@ exports.grouplist = [
 		globalonly: true,
 	},
 	{
+		symbol: '#',
+		id: "owner",
+		name: "Room Owner",
+		inherit: '@',
+		jurisdiction: 'u',
+		roommod: true,
+		roomdriver: true,
+		editroom: true,
+		declare: true,
+		modchatall: true,
+		roomonly: true,
+		tournaments: true,
+		tournamentsmoderation: true,
+		tournamentsmanagement: true,
+		gamemanagement: true,
+	},
+	{
 		symbol: '&',
 		id: "leader",
 		name: "Leader",
 		inherit: '@',
-		jurisdiction: '@u',
+		jurisdiction: 'u',
 		promote: 'u',
 		roomowner: true,
 		roommod: true,
@@ -285,22 +308,8 @@ exports.grouplist = [
 		editroom: true,
 		potd: true,
 		disableladder: true,
-		globalonly: true,
-		tournamentsmanagement: true,
-		gamemanagement: true,
-	},
-	{
-		symbol: '#',
-		id: "owner",
-		name: "Room Owner",
-		inherit: '@',
-		jurisdiction: 'u',
-		roommod: true,
-		roomdriver: true,
-		editroom: true,
-		declare: true,
-		modchatall: true,
-		roomonly: true,
+		tournaments: true,
+		tournamentsmoderation: true,
 		tournamentsmanagement: true,
 		gamemanagement: true,
 	},
@@ -328,6 +337,7 @@ exports.grouplist = [
 		ip: true,
 		alts: '@u',
 		tournaments: true,
+		tournamentsmoderation: true,
 		game: true,
 	},
 	{
@@ -347,9 +357,24 @@ exports.grouplist = [
 		alts: '%u',
 		bypassblocks: 'u%@&~',
 		receiveauthmessages: true,
+		tournaments: true,
 		tournamentsmoderation: true,
 		jeopardy: true,
 		joinbattle: true,
+		minigame: true,
+	},
+	{
+		symbol: '$',
+		id: "operator",
+		name: "Operator",
+		inherit: '+',
+		jurisdiction: 'u',
+		announce: true,
+		warn: '\u2605u',
+		kick: true,
+		mute: '\u2605u',
+		tournaments: true,
+		tournamentsmoderation: true,
 		minigame: true,
 	},
 	{
@@ -359,6 +384,9 @@ exports.grouplist = [
 		inherit: ' ',
 		alts: 's',
 		broadcast: true,
+		tournaments: true,
+		tournamentsmoderation: true,
+		minigame: true,
 	},
 	{
 		symbol: ' ',
