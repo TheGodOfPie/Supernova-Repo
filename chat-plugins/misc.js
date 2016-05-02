@@ -1648,6 +1648,7 @@ spr: 'sprite',
         // Output it all as a popup
         user.popup('|html|' + generateDisplay());
 	},
+	
 	ssb: function (target, room, user) {
         if (!this.runBroadcast()) return false;
        	// if no mon is specified
@@ -1688,8 +1689,7 @@ spr: 'sprite',
         	staffMonSignatureMove + BR + staffMonEvs + BR + note + '</div>';
         	// Output it
         	return display;
-        }
-        
+        };
         this.sendReplyBox(generateDisplay());
     },
     ssbhelp: ['/ssb [staff name] - Shows the complete set of a member in SSSB.',
