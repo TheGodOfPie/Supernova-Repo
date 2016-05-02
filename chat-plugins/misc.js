@@ -545,7 +545,7 @@ exports.commands = {
 
 	},
 	roomlist: function (target, room, user) {
-		if(!this.can('pban')) return;
+		if(!this.can('makechatroom')) return;
 		var totalUsers = 0; 
 		for (var u of Users.users) {
 			u = u[1];
