@@ -78,7 +78,7 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 	- 70% burn, 70% -1 target's Def & SpD
 	- Auto-defrosts the user
 
-### @Supernova Robot
+### @ Supernova Robot
 Phanpy @ Supernova Stone 
 - Mega-evolves Nidoran-M into Palkia
 
