@@ -212,7 +212,6 @@ exports.commands = {
             '|raw|' + user.name + ' has given you ' + pack + ' pack. You have until the server restarts to open your pack. \
             Use <button name="send" value="/openpack ' + pack + '"><b>/openpack ' + pack + '</b></button> to open your pack.');
 
- /*************
     },
 
     takepacks: 'takepack',
@@ -232,7 +231,7 @@ exports.commands = {
         userPacks[userid].splice(packIndex, 1);
         this.sendReply(this.targetUsername + ' lost ' + pack + ' pack. This user now has ' + users[userid].length + ' pack(s).');
         Users.get(this.targetUsername).send('|raw|' + user.name + ' has taken ' + pack + ' pack from you. You now have ' +  users[userid].length + ' pack(s).');
-***************/
+
 
     },
 
