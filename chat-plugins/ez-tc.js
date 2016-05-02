@@ -11,7 +11,9 @@ function loadTrainerCards() {
 	try {
 		trainerCards = serialize.unserialize(fs.readFileSync('config/trainercards.json', 'utf8'));
 		Object.merge(CommandParser.commands, trainerCards);
-	} catch (e) {};
+	} catch (e) {
+		Rooms('staff').add("TRAINER CARDS failed to be loaded.").update();
+	}
 }
 setTimeout(function(){loadTrainerCards();},1000);
 
@@ -32,16 +34,16 @@ exports.commands = {
 		switch (parts[0]) {
 			case 'add':
 				if (!this.can('pban')) return false;
-				if (!parts[2]) return this.sendReply("Usage: /trainercard add, [command name], [html]");
+				if (!parts[2]) return this.errorReply("Usage: /trainercard add, [command name], [html]");
 				var commandName = toId(parts[1]);
-				if (CommandParser.commands[commandName]) return this.sendReply("/trainercards - The command \"" + commandName + "\" already exists.");
+				if (CommandParser.commands[commandName]) return this.errorReply("/trainercards - The command \"" + commandName + "\" already exists.");
 				try {
 					var html = parts.splice(2, parts.length).join(',');
-					trainerCards[commandName] = new Function('target', 'room', 'user', "if (!room.disableTrainerCards) if (!this.canBroadcast()) return; this.sendReplyBox('" + html.replace(/'/g, "\\'") + "');");
+					trainerCards[commandName] = new Function('target', 'room', 'user', "if (!room.disableTrainerCards) if (!this.runBroadcast()) return; this.sendReplyBox('" + html.replace(/'/g, "\\'") + "');");
 					saveTrainerCards();
 					this.sendReply("The trainer card \"" + commandName + "\" has been added.");
 					this.logModCommand(user.name + " added the trainer card " + commandName);
-					Rooms.get('staff').add(user.name + " added the trainer card " + commandName);
+					Rooms.get('staff').add(user.name + " added the trainer card " + commandName).update();
 				} catch (e) {
 					this.errorReply("Something went wrong when trying to add this command.  Did you use a backwards slash mark?  If so, try it again without using this.");
 				}
@@ -52,16 +54,16 @@ exports.commands = {
 			case 'delete':
 			case 'remove':
 				if (!this.can('pban')) return false;
-				if (!parts[1]) return this.sendReply("Usage: /trainercard remove, [command name]");
+				if (!parts[1]) return this.errorReply("Usage: /trainercard remove, [command name]");
 				var commandName = toId(parts[1]);
-				if (!trainerCards[commandName]) return this.sendReply("/trainercards - The command \"" + commandName + "\" does not exist, or was added manually.");
+				if (!trainerCards[commandName]) return this.errorReply("/trainercards - The command \"" + commandName + "\" does not exist, or was added manually.");
 				delete CommandParser.commands[commandName];
 				delete trainerCards[commandName];
 				saveTrainerCards();
 				this.sendReply("The trainer card \"" + commandName + "\" has been removed.");
 				this.logModCommand(user.name + " removed the trainer card " + commandName);
 				try {
-					Rooms.rooms.staff.add(user.name + " removed the trainer card " + commandName);
+					Rooms('staff').add(user.name + " removed the trainer card " + commandName).update();
 				} catch (e) {};
 				break;
 
@@ -76,7 +78,8 @@ exports.commands = {
 
 			case 'off':
 				if (!this.can('roommod', null, room)) return false;
-				if (room.disableTrainerCards) return this.sendReply("Broadcasting trainer cards is already disabled in this room.");
+				if (room.battle) return this.errorReply("This does not work in battle rooms.");
+				if (room.disableTrainerCards) return this.errorReply("Broadcasting trainer cards is already disabled in this room.");
 				room.disableTrainerCards = true;
 				room.chatRoomData.disableTrainerCards = true;
 				Rooms.global.writeChatRoomData();
@@ -85,7 +88,8 @@ exports.commands = {
 
 			case 'on':
 				if (!this.can('roommod', null, room)) return false;
-				if (!room.disableTrainerCards) return this.sendReply("Broadcasing trainer cards is already enabled in this room.");
+				if (room.battle) return this.errorReply("This does not work in battle rooms.");
+				if (!room.disableTrainerCards) return this.errorReply("Broadcasing trainer cards is already enabled in this room.");
 				delete room.disableTrainerCards;
 				delete room.chatRoomData.disableTrainerCards;
 				Rooms.global.writeChatRoomData();
@@ -108,7 +112,7 @@ exports.commands = {
 			case 'info':
 			case 'help':
 			default:
-				if (!this.canBroadcast()) return;
+				if (!this.runBroadcast()) return;
 				this.sendReplyBox(
 					"EZ-TC Commands:<br />" +
 					"/trainercard add, [command name], [html] - Adds a trainer card.<br />" +
