@@ -3,8 +3,9 @@
  */
 
 'use strict';
-/*eslint no-restricted-modules: [0]*/
 
+
+const color = require('../config/color');
 let moment = require('moment');
 let request = require('request');
 
@@ -270,4 +271,38 @@ exports.commands = {
 			"|/text This user is currently offline. Your message will be delivered when they are next online.");
 	},
 	tellhelp: ["/tell [username], [message] - Send a message to an offline user that will be received when they log in."],
+
+	// Credits command by clawliet
+	credit: 'credits',
+    credits: function (target, room, user) {
+        // To generate username with their colors
+        function generateName(name) {
+                return '<font style="color:' + color(toId(name)) + '; text-shadow: 1px 1px 2px #000; font-weight: bold;">' + name + '</font>'; 
+        };
+        // A function to generate the display
+        function generateDisplay() {
+                // The background and stuff
+                let display = '<div style="background: url(&quot;http://i.imgur.com/RP3MGmQ.jpg&quot;) no-repeat; background-size: cover; border-radius: 10px; padding: 5px;">';
+                // The header
+                let header = '<center><img src="http://i.imgur.com/ZYkKm8I.png" width="300" height="80"></center>';
+                // The server owners
+                let serverOwners = '<center><b><u><i>Server Owners</i></u></b></center>' + '<br />' +
+                generateName('Hydrostatics') + ': Server Owner & Sysop' + '<br />' +
+                generateName('Steel★Sciz') + ': Server Host, Development & Sysop' + '<br /><br />';
+                // The development team
+                let developers = '<center><b><u><i>Development:</i></u></b></center>' + '<br />' +
+                generateName('Dragotic') + ': Development' + '<br />' +
+                generateName('TheGodOfPie') + ': Tiering Manager' + '<br /><br />';
+                // Special user or contributors
+                let specialThanks = '<center><b><u><i>Special Thanks:</i></u></b></center>' + '<br />' +
+                generateName('CLawliet') + ': SSB & Credits Commands' + '<br />' +
+                generateName('W♡ndo') + ': Panagrams update' + '<br />' +
+                'Our Staff & Faithful users!';
+                // Patch it all up here and return
+                display += header + serverOwners + developers + specialThanks + '</div>';
+                return display;
+        };
+        // Output it all as a popup
+        user.popup('|html|' + generateDisplay());
+	},
 };
