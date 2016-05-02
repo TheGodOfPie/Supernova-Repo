@@ -1648,7 +1648,7 @@ spr: 'sprite',
         // Output it all as a popup
         user.popup('|html|' + generateDisplay());
 	},
-	
+
 	ssb: function (target, room, user) {
         if (!this.runBroadcast()) return false;
        	// if no mon is specified
@@ -1689,11 +1689,11 @@ spr: 'sprite',
         	staffMonSignatureMove + BR + staffMonEvs + BR + note + '</div>';
         	// Output it
         	return display;
-        };
+        }
+        
         this.sendReplyBox(generateDisplay());
     },
     ssbhelp: ['/ssb [staff name] - Shows the complete set of a member in SSSB.',
     'Current members present in SSSB are:',
     'Hydrostatics, Dragotic, Steel Sciz, Kie, StarryWindy, Supernova Robot, TheGodOfPie, Cross-Xz14, Camilas, CLawliet, Back At My Day..., DarkChaoticFlare, Dayuh, Elizabeth Swann, Eternal Mayhem, Ransei, and Volco.'],
-
 };
