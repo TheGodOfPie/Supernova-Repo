@@ -1,11 +1,7 @@
-# Showdown-Boilerplate
+# Supernova-Server
 
-[![Build Status](https://travis-ci.org/CreaturePhil/Showdown-Boilerplate.svg)](https://travis-ci.org/CreaturePhil/Showdown-Boilerplate)
-[![Dependency Status](https://david-dm.org/CreaturePhil/Showdown-Boilerplate.svg)](https://david-dm.org/CreaturePhil/Showdown-Boilerplate)
-[![devDependency Status](https://david-dm.org/CreaturePhil/Showdown-Boilerplate/dev-status.svg)](https://david-dm.org/CreaturePhil/Showdown-Boilerplate#info=devDependencies)
 
-Showdown Boilerplate is a template for [Pokémon Showdown](https://github.com/Zarel/Pokemon-Showdown)
-private servers.
+The Supernova Server Repository is a Showdown Boilerplate, but different. It is different as there are more features than the current up to date SB repository.
 
 What is a boilerplate? Boilerplate is any text that is or can be reused in new
 contexts or applications without being greatly changed from the original.
@@ -23,13 +19,19 @@ For more information on Pokémon Showdown, visit the main
 - Emoticons in chat and private messages
 - Hangman, Profile, and Tells
 - Economy (bucks system, shop, tournament winnings)
+- Lottery, Bingo, Uno, and more games.
+- Moderation Commands such as Shadowban and Permaban/lock
+- A Card System (PSGO) made by fender, Nineage, and naten2006
+- Tour elo and Buck earnings in the ladder (coming soon)
 
 ## Quick Start
 
 ```bash
-$ git clone https://github.com/CreaturePhil/Showdown-Boilerplate.git
-$ cd Showdown-Boilerplate && npm install
+$ git clone https://Sundar_s@bitbucket.org/Sundar_s/supernova.git
+$ cd Supernova && npm install
 $ node app.js
+
+There are some node modules you have to install manually without npm install, such as npm install geoip-ultralight and npm install node-serialize)
 ```
 
 ## Maintainers
