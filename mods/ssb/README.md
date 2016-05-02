@@ -352,7 +352,7 @@ This Month's Changes
 ### Set Changes
 - Back At My Day... (full set)
 - +CLawliet (Strikes a KO quote)
-- @Supernova Robot (full set)
+- @ Supernova Robot (full set)
 - @TheGodOfPie (Quotes, innate ability, ability)
 - Volco (new addition)
 - @StarryWindy (spreads remade, replaced some moves)
@@ -387,6 +387,7 @@ This Month's Changes
 	- Dragon's Attack is now bite-based
 	- Victory Charge now auto-defrosts user, and no longer a contact move
 	- Boundary Blade is now punch-based
+
 ### Other fixes
 - Replaced old SSB into new SSB Melee
 - Added README.md for future use if placed in a repository
