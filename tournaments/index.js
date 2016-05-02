@@ -727,15 +727,17 @@ class Tournament {
 		}
 	}
 	onBattleWin(room, winner) {
-		let from = this.players[room.p1.userid];
-		let to = this.players[room.p2.userid];
-		winner = this.players[winner.userid];
+		let from = Users.get(room.p1);
+		let to = Users.get(room.p2);
+		let tourSize = this.generator.getUsers().length;
 
 		let result = 'draw';
 		if (from === winner) {
 			result = 'win';
+			if (this.room.isOfficial && tourSize >= 4  && room.battle.endType !== 'forced') Ladders('tournaments').updateRating(from.name, to.name, 1, room);
 		} else if (to === winner) {
 			result = 'loss';
+			if (this.room.isOfficial && tourSize >= 4  && room.battle.endType !== 'forced') Ladders('tournaments').updateRating(from.name, to.name, 0, room);
 		}
 
 		if (result === 'draw' && !this.generator.isDrawingSupported) {
