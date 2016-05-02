@@ -3,12 +3,6 @@
 let fs = require('fs');
 let path = require('path');
 let color = require('../config/color')
-var bingoStatus = false;
-var bingoNumbers = [];
-var bingoSaidNumbers = {};
-var actualValue = 0;
-var tables = {};
-var bingoPrize = 0;
 
 let shop = [
 	['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 1],
@@ -96,69 +90,6 @@ function getShopDisplay(shop) {
 	display += '</table><div style="border: 1px solid rgba(255, 26, 140, 0.6); border-top: none; background: rgba(255, 26, 140, 0.6); color: black; text-shadow: 0px 0px 2px ; padding: 5px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">To buy an item from the shop, use /buy command.</div>';
 	return display;
 }
-
-/**
- * Casino Game: Bingo
- *
- * These functions are used for managing a game of bingo.
- *
- *
- */
-
-function getUserName (user) {
-	var targetUser = Users.get (user);
-	if (!targetUser) return toId(user);
-	return targetUser.name;
-}
-
-function getBingoNumbers() {
-	var data = [];
-	for (var i = 0; i < 50; ++i) {
-		data.push(i + 1);
-	}
-	return data;
-}
-
-function checkBingo(room) {
-	var winners = [];
-	var endGame = false;
-	var targetTable;
-	var tableComplete;
-	for (var i in tables) {
-		targetTable = tables[i];
-		tableComplete = 0
-		for (var j = 0; j < targetTable.length; ++j) {
-			if (!bingoSaidNumbers[targetTable[j]]) break;
-			++tableComplete;
-		}
-		if (tableComplete === targetTable.length) {
-			endGame = true;
-			winners.push(i);
-		}
-	}
-	if (endGame) {
-		var winData = '';
-		for (var n = 0; n < (winners.length - 1); ++n) {
-				var amnt = Db('money').get(winners[n]);
-				var tt = Db('money').set(winners[n], amnt + bingoPrize).get(winners[n]);
-			//Shop.giveMoney(toId(winners[n]), bingoPrize);
-			if (n === 0) {
-				winData += getUserName(winners[n]);
-			} else {
-				winData += ', ' + getUserName(winners[n]);
-			}
-		}
-				var amnt = Db('money').get(toId(winners[winners.length - 1]));
-				var tt = Db('money').set(toId(winners[winners.length - 1]), amnt + bingoPrize).get(winners[winners.length - 1]);
-		//Shop.giveMoney(toId(winners[winners.length - 1]), bingoPrize);
-		if (winners.length > 1) winData += ' et ';
-		winData += getUserName(winners[winners.length - 1]);
-		room.addRaw("<div class=\"broadcast-blue\"><b><h1>Someone has gotten a Bingo!<h1></b><br />Congratulations to  " + winData + " for winning the game of Bingo. He has won " + bingoPrize + " bucks for winning!</div>");
-		room.update();
-		bingoStatus = false;
-	}
-}
-
 
 /**
  * Find the item in the shop.
