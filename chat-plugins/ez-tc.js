@@ -39,7 +39,7 @@ exports.commands = {
 				if (CommandParser.commands[commandName]) return this.sendReply("/trainercards - The command \"" + commandName + "\" already exists.");
 				try {
 					var html = parts.splice(2, parts.length).join(',');
-					trainerCards[commandName] = new Function('target', 'room', 'user', "if (!room.disableTrainerCards) if (!this.canBroadcast()) return; this.sendReplyBox('" + html.replace(/'/g, "\\'") + "');");
+					trainerCards[commandName] = new Function('target', 'room', 'user', "if (!room.disableTrainerCards) if (!this.runBroadcast()) return; this.sendReplyBox('" + html.replace(/'/g, "\\'") + "');");
 					saveTrainerCards();
 					this.sendReply("The trainer card \"" + commandName + "\" has been added.");
 					this.logModCommand(user.name + " added the trainer card " + commandName);
@@ -110,7 +110,7 @@ exports.commands = {
 			case 'info':
 			case 'help':
 			default:
-				if (!this.canBroadcast()) return;
+				if (!this.runBroadcast()) return;
 				this.sendReplyBox(
 					"EZ-TC Commands:<br />" +
 					"/trainercard add, [command name], [html] - Adds a trainer card.<br />" +
