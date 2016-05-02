@@ -1,7 +1,7 @@
 'use strict';
 
 // The server port - the port to run Pokemon Showdown under
-exports.port = 8000;
+exports.port = 7000;
 exports.serverid = 'supernova';
 exports.servertoken = 'UAEUgxb5kLwc';
 
