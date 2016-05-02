@@ -83,7 +83,7 @@ exports.commands = {
 			target = toId(target);
 			if (!Db('tickets').has(target)) return this.errorReply(target + ' has no tickets.');
 			let userTickets = Db('tickets').object()[target]['Tickets'].join(', ');
-			this.sendReplyBox('<center><b><u>' + Users.get(target).name + '\'s Tickets' + '</u></b></center><br />' + Db('tickets').object()[target]['Tickets'].join(', '));
+			this.sendReplyBox('<center><b><u>' + target + '\'s Tickets' + '</u></b></center><br />' + Db('tickets').object()[target]['Tickets'].join(', '));
 		},
 		give: function (target, room, user) {
 			if (!this.can('makechatroom')) return false;
