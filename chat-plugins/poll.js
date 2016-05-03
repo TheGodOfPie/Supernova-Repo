@@ -201,7 +201,7 @@ exports.commands = {
 			if (!this.can('minigame', null, room)) return false;
 			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
 			if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
-			let options = ['Random Battle', 'Anything Goes', 'OU', 'Ubers', 'LC', 'Challenge Cup 1v1', 'Monotype', 'Monotype Random Battle', 'Doubles OU', 'VGC 2016', 'Monocolor', '[Seasonal]'];
+			let options = ['Random Battle', 'Anything Goes', 'OU', 'Ubers', 'LC', 'Challenge Cup 1v1', 'Monotype', 'Monotype Random Battle', 'Doubles OU', 'VGC 2016', 'Monocolor', 'Supernova SSB'];
 			
 			room.poll = new Poll(room, 'Next Tour Tier ?', options);
 			room.poll.display();
