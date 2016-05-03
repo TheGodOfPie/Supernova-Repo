@@ -213,12 +213,13 @@ exports.commands = {
 		if (!this.can('broadcast', null, room)) return;
 		this.parse('/tour new ' + target + ', roundrobin');
 
+    },
 
 	roompm: function (target, room, user) {
-		if (!this.can('rmall', null, room)) return false;
-		if (!target) return this.parse('/help rmall');
+		if (!this.can('roommod', null, room)) return false;
+		if (!target) return this.parse('/help roompm');
 
-		var pmName = ' Room PM [Do not reply]';
+		let pmName = ' Room PM [Do not reply]';
 
 		for (var i in room.users) {
 			var message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '|' + target;
