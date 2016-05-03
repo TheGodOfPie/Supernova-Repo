@@ -851,7 +851,6 @@ class Tournament {
 
 			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + colors[cardRarity] + "'>" + cardRarity + "</font> " + cardName + " for winning the tournament!</b>");
 			// Award Card
-		}
 			// Pack Names
                         const packs = ['xybase', 'xyflashfire', 'xyfuriousfists', 'xyphantomforces', 'xyprimalclash', 'xyroaringskies'];
 
