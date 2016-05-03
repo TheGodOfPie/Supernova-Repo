@@ -10,18 +10,18 @@ let shop = [
 	['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 5],
 	['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
 	['Night Club', 'Buys access to enabling Night Club for your room so you can have a party all night with your friends!', 10],	
-	['Title', 'Buys a custom title that can be applied to your profile! PM an Developer after purchase.', 10],	
     ['Trainer Card', 'Buys a trainer card which shows information through a command. (You supply, can be refused)', 10],
 	['Custom Title', 'Buys a custom title that will be applied to your profile. (PM an Administrator (~) after purchase)', 15],
 	['Declare', 'Buys a declare that will be broadcasted to all rooms. (Can be league advertisement, buck tours, etc)', 15],
  	['POTD', 'Buys the ability to set the Pokemon of the Day. The pokemon you set as POTD will be shown in Random Battles just for one day.', 20],
  	['PM', 'Buys a Global PM that will be broadcasted to all rooms. (Can be league advertisement, buck tours, etc)', 20],
-	['Icon', 'Buy a custom icon that can be applied to the rooms you want. You must take into account that the provided image should be 32 x 32', 75],
 	['Custom Emote', 'Buys a custom emote that will be added onto the list of emotes.', 50],
 	['Custom Message', 'Buys a custom message which can be applied to your username and will be shown when you talk in the chat or talk in PMs.', 50],
 	['Userlist Icon', 'Buys a userlist icon that can be applied to the userlist of 3 rooms.', 50],
 	['Room Shop', 'Buys a room/league shop that will be applied onto your room. Use /help roomshop for more information in knowing how to manage the room shop once you bought it.', 55],
-	['Custom Color', 'Buys a custom color which can be applied to your username and will be shown when you talk in the chat or talk in PMs.', 75],
+    ['Custom Color', 'Buys a custom color which can be applied to your username and will be shown when you talk in the chat or talk in PMs.', 75],
+	['Icon', 'Buy a custom icon that can be applied to the rooms you want. You must take into account that the provided image should be 32 x 32', 75],
+
 ];
 
 let shopDisplay = getShopDisplay(shop);
