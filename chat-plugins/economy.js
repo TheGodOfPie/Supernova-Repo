@@ -501,7 +501,7 @@ exports.commands = {
 		room.dice.startTime = Date.now();
 
 		room.addRaw('<div class="infobox"><h2><center><font color="' + color(user.userid) + '">' + user.name + '</font> <font color=black>has started a dice game for </font><font color="purple">' + target + 
-	 	         	' </font><font color=black>' + ((target === 1) ? " buck." : " bucks.") + '</font><br /><button class=supernova-button name="send" value="/joindice">Join the dice.</button></center></h2></div>');
+	 	         	' </font><font color=black>' + ((target === 1) ? " buck." : " bucks.") + '</font><br /><button class=supernova-button2 name="send" value="/joindice">Join the dice.</button></center></h2></div>');
 	},
 	startdicehelp: ["/startdice [bet] - Start a dice game to gamble for money."],
 
