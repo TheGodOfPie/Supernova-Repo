@@ -845,7 +845,7 @@ class Tournament {
 
 			Db('money').set(wid, Db('money').get(wid, 0) + firstMoney);
 			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + color(winner) + "'>" + firstMoney + "</font>" + currencyName(firstMoney) + " for winning the tournament!</b>");
-			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has also won " + "<button class=supernova-button name='send' value='/openpack " + cardName + "'><b>" + cardName + "</b></button> for winning the tournament!</b>");
+			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has also won " + "<button class=supernova-button name='send' value='/card " + cardName + "'><b>" + cardName + "</b></button> for winning the tournament!</b>");
 
 			if (runnerUp) {
 				Db('money').set(rid, Db('money').get(rid, 0) + secondMoney);
