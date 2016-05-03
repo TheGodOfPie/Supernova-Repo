@@ -363,9 +363,9 @@ This Month's Changes
 ### Removals
 - DeathlyPlays (locked)
 - Lord Haji (permabanned)
-- AA Leo
-- DearSunset
-- Paul71
+- AA Leo (staff decision)
+- DearSunset (request)
+- Paul71 (staff decision)
 - Master Bui (inactivity)
 - Mystifi (inactivity)
 - TenucSkenuck (inactivity)
@@ -375,7 +375,8 @@ This Month's Changes
 - AzureLugia (inactivity)
 
 ### Rank changes:
-- Everyone except Kie, Hydro, and Sciz
+- Everyone except Kie, Hydrostatics, and Steel Sciz
+
 ### Move, item, and ability FIXES [tweaks, not complete changes]
 - Changed move some animations	
 - Dragon's Attack is now a locked move, confuses after 2-3 turns, +1 Atk & Spe per hit
