@@ -80,18 +80,18 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 	- Auto-defrosts the user
 
 ### @ Supernova Robot
-Phanpy @ Supernova Stone 
+Nidoran-M @ Supernova Stone 
 
 - Mega-evolves Nidoran-M into Palkia
 
 Ability: Download
-Mega Ability: Auto-warn
-
-- If is hit by a contact move, -3 Spe to opponent
-
-Innate Ability: Galactic Clash
+Mega Ability: Galactic Clash
 
 - -10% HP to the opponent when hit by a move. -50% instead if hit by a Dragon-type move
+
+Innate Ability: Auto-warn
+
+- -3 Spe to opponent if hit by a contact move
 
 EVs: 252 HP, 4 Def, 252 SpA, Nature: Modest
 
