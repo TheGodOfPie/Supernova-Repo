@@ -445,6 +445,44 @@ body {
     background-color: rgba(41, 41, 41, 0.8);
 }
 
+/* Card CSS */
+
+.card-th {
+  background-color: #cc0066;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  border: 1px solid #CCC; }
+
+.card-td {
+  background: #cc0066;
+  border: 1px solid #CCC;
+  text-align: center; }
+
+.card-div {
+  padding: 5px;
+  color: #333; }
+
+.card-th:hover, .card-td:hover {
+  color: #ff80bf; }
+
+.card-button {
+  margin: 0px 3px; }
+
+.card-td button, .card-button {
+  background: rgba(153, 0, 77, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  color: #333;
+  text-shadow: 1px 1px 1px #FFF; }
+
+.card-td button:hover, .card-button:hover {
+  background: rgba(255, 102, 179, 0.06);
+  border: 1px solid #CCC;
+  text-shadow: 1px 1px 1px #EEE; }
+
+.card-td button:focus, .card-button:focus {
+  background: rgba(227, 235, 246, 0.8);
+  border: 1px solid #9EB2D0; }
+
 /* Custom Colors CSS */
 
 #lobby-userlist-user-supernovarobot strong em, #lobby-userlist-user-supernovarobot strong, #lobby-userlist-user-supernovarobot span, #staff-userlist-user-supernovarobot strong em, #staff-userlist-user-supernovarobot strong, #staff-userlist-user-supernovarobot span, #shadowbanroom-userlist-user-supernovarobot strong em, #shadowbanroom-userlist-user-supernovarobot strong, #shadowbanroom-userlist-user-supernovarobot span, #events-userlist-user-supernovarobot strong em, #events-userlist-user-supernovarobot strong, #events-userlist-user-supernovarobot span, #hydrocity-userlist-user-supernovarobot strong em, #hydrocity-userlist-user-supernovarobot strong, #hydrocity-userlist-user-supernovarobot span, #helpfaq-userlist-user-supernovarobot strong em, #helpfaq-userlist-user-supernovarobot strong, #helpfaq-userlist-user-supernovarobot span, #development-userlist-user-supernovarobot strong em, #development-userlist-user-supernovarobot strong, #development-userlist-user-supernovarobot span, #monocolor-userlist-user-supernovarobot strong em, #monocolor-userlist-user-supernovarobot strong, #monocolor-userlist-user-supernovarobot span, #chaotic-userlist-user-supernovarobot strong em, #chaotic-userlist-user-supernovarobot strong, #chaotic-userlist-user-supernovarobot span, #sophies-userlist-user-supernovarobot strong em, #sophies-userlist-user-supernovarobot strong, #sophies-userlist-user-supernovarobot span, #animeandmanga-userlist-user-supernovarobot strong em, #animeandmanga-userlist-user-supernovarobot strong, #animeandmanga-userlist-user-supernovarobot span, #competitivetutoring-userlist-user-supernovarobot strong em, #competitivetutoring-userlist-user-supernovarobot strong, #competitivetutoring-userlist-user-supernovarobot span, #tournaments-userlist-user-supernovarobot strong em, #tournaments-userlist-user-supernovarobot strong, #tournaments-userlist-user-supernovarobot span, #fu-userlist-user-supernovarobot strong em, #fu-userlist-user-supernovarobot strong, #fu-userlist-user-supernovarobot span, #othermetas-userlist-user-supernovarobot strong em, #othermetas-userlist-user-supernovarobot strong, #othermetas-userlist-user-supernovarobot span, #sportsgames-userlist-user-supernovarobot strong em, #sportsgames-userlist-user-supernovarobot strong, #sportsgames-userlist-user-supernovarobot span, #casino-userlist-user-supernovarobot strong em, #casino-userlist-user-supernovarobot strong, #casino-userlist-user-supernovarobot span, #freetime-userlist-user-supernovarobot strong em, #freetime-userlist-user-supernovarobot strong, #freetime-userlist-user-supernovarobot span, #jenslab-userlist-user-supernovarobot strong em, #jenslab-userlist-user-supernovarobot strong, #jenslab-userlist-user-supernovarobot span, #blackjack-userlist-user-supernovarobot strong em, #blackjack-userlist-user-supernovarobot strong, #blackjack-userlist-user-supernovarobot span, #flarelab-userlist-user-supernovarobot strong em, #flarelab-userlist-user-supernovarobot strong, #flarelab-userlist-user-supernovarobot span, #testing-userlist-user-supernovarobot strong em, #testing-userlist-user-supernovarobot strong, #testing-userlist-user-supernovarobot span, #typeswap-userlist-user-supernovarobot strong em, #typeswap-userlist-user-supernovarobot strong, #typeswap-userlist-user-supernovarobot span, #roomintroshop-userlist-user-supernovarobot strong em, #roomintroshop-userlist-user-supernovarobot strong, #roomintroshop-userlist-user-supernovarobot span, #ahelpfulplace-userlist-user-supernovarobot strong em, #ahelpfulplace-userlist-user-supernovarobot strong, #ahelpfulplace-userlist-user-supernovarobot span, #anythinggoes-userlist-user-supernovarobot strong em, #anythinggoes-userlist-user-supernovarobot strong, #anythinggoes-userlist-user-supernovarobot span, #theinfernoleague-userlist-user-supernovarobot strong em, #theinfernoleague-userlist-user-supernovarobot strong, #theinfernoleague-userlist-user-supernovarobot span, #wifi-userlist-user-supernovarobot strong em, #wifi-userlist-user-supernovarobot strong, #wifi-userlist-user-supernovarobot span, #artshop-userlist-user-supernovarobot strong em, #artshop-userlist-user-supernovarobot strong, #artshop-userlist-user-supernovarobot span, #gamingmedia-userlist-user-supernovarobot strong em, #gamingmedia-userlist-user-supernovarobot strong, #gamingmedia-userlist-user-supernovarobot span, #polls-userlist-user-supernovarobot strong em, #polls-userlist-user-supernovarobot strong, #polls-userlist-user-supernovarobot span, #howtobeastaffmember-userlist-user-supernovarobot strong em, #howtobeastaffmember-userlist-user-supernovarobot strong, #howtobeastaffmember-userlist-user-supernovarobot span, #moba-userlist-user-supernovarobot strong em, #moba-userlist-user-supernovarobot strong, #moba-userlist-user-supernovarobot span, #upperstaff-userlist-user-supernovarobot strong em, #upperstaff-userlist-user-supernovarobot strong, #upperstaff-userlist-user-supernovarobot span, #supernovasuperstaffbros-userlist-user-supernovarobot strong em, #supernovasuperstaffbros-userlist-user-supernovarobot strong, #supernovasuperstaffbros-userlist-user-supernovarobot span, #trivia-userlist-user-supernovarobot strong em, #trivia-userlist-user-supernovarobot strong, #trivia-userlist-user-supernovarobot span, #questionworkshop-userlist-user-supernovarobot strong em, #questionworkshop-userlist-user-supernovarobot strong, #questionworkshop-userlist-user-supernovarobot span, #test-userlist-user-supernovarobot strong em, #test-userlist-user-supernovarobot strong, #test-userlist-user-supernovarobot span{
