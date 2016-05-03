@@ -842,7 +842,7 @@ class Tournament {
 
                        // Award Pack
                        tourPack(wid, pack);
-                       this.room.addRaw("<b><font color='" + color + "'>" + Tools.escapeHTML(winner) + "</font> has also won a " + "<button <button class=supernova-button2 name='send' value='/openpack " + pack + "'><b>" + pack + "</b></button>" + "  pack for winning the tournament!</b>");
+                       this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has also won a " + "<button class=supernova-button2 name='send' value='/openpack " + pack + "'><b>" + pack + "</b></button>" + "  pack for winning the tournament!</b>");
 
 		}
 		delete exports.tournaments[this.room.id];
