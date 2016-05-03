@@ -822,18 +822,6 @@ class Tournament {
 		let wid = toId(winner);
 		let rid = toId(runnerUp);
 		let tourSize = this.generator.users.size;
-
-		if (this.room.isOfficial && tourSize >= sizeRequiredToEarn) {
-			let firstMoney = Math.round(tourSize / 4);
-			let secondMoney = Math.round(firstMoney / 2);
-
-			Db('money').set(wid, Db('money').get(wid, 0) + firstMoney);
-			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + color(winner) + "'>" + firstMoney + "</font>" + currencyName(firstMoney) + " for winning the tournament!</b>");
-
-			if (runnerUp) {
-				Db('money').set(rid, Db('money').get(rid, 0) + secondMoney);
-				this.room.addRaw("<b><font color='" + color(runnerUp) + "'>" + Tools.escapeHTML(runnerUp) + "</font> has won " +  "<font color='" + color(runnerUp) + "'>" + secondMoney + "</font>" + currencyName(secondMoney) + " for winning the tournament!</b>");
-			}
 			// Award Card
 			let colors = {
 			    Mythic: '#D82A2A',
@@ -848,9 +836,20 @@ class Tournament {
 			let cardDetail = card.split(',');
 			let cardRarity = cardDetail[0];
 			let cardName = cardDetail[2];
-
-			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + colors[cardRarity] + "'>" + cardRarity + "</font> " + cardName + " for winning the tournament!</b>");
 			// Award Card
+
+
+		if (this.room.isOfficial && tourSize >= sizeRequiredToEarn) {
+			let firstMoney = Math.round(tourSize / 4);
+			let secondMoney = Math.round(firstMoney / 2);
+
+			Db('money').set(wid, Db('money').get(wid, 0) + firstMoney);
+			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + color(winner) + "'>" + firstMoney + "</font>" + currencyName(firstMoney) + " for winning the tournament!</b>");
+			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + colors[cardRarity] + "'>" + cardRarity + "</font> " + cardName + " for winning the tournament!</b>");
+
+			if (runnerUp) {
+				Db('money').set(rid, Db('money').get(rid, 0) + secondMoney);
+				this.room.addRaw("<b><font color='" + color(runnerUp) + "'>" + Tools.escapeHTML(runnerUp) + "</font> has won " +  "<font color='" + color(runnerUp) + "'>" + secondMoney + "</font>" + currencyName(secondMoney) + " for winning the tournament!</b>");
 			}
 			// Pack Names
                         const packs = ['xybase', 'xyflashfire', 'xyfuriousfists', 'xyphantomforces', 'xyprimalclash', 'xyroaringskies'];
