@@ -85,7 +85,7 @@ exports.BattleScripts = {
 					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
 				},
 				'Back At My Day...': {
-					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M',
+					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
 					moves: ['flamethrower', 'roaroftime', 'flashcannon'],
 					signatureMove: "Past And Future",
 					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
