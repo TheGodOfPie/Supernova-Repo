@@ -851,6 +851,7 @@ class Tournament {
 
 			this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='" + colors[cardRarity] + "'>" + cardRarity + "</font> " + cardName + " for winning the tournament!</b>");
 			// Award Card
+			}
 			// Pack Names
                         const packs = ['xybase', 'xyflashfire', 'xyfuriousfists', 'xyphantomforces', 'xyprimalclash', 'xyroaringskies'];
 
@@ -862,6 +863,7 @@ class Tournament {
                        this.room.addRaw("<b><font color='" + color(winner) + "'>" + Tools.escapeHTML(winner) + "</font> has also won a " + "<button class=supernova-button2 name='send' value='/openpack " + pack + "'><b>" + pack + "</b></button>" + "  pack for winning the tournament!</b>");
 
 		}
+	}
 		delete exports.tournaments[this.room.id];
 		delete this.room.game;
 		for (let i in this.players) {
