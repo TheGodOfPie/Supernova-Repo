@@ -42,6 +42,7 @@ EVs: 252 HP, 252 Atk, 4 SpD, Nature: Adamant
 Feraligatr @ Lum Berry
 
 Ability: Piercing Cyclone
+
 - Summons Intense rain upon switch-in
 - Speed is boosted by 1.5 if rain is active
 
@@ -80,13 +81,16 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 
 ### @ Supernova Robot
 Phanpy @ Supernova Stone 
+
 - Mega-evolves Nidoran-M into Palkia
 
 Ability: Download
 Mega Ability: Auto-warn
+
 - If is hit by a contact move, -3 Spe to opponent
 
 Innate Ability: Galactic Clash
+
 - -10% HP to the opponent when hit by a move. -50% instead if hit by a Dragon-type move
 
 EVs: 252 HP, 4 Def, 252 SpA, Nature: Modest
@@ -105,12 +109,15 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Modest
 
 ### @TheGodOfPie
 Gallade-Mega @ Matterless Pie 
+
 - Boosts Psychic-type moves' power by 1.4x
 
 Ability: Mystic Blades 
+
 - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.
 
 Innate Ability: Distortion
+
 - Inverts target's stats upon entry
 
 EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
@@ -146,9 +153,11 @@ EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
 
 ### +Camilas
 Rayquaza-Mega @ Jade Orb 
+
 - Gives +1 to all stats [except evasion], then takes away 25% of max HP
 
 Ability: Pls Ban 
+
 - Attacks twice in a turn. Second hit's damage is halved
 - Pokemon's Attack stat is doubled
 
@@ -168,9 +177,11 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 
 ### +CLawliet
 Dragonite @ Stats B00ster
+
 - +1 Atk & Spe when hit by a super-effective move
 
 Ability: Multipower 
+
 - Pokemon's Attack stat is multiplied by 1.5
 
 EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
@@ -209,9 +220,9 @@ EVs: 4 HP, 252 SpA, 252 Spe, Nature: Timid
 Dialga @ Life Orb
 
 Ability: Time Traveller
+
 - Attacks bypass substitutes and screens
-- -2 Speed to self upon entry
-- Uses Trick Room upon entry
+- -2 Speed to self and uses Trick Room upon entry
 
 EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 
@@ -229,9 +240,11 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 
 ### DarkChaoticFlare
 Umbreon @ Healing Coat
+
 - Restores 1/16 of max HP after each turn
 
 Ability: Invulnerable
+
 - Bounces back certain non-damaging moves
 
 EVs: 4 Atk, 252 Def, 252 SpD, Nature: Adamant
@@ -250,6 +263,7 @@ EVs: 4 Atk, 252 Def, 252 SpD, Nature: Adamant
 Garchomp @ Yache Berry
 
 Ability: Ascent
+
 - Dragon-type moves have 1.5x power
 - Immune to Fairy-type attacks
 
@@ -304,6 +318,7 @@ EVs: 20 HP, 236 SpA, 252 Spe, Nature: Timid
 Arceus @ Life Orb
 
 Ability: Wonder Barrier 
+
 - Can only be affected by super-effective attacks and indirect damage
 - Can hit Ghost-types with Normal and Fighting-type moves
 - +6 to all stats [including evasion] upon entry
@@ -325,6 +340,7 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 Torterra @ Leftovers
 
 Ability: Let's Do This
+
 - +1 Atk & Spe upon entry
 - Only takes damage from direct attacks
 
