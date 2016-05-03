@@ -10,6 +10,7 @@ let emotes = {
 	'4Head': 'http://i.imgur.com/2gtx8Q0.png',
 	// Emotes Alpabetically Ordered
 	// A
+	'ayylamo': 'http://i.imgur.com/1ehnWjW.png',
 	'feelsackbr': 'http://i.imgur.com/BzZJedC.jpg?1',
 	// B
 	'feelsbd': 'http://i.imgur.com/YyEdmwX.png',
@@ -98,6 +99,7 @@ let emotes = {
 	'feelspika': 'http://i.imgur.com/mBq3BAW.png',
 	'feelsPika': 'http://i.imgur.com/eoTrTkn.png?1',
 	'feelspink': 'http://i.imgur.com/jqfB8Di.png',
+	'feelspissed': 'http://i.imgur.com/D44jUWM.png',
 	'feelspn': 'http://i.imgur.com/wSSM6Zk.png',
 	'feelspoli': 'http://i.imgur.com/FnzhrWa.jpg?1',
  	'feelsPoli': 'http://i.imgur.com/sbKhXZE.jpg?1',
