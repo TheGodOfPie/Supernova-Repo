@@ -954,7 +954,7 @@ let BattleRoom = (() => {
 			Db('money').set(wid, Db('money').get(wid, 0) + 2);
 			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>2</font> bucks for winning an Official Format Rated Battle!</b>");
 
-			} else if (this.format !== 'Random Battle' && this.format !== 'cc1v1' && this.format !== 'randomdoublesbattle' && this.format !== 'hackmonscup' && this.format !== 'randomtriplesbattle' && this.format !== 'battlefactory' && this.format !== 'gen1randombattle') {
+			} else if (this.format !== 'randombattle' && this.format !== 'cc1v1' && this.format !== 'randomdoublesbattle' && this.format !== 'hackmonscup' && this.format !== 'randomtriplesbattle' && this.format !== 'battlefactory' && this.format !== 'gen1randombattle') {
                 let wid = toId(winner);
 
 			Db('money').set(wid, Db('money').get(wid, 0) + 1);
