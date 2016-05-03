@@ -1664,9 +1664,9 @@ spr: 'sprite',
 	},
 
 	ssb: function (target, room, user) {
-        if (!this.runBroadcast()) return false;
-       	// if no mon is specified
+		// if no mon is specified
         if (!target) return this.parse('/help ssb');
+        if (!this.runBroadcast()) return false;
         let monName = toId(target);
         // Replies if the target specified is not present
         if (!Db('staffmons').has(monName)) return this.errorReply('Staffmon ' + monName + ' could not be found.');
