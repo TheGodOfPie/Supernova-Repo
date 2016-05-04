@@ -195,7 +195,7 @@ exports.commands = {
 
 		let parts = target.split(',');
 		let username = parts[0];
-		let title = isAbout(parts[1]);
+		let title = (parts[1]);
 
 		if (typeof title === 'string') return this.errorReply(title);
 
