@@ -1060,7 +1060,6 @@ exports.Formats = [
 						this.add('c|@StarryWindy|V for Victory!');
 					}
 					if (name === 'thegodofpie') {
-						this.add('c|@TheGodOfPie| !ayylamo');
 						this.add('raw|<div class="chat"><small>@</small><button name="parseCommand" value="/user TheGodOfPie" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#8552C0">TheGodOfPie:</font></b></button><em class="mine">MOM I NAILED A NO-SCOPE!!1! AYYLAMO! <img src="http://i.imgur.com/1ehnWjW.png" title="ayylamo" height="50" width="50"></em></div>');
 					}
 					if (name === 'clawliet') {
