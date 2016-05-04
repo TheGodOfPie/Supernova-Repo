@@ -27,6 +27,14 @@ function Profile(isOnline, user, image) {
 	this.url = Config.avatarurl || '';
 }
 
+function isTitle(title) {
+	let lerTitle = Letter(title);
+	if (isNaN(title)) return "Must be a number.";
+	if (String(title).includes('.')) return "Title Cannot contain a decimal.";
+	if (lerTitle < 1) return "Cannot be less than one letter.";
+	return lerTitle;
+}
+
 /**
  * Create an bold html tag element.
  *
@@ -149,7 +157,7 @@ Profile.prototype.vip = function (user) {
 
 Profile.prototype.title = function (user) { 
 	// Check if the user has title or not first
-	if (Db('title').has(user)) return ('(<b>' + Db('title').get(user) + '</b>)');
+	if (Db('title').has(user)) return ('(<b><i>' + Db('title').get(user) + '</i></b>)');
 	return '';
 };
 
@@ -189,63 +197,21 @@ exports.commands = {
 	},
 	profilehelp: ["/profile -	Shows information regarding user's name, group, money, and when they were last seen."],
 
-/* Fix
-	title: 'customtitle', 
-	customtitle: function (target, room, user, connection, cmd) {
-		if (!target) return this.sendReply("/customtitle (user), (<font color='(color)') - Sets a customtitle onto a user's profile. Requires Administrator or VIP.");
-		if (toId(cmd) == 'title') {
-			var targetUser = user; 
-		} else {
-			target = this.splitTarget(target);
-			var targetUser = this.targetUser;
-		}
+	customtitle: function (target, room, user) {
+		if (!this.can('hotpatch')) return false;
+		if (!target || target.indexOf(',') < 0) return this.parse('/help customtitle');
 
-		if (!Users.vips[toId(user)] && !this.can('lockdown')) return this.errorReply("You need to be VIP or an Administrator in order to set a custom title."); 
+		let parts = target.split(',');
+		let username = toId(parts[0]);
+		let title = parts.slice(1).join(", ").trim();
 
-		if (Users.vips[toId(user)] && !this.can('lockdown')) {
-			if (toId(targetUser)!= toId(user)) return this.errorReply("You can be able to only set a customtitle for yourself, and not to other people."); 
-		}
+		if (!title.length || title.length > 18) return this.errorReply("The title must be between 1 and 18 characters long.");
 
-		console.log('USER: '+ user.name +', VIP?: '+ Users.vips[toId(user)] +', TARGET=USER?:'+ (toId(user) == toId(targetUser)))
-		//this.add(target)
-
-		if (!targetUser) return this.errorReply("This user has a customtitle already.");
-		if (!targetUser.connected) return this.errorReply(targetUser.name + " is not online.");1
-		if (!targetUser.registered) return this.errorReply(targetUser.name + " is not registered.");
-
-		Users.titles[targetUser.userid] = target;
-		targetUser.popup("|html|"+user.name +" has set your customtitle: <br><center><b>\""+ target.trim() +"\"</b></center>");
-		this.privateModCommand("(" + user.name + " has set a custom title for "+ targetUser.name + ":"+ target +")");
-		saveTitles();
+		Db('title').set(username, title);
+		
+		this.sendReply(username + " was given " + title + ". ");
+		if (Users.get(username)) Users(username).popup(user.name + " has given you the title: " + title);
+		
 	},
-	customtitlehelp: ["/customtitle (user), (<font color='(color)') - Sets a customtitle onto a user's profile. Requires Administrator or VIP."],
-
-	deletetitle: function (target, room, user) {
-		if (!this.can('lockdown')) return false;
-		if (!target) return this.sendReply("Usage: /deletetitle [user]");
-		if (!Users.titles[toId(target)]) return this.sendReply("\"" + target + "\" doesn't have a custom title.");
-
-		delete Users.titles[toId(target)];
-		saveTitles();
-		this.privateModCommand("(" + user.name + " deleted the customtitle of " + target + ".)");
-	},
-	deletetitlehelp: ["/deletetitle (user) - Delete a user's custom title."],
-
-};
-
-let fs = require('fs');
-
-function loadTitles() {
-	try {
-		Users.titles = JSON.parse(fs.readFileSync('config/titles.json', 'utf8'));
-	} catch (e) {
-		Users.titles = {};
-	}
-}
-if (!Users.titles) loadTitles();
-
-function saveTitles() {
-	fs.writeFileSync('config/titles.json', JSON.stringify(Users.titles));
-
-*/
+	customtitlehelp: ["/customtitle [user], [title] - Sets a title to a user that will be displayed in their profile."],
 };
