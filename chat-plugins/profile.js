@@ -202,16 +202,15 @@ exports.commands = {
 		if (!target || target.indexOf(',') < 0) return this.parse('/help customtitle');
 
 		let parts = target.split(',');
-		let username = parts[0];
-		let title = isTitle(parts[1]);
+		let username = toId(parts[0]);
+		let title = parts.slice(1).join(", ").trim();
 
-		if (typeof title === 'string') return this.errorReply(title);
+		if (!title.length || title.length > 18) return this.errorReply("The title must be between 1 and 18 characters long.");
 
-		let total = Db('title').set(toId(username), Db('title').get(toId(username), 0) + title).get(toId(username));
-		title = title ;
+		Db('title').set(username, title);
 		
-		this.sendReply(' ' + username + ' was given the following title: ' + title + ' ');
-		if (Users.get(username)) Users(username).popup(user.name + " has given you the following title: " + title );
+		this.sendReply(username + " was given " + title + ". ");
+		if (Users.get(username)) Users(username).popup(user.name + " has given you the title: " + title);
 		
 	},
 	customtitlehelp: ["/customtitle [user], [title] - Sets a title to a user that will be displayed in their profile."],
