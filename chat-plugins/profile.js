@@ -197,8 +197,6 @@ exports.commands = {
 		let username = toId(parts[0]);
 		let title = parts.slice(1).join(", ").trim();
 
-		if (!title.length || title.length > 18) return this.errorReply("The title must be between 1 and 18 characters long.");
-
 		Db('title').set(username, title);
 		
 		this.sendReply(username + " was given " + title + ". ");
