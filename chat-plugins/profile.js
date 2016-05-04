@@ -199,8 +199,8 @@ exports.commands = {
 
 		Db('title').set(username, title);
 		
-		this.sendReply(username + " was given " + title + ". ");
-		if (Users.get(username)) Users(username).popup(user.name + " has given you the title: " + title);
+		this.sendReply(username + " was given the following title: " + title + ". ");
+		if (Users.get(username)) Users(username).popup(user.name + " has given you the following title: " + title);
 		
 	},
 	customtitlehelp: ["/customtitle [user], [title] - Sets a title to a user that will be displayed in their profile."],
