@@ -199,12 +199,12 @@ exports.commands = {
 
 		if (typeof title === 'string') return this.errorReply(title);
 
-		let total = Db('title').set(toId(username), Db('about').get(toId(username), 0) + title).get(toId(username));
+		let total = Db('title').set(toId(username), Db('title').get(toId(username), 0) + title).get(toId(username));
 		title = title ;
 		
 		this.sendReply(' ' + username + ' was given the following title: ' + title + ' ');
 		if (Users.get(username)) Users(username).popup(user.name + " has given you the following title: " + title );
 		
 	},
-	customtitlehelp: ["/customtitle [user], [title] - Give a user a Title."],
+	customtitlehelp: ["/customtitle [user], [title] - Sets a title to a user that will be displayed in their profile."],
 };
