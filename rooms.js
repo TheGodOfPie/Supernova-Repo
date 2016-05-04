@@ -1545,6 +1545,8 @@ let ChatRoom = (() => {
 	ChatRoom.prototype.onJoin = function (user, connection) {
 		if (!user) return false; // ???
 		if (this.users[user.userid]) return user;
+		// Odd commit here
+		if (this.id === 'dragoticsroom' && user.userid !== 'dragotic') return false;
 
 		if (user.named) {
 			this.reportJoin('j', user.getIdentity(this.id));
