@@ -28,11 +28,11 @@ function Profile(isOnline, user, image) {
 }
 
 function isTitle(title) {
-	let numTitle = Number(about);
+	let lerTitle = Letter(title);
 	if (isNaN(title)) return "Must be a number.";
 	if (String(title).includes('.')) return "Title Cannot contain a decimal.";
-	if (numTitle < 1) return "Cannot be less than one letter.";
-	return numTitle;
+	if (lerTitle < 1) return "Cannot be less than one letter.";
+	return lerTitle;
 }
 
 /**
