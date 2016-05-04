@@ -493,3 +493,8 @@ color: #993399 !important;
 }
 /* End Custom Colors CSS */
 
+
+
+.chat.chatmessage-steelsciz  em { 
+    color:blue !important;
+  }
