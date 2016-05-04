@@ -191,7 +191,7 @@ exports.commands = {
 
 	customtitle: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
-		if (!target || target.indexOf(',') < 0) return this.parse('/help givetitle');
+		if (!target || target.indexOf(',') < 0) return this.parse('/help customtitle');
 
 		let parts = target.split(',');
 		let username = parts[0];
