@@ -108,7 +108,7 @@ Profile.prototype.avatar = function () {
 
 Profile.prototype.buttonAvatar = function () {
 	let css = 'border:none;background:none;padding:0;float:left;';
-	return '<button style="' + css + '" name="parseCommand" value="/user ' + this.username + '">' + this.avatar() + "</button>";
+	return '<div class="infoboxy-supernova"><button style="' + css + '" name="parseCommand" value="/user ' + this.username + '">' + this.avatar() + "</button>";
 };
 
 Profile.prototype.group = function () {
@@ -171,7 +171,7 @@ Profile.prototype.show = function (callback) {
 		SPACE + this.group() + SPACE + this.vip(userid) + SPACE + this.dev(userid) + BR +
 		SPACE + this.money(Db('money').get(userid, 0)) + BR +
 		SPACE + this.seen(Db('seen').get(userid)) +
-		'<br clear="all">';
+		'<br clear="all"></div>';
 };
 
 exports.commands = {
