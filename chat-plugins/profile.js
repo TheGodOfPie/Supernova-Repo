@@ -27,6 +27,14 @@ function Profile(isOnline, user, image) {
 	this.url = Config.avatarurl || '';
 }
 
+function isTitle(title) {
+	let numTitle = Number(about);
+	if (isNaN(title)) return "Must be a number.";
+	if (String(title).includes('.')) return "Title Cannot contain a decimal.";
+	if (numTitle < 1) return "Cannot be less than one letter.";
+	return numTitle;
+}
+
 /**
  * Create an bold html tag element.
  *
