@@ -24,7 +24,7 @@ exports.commands = {
 
 	addtc: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
-		if (!Db('tc').has(user.userid)) return this.errorReply('The trainer card already exists.');
+		if (Db('tc').has(user.userid)) return this.errorReply('The trainer card already exists.');
 		if (!target || target.indexOf(',') < 0) return this.parse('/help addtc');
 
 
@@ -42,7 +42,7 @@ exports.commands = {
     
     tc: function (target, room, user) {
       if (!this.runBroadcast()) return; 
-      if (!Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
+      if (Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
 	  if (target.length < 2) return this.parse("/help tc");   
 	  let name = Db('tc').get(target);         
       this.sendReplyBox('' + name + '');
@@ -52,7 +52,7 @@ exports.commands = {
 
 	deletetc: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-	  if (!Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
+	  if (Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
       if (target.length < 2) return this.parse("/help deletetc");
       let name = Db('tc').get(target);
 
@@ -66,6 +66,7 @@ exports.commands = {
 	
 	tchtml: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
+      if (Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
       if (target.length < 2) return this.parse("/help tchtml");
       let name = Db('tc').get(target);
 
