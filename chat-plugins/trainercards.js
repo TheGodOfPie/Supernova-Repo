@@ -42,7 +42,6 @@ exports.commands = {
     
     tc: function (target, room, user) {
       if (!this.runBroadcast()) return; 
-      if (Db('tc').has(target)) return this.errorReply('The trainer card does not exist.');
 	  if (target.length < 2) return this.parse("/help tc");   
 	  let name = Db('tc').get(target);         
       this.sendReplyBox('' + name + '');
