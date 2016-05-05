@@ -1026,7 +1026,7 @@ exports.Formats = [
 					this.add('c|+CLawliet|It seems that I can\'t control my turbulence....');
 				}
 				if (name === 'dayuh') {
-					this.add('c|+Dayuh|I\'ll just reborn again~!');
+					this.add('c|+Dayuh|I\'ll just be reborn again~!');
 				}
 			// Regulars
 				if (name === 'eternalmayhem') {
