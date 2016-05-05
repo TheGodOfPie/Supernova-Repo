@@ -69,7 +69,7 @@ exports.commands = {
       if (target.length < 2) return this.parse("/help tchtml");
       let name = Db('tc').get(target);
 
-	  this.sendReply('<b>TC Code:</b> ' + name + '');
+	  this.sendReply('TC Code:' + name + '');
 	  
    },
    tchtmlhelp: ["/tchtml [name] - Get the HTML code of a certain Trainer Card."],
