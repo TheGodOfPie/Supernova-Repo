@@ -40,7 +40,7 @@ exports.commands = {
     
     tc: function (target, room, user) {
       if (!this.runBroadcast()) return; 
-      if (amount < 0) return this.parse('/help tc');     
+	  if (targets.length < 0) return this.parse("/help tc");   
 	  let name = Db('tc').get(target);         
       this.sendReplyBox('' + name + '');
     },
@@ -49,7 +49,7 @@ exports.commands = {
 
 	deletetc: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (amount < 0) return this.parse('/help deletetc');
+      if (targets.length < 0) return this.parse("/help deletetc");
       let name = Db('tc').get(target);
 
       Db('tc').delete(target);
@@ -62,7 +62,7 @@ exports.commands = {
 	
 	tchtml: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (amount < 0) return this.parse('/help deletetc');
+      if (targets.length < 0) return this.parse("/help tchtml");
       let name = Db('tc').get(target);
 
 	  this.sendReply('<b>TC Code:</b> ' + name + '');
