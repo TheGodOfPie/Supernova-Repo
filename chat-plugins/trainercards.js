@@ -21,8 +21,9 @@ function logTc(message) {
 }
 
 exports.commands = {
+
 	addtc: function (target, room, user) {
-		if (!this.can('forcewin')) return false;
+		if (!this.can('hotpatch')) return false;
 		if (!target || target.indexOf(',') < 0) return this.parse('/help addtc');
 
 		let parts = target.split(',');
@@ -39,7 +40,7 @@ exports.commands = {
     
     tc: function (target, room, user) {
       if (!this.runBroadcast()) return; 
-      if (!target < 0) return this.parse('/help tc');     
+      if (amount < 0) return this.parse('/help tc');     
 	  let name = Db('tc').get(target);         
       this.sendReplyBox('' + name + '');
     },
@@ -48,7 +49,7 @@ exports.commands = {
 
 	deletetc: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (!target < 0) return this.parse('/help deletetc');
+      if (amount < 0) return this.parse('/help deletetc');
       let name = Db('tc').get(target);
 
       Db('tc').delete(target);
@@ -56,11 +57,12 @@ exports.commands = {
       this.sendReply('You have successfully deleted the Trainer Card ' + target + '.');
 
     },
+	
     deletetchelp: ["/deletetc [name] - Delete a trainer card from the list of tcs that you have."],
 	
 	tchtml: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (!target < 0) return this.parse('/help deletetc');
+      if (amount < 0) return this.parse('/help deletetc');
       let name = Db('tc').get(target);
 
 	  this.sendReply('<b>TC Code:</b> ' + name + '');
