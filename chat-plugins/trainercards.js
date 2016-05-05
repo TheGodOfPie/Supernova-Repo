@@ -24,7 +24,6 @@ exports.commands = {
 
 	addtc: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
-		if (!Db('tc').has(user.userid)) return this.errorReply('The trainer card already or does not exist.');
 		if (!target || target.indexOf(',') < 0) return this.parse('/help addtc');
 
 
