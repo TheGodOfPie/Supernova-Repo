@@ -63,7 +63,7 @@ exports.commands = {
       if (!target < 0) return this.parse('/help deletetc');
       let name = Db('tc').get(target);
 
-	  this.addRaw('<b>TC Code:</b> ' + name + '');
+	  this.sendReply('<b>TC Code:</b> ' + name + '');
 	  
    },
    tchtmlhelp: ["/tchtml [name] - Get the HTML code of a certain Trainer Card."],
