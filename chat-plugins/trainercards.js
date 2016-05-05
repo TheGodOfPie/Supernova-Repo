@@ -65,5 +65,5 @@ exports.commands = {
 		if (!this.can('hotpatch')) return false;
 		if (!Object.keys(Db('tc').object()).length) return this.errorReply('There seems to be no trainer cards present at the moment.');
 		this.sendReplyBox('<center><b><u>Trainer Card List:</u></b></center>' + '<br /><br />' + Object.keys(Db('tc').object()).join('<br />'));
-
+   },
 };
