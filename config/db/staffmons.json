@@ -9,7 +9,7 @@
         "movepool": ["Moonblast", "Blizzard", "Origin Pulse"],
         "signature move": "Tidal Dance - 10 PP, Status, Water-type, Boosts SpA, Spe, SpD by 1.",
         "evs": ["4 HP", "252 SpA", "252 Spe"],
-        "note": "This staffmon can use it's setup move, Tidal Dance, with ease because it has enough bulk to withstand an attack without a stat boost. It can even withstand a super-effective move that is not STAB-boosted. Potential counters include Ransei, TheGodOfPie, or anything that has a Grass and/or Electric STAB/boosted move."
+        "note": "This staffmon can use it's setup move, Tidal Dance, with ease because it has enough bulk to withstand an attack without a stat boost. It can even withstand a super-effective move that is not STAB-boosted. When it gets to use Tidal Dance, it's pretty much game over for other staffmons against it that don't rely on stat boosts. Potential counters include Ransei, TheGodOfPie, or anything that has a Grass and/or Electric STAB/boosted move."
     },
     "steelsciz": {
         "username": "<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>~Steel Sciz<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>",
@@ -21,7 +21,7 @@
         "movepool": ["Dragon Dance", "Roost", "Flare Blitz"],
         "signature move": "Dragon's Attack - 10 PP, Physical, Dragon-type, Confuses the user, 120 BP, 100% Accuracy, 50% chance to boost the user's Atk and Spe by 1, Bite-based, Makes contact.",
         "evs": ["252 HP","252 Atk", "4 SpD"],
-        "note": "Steel Sciz's staffmon can be unstoppable when it gets a stat boost even just once, along with it's defensive bulk that can withstand most physical attacks. Potential counters include Ransei, Dragotic, TheGodOfPie or anything that can withstand its custom move and/or outspeed it."
+        "note": "Steel Sciz's staffmon can be unstoppable when it gets a stat boost even just once, along with it's defensive bulk that can withstand most physical attacks. Dragon's Attack also packs a huge punch with 120 base power, Tough Claws boost, STAB, and a high chance to raise its own Speed and Attack stat by 1. Potential counters include Ransei, Dragotic, TheGodOfPie or anything that can withstand its custom move and/or outspeed it."
     },
     "dragotic": {
         "username": "<img src='http://pldh.net/media/pokexycons/445.png'>Dragotic<img src='http://pldh.net/media/pokexycons/445.png'>",
@@ -33,7 +33,7 @@
         "movepool": ["Dragon Claw", "Dragon Dance", "Iron Head"],
         "signature move": "The Great Quake - 10 PP, Physical, Ground-type, Does not make contact, 110 BP, 100% Accuracy.",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "This Garchomp hits hard. It can be an unstoppable sweeper with its high Attack and Speed stats. Setting up can be easy because of its ability, Ascent, that makes it immune to Fairy-type moves, and having a Yache berry lessens Ice-type moves that hits Garchomp. Potential counters include Hydrostatics, Supernova Robot, Cross-Xz14 or anything that can kill this staffmon before it sets up."
+        "note": "This Garchomp hits hard. It can be an unstoppable sweeper with its high Attack and Speed stats. Setting up can be easy because of its ability, Ascent, that makes it immune to Fairy-type moves, and having a Yache berry lessens the damage that Ice-type moves do. Potential counters include Hydrostatics, Supernova Robot, Cross-Xz14 or anything that can kill this staffmon before it sets up."
     },
     "kie": {
         "username": "<img src='http://pldh.net/media/pokexycons/160.png'>&Kie<img src='http://pldh.net/media/pokexycons/160.png'>",
@@ -57,7 +57,7 @@
         "movepool": ["Energy Ball", "Thunderbolt", "Thunder Wave"],
         "signature move": "Victory Charge - 10 PP, 100% Accuracy, Special, Fire-type, 180 BP, 70% burn, 70% -1 target's Def & SpD, Auto-defrosts the user",
         "evs": ["252 HP", "252 SpA", "4 Spe"],
-        "note": "It can hit hard using it's special move, Victory Charge. It has some decent bulk, and could defeat an opposing staffmon or two. Potential counters include Ransei, Camilas, Steel Sciz or anything that hits hard and outspeeds this staffmon."
+        "note": "It can hit hard using it's special move, Victory Charge. It has some decent bulk, and could defeat an opposing staffmon or two. Thunder Wave can help slow down faster mons, as long it survives one attack, then it can hit back with POWER with Victory Charge. Potential counters include Ransei, Camilas, Steel Sciz or anything that hits hard and outspeeds this staffmon."
     },
     "supernovarobot": {
         "username": "<img src='http://media.pldh.net/pokexycons/032.png'>@Supernova Robot<img src='http://media.pldh.net/pokexycons/032.png'>",
