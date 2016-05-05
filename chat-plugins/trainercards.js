@@ -4,7 +4,7 @@
 * Made by: Steel Sciz     *
 *  						  *
 * PS Plugin to add in TCs *
-*   Utilizing OriginDB     *
+*   Utilizing OriginDB    *
 *                         *
 **************************/
 'use strict';
