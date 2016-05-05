@@ -57,6 +57,16 @@ exports.commands = {
 
     },
     deletetchelp: ["/deletetc [name] - Delete a trainer card from the list of tcs that you have."],
+	
+	tchtml: function (target, room, user) {
+	  if (!this.can('hotpatch')) return false;
+      if (!target < 0) return this.parse('/help deletetc');
+      let name = Db('tc').get(target);
+
+	  this.parse('<b>TC Code:</b> ' + name + '');
+	  
+   },
+   tchtmlhelp: ["/tchtml [name] - Get the HTML code of a certain Trainer Card."],
 
 /***************************************************
 * Copied from Dragotic's VIP and Developer Commands *
