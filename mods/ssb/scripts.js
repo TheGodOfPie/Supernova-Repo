@@ -66,10 +66,10 @@ exports.BattleScripts = {
 					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
 				},
 				'+Dayuh': {
-					species: 'Floette-Eternal', ability: 'Magic Bounce', item: 'Life Orb', gender: 'F', shiny: true,
-					moves: ['energyball', 'psychic', 'substitute'],
-					signatureMove: "Cold Moonlight",
-					evs: {spe:252, spa:252, hp:4}, nature: 'Timid',
+					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
+					moves: ['return', 'swordsdance', 'facade'],
+					signatureMove: "AromaLeech",
+					evs: {spe:252, atk:252, def:4}, nature: 'Adamant',
 				},
 			//Regulars
 				'Eternal Mayhem': {
