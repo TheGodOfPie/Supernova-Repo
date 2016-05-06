@@ -192,31 +192,32 @@ exports.BattleMovedex = {
 		type: "Flying"
 	},
 //+Dayuh
-	"coldmoonlight": {
+	"aromaleech": {
 		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		shortDesc: "100% chance to raise the user's Sp. Atk and Speed by 1.",
-		id: "coldmoonlight",
-		name: "Cold Moonlight",
+		basePower: 75,
+		category: "Physical",
+		shortDesc: "User recovers 50% of the damage dealt, 50% chance to raise Atk and Spe by 1.",
+		id: "aromaleech",
+		name: "AromaLeech",
 		pp: 10,
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Defog", target);
+			this.add('-anim', source, "Giga Drain", target);
 		},
 		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
+		drain: [1, 2],
 		secondary: {
 			chance: 50,
 			self: {
 				boosts: {
-					spa: 1,
-					spe: 1,
+					atk: 1,
+					spe: 1
 				}
 			}
 		},
 		target: "normal",
-		type: "Fairy"
+		type: "Grass",
 	},
 //+Camilas
 	"gitrektson": {
