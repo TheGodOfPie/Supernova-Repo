@@ -107,7 +107,7 @@
         "movepool": ["Roost", "V-Create", "Earthquake"],
         "signature move": "Git Rekt Son - 10 PP, 100% Accuracy, Physical, Flying-type, 300 BP, Takes away 50% of user's max HP per hit, Makes contact",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "Camilas' staffmon can attack at least 4 turns without using its custom move and 2 turns using it (This tip only works if Camilas' staffmon doesn't get attacked by that 2-4 turns). Potential counters include Ransei, Dayuh or anything that can outspeed it."
+        "note": "Camilas' staffmon can attack at least 4 turns without using its custom move and 2 turns using it (This tip only works if Camilas' staffmon doesn't get attacked by that 2-4 turns). However, Git Rekt Son can pretty much OHKO almost every other staffmon out there, carrying a handful 300 base power. Potential counters include Ransei, Dayuh or anything that can outspeed it."
     },
     "clawliet": {
         "username": "<img src='http://media.pldh.net/pokexycons/149.png'>+CLawliet<img src='http://media.pldh.net/pokexycons/149.png'>",
@@ -119,7 +119,7 @@
         "movepool": ["Dragon Dance", "Dragon Claw", "Earthquake"],
         "signature move": "Turbulence - 10 PP, 100% Accuracy, Physical, Flying-type, 60 BP, +2 priority, Makes contact",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's multiscale ability. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
+        "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's Multiscale ability. Multipower however, helps a ton in sweeping, and a lot more when it gets to use Dragon Dance. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
     },
     "dayuh": {
         "username": "<img src='http://www.serebii.net/pokedex-xy/icon/670-e.png'>+Dayuh<img src='http://www.serebii.net/pokedex-xy/icon/670-e.png'>",
