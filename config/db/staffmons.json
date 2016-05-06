@@ -175,10 +175,10 @@
         "staffmon": "Greninja",
         "item": "Life Orb",
         "ability": "Protean",
-        "nature": "Timid - +Spe -Atk",
-        "movepool": ["Hydro Pump", "Ice Beam", "Extrasensory"],
-        "signature move": "Dance Of Shadows - 100% Accuracy, 10 PP, Special, Dark-type, 90 BP, 30% chance to boost the user's SpA by 1.",
-        "evs": ["20 HP", "236 SpA", "252 Spe"],
+        "nature": "Hasty - +Spe -Def",
+        "movepool": ["Hydro Pump", "Ice Beam", "Gunk Shot"],
+        "signature move": "Dance Of Shadows - 100% Accuracy, 10 PP, Special, Dark-type, 90 BP, 50% chance to boost the user's SpA by 1.",
+        "evs": ["20 Atk", "236 SpA", "252 Spe"],
         "note": "Eternal Mayhem's staffmon is definitely a ninja. Both its Speed and Special Attack stat are powerhouses, making a good combination that'll surely take away a chunk of the opposing team. Its also got its Protean ability and a great moveset, so you could switch between types that'll possibly change the flow of the battle. Potential counters are Dayuh, Hydrostatics, Volco, or anything that outspeeds it/specially defense to survive a single hit, and deal some huge damage in return."
     },
     "ransei": {
