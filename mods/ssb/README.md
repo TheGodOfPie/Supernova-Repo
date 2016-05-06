@@ -199,22 +199,26 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
 	- Makes contact
 
 ### +Dayuh
-Floette-Eternal @ Life Orb
+Swasbuck @ Life Orb
 
-Ability: Magic Bounce
+Ability: Aroma Boost
 
-EVs: 4 HP, 252 SpA, 252 Spe, Nature: Timid
+- +1 Speed upon entry
+- This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5.
 
-- Energy Ball
-- Substitute
-- Psychic
-- Cold Moonlight
+EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
+
+- Return
+- Swords Dance
+- Facade
+- AromaLeech
 	- 10 PP 
 	- 100% Accuracy 
-	- Special 
-	- Fairy-type 
-	- 90 BP 
+	- Physical 
+	- Grass-type 
+	- 75 BP 
 	- 50% chance to +1 Spe & SpA after use
+	- Restores 50% of the damage dealt
 
 ### Back At My Day...
 Dialga @ Life Orb
