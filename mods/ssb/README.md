@@ -301,18 +301,18 @@ Greninja @ Life Orb
 
 Ability: Protean
 
-EVs: 20 HP, 236 SpA, 252 Spe, Nature: Timid
+EVs: 20 Atk, 236 SpA, 252 Spe, Nature: Hasty
 
 - Hydro Pump
 - Ice Beam
-- Extrasensory
+- Gunk Shot
 - Dance Of Shadows
 	- 10 PP
 	- 100% Accuracy
 	- Special
 	- Dark-type
 	- 90 BP
-	- 30% chance +1 SpA after use
+	- 50% chance +1 SpA after use
 
 ### Ransei
 Arceus @ Life Orb
