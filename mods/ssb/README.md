@@ -367,8 +367,8 @@ Changes (since 5/2/16)
 ### Username Changes
 
 ### Set Changes
-	- Dayuh (full set)
-	- Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
+- Dayuh (full set)
+- Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
 
 ### Removals
 
