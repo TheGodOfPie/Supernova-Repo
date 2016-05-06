@@ -109,6 +109,16 @@ exports.BattleAbilities = {
                         id: "multipower",
                         name: "Multipower",
                 },
+                //+Dayuh
+                "aromaboost": {
+                        shortDesc: "Adaptability & +1 Speed upon entry.",
+                        onModifyMove: function (move) {
+		        	move.stab = 2;
+                        },
+                        onStart: function (pokemon) {
+                                this.boost({spe: 1});
+                        },
+                },
         // Regulars
                 //Ransei
                 "wonderbarrier": {
