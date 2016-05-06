@@ -74,9 +74,9 @@ exports.BattleScripts = {
 			//Regulars
 				'Eternal Mayhem': {
 					species: 'Greninja', ability: 'Protean', item: 'Life Orb', gender: 'M', shiny: true,
-					moves: ['icebeam', 'hydropump', 'extrasensory'],
+					moves: ['icebeam', 'hydropump', 'gunkshot'],
 					signatureMove: "Dance Of Shadows",
-					evs: {spe:252, spa:236, hp:20}, nature: 'Timid'
+					evs: {spe:252, spa:236, atk:20}, nature: 'Hasty'
 				},
 				'Ransei': {
 					species: 'Arceus', ability: 'Wonder Barrier', item: 'Life Orb', gender: 'M',
