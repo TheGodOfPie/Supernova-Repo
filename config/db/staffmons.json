@@ -74,7 +74,7 @@
     },
     "thegodofpie": {
         "username": "<img src='http://media.pldh.net/pokexycons/475-mega.png'>@TheGodOfPie<img src='http://media.pldh.net/pokexycons/475-mega.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/3a78/f/2014/255/7/7/mega_gallade_by_dashinghero-d7yxd73.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/3a78/f/2014/255/7/7/mega_gallade_by_dashinghero-d7yxd73.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: \"FlipH\";'>",
         "staffmon": "Gallade-Mega",
         "item": "Matterless Pie - Boosts Psychic-type moves' power by 1.4x.",
         "ability": "Mystic Blades - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.",
@@ -122,16 +122,16 @@
         "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's Multiscale ability. Multipower however, helps a ton in sweeping, and a lot more when it gets to use Dragon Dance. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
     },
     "dayuh": {
-        "username": "<img src='http://www.serebii.net/pokedex-xy/icon/670-e.png'>+Dayuh<img src='http://www.serebii.net/pokedex-xy/icon/670-e.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/loX91A8.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://www.serebii.net/pokedex-xy/icon/670-e.png&quot;), auto;'>",
-        "staffmon": "Floette-Eternal",
+        "username": "<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>+Dayuh<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i11.tietuku.cn/86adc336710ce8ab.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://www.serebii.net/pokedex-xy/icon/670-e.png&quot;), auto;'>",
+        "staffmon": "Sawsbuck",
         "item": "Life Orb",
-        "ability": "Magic Bounce",
-        "nature": "Timid - +Spe -Atk",
-        "movepool": ["Substitute", "Energy Ball", "Psychic"],
-        "signature move": "Cold Moonlight - 10 PP, Special, Fairy-type, 90 BP, 50% chance to +1 Spe & SpA after use",
-        "evs": ["4 HP", "252 SpA", "252 Spe"],
-        "note": "Dayuh's staffmon can possibly sweep the opponent's team, as long as it receives its boosts from Cold Moonlight. Magic Bounce is always a good thing, as it prevents itself from status moves, which could possibly break its flow. It has decent Special Defense, and a good counter for support/stall mons. Potential counters include Back At My Day..., or any Physical attacker that could definitely OHKO this mon before it could receive its boosts."
+        "ability": "Aroma Boost - +1 Speed upon entry; STAB boosts is 2x instead of 1.5x.",
+        "nature": "Adamant - +Atk -SpA",
+        "movepool": ["Return", "Facade", "Swords Dance"],
+        "signature move": "AromaLeech - 10 PP, Physical, Grass-type, 75 BP, 50% chance to +1 Spe & SpA, Restores 50% of the damage done, Makes contact.",
+        "evs": ["252 Atk", "4 Def", "252 Spe"],
+        "note": "Dayuh's staffmon could possibly punch a hole on the opposing team. It has a Speed boost, a better STAB boost, Life Orb boost, and if you're lucky, it could use Swords Dance. AromaLeech also heals a good amount after dealing so much DAMAGE to the opponent. Potential counters include Back At My Day..., Ransei, or any bulky staffmon that could definitely survive a single hit, and can deal some intense damage in return."
     },
     "backatmyday": {
         "username": "<img src='http://media.pldh.net/pokexycons/483.png'>Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
