@@ -25,7 +25,7 @@
     },
     "dragotic": {
         "username": "<img src='http://pldh.net/media/pokexycons/445.png'>Dragotic<img src='http://pldh.net/media/pokexycons/445.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://images.123hdwallpapers.com/20151023/garchomp-minimalism-simple-background-1920x1080.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/445.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/VCvMalR.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/445.png&quot;), auto;'>",
         "staffmon": "Garchomp",
         "item": "Yache Berry",
         "ability": "Ascent - Dragon-type moves have 1.5x power; Immune to Fairy-type attacks.",
@@ -61,11 +61,11 @@
     },
     "supernovarobot": {
         "username": "<img src='http://media.pldh.net/pokexycons/032.png'>@Supernova Robot<img src='http://media.pldh.net/pokexycons/032.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/nidoranm.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/032.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/nyvdFy2.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/032.png&quot;), auto;'>",
         "staffmon": "Nidoran-M",
         "item": "Supernova Stone - Mega-evolves Nidoran-M to Palkia.",
-        "ability": "Download (Pre-Mega Ability); Auto-warn - Lowers target's Speed by 3 when hit by a contact move. (Mega Ability)",
-        "innate ability": "Galactic Clash - -10% HP to the opponent when hit by a move. -50% instead if hit by a Dragon-type move.",
+        "ability": "Download (Pre-Mega Ability); Galactic Clash - -10% HP to the opponent when hit by a move. -50% instead if hit by a Dragon-type move. (Mega Ability)",
+        "innate ability": "Auto-warn - Lowers opponent's Speed by 3 when hit by a contact move. ",
         "nature": "Modest +SpA -Atk",
         "movepool": ["Fire Blast", "Hydro Pump", "Earth Power"],
         "signature move": "Galaxy Blast - 10 PP, Special, Dragon-type, 150 BP, 20% chance to flinch the target, Pulse-based, 100% Accuracy.",
@@ -74,7 +74,7 @@
     },
     "thegodofpie": {
         "username": "<img src='http://media.pldh.net/pokexycons/475-mega.png'>@TheGodOfPie<img src='http://media.pldh.net/pokexycons/475-mega.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/3a78/f/2014/255/7/7/mega_gallade_by_dashinghero-d7yxd73.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/me7tYmC.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
         "staffmon": "Gallade-Mega",
         "item": "Matterless Pie - Boosts Psychic-type moves' power by 1.4x.",
         "ability": "Mystic Blades - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.",
@@ -111,7 +111,7 @@
     },
     "clawliet": {
         "username": "<img src='http://media.pldh.net/pokexycons/149.png'>+CLawliet<img src='http://media.pldh.net/pokexycons/149.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/dragonite.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/149.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/18RoWCz.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/149.png&quot;), auto;'>",
         "staffmon": "Dragonite",
         "item": "Stats B00ster - +1 Atk & Spe when hit by a super-effective move.",
         "ability": "Multipower - Pokemon's Attack stat is multiplied by 1.5x.",
@@ -123,10 +123,10 @@
     },
     "dayuh": {
         "username": "<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>+Dayuh<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i11.tietuku.cn/86adc336710ce8ab.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://www.serebii.net/pokedex-xy/icon/670-e.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/dXs9Zws.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://www.serebii.net/pokedex-xy/icon/586.png&quot;), auto;'>",
         "staffmon": "Sawsbuck",
         "item": "Life Orb",
-        "ability": "Aroma Boost - +1 Speed upon entry; STAB boosts is 2x instead of 1.5x.",
+        "ability": "Aroma Boost - +1 Speed upon entry; STAB boost is 2x instead of 1.5x.",
         "nature": "Adamant - +Atk -SpA",
         "movepool": ["Return", "Facade", "Swords Dance"],
         "signature move": "AromaLeech - 10 PP, Physical, Grass-type, 75 BP, 50% chance to +1 Spe & SpA, Restores 50% of the damage done, Makes contact.",
@@ -135,7 +135,7 @@
     },
     "backatmyday": {
         "username": "<img src='http://media.pldh.net/pokexycons/483.png'>Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/dialga.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/SaGRpyK.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
         "staffmon": "Dialga",
         "item": "Life Orb",
         "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
@@ -147,7 +147,7 @@
     },
     "darkchaoticflare": {
         "username": "<img src='http://media.pldh.net/pokexycons/197.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/197.png'>",
-        "styling": "<div style='color: white; padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/umbreon.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/197.png&quot;), auto;'>",
+        "styling": "<div style='color: white; padding: 5px; background: url(&quot;http://i.imgur.com/80DACe5.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/197.png&quot;), auto;'>",
         "staffmon": "Umbreon",
         "item": "Healing Coat - Restores 1/16 of max HP after each turn.",
         "ability": "Invulnerable - Bounces back certain non-damaging moves.",
@@ -171,7 +171,7 @@
     },
     "eternalmayhem": {
         "username": "<img src='http://media.pldh.net/pokexycons/658.png'>Eternal Mayhem<img src='http://media.pldh.net/pokexycons/658.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/xyarchives/greninja.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/658.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/P5GBOeL.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/658.png&quot;), auto;'>",
         "staffmon": "Greninja",
         "item": "Life Orb",
         "ability": "Protean",
@@ -183,7 +183,7 @@
     },
     "ransei": {
         "username": "<img src='http://media.pldh.net/pokexycons/493.png'>Ransei<img src='http://media.pldh.net/pokexycons/493.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/arceus.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/493.png&quot;), auto;'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/5DDz15S.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/493.png&quot;), auto;'>",
         "staffmon": "Arceus",
         "item": "Life Orb",
         "ability": "Wonder Barrier - Can only be affected by super-effective attacks and indirect damage; Can hit Ghost-types with Normal and Fighting-type moves; +6 to all stats [including evasion] upon entry.",
