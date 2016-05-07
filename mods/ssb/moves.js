@@ -202,7 +202,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Giga Drain", target);
+			this.add('-anim', source, "Horn Leech", target);
 		},
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, heal: 1},
