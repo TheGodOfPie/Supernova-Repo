@@ -74,7 +74,7 @@
     },
     "thegodofpie": {
         "username": "<img src='http://media.pldh.net/pokexycons/475-mega.png'>@TheGodOfPie<img src='http://media.pldh.net/pokexycons/475-mega.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/3a78/f/2014/255/7/7/mega_gallade_by_dashinghero-d7yxd73.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: \"FlipH\";'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/3a78/f/2014/255/7/7/mega_gallade_by_dashinghero-d7yxd73.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
         "staffmon": "Gallade-Mega",
         "item": "Matterless Pie - Boosts Psychic-type moves' power by 1.4x.",
         "ability": "Mystic Blades - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.",
