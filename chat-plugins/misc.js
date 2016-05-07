@@ -1709,5 +1709,5 @@ spr: 'sprite',
     },
     ssbhelp: ['/ssb [staff name] - Shows the complete set of a member in SSSB.',
     'Current members present in SSSB are:',
-    'Hydrostatics, Dragotic, Steel Sciz, Kie, StarryWindy, Supernova Robot, TheGodOfPie, Cross-Xz14, Camilas, CLawliet, Back At My Day..., DarkChaoticFlare, Dayuh, Elizabeth Swann, Eternal Mayhem, Ransei, and Volco.'],
+    'Hydrostatics, Steel Sciz, Kie, StarryWindy, Supernova Robot, TheGodOfPie, Cross-Xz14, Camilas, CLawliet, Dayuh, Back At My Day..., DarkChaoticFlare, Dragotic, Elizabeth Swann, Eternal Mayhem, Ransei, and Volco.'],
 };
