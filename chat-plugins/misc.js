@@ -1502,7 +1502,19 @@ spr: 'sprite',
 	    if (room.auth) group = room.auth[user.userid] || group;
 	   	let style = "background:none;border:0;padding:0 5px 0 0;font-family:Verdana,Helvetica,Arial,sans-serif;font-size:9pt;cursor:pointer";
 		this.add('|raw|' + "<b<div class='chat'>" + "<small>" + group + "</small>" + "<button name='parseCommand' value='/user " + user.name + "' style='" + style + "'>" + "<b><font color='"  + color(user.userid) +  "'>" + user.name + ":</font></b></button>" + '<b><font color="' + targets[0].toLowerCase().replace(/[^#a-z0-9]+/g, '') + '">' + Tools.escapeHTML(targets.slice(1).join(",")) + '</font>');
-		
+
+    },
+
+	namecolor: function (target, room, user) {
+		var targets = target.split(',');
+		if (targets.length < 2) return this.sendReply("/namecolor [color], [message] - Outputs your name in custom color.");
+		if (!this.runBroadcast()) return;
+		if (!this.canTalk()) return this.errorReply("You may not use this command while unable to speak.");
+		let group = user.getIdentity().charAt(0);
+	    if (room.auth) group = room.auth[user.userid] || group;
+	   	let style = "background:none;border:0;padding:0 5px 0 0;font-family:Verdana,Helvetica,Arial,sans-serif;font-size:9pt;cursor:pointer";
+		this.add('|raw|' + "<div class='chat'>" + "<small>" + group + "</small>" + "<button name='parseCommand' value='/user " + user.name + "' style='" + style + "'>" + '<b><font color="' + targets[0].toLowerCase().replace(/[^#a-z0-9]+/g, '') + '">' + user.name + ':</b></font></button>' + '<font color="black">' + Tools.escapeHTML(targets.slice(1).join(",")) + '</font>');
+			
 	},
 
 
