@@ -41,7 +41,7 @@ exports.commands = {
     
     tc: function (target, room, user) {
       if (!this.runBroadcast()) return; 
-	  if (target.length < 2) return this.parse("/help tc");   
+	  if (target.length < 1) return this.parse("/help tc");   
 	  let name = Db('tc').get(target);         
       this.sendReplyBox('' + name + '');
     },
@@ -50,7 +50,7 @@ exports.commands = {
 
 	deletetc: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (target.length < 2) return this.parse("/help deletetc");
+      if (target.length < 1) return this.parse("/help deletetc");
       let name = Db('tc').get(target);
 
       Db('tc').delete(target);
@@ -64,7 +64,7 @@ exports.commands = {
 	tchtml: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
       if (Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
-      if (target.length < 2) return this.parse("/help tchtml");
+      if (target.length < 1) return this.parse("/help tchtml");
       let name = Db('tc').get(target);
 
 	  this.sendReply('TC Code:' + name + '');
