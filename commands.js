@@ -774,35 +774,58 @@ exports.commands = {
 			delete Rooms.aliases[alias];
 			Rooms.global.writeChatRoomData();
 		}
-	},
-
-	roomowner: function (target, room, user) {
+   },
+    roomowner: function (target, room, user) {
 		if (!room.chatRoomData) {
 			return this.sendReply("/roomowner - This room isn't designed for per-room moderation to be added");
 		}
 		if (!target) return this.parse('/help roomowner');
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
-		let name = this.targetUsername;
-		let userid = toId(name);
 
-		if (!Users.isUsernameKnown(userid)) {
-			return this.errorReply("User '" + this.targetUsername + "' is offline and unrecognized, and so can't be promoted.");
-		}
+		if (!targetUser) return this.errorReply("User '" + this.targetUsername + "' is not online.");
 
-		if (!this.can('makeroom')) return false;
+        if (room.chatRoomData.founder !== user.userid && !this.can('makeroom')) return this.errorReply('/roomowner - Access denied.');
+        if (!room.chatRoomData.founder) return this.errorReply('The room needs to have a room founder before it can have a room owner.');
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
-		room.auth[userid] = '#';
+		let name = targetUser.name;
+
+		room.auth[targetUser.userid] = '#';
 		this.addModCommand("" + name + " was appointed Room Owner by " + user.name + ".");
-		if (targetUser) {
-			targetUser.popup("You were appointed Room Owner by " + user.name + " in " + room.id + ".");
-			room.onUpdateIdentity(targetUser);
-		}
+		targetUser.popup("You were appointed Room Owner by " + user.name + " in " + room.id + ".");
+		room.onUpdateIdentity(targetUser);
 		Rooms.global.writeChatRoomData();
 	},
-	roomownerhelp: ["/roomowner [username] - Appoints [username] as a room owner. Requires: & ~"],
+	roomownerhelp: ["/roomowner [username] - Appoints [username] as a room owner. Removes official status. Requires: & ~"],
+
+	roomdeowner: 'deroomowner',
+	deroomowner: function (target, room, user) {
+		if (!room.auth) {
+			return this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
+		}
+		if (!target) return this.parse('/help roomdeowner');
+		target = this.splitTarget(target, true);
+		let targetUser = this.targetUser;
+		let name = this.targetUsername;
+		let userid = toId(name);
+		if (!userid || userid === '') return this.errorReply("User '" + name + "' not found.");
+
+		if (room.auth[userid] !== '#') return this.errorReply("User '" + name + "' is not a room owner.");
+        if (room.chatRoomData.founder !== user.userid && !this.can('makeroom')) return this.errorReply('/roomowner - Access denied.');
+
+		delete room.auth[userid];
+		this.sendReply("(" + name + " is no longer Room Owner.)");
+		if (targetUser) {
+			targetUser.popup("You are no longer a Room Owner of " + room.id + ". (Demoted by " + user.name + ".)");
+			targetUser.updateIdentity();
+		}
+		if (room.chatRoomData) {
+			Rooms.global.writeChatRoomData();
+		}
+	},
+	deroomownerhelp: ["/roomdeowner [username] - Removes [username]'s status as a room owner. Requires: & ~"],
 
 	roomdemote: 'roompromote',
 	roompromote: function (target, room, user, connection, cmd) {
@@ -889,6 +912,7 @@ exports.commands = {
 		"/room[group] [username] - Promotes/demotes the user to the specified room rank. Requires: @ # & ~",
 		"/roomdeauth [username] - Removes all room rank from the user. Requires: @ # & ~"],
 
+		
 	roomstaff: 'roomauth',
 	roomauth1: 'roomauth',
 	roomauth: function (target, room, user, connection, cmd) {
@@ -906,12 +930,18 @@ exports.commands = {
 			rankLists[targetRoom.auth[u]].push(u);
 		}
 
-		let buffer = Object.keys(rankLists).sort((a, b) =>
+		let buffer = [];
+
+		if (targetRoom.chatRoomData.founder) {
+			buffer.push("Room Founder (#): " + (targetRoom.chatRoomData.founder in targetRoom.users ? ("**" + targetRoom.users[targetRoom.chatRoomData.founder].name + "**") : targetRoom.chatRoomData.founder));
+		}
+
+		Object.keys(rankLists).sort((a, b) =>
 			(Config.groups[b] || {rank:0}).rank - (Config.groups[a] || {rank:0}).rank
 		).map(r => {
 			let roomRankList = rankLists[r].sort();
 			roomRankList = roomRankList.map(s => s in targetRoom.users ? "**" + s + "**" : s);
-			return (Config.groups[r] ? Config.groups[r].name + "s (" + r + ")" : r) + ":\n" + roomRankList.join(", ");
+			buffer.push((Config.groups[r] ? Config.groups[r].name + "s (" + r + ")" : r) + ":\n" + roomRankList.join(", "));
 		});
 
 		if (!buffer.length) {
