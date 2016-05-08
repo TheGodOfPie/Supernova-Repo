@@ -1490,13 +1490,13 @@ spr: 'sprite',
 			if (response.statusCode == 404) return self.sendReply('The sprite for ' + sprite + alt + ' is currently unavailable.');
 			self.sendReply('|html|<img src = "' + url + sprite + alt + '.gif">');
 		});
-},
+    },
 
 	chatcolour: 'chatcolor',
 	chatcolor: function (target, room, user) {
 		var targets = target.split(',');
 		if (targets.length < 2) return this.sendReply("/chatcolor OR /chatcolour [colour], [message] - Outputs a message in a custom colour.");
-		if (!this.can('vip') || !this.canBroadcast()) return;
+		if (!isVip(user) && !isDev(user) || !this.runBroadcast()) return;
 		if (!this.canTalk()) return this.errorReply("You may not use this command while unable to speak.");
 		let group = user.getIdentity().charAt(0);
 	    if (room.auth) group = room.auth[user.userid] || group;
