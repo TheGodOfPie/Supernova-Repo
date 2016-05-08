@@ -279,7 +279,7 @@ exports.commands = {
 	buyhelp: ["/buy [command] - Buys an item from the shop."],
 
 	customsymbol: function (target, room, user) {
-		if (!user.canCustomSymbol && user.id !== user.userid) return this.errorReply("You need to buy this item from the shop.");
+		if (!user.canCustomSymbol && user.id !== user.userid && if (isDev(user))) return this.errorReply("You need to buy this item from the shop.");
 		if (!target || target.length > 1) return this.parse('/help customsymbol');
 		if (target.match(/[A-Za-z\d]+/g) || '|?!+$%@\u2605=&~#\u03c4\u00a3\u03dd\u03b2\u039e\u03a9\u0398\u03a3\u00a9'.indexOf(target) >= 0) {
 			return this.errorReply("Sorry, but you cannot change your symbol to this for safety/stability reasons.");
@@ -368,93 +368,6 @@ exports.commands = {
         this.logModCommand('The Pokemon of the Day was changed to ' + target + ' by ' + user.name + '.');
         user.setpotd = false;
         user.alreadysetpotd = true;
-
-	},
-
-	newbingo: function (target, room, user) {
-		if (room.id !== 'casino') return this.sendReply("Bingo can only be played in the Casino.");
-		if (room.game) return this.errorReply("There is already a game of " + room.game.title + " in progress in this room.");
-		if (!this.can('minigame', null, room)) return false;
-		if (bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
-		bingoStatus = true;
-		bingoNumbers = getBingoNumbers().randomize();
-		bingoSaidNumbers = {};
-		actualValue = 0;
-		tables = {};
-		bingoPrize = 0;
-		this.privateModCommand('(' + user.name + ' has started a game of Bingo.)');
-		room.addRaw("<div class=\"broadcast-blue\"><b>A Bingo game has started!</b><br />To participate, 15 bucks are required for you to buy a table (using /buytable).<br><center><button name='send' value='/buytable'>Join the Bingo Game!</button></center></div>");
-		Rooms('lobby').add("|raw|<div class=\"broadcast-blue\"><center>A session of <b>Bingo</b> is being played in the <button name=\"joinRoom\" value=" + room.id +">" + room.title + "</button>!</center></div>");
-		Rooms('lobby').update();
-		room.update();
-		var loop = function () {
-			setTimeout(function () {
-				if (!bingoStatus) return;
-				if (actualValue >= bingoNumbers.length) {
-					bingoStatus = false;
-		            clearRoom(room);
-					room.addRaw("<div class=\"broadcast-blue\"><b>Bingo has been terminated!</b><br />Try again after sometime.</div>");
-					room.update();
-					return;
-				}
-				room.add('|c| [Bingo Game]|**Bingo:** Number chosen: **' + bingoNumbers[actualValue] + '**');
-				bingoSaidNumbers[bingoNumbers[actualValue]] = 1;
-				++actualValue;
-				room.update();
-				checkBingo(room);
-				loop();
-			}, 1000 * 3);
-		};
-		loop();
-	},
-	
-
-	buytable: function (target, room, user) {
-		if (room.id !== 'casino') return this.sendReply("Bingo Commands can only be played in Casino.");
-		if (!bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
-		if (tables[user.userid]) return this.sendReply("You have already purchased a Bingo ticket.");
-		var amount = Db('money').get(user.userid, 0);
-		if (amount < 15) return this.sendReply("You do not have enough bucks to buy a table.");
-		var cost = 15;
-		var total = Db('money').set(user.userid, amount - cost).get(user.userid);
-
-		//if (Shop.getUserMoney(user.name) < 10) return this.sendReply("Vous n'avez pas assez d'argent.");
-		//Shop.removeMoney(user.name, 10);
-		//Shop.giveMoney('casino', 5);
-		var numbers = getBingoNumbers().randomize();
-		var cells = [];
-		for (var i = 0; i < 5; ++i) {
-			cells.push(numbers[i]);
-		}
-		tables[user.userid] = cells;
-		bingoPrize += 15;
-		this.sendReply("You have bought a ticket in order to participate in bingo. Type /bingo to see the current status of your table after the game of Bingo begins.");
-		this.parse('/bingo');
-		checkBingo(room);
-	},
-	
-	bingo: function (target, room, user) {
-		if (room.id !== 'casino') return this.sendReply("Bingo Commands can only be played in Casino.");
-		if (!this.canBroadcast()) return;
-		if (!bingoStatus) return this.sendReply("There is no ongoing Bingo game taking place.");
-		var targetUserId = user.userid;
-		if (tables[toId(target)]) targetUserId = toId(target);
-		if (tables[targetUserId]) {
-			var html = '<b>Bingo Table of</b>: ' + getUserName(targetUserId) + '<br /><br />';
-			html += '<table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody><tr>';
-			for (var n = 0; n < tables[targetUserId].length; ++n) {
-				if (!bingoSaidNumbers[tables[targetUserId][n]]) {
-					html += '<td><center><b>' + tables[targetUserId][n] + '</b></center></td>';
-				} else {
-					html += '<td><center><font color="red"><b>' + tables[targetUserId][n] + '</b></font></center></td>';
-				}
-			}
-			html += '</tr></tbody></table><br />';
-		} else {
-			var html = 'You need to purchase a ticket to participate in the current game of bingo. Do /buytable before it begins.<br /><br />';
-		}
-		html += '<b>Pot Money: </b>' + bingoPrize + ' bucks.';
-		this.sendReplyBox(html);
 
     },
 
