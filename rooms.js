@@ -892,6 +892,14 @@ let BattleRoom = (() => {
 		this.disconnectTickDiff = [0, 0];
 
 		if (Config.forcetimer) this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'outurbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'ubersturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'uuturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'ruturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'nuturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'puturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'lcturbo') this.requestKickInactive(false);
+		if (Config.forcetimer || this.format === 'agturbo') this.requestKickInactive(false);
 	}
 	BattleRoom.prototype = Object.create(Room.prototype);
 	BattleRoom.prototype.type = 'battle';
@@ -1145,7 +1153,30 @@ let BattleRoom = (() => {
 			maxTicksLeft = 6;
 		}
 		if (!this.rated && !this.tour) maxTicksLeft = 30;
-
+                if (this.format === "outurbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "ubersturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "uuturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "ruturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "nuturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                if (this.format === "puturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+ 	            if (this.format === "lcturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                if (this.format === "agturbo") {
+ 			maxTicksLeft = 2;
+ 		}
 		this.sideTurnTicks = [maxTicksLeft, maxTicksLeft];
 
 		let inactiveSide = this.getInactiveSide();
