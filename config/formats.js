@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 // Note: This is the list of formats
 // The rules that formats use are stored in data/rulesets.js
@@ -1135,6 +1135,7 @@ exports.Formats = [
  			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3553516/\">OU Viability Ranking</a>",
  		],
  		section: "ORAS Turbo",
+		column: 4,
  
  
  		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
