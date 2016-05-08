@@ -84,6 +84,13 @@ exports.Formats = [
 		ruleset: ['RU'],
 		banlist: ['RU', 'BL3'],
 	},
+    {
+        name: "FU",
+       
+        section: "ORAS Singles",
+        ruleset: ['PU'],
+        banlist: ['Poliwrath','Piloswine', 'Mr.Mime','Ninetales', 'Roselia', 'Sawsbuck', 'Probopass', 'Zebstrika', 'Leafeon', 'Ursaring', 'Lickilicky', 'Machoke', 'Pelipper', 'Torterra','Volbeat','Tangela','Rapidash', 'Raichu','Carracosta','Stoutland','Togetic','Gourgeist-Super','Rotom-Frost','Avalugg','Beheeyem','Stunfisk','Munchlax','Onix','Barbaracle','Grumpig','Monferno','Rampardos','Ninjask','Floatzel','Heatmor','Marowak','Cottonee','Basculin','Vigoroth','Regice','Stoutland','Machoke','Ursaring','Chatot']
+    },
 	{
 		name: "PU",
 		desc: [
@@ -1115,7 +1122,113 @@ exports.Formats = [
 		// This allows the format to have kind of custom side effects and volatiles.
 		onResidual: function (battle) {},
 	},
+	
+	// Turbo
+	///////////////////////////////////////////////////////////////////
+	
+    {
+	    name: "OU (Turbo)",
+ 		desc: [
+ 			"&bullet; This is basically the same as regular OU, but each player only has 10 seconds to make a move.",
+ 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3521201/\">OU Metagame Discussion</a>",
+ 			"&bullet; <a href=\"https://www.smogon.com/dex/xy/tags/ou/\">OU Banlist</a>",
+ 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3553516/\">OU Viability Ranking</a>",
+ 		],
+ 		section: "ORAS Turbo",
+ 
+ 
+ 		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Swagger Clause', 'Baton Pass Clause'],
+ 		banlist: ['Uber', 'Shadow Tag', 'Soul Dew'],
+ 		forceTimer: true,
+ 	},
+	{
+	    name: "Ubers (Turbo)",
+ 		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3522911/\">Ubers Metagame Discussion</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3535106/\">Ubers Viability Ranking</a>",
+		],
+ 		section: "ORAS Turbo",
+ 
+		ruleset: ['Pokemon', 'Standard', 'Swagger Clause', 'Team Preview', 'Mega Rayquaza Clause'],
+ 		forceTimer: true,
+ 	},
+ 	{
+		name: "UU (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3557948/\">np: UU Stage 6</a>",
+			"&bullet; <a href=\"https://www.smogon.com/dex/xy/tags/uu/\">UU Banlist</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3555277/\">UU Viability Ranking</a>",
+		],
+		section: "ORAS Turbo",
 
+		ruleset: ['OU'],
+		banlist: ['OU', 'BL', 'Drizzle', 'Drought'],
+	 	forceTimer: true,
+	},
+	{
+		name: "RU (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3564252/\">np: RU Stage 14</a>",
+			"&bullet; <a href=\"https://www.smogon.com/dex/xy/tags/ru/\">RU Banlist</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3558546/\">RU Viability Ranking</a>",
+		],
+		section: "ORAS Turbo",
+
+		ruleset: ['UU'],
+		banlist: ['UU', 'BL2'],
+	 	forceTimer: true,
+	},
+	{
+		name: "NU (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3567055/\">np: NU Stage 12</a>",
+			"&bullet; <a href=\"https://www.smogon.com/dex/xy/tags/nu/\">NU Banlist</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3555650/\">NU Viability Ranking</a>",
+		],
+		section: "ORAS Turbo",
+
+		ruleset: ['RU'],
+		banlist: ['RU', 'BL3'],
+	 	forceTimer: true,
+	},
+	{
+		name: "PU (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3560703/\">np: PU Stage 6</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3528743/\">PU Viability Ranking</a>",
+		],
+		section: "ORAS Turbo",
+
+		ruleset: ['NU'],
+		banlist: ['NU', 'BL4', 'Chatter'],
+ 	 	forceTimer: true,
+	},
+	{
+		name: "LC (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3505710/\">LC Metagame Discussion</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3490462/\">LC Banlist</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3547566/\">LC Viability Ranking</a>",
+		],
+		section: "ORAS Turbo",
+
+		maxLevel: 5,
+		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Little Cup'],
+		banlist: ['LC Uber', 'Gligar', 'Misdreavus', 'Scyther', 'Sneasel', 'Tangela', 'Dragon Rage', 'Sonic Boom', 'Swagger'],
+ 	 	forceTimer: true,
+	},
+	{
+		name: "Anything Goes (Turbo)",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3523229/\">Anything Goes</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3548945/\">Anything Goes Resources</a>",
+		],
+		section: "ORAS Turbo",
+
+		ruleset: ['Pokemon', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview'],
+		banlist: ['Unreleased', 'Illegal'],
+ 	 	forceTimer: true,
+	},
 	// BW2 Singles
 	///////////////////////////////////////////////////////////////////
 
