@@ -1496,7 +1496,7 @@ spr: 'sprite',
 	chatcolor: function (target, room, user) {
 		var targets = target.split(',');
 		if (targets.length < 2) return this.sendReply("/chatcolor OR /chatcolour [colour], [message] - Outputs a message in a custom colour.");
-		if (!isVip(user) && !isDev(user) || !this.runBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!this.canTalk()) return this.errorReply("You may not use this command while unable to speak.");
 		let group = user.getIdentity().charAt(0);
 	    if (room.auth) group = room.auth[user.userid] || group;
