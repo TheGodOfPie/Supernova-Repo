@@ -128,25 +128,24 @@ exports.BattleMovedex = {
 		type: "Dragon"
 	},
 //@TheGodOfPie
-	"boundaryblade": {
+	"dubstepdagger": {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 130,
 		category: "Physical",
 		shortDesc: "No additional effect.",
-		id: "boundaryblade",
-		name: "Boundary Blade",
+		id: "dubstepdagger",
+		name: "Dubstep Dagger",
 		pp: 10,
 		priority: 0,
 		onPrepareHit: function (target, source, move) {
             this.attrLastMove('[still]');
-			this.add('-anim', source, "Geomancy", source);
-			this.add('-anim', source, "Dragon Ascent", target);
+			this.add('-anim', source, "Boomburst", target);
 			this.add('-anim', target, "Secret Sword", target);
 		},
-		flags: {contact: 1, protect: 1, mirror: 1, punch: 1},
+		flags: {sound: 1, protect: 1, mirror: 1, authentic: 1},
 		secondary: {
-			chance: 100,
-			volatileStatus: 'trapped'
+			chance: 50,
+			volatileStatus: 'confusion'
 		},
 		target: "normal",
 		type: "Psychic"
