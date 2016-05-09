@@ -41,7 +41,7 @@ exports.BattleScripts = {
 				'@TheGodOfPie': {
 					species: 'Gallade-Mega', ability: 'Mystic Blades', item: 'Matterless Pie', gender: 'M', shiny: true,
 					moves: ['earthquake', 'shadowsneak', 'closecombat'],
-					signatureMove: "Boundary Blade",
+					signatureMove: "Dubstep Dagger",
 					evs: {hp:4, atk:252, spe:252}, nature: 'Jolly',
 				},
             // Drivers
