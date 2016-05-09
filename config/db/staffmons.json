@@ -81,7 +81,7 @@
         "innate ability": "Distortion - Inverts target's stats upon entry.",
         "nature": "Jolly - +Spe -SpA",
         "movepool": ["Shadow Sneak", "Close Combat", "Earthquake"],
-        "signature move": "Dubstep Dagger - 10 PP, 100% Accuracy, Physical, Psychic-type, 130 BP, Sound-based, Bypasses Substitute, & Does not make contact, -1 Spe, SpD, & Def to self after use, 50% chance to confuse target.",
+        "signature move": "Dubstep Dagger - 10 PP, 100% Accuracy, Physical, Psychic-type, 130 BP, Sound-based, Bypasses Substitute, & Does not make contact, -1 Spe, SpD, & Def to self after use, 100% chance to confuse target.",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
         "note": "With its ability, innate ability, custom item, and custom move, it can either be a powerful sweeper or a good troll for staffmons that rely on stat boosts like Ransei. Just bring this up against the big guns with the big boosts, and watch the opponents and their hard-earned stat changes flip around like it's Opposite Day. Potential counters include CLawliet, Camilas, Cross-Xz14 or anything that outspeeds this staffmon and doesn't rely on setups."
     },
