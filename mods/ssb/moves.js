@@ -147,6 +147,7 @@ exports.BattleMovedex = {
 			chance: 50,
 			volatileStatus: 'confusion'
 		},
+		self: {boosts: {accuracy: -1, def: -1, spd:-1}},
 		target: "normal",
 		type: "Psychic"
 	},
