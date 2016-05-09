@@ -133,7 +133,7 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
 	- 130 BP
 	- Bypasses protect, Sounds-based, & does not make contact
 	- -1 Accuracy, Def, & SpD to self after use
-	- 50% chance to confuse target
+	- 100% chance to confuse target
 
 ### %Cross-Xz14
 Darkrai @ Life Orb
