@@ -125,14 +125,13 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
 - Shadow Sneak
 - Close Combat
 - Earthquake
-- Boundary Blade 
+- Dubstep Dagger 
 	- 10 PP
 	- 100% Accuracy
 	- Physical
 	- Psychic-type
 	- 90 BP
-	- Punch-based & Makes contact
-	- Prevents the target from switcing
+	- Bypasses protect, Sounds-based, & does not make contact
 
 ### %Cross-Xz14
 Darkrai @ Life Orb
