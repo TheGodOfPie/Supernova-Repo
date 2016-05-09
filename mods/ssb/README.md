@@ -370,6 +370,7 @@ Changes (since 5/2/16)
 ### Set Changes
 - Dayuh (full set)
 - Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
+- TheGodOfPie (Change custom move)
 
 ### Removals
 
@@ -378,4 +379,5 @@ Changes (since 5/2/16)
 ### Move, item, and ability FIXES [tweaks, not complete changes]
 - Dance Of Shadows now has 50% to get boosts instead of 30%.
 
-### Other fixes
+### Other stuff
+- Added a format description
