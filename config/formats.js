@@ -674,7 +674,7 @@ exports.Formats = [
         mod: 'monocolor',
         ruleset: ['Pokemon', 'Standard', 'Baton Pass Clause', 'Swagger Clause', 'Same Color Clause', 'Team Preview'],
         banlist: ['Arceus', 'Deoxys', 'Deoxys-Attack', 'Deoxys-Speed', 'Darkrai', 'Dialga', 'Genesect', 'Giratina', 'Giratina-Origin', 'Groudon', 'Hoopa-Unbound', 'Ho-Oh',
-            'Kyogre', 'Kyurem-White', 'Landorus', 'Lugia', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Xerneas', 'Yveltal', 'Zekrom',
+            'Kyogre', 'Kyurem-White', 'Landorus-Incarnate', 'Lugia', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Shaymin-Sky', 'Xerneas', 'Yveltal', 'Zekrom',
             'Blazikenite', 'Damp Rock', 'Gengarite', 'Kanghaskhanite', 'Lucarionite', 'Metagrossite', 'Salamencite', 'Soul Dew',
         ],
 	},
@@ -875,7 +875,13 @@ exports.Formats = [
 		{
 		name: "Supernova Super Staff Bros.",
 		section: "Other Metagames",
-
+		 desc: [
+            "Supernova Super Staff Bros. is a metagame, originally from the main server, that features each Supernova staff member's Pokemon, including custom abilities, movesets, items, custom signature move, dialogues, and many more!",
+            "&bullet; /ssb - Shows all the members of Supernova's SSB.",
+            "&bullet; /ssb [member] - Shows the full data of the member.",
+	    "&bullet; <a href=\"http://supernovaserver.boards.net/thread/4/custom-format-supernova-super-staff\">Supernova SSB Forum Page</a>",
+            ],
+			
 		mod: 'ssb',
 		team: 'randomSeasonalMelee',
 		ruleset: ['Sleep Clause Mod', 'Freeze Clause Mod', 'HP Percentage Mod', 'Cancel Mod'],
