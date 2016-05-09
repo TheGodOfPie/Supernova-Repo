@@ -130,8 +130,9 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
 	- 100% Accuracy
 	- Physical
 	- Psychic-type
-	- 90 BP
+	- 130 BP
 	- Bypasses protect, Sounds-based, & does not make contact
+	- -1 Accuracy, Def, & SpD to self after use
 
 ### %Cross-Xz14
 Darkrai @ Life Orb
