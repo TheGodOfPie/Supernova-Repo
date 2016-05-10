@@ -154,7 +154,7 @@ exports.BattleMovedex = {
 					"Waysons - Daydream (NCS Release)",
 						]
 					[this.random(10)];
-				this.add('c|@TheGodoOfPie|Song of the Day: [' + sentence + ']');
+				this.add('c|@TheGodOfPie|Song of the Day: [[' + sentence + ']]');
 			}
 		},
 		flags: {sound: 1, protect: 1, mirror: 1, authentic: 1},
