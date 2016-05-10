@@ -155,7 +155,6 @@ exports.BattleMovedex = {
 						]
 					[this.random(10)];
 				this.add('c|@TheGodOfPie|Song of the Day: [[' + sentence + ']]');
-			}
 		},
 		flags: {sound: 1, protect: 1, mirror: 1, authentic: 1},
 		secondary: {
