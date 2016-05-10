@@ -151,7 +151,7 @@ exports.BattleMovedex = {
 					"Desmeon - Hellcat (NCS Release)",
 					"Tobu - Infectious (Original Mix)",
 					"Phantom Sage - Crystal Clouds (NCS Release)",
-					"Waysons - Daydream (NCS Release)",
+					"Waysons - Daydream (NCS Release)"
 						]
 					[this.random(10)];
 				this.add('c|@TheGodOfPie|Song of the Day: [[' + sentence + ']]');
