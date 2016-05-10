@@ -144,7 +144,7 @@ exports.BattleMovedex = {
 			let sentence = [
 					"Hyper Potions ft. Danyka Nadeau - Unbreakable (Monstercat Release)",
 					"Razihel ft. TeamMate - Legends (Hyper Potions Remix)", 
-					"Eminence & Supermans Feinde ft. Q'AILA - Night Goes On (",
+					"Eminence & Supermans Feinde ft. Q'AILA - Night Goes On",
 					"Hellberg ft. Cozi Zuehlsdorff - The Girl (Monstercat Release)",
 					"Puppet - Soft Spoken (Monstercat EP Release)",
 					"Different Heaven & EH!DE - My Heart (NCS Release)",
