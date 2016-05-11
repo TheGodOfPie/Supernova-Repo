@@ -211,7 +211,7 @@ EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 
 - Return
 - Swords Dance
-- Facade
+- Jump Kick
 - AromaLeech
 	- 10 PP 
 	- 100% Accuracy 
