@@ -67,7 +67,7 @@ exports.BattleScripts = {
 				},
 				'+Dayuh': {
 					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
-					moves: ['return', 'swordsdance', 'facade'],
+					moves: ['return', 'swordsdance', 'jumpkick'],
 					signatureMove: "AromaLeech",
 					evs: {spe:252, atk:252, def:4}, nature: 'Adamant',
 				},
