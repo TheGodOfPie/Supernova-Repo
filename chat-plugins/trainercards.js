@@ -21,11 +21,13 @@ function logTc(message) {
 }
 
 exports.commands = {
+   tc: 'trainercard',
+   trainercard: {
 
-	addtc: function (target, room, user) {
+    edit: 'add',
+	add: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
-		if (!target || target.indexOf(',') < 0) return this.parse('/help addtc');
-
+		if (!target || target.indexOf(',') < 0) return this.parse('/tc help');
 
 		let parts = target.split(',');
 		let name = toId(parts[0]);
@@ -33,24 +35,19 @@ exports.commands = {
 
 		Db('tc').set(name, tc);
 		
-		this.sendReply("Trainer Card has been set.");
+		this.sendReply("The trainer Card " + name + " has been set.");
 		logTc(user.name + " has added the following Trainer Card: " + name + ".");
-	},
 
-	addtchelp: ["/addtc [name], [HTML] - Adds a trainer card."],
-    
-    tc: function (target, room, user) {
-      if (!this.runBroadcast()) return; 
-	  if (target.length < 1) return this.parse("/help tc");   
-	  let name = Db('tc').get(target);         
-      this.sendReplyBox('' + name + '');
     },
+   
 
-	tchelp: ["/tc [name] - Broadcasts a Trainer Card."],     
-
-	deletetc: function (target, room, user) {
+	delete: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
-      if (target.length < 1) return this.parse("/help deletetc");
+      if (target.length < 1) return this.parse("/tc help");
+
+      let tc = toId(target);
+
+ 	  if (!Db('tc').has(tc)) return this.errorReply('This trainer card does not exist.');
       let name = Db('tc').get(target);
 
       Db('tc').delete(target);
@@ -59,25 +56,47 @@ exports.commands = {
 
     },
 	
-    deletetchelp: ["/deletetc [name] - Delete a trainer card from the list of tcs that you have."],
-	
-	tchtml: function (target, room, user) {
+	html: function (target, room, user) {
 	  if (!this.can('hotpatch')) return false;
       if (Db('tc').has(user.userid)) return this.errorReply('The trainer card does not exist.');
-      if (target.length < 1) return this.parse("/help tchtml");
+      if (target.length < 1) return this.parse("/tc help");
       let name = Db('tc').get(target);
 
-	  this.sendReply('TC Code:' + name + '');
+	  this.sendReply('TC Code: ' + name + '');
 	  
    },
-   tchtmlhelp: ["/tchtml [name] - Get the HTML code of a certain Trainer Card."],
 
 /***************************************************
 * Copied from Dragotic's VIP and Developer Commands *
 ****************************************************/
-	tclist: function (target, room, user) {
+	list: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
 		if (!Object.keys(Db('tc').object()).length) return this.errorReply('There seems to be no trainer cards present at the moment.');
 		this.sendReplyBox('<center><b><u>Trainer Card List:</u></b></center>' + '<br /><br />' + Object.keys(Db('tc').object()).join('<br />'));
+
+    },
+
+    'help': function (target, room, user) {
+      if (!this.runBroadcast()) return;
+      this.sendReplyBox(
+      	"<b>/tc add or edit [name], [HTML]</b> - Adds a trainer card to the list of current tcs." +
+      	"<b>/tc delete [name]</b> - Deletes a tc that currently exists." +
+      	"<b>/tc html [command]</b> - Gives out the HTML code of a Trainer Card." +
+      	"<b>/tc list</b> - Shows the current Trainer Cards that exists in this server." +
+      	"<b>/showtc [name] - Broadcasts an existing trainer card onto the chatroom.")
+},
+
    },
+
+    
+    showtc: function (target, room, user) {
+      if (!this.runBroadcast()) return; 
+	  if (target.length < 1) return this.parse("/tc help"); 
+      let tc = toId(target);
+ 	  if (!Db('tc').has(tc)) return this.errorReply('This trainer card does not exist.');
+	  let name = Db('tc').get(target);         
+      this.sendReplyBox('' + name + '');
+
+},
+
 };
