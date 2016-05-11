@@ -66,9 +66,6 @@ exports.commands = {
 	  
    },
 
-/***************************************************
-* Copied from Dragotic's VIP and Developer Commands *
-****************************************************/
 	list: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
 		if (!Object.keys(Db('tc').object()).length) return this.errorReply('There seems to be no trainer cards present at the moment.');
@@ -76,14 +73,19 @@ exports.commands = {
 
     },
 
+    '': 'help',
     'help': function (target, room, user) {
       if (!this.runBroadcast()) return;
       this.sendReplyBox(
-      	"<b>/tc add or edit [name], [HTML]</b> - Adds a trainer card to the list of current tcs." +
-      	"<b>/tc delete [name]</b> - Deletes a tc that currently exists." +
-      	"<b>/tc html [command]</b> - Gives out the HTML code of a Trainer Card." +
-      	"<b>/tc list</b> - Shows the current Trainer Cards that exists in this server." +
-      	"<b>/showtc [name] - Broadcasts an existing trainer card onto the chatroom.")
+      	"<center><b>Trainer Cards that Utilizes OriginDB</b></center><br>" +
+      	"<center><b>Made by: Steel Sciz</b></center><br>" +
+      	"<b>/tc add or edit [name], [HTML]</b> - Adds a trainer card to the list of current tcs.<br>" +
+      	"<b>/tc delete [name]</b> - Deletes a tc that currently exists.<br>" +
+      	"<b>/tc html [command]</b> - Gives out the HTML code of a Trainer Card.<br>" +
+      	"<b>/tc list</b> - Shows the current Trainer Cards that exists in this server.<br>" +
+      	"<b>/showtc [name]</b> - Broadcasts an existing trainer card onto the chatroom.<br>")
+
+
 },
 
    },
