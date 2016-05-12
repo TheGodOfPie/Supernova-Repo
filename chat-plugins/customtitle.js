@@ -19,7 +19,7 @@ exports.commands = {
             let color = params[2];
             if (!targetUser || !title || !color) return this.parse('/help customtitle');
 			Db('titles')
-            .set([targetUser, 'Title'], title),
+            .set([targetUser, 'Title'], title)
             .set([targetUser, 'Color'], color);
 			this.sendReply(targetUser + ' has received a custom title.');
 		},
@@ -37,6 +37,5 @@ exports.commands = {
 			if (!Object.keys(Db('titles').object()).length) return this.errorReply('There seems to be no user with custom title.');
 			this.sendReplyBox('<center><b><u>Custom Titles</u></b></center>' + '<br /><br />' + Object.keys(Db('titles').object()).join('<br />'));
 		},
-        */
 	},
 };
