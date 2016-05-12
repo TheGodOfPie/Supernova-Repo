@@ -160,7 +160,7 @@ Profile.prototype.flag = function (user) {
 Profile.prototype.title = function (user) { 
 	// Check if the user has title or not first
 	user = toId(user);
-	if (Db('titles').has(user)) return ('(<b><i><font color="' + Db('titles').get(user, 'Color') + '">' + Db('titles').get(user, 'Title') + '</font></i></b>)');
+	if (Db('titles').has(user)) return ('(<b><i><font color="' + Db('titles').get([user, 'Color']).trim() + '">' + Db('titles').get([user, 'Title']).trim() + '</font></i></b>)');
 	return '';
 };
 
