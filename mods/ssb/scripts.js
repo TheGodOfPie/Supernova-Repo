@@ -38,8 +38,8 @@ exports.BattleScripts = {
 					moves: ['earthquake', 'shadowsneak', 'closecombat'], signatureMove: "Dubstep Dagger",
 					evs: {hp:4, atk:252, spe:252}, nature: 'Jolly',
 				},
-            // Drivers
-            	'%Cross-Xz14': {
+			// Drivers
+				'%Cross-Xz14': {
 					species: 'Darkrai', ability: 'Bad Dreams', item: 'Life Orb', gender: 'F',
 					moves: ['darkpulse', 'nastyplot', 'sludgebomb'], signatureMove: "Dark Hell",
 					evs: {spe:252, spa:252, spd:4}, nature: 'Timid',
