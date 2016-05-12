@@ -24,7 +24,6 @@ exports.commands = {
             let title = params[1];
             let color = params[2];
             if (!targetUser || !title || !color) return this.parse('/help customtitle');
-			if (hasTitle(targetUser)) return this.errorReply(targetUser + ' already has a title.');
 			Db('titles')
             .set([targetUser, 'Title'], title),
             .set([targetUser, 'Color'], color);
