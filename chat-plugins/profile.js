@@ -147,12 +147,6 @@ Profile.prototype.vip = function (user) {
 	return '';
 };
 
-Profile.prototype.title = function (user) { 
-	// Check if the user has title or not first
-	if (Db('title').has(user)) return ('(<b><i>' + Db('title').get(user) + '</i></b>)');
-	return '';
-};
-
 Profile.prototype.flag = function (user) {
 	if (Users(user)) {
 		let userFlag = geoip.lookupCountry(Users(user).latestIp);
@@ -160,6 +154,13 @@ Profile.prototype.flag = function (user) {
 			return '<img src="https://github.com/kevogod/cachechu/blob/master/flags/' + userFlag.toLowerCase() + '.png?raw=true" height=10 title="' + userFlag + '">';
 		}
 	}
+	return '';
+};
+
+Profile.prototype.title = function (user) { 
+	// Check if the user has title or not first
+	user = toId(user);
+	if (Db('titles').has(user)) return ('(<b><i><font color="' + Db('titles').get(user, 'Color') + '">' + Db('titles').get(user, 'Title') + '</font></i></b>)');
 	return '';
 };
 
@@ -188,20 +189,4 @@ exports.commands = {
 		this.sendReplyBox(profile.show());
 	},
 	profilehelp: ["/profile -	Shows information regarding user's name, group, money, and when they were last seen."],
-
-	customtitle: function (target, room, user) {
-		if (!this.can('hotpatch')) return false;
-		if (!target || target.indexOf(',') < 0) return this.parse('/help customtitle');
-
-		let parts = target.split(',');
-		let username = toId(parts[0]);
-		let title = parts.slice(1).join(", ").trim();
-
-		Db('title').set(username, title);
-		
-		this.sendReply(username + " was given the following title: " + title + ". ");
-		if (Users.get(username)) Users(username).popup(user.name + " has given you the following title: " + title);
-		
-	},
-	customtitlehelp: ["/customtitle [user], [title] - Sets a title to a user that will be displayed in their profile."],
 };
