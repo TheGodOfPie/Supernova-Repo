@@ -29,7 +29,6 @@ let emotes = {
 	'feelscrazy': 'http://i.imgur.com/NiJsT5W.png',
 	'feelscri': 'http://i.imgur.com/QAuUW7u.jpg?1',
 	// D
-	'Doge': 'http://i.imgur.com/C10Bwqq.png',
 	'feelsdd': 'http://i.imgur.com/fXtdLtV.png',
 	'feelsdoge': 'http://i.imgur.com/GklYWvi.png',
  	'feelsdrg': 'http://i.imgur.com/UZzWcA3.png',
