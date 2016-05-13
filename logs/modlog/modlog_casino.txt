@@ -1,0 +1,6 @@
+[2016-05-06T14:45:10.936Z] (casino) Dragotic has started a game of panagrams set for 25 sessions.
+[2016-05-06T14:59:41.139Z] (casino) Dragotic has started a game of panagrams set for 25 sessions.
+[2016-05-06T15:01:08.498Z] (casino) Dragotic globally declared <center><h2>Lottery!</h2><h4><br /><font color=#BE9825><b>dragotic</b></font> has won the lottery with the ticket id of jx5lwc5h! This user has gained 100 bucks for winning the lottery.</h4></center>
+[2016-05-08T14:47:42.155Z] (casino) Dragotic has started a game of panagrams set for 25 sessions.
+[2016-05-08T16:05:35.641Z] (casino) Dragotic has started a game of panagrams set for 25 sessions.
+[2016-05-10T14:22:47.196Z] (casino) Dragotic has started a game of panagrams set for 25 sessions.
