@@ -129,7 +129,7 @@ function addCard(name, card) {
  
 function getShopDisplay(shop) {
     let display = '<table style="width: 100%; border-top-right-radius: 4px; border-top-left-radius: 4px; background: rgba(230, 0, 115, 0.6)' +
-        '<tr><th color="#fff">Item</th><th color="#fff">Description</th><th color="white">Cost</th></tr>';
+        "<tr><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Command</th><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Description</th><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Cost</th></tr>";
     var start = 0;
     while (start < shop.length) {
         display += "<tr>" + '<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;"><button name="send" value="/buypack ' + shop[start][0] + '" style="border-radius: 5px;"><b>' + shop[start][0] + '</b></button></td>' +
