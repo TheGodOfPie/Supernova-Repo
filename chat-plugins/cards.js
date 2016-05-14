@@ -24,7 +24,7 @@ let shop = [ //Actual shop display
     ['XY-Primal Clash', 'Get three cards from the Primal Clash pack released in the Pokemon XY set.', 5],
     ['XY-Roaring Skies', 'Get three cards from the Roaring Skies pack released in the Pokemon XY set.', 5],
     ['XY-Ancient Origins', 'Get three cards from the Ancient Origins pack released in the Pokemon XY set', 5]
-    ['UU-Pack', 'Get three cards from the UU tier.', 10]
+  //  ['UU-Pack', 'Get three cards from the UU tier.', 10]
 ];
 //Shop used in cardCache to reduce RAM usage of card caching
 let packShop = ['XY-Base', 'XY-Flashfire', 'XY-Furious Fists', 'XY-Phantom Forces', 'XY-Primal Clash', 'XY-Roaring Skies', 'XY-Ancient Origins', 'Double Crisis', 'Water', 'Fire', 'Fighting', 'Fairy', 'Dragon', 'Colorless', 'Psychic', 'Lightning', 'Darkness', 'Grass', 'OU-Pack', 'UU-Pack', 'Uber-Pack', 'PU-Pack', 'NU-Pack', 'RU-Pack', 'LC-Pack', 'BL-Pack', 'BL2-Pack', 'BL3-Pack', 'Gen1', 'Gen2', 'Gen3', 'Gen4', 'Gen5', 'Gen6', 'Metal', 'Trainer', 'Supporter', 'Item', 'Stadium', 'EX-Pack', 'Legendary', 'Full', 'Event'];
@@ -128,13 +128,13 @@ function addCard(name, card) {
 }
  
 function getShopDisplay(shop) {
-    let display = "<table width='100%' border='1' style='border-collapse: collapse; color: #444; box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);' cellpadding='5'>" +
-        "<tr><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Command</th><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Description</th><th class='card-th' style='background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9); box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset;'>Cost</th></tr>";
+    let display = '<table style="width: 100%; border-top-right-radius: 4px; border-top-left-radius: 4px; background: rgba(230, 0, 115, 0.6)' +
+        '<tr><th color="#fff">Item</th><th color="#fff">Description</th><th color="white">Cost</th></tr>';
     var start = 0;
     while (start < shop.length) {
-        display += "<tr>" + "<td class='card-td'><button name='send' value='/buypack " + shop[start][0] + "' style='border-radius: 5px;'><b>" + shop[start][0] + "</b></button></td>" +
-            "<td class='card-td'>" + shop[start][1] + "</td>" +
-            "<td class='card-td'>" + shop[start][2] + "</td>" +
+        display += "<tr>" + '<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;"><button name="send" value="/buypack ' + shop[start][0] + '" style="border-radius: 5px;"><b>' + shop[start][0] + '</b></button></td>' +
+            '<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][1] + '</td>' +
+            '<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][2] + '</td>' +
             "</tr>";
         start++;
     }
