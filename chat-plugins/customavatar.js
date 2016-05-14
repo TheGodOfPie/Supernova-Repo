@@ -44,7 +44,7 @@ var cmds = {
 
 	add: 'set',
 	set: function (target, room, user, connection, cmd) {
-		if (!this.can('lock') && !isVip(user) && !isDev(user)) return false;
+		if (!this.can('lock') && !isVip(user)) return false;
 		if (!target) return this.sendReply('|html|/ca set <em>User</em>, <em>URL</em> - Sets a user\'s custom avatar to the specified image.');
 		target = target.split(',');
 		if (target.length < 2)  return this.sendReply('|html|/ca set <em>User</em>, <em>URL</em> - Sets a user\'s custom avatar to the specified image.');
