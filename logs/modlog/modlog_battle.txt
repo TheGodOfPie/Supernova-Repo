@@ -1,4 +1,0 @@
-[2016-05-08T15:21:16.218Z] (battle-randommonocolor-124) Dragotic was banned from room battle-randommonocolor-124 by Steel★Sciz.
-[2016-05-08T15:23:11.390Z] (battle-randommonocolor-124) dragotic was unbanned from room battle-randommonocolor-124 by Dragotic.
-[2016-05-09T17:22:35.392Z] (battle-supernovasuperstaffbros-169) Cross-Xz14 is hiding auth symbol as '+'
-[2016-05-09T17:22:37.235Z] (battle-supernovasuperstaffbros-169) Cross-Xz14 is hiding auth symbol as ' '
