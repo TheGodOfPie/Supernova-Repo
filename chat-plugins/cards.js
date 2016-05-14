@@ -130,7 +130,7 @@ function addCard(name, card) {
 function getShopDisplay(shop) {
     let display = "<table width='100%' border='1' style='border-collapse: collapse; color: #444; box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);' cellpadding='5'>" +
         "<tr><tr><th color='#fff'>Item</th><th color='#fff'>Description</th><th color='white'>Cost</th></tr>";
-    let start = 0;
+    var start = 0;
     while (start < shop.length) {
         display += "<tr>" + "<td class='card-td'><button name='send' value='/buypack " + shop[start][0] + "' style='border-radius: 5px;'><b>" + shop[start][0] + "</b></button></td>" +
             '<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][1] + '</td>' +
