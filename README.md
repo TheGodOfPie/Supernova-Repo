@@ -36,12 +36,12 @@ There are some node modules you have to install manually without npm install, su
 
 ## Supernova Developers
 
-So currently, me (Steel Sciz) and Dragotic are currently managing this repository. TheGodofPie is our tiering manager, and will make updates to tiers like Super Swag Bros and Doubles Formats. We need more Developers at the moment. If people want to 
+So currently, me (Steel Sciz) and Dragotic are currently managing this repository. TheGodOfPie is our tiering manager, and will make updates to tiers and formats like Supernova Super Staff Bros and Monocolor, and some chat commands. We need more Developers at the moment. If people want to 
 contribute to the Supernova Repository Source, they must have the following skills:
 
 - They must know how to code and not break anything in the server, as this server will be updated daily. 
 - They need to know that they need to fix their own problem if they caused many crashes.
-- They can help out one of the Contributors of the Server (Dragotic or TheGodofPie) if they need help or if you have any concerns about what they are submitting into the Repository. 
+- They can help out one of the Contributors of the Server (Dragotic or TheGodOfPie) if they need help or if you have any concerns about what they are submitting into the Repository. 
 
 Once the person becomes a contributor of this Repository, they will have to be responsible of their actions and if any of these codes are leaked because of them,
 they will be removed from the Repository with no means of getting access to it again. Besides that, they will get ranked and be recognized as a main coder of the Supernova Server. We can only have up to 
