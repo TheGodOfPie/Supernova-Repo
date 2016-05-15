@@ -93,9 +93,9 @@ exports.BattleScripts = {
 					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
 				},
 				'DarkChaoticFlare': {
-					species: 'Umbreon', ability: 'Invulnerable', item: 'Healing Coat', gender: 'M', shiny: true,
-					moves: ['foulplay','suckerpunch', 'moonlight'], signatureMove: "Neon Protection",
-					evs: {def:252, spd:252, atk:4}, nature: 'Adamant',
+					species: 'Banette-Mega', ability: 'Shadowstatics', item: '#PriorityGloves', gender: 'M',
+					moves: ['shadowclaw','shadowforce', 'phantomforce'], signatureMove: "#Sword",
+					evs: {atk:252, spe:252, def:4}, nature: 'Adamant',
 				},
 			};
 		// Generate the team randomly.
