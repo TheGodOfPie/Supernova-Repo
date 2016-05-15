@@ -1,52 +1,62 @@
+// THANKS FOR THE EPIC ARTWORK PIE!
+
 'use strict';
 
 let wheelContents = {
 	'bulbasaur': {
 		name: 'Bulbasaur',
 		img: 'http://i.imgur.com/FuNRBK0.png',
-		chances: 24,
+		chancesMin: 24,
+		chancesMax: 21,
 		winning: 2,
 	},
 	'charmander': {
 		name: 'Charmander',
 		img: 'http://i.imgur.com/KkF1HYi.png',
-		chances: 21,
+		chancesMax: 21,
+		chancesMin: 18,
 		winning: 4,
 	},
 	'squirtle': {
 		name: 'Squirtle',
 		img: 'http://i.imgur.com/3FEZhDN.png',
-		chances: 18,
+		chancesMax: 18,
+		chancesMin: 15,
 		winning: 6,
 	},
 	'eevee': {
 		name: 'Eevee',
 		img: 'http://i.imgur.com/apP9zLc.png',
-		chances: 15,
+		chancesMax: 15,
+		chancesMin: 12,
 		winning: 8,
 	},
 	'pikachu': {
 		name: 'Pikachu',
 		img: 'http://i.imgur.com/p4oMLpG.png',
-		chances: 12,
+		chancesMax: 12,
+		chancesMin: 9,
 		winning: 10,
 	},
 	'pichu': {
 		name: 'Pichu',
 		img: 'http://i.imgur.com/dZpE7FF.png',
-		chances: 9,
+		chancesMax: 9,
+		chancesMin: 6,
 		winning: 12,
 	},
 	'dragonite': {
 		name: 'Dragonite',
 		img: 'http://i.imgur.com/EV8hF4t.png',
-		chances: 6,
+		chancesMax: 6,
+		chancesMin: 3,
 		winning: 15,
 	},
 	'mew': {
 		name: 'Mew',
 		img: 'http://i.imgur.com/d2btQHR.png',
-		chances: 3,
+		chancesMax: 3,
+		chancesMin: 0,
 		winning: 18,
 	},	
 };
@@ -66,7 +76,7 @@ function generateWheelResult() {
 	let spinTheWheel = Math.floor(Math.random() * 100 + 1);
 	let wheelPokemons = Object.keys(wheelContents);
 	for (let i = 0; i < wheelPokemons.length; i++) {
-		if (wheelContents[wheelPokemons[i]].chances >= spinTheWheel) {
+		if (wheelContents[wheelPokemons[i]].chancesMin < spinTheWheel && wheelContents[wheelPokemons[i]].chancesMax >= spinTheWheel) {
 			return [wheelContents[wheelPokemons[i]].name, wheelContents[wheelPokemons[i]].img, wheelContents[wheelPokemons[i]].winning];
 		}
 	}
