@@ -24,7 +24,7 @@ let shop = [ //Actual shop display
     ['XY-Primal Clash', 'Get three cards from the Primal Clash pack released in the Pokemon XY set.', 5],
     ['XY-Roaring Skies', 'Get three cards from the Roaring Skies pack released in the Pokemon XY set.', 5],
     ['XY-Ancient Origins', 'Get three cards from the Ancient Origins pack released in the Pokemon XY set', 5]
-  //  ['UU-Pack', 'Get three cards from the UU tier.', 10]
+
 ];
 //Shop used in cardCache to reduce RAM usage of card caching
 let packShop = ['XY-Base', 'XY-Flashfire', 'XY-Furious Fists', 'XY-Phantom Forces', 'XY-Primal Clash', 'XY-Roaring Skies', 'XY-Ancient Origins', 'Double Crisis', 'Water', 'Fire', 'Fighting', 'Fairy', 'Dragon', 'Colorless', 'Psychic', 'Lightning', 'Darkness', 'Grass', 'OU-Pack', 'UU-Pack', 'Uber-Pack', 'PU-Pack', 'NU-Pack', 'RU-Pack', 'LC-Pack', 'BL-Pack', 'BL2-Pack', 'BL3-Pack', 'Gen1', 'Gen2', 'Gen3', 'Gen4', 'Gen5', 'Gen6', 'Metal', 'Trainer', 'Supporter', 'Item', 'Stadium', 'EX-Pack', 'Legendary', 'Full', 'Event'];
@@ -186,7 +186,6 @@ exports.commands = {
         self.sendReply('You have until the server restarts to open your pack.');
         if (!userPacks[user.userid]) userPacks[user.userid] = [];
         userPacks[user.userid].push(pack);
-        if (room.id !== 'lobby') room.addRaw(user.name + ' has bought <b>' + target + ' pack </b> from the shop.');
         room.update();
     },
  
