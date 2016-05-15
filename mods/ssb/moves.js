@@ -416,7 +416,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		useTargetOffensive: true,
 		priority: 0,
-		onPrepareHit: function (target) {
+		onPrepareHit: function (target, pokemon) {
 			this.useMove('Swagger', pokemon);
             this.attrLastMove('[still]');
             this.add('-anim', target, "Secret Sword", target);
