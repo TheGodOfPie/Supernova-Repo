@@ -205,6 +205,7 @@ exports.commands = {
         if (cleanShop.indexOf(toId(target)) < 0) return this.sendReply('This pack does not exist.');
         if (!userPacks[user.userid] || userPacks[user.userid].length === 0) return this.sendReply('You have no packs.');
         if (userPacks[user.userid].indexOf(toId(target)) < 0) return this.sendReply('You do not have this pack.');
+        let display = '<marquee>';
         for (var i = 0; i < 3; i++) {
             var pack = toId(target);
             var cacheValue = cardCache[cleanShop.indexOf(toId(target))];
@@ -212,10 +213,11 @@ exports.commands = {
             addCard(user.userid, card);
             var cardName = cards[card].name;
             var packName = packShop[cleanShop.indexOf(toId(target))];
-            this.sendReplyBox(user.name + ' got <font color="' + colors[cards[card].rarity] + '">' + cards[card].rarity + '</font>\
-            <button name="send" value="/card ' + card  + '"><b>' + cardName + '</b></button> from a \
-            <button name="send" value="/buypack ' + packName + '">' + packName + ' Pack</button>.');
+            display += '<button name="send" value="/card ' + cards[card].title + '" style="border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button">' + 
+            '<img src="' + cards[card].card + '" width="50" title="' + cardName + '"></button> &nbsp;';
         }
+        display += '</marquee>'
+        this.sendReplyBox(display);
         var usrIndex = userPacks[user.userid].indexOf(pack);
         userPacks[user.userid].splice(usrIndex, 1);
     },
