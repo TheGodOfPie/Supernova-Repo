@@ -407,28 +407,26 @@ exports.BattleMovedex = {
 		type: "Ground"
 	},
 //DarkChaoticFlare
-	"neonprotection": {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		id: "neonprotection",
-		name: "Neon Protection",
+	"sword": {
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		id: "sword",
+		name: "#Sword",
 		pp: 10,
-		priority: 4,
-		onPrepareHit: function (pokemon) {
+		useTargetOffensive: true,
+		priority: 0,
+		onPrepareHit: function (target) {
+			this.useMove('Swagger', pokemon);
             this.attrLastMove('[still]');
-            this.add('-anim', pokemon, "Geomancy", pokemon);
+            this.add('-anim', target, "Secret Sword", target);
         },
         onHit: function (target, source, move) {
-			this.add('c|DarkChaoticFlare|Defense is the offense..Or so they say (._.")');
+			this.add('c|DarkChaoticFlare|∩༼˵☯‿☯˵༽つ¤=[]:::::>');
 		},
 		flags: {protect: 1, mirror: 1},
 		secondary: false,
-		boosts: {
-			spd: 1,
-			def: 1
-		},
-		target: "self",
+		target: "normal",
 		type: "Dark"
 	},
 };
