@@ -7,50 +7,50 @@ let wheelContents = {
 	'bulbasaur': {
 		name: 'Bulbasaur',
 		img: 'http://i.imgur.com/FuNRBK0.png',
-		chancesMin: 74,
-		chancesMax: 64,
+		chancesMin: 85,
+		chancesMax: 80,
 		winning: 2,
 	},
 	'charmander': {
 		name: 'Charmander',
 		img: 'http://i.imgur.com/KkF1HYi.png',
-		chancesMax: 64,
-		chancesMin: 60,
+		chancesMax: 79,
+		chancesMin: 76,
 		winning: 4,
 	},
 	'squirtle': {
 		name: 'Squirtle',
 		img: 'http://i.imgur.com/3FEZhDN.png',
-		chancesMax: 54,
-		chancesMin: 50,
+		chancesMax: 37,
+		chancesMin: 34,
 		winning: 6,
 	},
 	'eevee': {
 		name: 'Eevee',
 		img: 'http://i.imgur.com/apP9zLc.png',
-		chancesMax: 44,
-		chancesMin: 40,
+		chancesMax: 29,
+		chancesMin: 27,
 		winning: 8,
 	},
 	'pikachu': {
 		name: 'Pikachu',
 		img: 'http://i.imgur.com/p4oMLpG.png',
-		chancesMax: 33,
-		chancesMin: 30,
+		chancesMax: 23,
+		chancesMin: 21,
 		winning: 10,
 	},
 	'pichu': {
 		name: 'Pichu',
 		img: 'http://i.imgur.com/dZpE7FF.png',
-		chancesMax: 22,
-		chancesMin: 20,
+		chancesMax: 17,
+		chancesMin: 15,
 		winning: 12,
 	},
 	'dragonite': {
 		name: 'Dragonite',
 		img: 'http://i.imgur.com/EV8hF4t.png',
-		chancesMax: 12,
-		chancesMin: 10,
+		chancesMax: 4,
+		chancesMin: 2,
 		winning: 15,
 	},
 	'mew': {
@@ -126,9 +126,18 @@ exports.commands = {
 				// When a user wins
 				Db('money').set(user.userid, Db('money').get(user.userid, 0) + wheelResult[2]);
 				user.sendTo(room, generateDisplay(room, true, pokemonImg, '<center><font style="color: white; font-size: 11pt;">' + 'The wheel stopped at ' + pokemonName + '. ' + 
-					'Congratulations!! You have won ' + pokemonWinning + (pokemonWinning > 1 ? ' bucks' : ' buck') + '.</font></center>'));
+					'Congratulations!! You have won ' + pokemonWinning + ' bucks.</font></center>'));
 			}, 2 * 1000);
 		},
 	},
-	wheelhelp: [''],
+	wheelhelp: ['The Wheel Is a Casino Game.',
+	'Following are the winnings from the wheel:'
+	'&bullet; Bulbasaur - 2 Bucks',
+	'&bullet; Charmander - 4 Bucks',
+	'&bullet; Squirtle - 6 Bucks',
+	'&bullet; Eevee - 8 Bucks',
+	'&bullet; Pikachu - 10 Bucks',
+	'&bullet; Pichu - 12 Bucks',
+	'&bullet; Dragonite - 15 Bucks',
+	'&bullet; Mew - 18 Bucks'],
 };
