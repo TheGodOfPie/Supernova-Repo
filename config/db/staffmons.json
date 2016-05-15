@@ -146,16 +146,16 @@
         "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
     },
     "darkchaoticflare": {
-        "username": "<img src='http://media.pldh.net/pokexycons/197.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/197.png'>",
-        "styling": "<div style='color: white; padding: 5px; background: url(&quot;http://i.imgur.com/80DACe5.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/197.png&quot;), auto;'>",
-        "staffmon": "Umbreon",
-        "item": "Healing Coat - Restores 1/16 of max HP after each turn.",
-        "ability": "Invulnerable - Bounces back certain non-damaging moves.",
+        "username": "<img src='http://media.pldh.net/pokexycons/354-mega.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/354-mega.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/b221/f/2013/323/f/e/mega_banette_by_dashinghero-d6uwmii.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/354-mega.png&quot;), auto;'>",
+        "staffmon": "Banette-Mega",
+        "item": "#PriorityGloves - Holder's moves have +1 priority",
+        "ability": "Shadowstatics - Pokemon's Attack stat is multiplied by 1.5x.",
         "nature": "Adamant (+Atk -SpA)",
-        "movepool": ["Foul Play", "Sucker Punch", "Moonlight"],
-        "signature move": "Neon Protection - 10 PP / Status / Dark-type / +4 Priority / Raises Def & SpD by 1.",
-        "evs": ["4 Atk", "252 Def", "252 SpD"],
-        "note": "This staffmon is a top rank staller, period. You WILL have a hard time trying to counter this thing when it's gotten its boosts from Neon Protection. What makes this thing more stally is the fact that it has access to Moonlight. Like he said: Defense is the new Offense. Potential counters include TheGodOfPie, Dayuh, or anything that could destroy this thing before it gets to build up its Defenses."
+        "movepool": ["Shadow Claw", "Shadow Force", "Phantom Force"],
+        "signature move": "#Sword - 10 PP / Physical / Dark-type / 80 BP / Uses Swagger before attacking / Uses target's Attack stat in damage calculation.",
+        "evs": ["252 Atk", "4 Def", "252 Spe"],
+        "note": "This guy defines \"wallbreaking\". High attack and unlimited priority makes this thing spookier than ever. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and has a priority move that wrecks this thing."
     },
     "elizabethswann": {
         "username": "<img src='http://media.pldh.net/pokexycons/282-mega.png'>Elizabeth Swann<img src='http://media.pldh.net/pokexycons/282-mega.png'>",
