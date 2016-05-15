@@ -192,30 +192,11 @@ exports.BattleAbilities = {
                         name: "Let's Do This",
                 },
                 //DarkChaoticFlare
-                "invulnerable": {
-                        onTryHitPriority: 1,
-	        	onTryHit: function (target, source, move) {
-		        	if (target === source || move.hasBounced || !move.flags['reflectable']) {
-				return;
-		        	}
-		        	var newMove = this.getMoveCopy(move.id);
-		        	newMove.hasBounced = true;
-		        	this.useMove(newMove, target, source);
-		        	return null;
-	        	},
-	        	onAllyTryHitSide: function (target, source, move) {
-	        		if (target.side === source.side || move.hasBounced || !move.flags['reflectable']) {
-	        			return;
-	        		}
-	        		var newMove = this.getMoveCopy(move.id);
-	        		newMove.hasBounced = true;
-	        		this.useMove(newMove, target, source);
-	        		return null;
-	        	},
-	        	effect: {
-	        		duration: 1
-	        	},
-                        id: "invulnerable",
-                        name: "Invulnerable",
+                "shadowstatics": {
+                        onModifyAtk: function (atk) {
+	                		return this.chainModify(1.5);
+                        },
+                        id: "shadowstatics",
+                        name: "Shadowstatics",
                 },
 };
