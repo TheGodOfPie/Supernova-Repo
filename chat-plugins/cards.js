@@ -205,7 +205,7 @@ exports.commands = {
         if (cleanShop.indexOf(toId(target)) < 0) return this.sendReply('This pack does not exist.');
         if (!userPacks[user.userid] || userPacks[user.userid].length === 0) return this.sendReply('You have no packs.');
         if (userPacks[user.userid].indexOf(toId(target)) < 0) return this.sendReply('You do not have this pack.');
-        let display = '<marquee behavior="slide" direction="left" style="padding-left: 5%;">';
+        let display = '<marquee behavior="slide" direction="left" style="padding-left: 4%;">';
         for (var i = 0; i < 3; i++) {
             var pack = toId(target);
             var cacheValue = cardCache[cleanShop.indexOf(toId(target))];
