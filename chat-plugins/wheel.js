@@ -64,10 +64,8 @@ let losingMessages = [
 function generateWheelResult() {
 	let spinTheWheel = Math.floor(Math.random() * 100 + 1);
 	let wheelPokemons = Object.keys(wheelContents);
-	console.log(spinTheWheel, spinTheWheel);
 	for (let i = 0; i < wheelPokemons.length; i++) {
 		if (wheelContents[wheelPokemons[i]].chances >= spinTheWheel) {
-			console.log(spinTheWheel, wheelContents[wheelPokemons[i]].chances >= spinTheWheel);
 			return [wheelContents[wheelPokemons[i]].name, wheelContents[wheelPokemons[i]].img, wheelContents[wheelPokemons[i]].winning];
 		}
 	}
