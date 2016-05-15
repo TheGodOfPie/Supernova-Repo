@@ -205,7 +205,7 @@ exports.commands = {
         if (cleanShop.indexOf(toId(target)) < 0) return this.sendReply('This pack does not exist.');
         if (!userPacks[user.userid] || userPacks[user.userid].length === 0) return this.sendReply('You have no packs.');
         if (userPacks[user.userid].indexOf(toId(target)) < 0) return this.sendReply('You do not have this pack.');
-        let display = '<marquee>';
+        let display = '<marquee behavior="slide" direction="left" style="padding-left: 45%;">';
         for (var i = 0; i < 3; i++) {
             var pack = toId(target);
             var cacheValue = cardCache[cleanShop.indexOf(toId(target))];
@@ -214,7 +214,7 @@ exports.commands = {
             var cardName = cards[card].name;
             var packName = packShop[cleanShop.indexOf(toId(target))];
             display += '<button name="send" value="/card ' + cards[card].title + '" style="border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button">' + 
-            '<img src="' + cards[card].card + '" width="50" title="' + cardName + '"></button> &nbsp;';
+            '<img src="' + cards[card].card + '" width="100" title="' + cardName + '"></button> &nbsp;';
         }
         display += '</marquee>'
         this.sendReplyBox(display);
