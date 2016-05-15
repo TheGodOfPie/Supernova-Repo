@@ -49,14 +49,12 @@ exports.BattleItems = {
 				desc: "+1 to all stats at the end of each turn, then removes 25% of the holder's max HP."
 			},
 		//DarkChaoticFlare
-			"healingcoat": {
-				id: "helingcoat",
-				name: "Healing Coat",
-				onResidualOrder: 5,
-				onResidualSubOrder: 2,
-				onResidual: function (pokemon) {
-					this.heal(pokemon.maxhp / 16);
+			"prioritygloves": {
+				id: "prioritygloves",
+				name: "#PriorityGloves",
+				onModifyPriority: function (priority, pokemon) {
+					return priority + 1;
 				},
-				desc: "At the end of every turn, holder restores 1/16 of its max HP."
+				desc: "Holder's moves have a +1 Priority"
 			},
 };
