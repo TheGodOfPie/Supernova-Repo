@@ -58,6 +58,7 @@ let losingMessages = [
 	'Sparkychild enchanted the wheel with her furry powers, it isn\'t stopping now...',
 	'Steel Sciz bullet punched through the wheel, #BlameNaten',
 	'Drag-Boy forgot to oil the Paul-Cave\'s door and crashed into it.',
+	'TheGodOfPie barged in and threw the wheel in the oven!',
 ];
 
 // Generate results for the wheel, if it's a win return the name of the pokemon the wheel stopped at it and it's winning and image
