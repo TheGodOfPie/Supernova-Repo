@@ -1,55 +1,56 @@
-// THANKS FOR THE EPIC ARTWORK PIE!
+// Artwork: TheGodOfPie, Coded By Dragotic
 
 'use strict';
 
+// chancesMin & chancesMax is the range, if "spinTheWheel" ends up between them the user wins.
 let wheelContents = {
 	'bulbasaur': {
 		name: 'Bulbasaur',
 		img: 'http://i.imgur.com/FuNRBK0.png',
-		chancesMin: 24,
-		chancesMax: 21,
+		chancesMin: 74,
+		chancesMax: 64,
 		winning: 2,
 	},
 	'charmander': {
 		name: 'Charmander',
 		img: 'http://i.imgur.com/KkF1HYi.png',
-		chancesMax: 18,
-		chancesMin: 14,
+		chancesMax: 64,
+		chancesMin: 60,
 		winning: 4,
 	},
 	'squirtle': {
 		name: 'Squirtle',
 		img: 'http://i.imgur.com/3FEZhDN.png',
-		chancesMax: 14,
-		chancesMin: 10,
+		chancesMax: 54,
+		chancesMin: 50,
 		winning: 6,
 	},
 	'eevee': {
 		name: 'Eevee',
 		img: 'http://i.imgur.com/apP9zLc.png',
-		chancesMax: 10,
-		chancesMin: 8,
+		chancesMax: 44,
+		chancesMin: 40,
 		winning: 8,
 	},
 	'pikachu': {
 		name: 'Pikachu',
 		img: 'http://i.imgur.com/p4oMLpG.png',
-		chancesMax: 8,
-		chancesMin: 6,
+		chancesMax: 33,
+		chancesMin: 30,
 		winning: 10,
 	},
 	'pichu': {
 		name: 'Pichu',
 		img: 'http://i.imgur.com/dZpE7FF.png',
-		chancesMax: 6,
-		chancesMin: 4,
+		chancesMax: 22,
+		chancesMin: 20,
 		winning: 12,
 	},
 	'dragonite': {
 		name: 'Dragonite',
 		img: 'http://i.imgur.com/EV8hF4t.png',
-		chancesMax: 4,
-		chancesMin: 2,
+		chancesMax: 12,
+		chancesMin: 10,
 		winning: 15,
 	},
 	'mew': {
@@ -76,39 +77,58 @@ function generateWheelResult() {
 	let spinTheWheel = Math.floor(Math.random() * 100 + 1);
 	let wheelPokemons = Object.keys(wheelContents);
 	for (let i = 0; i < wheelPokemons.length; i++) {
-		if (wheelContents[wheelPokemons[i]].chancesMin < spinTheWheel && wheelContents[wheelPokemons[i]].chancesMax >= spinTheWheel) {
-			return [wheelContents[wheelPokemons[i]].name, wheelContents[wheelPokemons[i]].img, wheelContents[wheelPokemons[i]].winning];
+		let pokemon = wheelContents[wheelPokemons[i]];
+		// the conditions that apply to win
+		let conditions = pokemon.chancesMin < spinTheWheel && pokemon.chancesMax >= spinTheWheel;
+		if (conditions) {
+			return [pokemon.name, pokemon.img, pokemon.winning];
 		}
 	}
+	// Incase it's a loss
 	return false;
 };
 
+//Generates the display for the wheel
 function generateDisplay(room, change, img, display) {
-	return '|uhtml' + (change ? 'change' : '') + '|wheelGame' + room.wheelGameNumber + '|' + 
+	change = (change ? 'change' : '');
+	img = (img ? '<img src="' + img + '" width="170" height="170"></center><br />' : '');
+	return '|uhtml' + change + '|wheelGame' + room.wheelGameNumber + '|' + 
 	'<div class="infobox" style="background: #A066CC; border: 1px solid #8044B8; border-radius: 20px; box-shadow: inset 1px 1px 3px #FFF; padding: 10px;">' + 
-	'<center><img src="http://i.imgur.com/y1ZyUsO.png?1" width="450" height="70"><br />' +  (img ? '<img src="' + img + '" width="170" height="170"></center><br />' : '') + display + '</center></div>';
+	'<center><img src="http://i.imgur.com/y1ZyUsO.png?1" width="450" height="70"><br />' + img + display + '</center></div>';
 }
 
 exports.commands = {
-	wheel: function (target, room, user) {
-		if (!this.canTalk()) return false;
-		// Needs 2 bucks to play
-		if (Db('money').get(user.userid, 0) < 2) return this.errorReply('You don\'t have enough bucks to play this game.');
-		if (!room.wheelGameNumber) room.wheelGameNumber = 0;
-		room.wheelGameNumber++;
-		let wheelResult = generateWheelResult();
-		// Wheel's spinning gif
-		user.sendTo(room, generateDisplay(room, false, 'http://i.imgur.com/3xtv5Ui.gif', '<center><font style="color: white; font-size: 11pt;">' + 'The Wheel\'s Spinning....' + '</font></center>'));
-				
-		setTimeout( function() {
-			// If the user loses, it would generate a message out of the losing messages array
-			if (!wheelResult) {
-				Db('money').set(user.userid, Db('money').get(user.userid, 0) - 2);
-				return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(200, 50, 50, 0.6); border: 1px solid red; border-radius: 5px; padding: 2px;"><font style="color: crimson; font-family: Arial; font-weight: bold; font-size: 11pt; text-shadow: 1px 1px 2px #000;">' + losingMessages[Math.floor(Math.random() * losingMessages.length)] + '</font></div>'));
-			}
-			// When a user wins
-			Db('money').set(user.userid, Db('money').get(user.userid, 0) + wheelResult[2]);
-			user.sendTo(room, generateDisplay(room, true, wheelResult[1], '<center><font style="color: white; font-size: 11pt;">' + 'The wheel stopped at ' + wheelResult[0] + '. Congratulations!! You have won ' + wheelResult[2] + (wheelResult[2] > 1 ? ' bucks' : ' buck') + '.</font></center>'));
-		}, 2 * 1000);
+	wheel: {
+		spin: function (target, room, user) {
+			if (!this.canTalk()) return false;
+			if (Db('money').get(user.userid, 0) < 2) return this.errorReply('You don\'t have enough bucks to play this game.');
+			if (!room.wheelGameNumber) room.wheelGameNumber = 0;
+
+			room.wheelGameNumber++;
+			let wheelResult = generateWheelResult();
+
+			// Wheel's spinning gif
+			user.sendTo(room, generateDisplay(room, false, 'http://i.imgur.com/3xtv5Ui.gif', '<center><font style="color: white; font-size: 11pt;">' + 'The Wheel\'s Spinning....' + '</font></center>'));
+					
+			setTimeout( function() {
+				// If the user loses, it would generate a message out of the losing messages array
+				if (!wheelResult) {
+					Db('money').set(user.userid, Db('money').get(user.userid, 0) - 2);
+					return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(200, 50, 50, 0.6); border: 1px solid red; border-radius: 5px; padding: 2px;"><font style="color: crimson; font-family: Arial; font-weight: bold; font-size: 11pt; text-shadow: 1px 1px 2px #000;">' + 
+						losingMessages[Math.floor(Math.random() * losingMessages.length)] + '</font></div>'));
+				}
+
+				// The results output if a user wins
+				let pokemonName = wheelResult[0];
+				let pokemonImg = wheelResult[1];
+				let pokemonWinning = wheelResult[2];
+
+				// When a user wins
+				Db('money').set(user.userid, Db('money').get(user.userid, 0) + wheelResult[2]);
+				user.sendTo(room, generateDisplay(room, true, pokemonImg, '<center><font style="color: white; font-size: 11pt;">' + 'The wheel stopped at ' + pokemonName + '. ' + 
+					'Congratulations!! You have won ' + pokemonWinning + (pokemonWinning > 1 ? ' bucks' : ' buck') + '.</font></center>'));
+			}, 2 * 1000);
+		},
 	},
+	wheelhelp: [''],
 };
