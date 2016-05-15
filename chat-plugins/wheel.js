@@ -131,7 +131,7 @@ exports.commands = {
 		},
 	},
 	wheelhelp: ['The Wheel Is a Casino Game.',
-	'Following are the winnings from the wheel:'
+	'Following are the winnings from the wheel:',
 	'&bullet; Bulbasaur - 2 Bucks',
 	'&bullet; Charmander - 4 Bucks',
 	'&bullet; Squirtle - 6 Bucks',
@@ -139,5 +139,5 @@ exports.commands = {
 	'&bullet; Pikachu - 10 Bucks',
 	'&bullet; Pichu - 12 Bucks',
 	'&bullet; Dragonite - 15 Bucks',
-	'&bullet; Mew - 18 Bucks'],
+	'&bullet; Mew - 18 Bucks',],
 };
