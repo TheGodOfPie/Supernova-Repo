@@ -244,25 +244,26 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 	- Ignores Type immunity and Steel resistance
 
 ### DarkChaoticFlare
-Umbreon @ Healing Coat
+Banette-Mega @ #PriorityGloves
 
-- Restores 1/16 of max HP after each turn
+- Holder's moves have +1 priority
 
-Ability: Invulnerable
+Ability: Shadowstatics
 
-- Bounces back certain non-damaging moves
+- Attack stat is multiplied by 1.5x
 
-EVs: 4 Atk, 252 Def, 252 SpD, Nature: Adamant
+EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 
-- Foul Play
-- Moonlight
-- Sucker Punch
-- Neon Protection
+- Shadow Claw
+- Shadow Force
+- Phantom Force
+- #Sword
 	- 10 PP 
-	- Status 
+	- Physical 
 	- Dark-type 
-	- +4 Priority
-	- Raises Def & SpD by 1
+	- 80 BP
+	- Uses Swagger first before attacking
+	- Uses target's Attack stat in damage calculation.
 
 ### Dragotic
 Garchomp @ Yache Berry
@@ -363,7 +364,7 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- 1/3 recoil (not in effect due to ability)
 	- Makes contact
 
-Changes (since 5/2/16)
+Monthly Changes (since 5/2/16)
 ----------------------------------------------------------------------
 ### Username Changes
 
@@ -371,6 +372,7 @@ Changes (since 5/2/16)
 - Dayuh (full set)
 - Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
 - TheGodOfPie (Change custom move)
+- DarkChaoticFlare (full set)
 
 ### Removals
 
