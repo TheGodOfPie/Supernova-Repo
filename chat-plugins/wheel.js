@@ -57,6 +57,7 @@ let losingMessages = [
 	'Paul-Man accidentally burned the wheel down while fighting with his arch-nemesis, Burrito-Man.',
 	'Sparkychild enchanted the wheel with her furry powers, it isn\'t stopping now...',
 	'Steel Sciz bullet punched through the wheel, #BlameNaten',
+	'Drag-Boy forgot to oil the Paul-Cave\'s door and crashed into it.',
 ];
 
 // Generate results for the wheel, if it's a win return the name of the pokemon the wheel stopped at it and it's winning and image
@@ -94,7 +95,7 @@ exports.commands = {
 			// If the user loses, it would generate a message out of the losing messages array
 			if (!wheelResult) {
 				Db('money').set(user.userid, Db('money').get(user.userid, 0) - 2);
-				return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(200, 50, 50, 0.6); border: 1px solid red; border-radius: 5px; padding: 2px;"><font style="color: crimson; font-family: Arial; font-weight: bold; text-shadow: 1px 1px 2px #000;">' + losingMessages[Math.floor(Math.random() * losingMessages.length)] + '</font></div>'));
+				return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(200, 50, 50, 0.6); border: 1px solid red; border-radius: 5px; padding: 2px;"><font style="color: crimson; font-family: Arial; font-weight: bold; font-size: 11pt; text-shadow: 1px 1px 2px #000;">' + losingMessages[Math.floor(Math.random() * losingMessages.length)] + '</font></div>'));
 			}
 			// When a user wins
 			Db('money').set(user.userid, Db('money').get(user.userid, 0) + wheelResult[2]);
