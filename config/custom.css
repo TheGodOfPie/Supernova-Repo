@@ -26,6 +26,7 @@ body {
     border-color: #8D3B79;
     color: #E5E5E5;
     font-size: 8pt;
+    text-shadow: none;
 }
 
 .tabbar a.button {
@@ -33,6 +34,7 @@ body {
     border-color: #B1579B;
     color: #E5E5E5;
     font-size: 8pt;
+    text-shadow: none;
 }
 
 .tabbar a.button:hover {
@@ -40,17 +42,20 @@ body {
     border-color: #9F4E8B;
     color: #E5E5E5;
     font-size: 8pt;
+    text-shadow: none;
 }
 
 .tabbar a.button.subtle-notifying {
     color: #E5E5E5;
+    text-shadow: none;
 }
 
 .tabbar a.button.notifying.closable {
     background: #C078AF;
     border-color: #C078AF;
     color: #E5E5E5;
-    font-size: 8pt;   
+    font-size: 8pt; 
+    text-shadow: none;
 }
 
 .tabbar a.button.notifying.closable:hover {
@@ -58,6 +63,7 @@ body {
     border-color: #AC6C9D;
     color: #E5E5E5;
     font-size: 8pt;
+    text-shadow: none;
 }
 
 .tabbar .closebutton {
