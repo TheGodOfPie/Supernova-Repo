@@ -162,7 +162,7 @@ exports.commands = {
         if (!len) return this.errorReply((target === user.userid ? 'You have ' : target + ' has') + ' no packs.');       
         let display = '<u><b>List of packs:</b></u><br />';
         for (let i = 0; i < len; i++) {
-            display += userPacks[target][i] + '<br />';
+            display += '<button name= "send" value= "/openpack ' + userPacks[target][i] + '"><b>Click here to Open a(n) ' + userPacks[target][i] + ' pack!</b></button><br />';
         }
         this.sendReplyBox(display);
     },
