@@ -323,6 +323,11 @@ body {
 	background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
 }
 
+.chat-log-add {
+	background: #A31465;
+    border-left: none;
+}
+
 .chat-log .chat small {
   color: #81807F;
 }
@@ -334,6 +339,8 @@ body {
 .chat.highlighted {
   background: #D8F6CE;
 }
+
+/* Something Else CSS */
 
 .ps-room.ps-room-light {
   background: rgba(204, 0, 102, 0.8);
