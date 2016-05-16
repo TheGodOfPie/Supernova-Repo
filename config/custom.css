@@ -615,3 +615,7 @@ color: #993399 !important;
 .chat.chatmessage-steelsciz  em { 
 	color:blue !important;
 }
+
+  #staff-userlist-user-steelsciz { 
+    background: rgba(244, 244, 244, 0.8) url("http://i.imgur.com/5M33zAM.gif") right no-repeat;
+  }
