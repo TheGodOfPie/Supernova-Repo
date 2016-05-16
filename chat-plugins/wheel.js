@@ -114,7 +114,7 @@ exports.commands = {
 				// If the user loses, it would generate a message out of the losing messages array
 				if (!wheelResult) {
 					Db('money').set(user.userid, Db('money').get(user.userid, 0) - 2);
-					return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(255, 50, 70, 0.6); border: 1px solid #FF0000; border-radius: 5px; padding: 5px;"><font style="color: #FF0000; font-family: Arial; font-size: 11pt; text-shadow: 0px -1px 4px #000, 0px 1px 4px #000;">' + 
+					return user.sendTo(room, generateDisplay(room, true, false, '<div style="background: rgba(255, 50, 70, 0.6); border: 1px solid #FF0000; border-radius: 5px; padding: 5px;"><font style="color: #FF0000; font-family: Calibri; font-size: 11pt; text-shadow: 0px -1px 2px #000, 0px 1px 2px #000;">' + 
 						losingMessages[Math.floor(Math.random() * losingMessages.length)] + '</font></div>'));
 				}
 
