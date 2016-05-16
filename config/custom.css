@@ -304,7 +304,7 @@ body {
 }
 
 .userlist li button {
-	text-shadow: 1px 1px 1px #000, 1px -1px 1px #4C4C4C, -1px 1px 1px #000, -1px -1px 1px #4C4C4C;
+	text-shadow: 1px 0px 2.5px #000000;
 }
 
 .userlist li button:hover em.group {
@@ -314,7 +314,7 @@ body {
 .userlist li button:hover,
 .userlist-minimized .userlist-count:hover {
 	background: rgba(215, 152, 187, 0.3);
-	text-shadow: none;
+	text-shadow: 1px 0px 2.5px #000000;
 }
 
 /* Chat-log CSS */
