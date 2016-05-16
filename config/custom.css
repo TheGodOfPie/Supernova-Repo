@@ -1,5 +1,3 @@
-/* Supernova's CSS, Done By Dragotic. */
-
 /* Body CSS */
 
 body {
@@ -87,46 +85,6 @@ body {
     text-shadow: 1px 1px 2px #000000;
 }
 
-/* Userlist CSS */
-
-.userlist {
-    background: rgba(157, 66, 135, 0.3);
-    border-color: #9D4287;
-}
-
-.userlist li {
-	background: #EDDCE9;
-}
-
-.userlist li:hover {
-	background: rgba(244, 244, 244, 0.8);
-}
-
-/* Chat-Log CSS */
-
-.chat-log {
-	background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
-}
-
-.chat-log-add {
-    background: rgba(157, 66, 135, 0.3);
-	border-color: #8D3B79;
-    text-shadow: 1px 1px 1px #000000;
-}
-
-/* Roomlist CSS */
-
-.ps-room.ps-room-light.scrollable {
-    background: rgba(224, 102, 163, 0.8);
-    color: #E5E5E5;
-    text-shadow: none;
-}
-
-.roomlist h2 {
-    color: #E5E5E5;
-    text-shadow: -1px -1px 2px #E066A3, 1px -1px 2px #E066A3, -1px 1px 2px #E066A3, 1px 1px 2px #E066A3;
-}
-
 /* PM-Window CSS */
 
 .pm-window h3 {
@@ -204,6 +162,7 @@ body {
 }
 
 /* Menugroup CSS */
+
 .menugroup {
     background: rgba(157, 66, 135, 0.3);
 	border: none;
@@ -224,7 +183,97 @@ body {
     text-shadow: none;
 }
 
+/* Roomlist CSS */
+
+.ps-room.ps-room-light.scrollable {
+    background: rgba(168, 50, 110, 0.8);
+    color: #E5E5E5;
+    text-shadow: none;
+}
+
+.roomlist h2 {
+    color: #E5E5E5;
+    text-shadow: -1px -1px 2px #E066A3, 1px -1px 2px #E066A3, -1px 1px 2px #E066A3, 1px 1px 2px #E066A3;
+}
+
+.roomlist a.ilink {
+    background: rgba(229, 45, 138, 0.8);
+    border: none;
+    color: #FFFFFF;
+    padding: 2px 4px 2px 4px;
+    text-shadow: none;
+}
+
+.roomlist a.ilink:hover {
+    background: rgba(231, 66, 149, 0.8);
+    border: none;
+    color: #FFFFFF;
+    padding: 4px;
+    text-shadow: none;
+}
+
+.roomcounters button {
+    background: rgba(212, 89, 151, 0.7);
+    border-color: #D684AD;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
+.roomcounters button:hover {
+    background: rgba(190, 80, 135, 0.7);
+    border-color: #D684AD;
+    color: #FFFFFF;
+    text-shadow: none;
+}
+
 /* Misc CSS */
+
+/* Broadcast CSS */
+
+.broadcast-blue {
+    text-align: center;
+    font-family: sans-serif;
+    background: rgb(204, 0, 102);
+    color: #220033;
+    border: 1px solid #220033;
+    padding: 5px;
+}
+
+.broadcast-blue a {
+	color: #000000;
+}
+ 
+.broadcast-red {
+    background-color: #FFB3B3;
+    border: 1px solid #610B0B;
+    color: #610B0B;
+    font-family: sans-serif;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    text-shadow: 0px -1px 0px #FFD7D7;
+}
+ 
+.broadcast-red a {
+	color: #610B0B;
+}
+ 
+.broadcast-green {
+    background-color: #C3FFB3;
+    border: 1px solid #19610B;
+    color: #19610B;
+    font-family: sans-serif;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    text-shadow: 0px -1px 0px #D8FFD7;
+}
+
+.broadcast-green a {
+	color: #19610B;
+}
+
+/* Broadcast CSS END */
 
 .textbox {
     background: #D8ABCD;
@@ -237,46 +286,325 @@ body {
     border-color: #C299B8;
     box-shadow: inset 1px 1px 2px #C087B3;
 }
+/* Userlist CSS */
 
-/* Dark Mode CSS */
-
-.dark body {
-	background: url("http://i.imgur.com/ILoe9lz.png?1") bottom left no-repeat !important;
+.userlist {
+	background: #A31465;
+    border-right: none;
 }
 
-.dark .header {
-    background: rgba(167, 81, 167, 0.5) url("http://i.imgur.com/LtktGIK.png") bottom left no-repeat;
+.userlist li {
+	background: rgba(205, 127, 171, 0.4);
+    border-right: 1px inset #DB9EC0;
+    border-bottom: 1px inset #DB9EC0;
 }
 
-.dark .header .logo {
-	opacity: 0;
+.userlist li em.group {
+	color: #D0D0D0;
 }
 
-.dark .chat-log {
-	background: url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
+.userlist li button {
+	text-shadow: 1px 1px 1px #000, 1px -1px 1px #4C4C4C, -1px 1px 1px #000, -1px -1px 1px #4C4C4C;
 }
 
-.dark .chat-log-add {
-    background: rgba(157, 66, 135, 0.3);
-	border-color: #8D3B79;
-    text-shadow: 1px 1px 1px #000000;
+.userlist li button:hover em.group {
+	color: #606060;
 }
 
-.dark .pm-log-add {
-    background: rgba(157, 66, 135, 0.3);
-    border-color: #8D3B79;
+.userlist li button:hover,
+.userlist-minimized .userlist-count:hover {
+	background: rgba(215, 152, 187, 0.3);
+	text-shadow: none;
 }
 
-.dark .userlist {
-    background: rgba(157, 66, 135, 0.3);
-    border-color: #9D4287;
+/* Chat-log CSS */
+
+.chat-log {
+	background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
 }
 
-.dark .userlist li {
-	background: #EDDCE9;
+.chat-log .chat small {
+  color: #81807F;
 }
 
-.dark .menugroup {
-	border: none;
-    box-shadow: inset 1px 1px 2px #4C4C4C;
+.chat-log .chat.mine.chat small {
+  color: #81807F;
+}
+
+.chat.highlighted {
+  background: #D8F6CE;
+}
+
+.ps-room.ps-room-light {
+  background: rgba(204, 0, 102, 0.8);
+  border-color: black;
+}
+
+.ps-room.ps-room-light.scrollable {
+  background: rgba(204, 0, 102, 0.8);
+  color: black;
+  text-shadow: none;
+}
+
+.ps-room.ps-room-light.scrollable h3 {
+  background: none;
+  text-shadow: none;
+}
+
+.ps-room.ps-room-light.scrollable p {
+  background: none;
+  text-shadow: none;
+}
+
+/* Poll CSS */
+.infoboxui {
+    background: rgba(171, 126, 154, 0.49);
+    border-bottom: 2px solid #60284A;
+    color: #60284A;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+}
+
+.infoboxu {
+    background: rgba(124,68,101,0.35) url(http://img97.xooimage.com/files/9/8/3/palkia_192-copie-3f675ac.png) no-repeat;
+    background-position: 300px;
+    border-bottom: 8px solid #783C61;
+    color: #783C61;
+    text-shadow: 0 0 2px #fff;
+    padding-bottom: 5px;
+    border-right: 2px solid #783C61;
+}
+
+  .super-button {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #B86A9A;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+  
+  .super-button:hover {
+    cursor: pointer;
+    border: 1px solid #783C61;
+    background: #CD85B1;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+
+.viewresults {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.48);
+    color: #694060;
+}
+
+.viewresults:hover {
+    cursor: pointer;
+    border: 1px solid #8E6484;
+    text-shadow: 0 0 2px #fff;
+    background: rgba(199, 154, 195, 0.65);
+    color: #694060;
+}
+/*Poll CSS ~end */
+
+.profile-button {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-button:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-buttonn {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+.profile-buttonn:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+
+.infoboxy {
+    padding: 5px;
+    color: #6BCA7A;
+    border: 4px solid #000;    
+    text-shadow: 0 0 2px #0B0B0B;
+}
+.fond-button {
+    border-bottom: 4px solid #30516B;
+    background: rgba(178, 212, 218, 0.42);
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+.fond-button:hover {
+    border-bottom: 4px solid #30516B;
+    background: rgba(178, 212, 218, 0.72);
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+} /*  */
+.infoboxy-bleuciel {
+    background: url(http://static.itnews.sk/a501/image/file/22/0070/EfMY.int_tri_myty_jpg.jpg);
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.gif), auto;
+    color: #CCDFFF;
+    border-bottom: 2px dashed #1665C8;
+    border-top: 2px dashed #1665C8;
+    text-shadow: 0 0 2px #000000;
+}
+.infoboxy-bleu {
+    background: url(http://img1.mxstatic.com/wallpapers/7de77086fbcce85c91d92c89b3199dd6_large.png);
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.gif), auto;
+    padding: 5px;
+    color: transparent;
+    border-bottom: 2px solid transparent;
+    text-shadow: 0 0 2px transparent;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+.infoboxy-supernova {
+    background: url(http://static.ddmcdn.com/gif/supernova-670x440-160114.jpg);
+    background-size:cover;
+    cursor:url(http://www.rw-designer.com/cursor-view/15031.png), auto;
+    padding: 5px;
+    color: black;
+    border: 2px solid gold;
+}
+.infoboxy-sombre {
+    background: url(http://i.imgur.com/qoHqPT5.jpg);
+    padding: 5px;
+    color: #CCCCFF;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-yellow { 
+    background: url(http://www.wallpapereast.com/static/images/G3_wallpaper_06.png);
+    padding: 5px;
+    color: #A9EAFE;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-red { 
+    background: url(http://i.imgur.com/jSwxJuY.png);
+    padding: 5px;
+    color: #FF6D50;
+    border-bottom: 2px solid #FFFFFF;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.infoboxy-grisnoir {
+    background: #2D2E30 url(http://image.noelshack.com/fichiers/2016/15/1460667309-graegerezgze.png);
+    padding: 5px;
+    color: #9A9A98;
+    border-bottom: 2px solid #888883;
+    text-shadow: 0 0 2px #0b0b0b;
+    border-top: 2px solid #888883;
+    border-left: 2px solid #888883;
+    border-right: 2px solid #888883;
+    border-radius: 8px;
+}
+
+.userlist li button:hover {
+    background:rgba(244, 244, 244, 0.5)
+ 
+}
+
+.supernova-button2 {
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    background-color: rgba(148,51,144,0.5);
+}
+
+.supernova-button2:hover {
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    background-color: rgba(41, 41, 41, 0.8);
+}
+
+/* Card CSS */
+
+.card-th {
+  background-color: #cc0066;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  border: 1px solid #CCC; }
+
+.card-td {
+  background: #cc0066;
+  border: 1px solid #CCC;
+  text-align: center; }
+
+.card-div {
+  padding: 5px;
+  color: #333; }
+
+.card-th:hover, .card-td:hover {
+  color: #ff80bf; }
+
+.card-button {
+  margin: 0px 3px; }
+
+.card-td button, .card-button {
+  background: rgba(153, 0, 77, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  color: #333;
+  text-shadow: 1px 1px 1px #FFF; }
+
+.card-td button:hover, .card-button:hover {
+  background: rgba(255, 102, 179, 0.06);
+  border: 1px solid #CCC;
+  text-shadow: 1px 1px 1px #EEE; }
+
+.card-td button:focus, .card-button:focus {
+  background: rgba(227, 235, 246, 0.8);
+  border: 1px solid #9EB2D0; }
+
+/* Custom Colors CSS */
+
+#lobby-userlist-user-supernovarobot strong em, #lobby-userlist-user-supernovarobot strong, #lobby-userlist-user-supernovarobot span, #staff-userlist-user-supernovarobot strong em, #staff-userlist-user-supernovarobot strong, #staff-userlist-user-supernovarobot span, #shadowbanroom-userlist-user-supernovarobot strong em, #shadowbanroom-userlist-user-supernovarobot strong, #shadowbanroom-userlist-user-supernovarobot span, #events-userlist-user-supernovarobot strong em, #events-userlist-user-supernovarobot strong, #events-userlist-user-supernovarobot span, #hydrocity-userlist-user-supernovarobot strong em, #hydrocity-userlist-user-supernovarobot strong, #hydrocity-userlist-user-supernovarobot span, #helpfaq-userlist-user-supernovarobot strong em, #helpfaq-userlist-user-supernovarobot strong, #helpfaq-userlist-user-supernovarobot span, #development-userlist-user-supernovarobot strong em, #development-userlist-user-supernovarobot strong, #development-userlist-user-supernovarobot span, #monocolor-userlist-user-supernovarobot strong em, #monocolor-userlist-user-supernovarobot strong, #monocolor-userlist-user-supernovarobot span, #chaotic-userlist-user-supernovarobot strong em, #chaotic-userlist-user-supernovarobot strong, #chaotic-userlist-user-supernovarobot span, #sophies-userlist-user-supernovarobot strong em, #sophies-userlist-user-supernovarobot strong, #sophies-userlist-user-supernovarobot span, #animeandmanga-userlist-user-supernovarobot strong em, #animeandmanga-userlist-user-supernovarobot strong, #animeandmanga-userlist-user-supernovarobot span, #competitivetutoring-userlist-user-supernovarobot strong em, #competitivetutoring-userlist-user-supernovarobot strong, #competitivetutoring-userlist-user-supernovarobot span, #tournaments-userlist-user-supernovarobot strong em, #tournaments-userlist-user-supernovarobot strong, #tournaments-userlist-user-supernovarobot span, #fu-userlist-user-supernovarobot strong em, #fu-userlist-user-supernovarobot strong, #fu-userlist-user-supernovarobot span, #othermetas-userlist-user-supernovarobot strong em, #othermetas-userlist-user-supernovarobot strong, #othermetas-userlist-user-supernovarobot span, #sportsgames-userlist-user-supernovarobot strong em, #sportsgames-userlist-user-supernovarobot strong, #sportsgames-userlist-user-supernovarobot span, #casino-userlist-user-supernovarobot strong em, #casino-userlist-user-supernovarobot strong, #casino-userlist-user-supernovarobot span, #freetime-userlist-user-supernovarobot strong em, #freetime-userlist-user-supernovarobot strong, #freetime-userlist-user-supernovarobot span, #jenslab-userlist-user-supernovarobot strong em, #jenslab-userlist-user-supernovarobot strong, #jenslab-userlist-user-supernovarobot span, #blackjack-userlist-user-supernovarobot strong em, #blackjack-userlist-user-supernovarobot strong, #blackjack-userlist-user-supernovarobot span, #flarelab-userlist-user-supernovarobot strong em, #flarelab-userlist-user-supernovarobot strong, #flarelab-userlist-user-supernovarobot span, #testing-userlist-user-supernovarobot strong em, #testing-userlist-user-supernovarobot strong, #testing-userlist-user-supernovarobot span, #typeswap-userlist-user-supernovarobot strong em, #typeswap-userlist-user-supernovarobot strong, #typeswap-userlist-user-supernovarobot span, #roomintroshop-userlist-user-supernovarobot strong em, #roomintroshop-userlist-user-supernovarobot strong, #roomintroshop-userlist-user-supernovarobot span, #ahelpfulplace-userlist-user-supernovarobot strong em, #ahelpfulplace-userlist-user-supernovarobot strong, #ahelpfulplace-userlist-user-supernovarobot span, #anythinggoes-userlist-user-supernovarobot strong em, #anythinggoes-userlist-user-supernovarobot strong, #anythinggoes-userlist-user-supernovarobot span, #theinfernoleague-userlist-user-supernovarobot strong em, #theinfernoleague-userlist-user-supernovarobot strong, #theinfernoleague-userlist-user-supernovarobot span, #wifi-userlist-user-supernovarobot strong em, #wifi-userlist-user-supernovarobot strong, #wifi-userlist-user-supernovarobot span, #artshop-userlist-user-supernovarobot strong em, #artshop-userlist-user-supernovarobot strong, #artshop-userlist-user-supernovarobot span, #gamingmedia-userlist-user-supernovarobot strong em, #gamingmedia-userlist-user-supernovarobot strong, #gamingmedia-userlist-user-supernovarobot span, #polls-userlist-user-supernovarobot strong em, #polls-userlist-user-supernovarobot strong, #polls-userlist-user-supernovarobot span, #howtobeastaffmember-userlist-user-supernovarobot strong em, #howtobeastaffmember-userlist-user-supernovarobot strong, #howtobeastaffmember-userlist-user-supernovarobot span, #moba-userlist-user-supernovarobot strong em, #moba-userlist-user-supernovarobot strong, #moba-userlist-user-supernovarobot span, #upperstaff-userlist-user-supernovarobot strong em, #upperstaff-userlist-user-supernovarobot strong, #upperstaff-userlist-user-supernovarobot span, #supernovasuperstaffbros-userlist-user-supernovarobot strong em, #supernovasuperstaffbros-userlist-user-supernovarobot strong, #supernovasuperstaffbros-userlist-user-supernovarobot span, #trivia-userlist-user-supernovarobot strong em, #trivia-userlist-user-supernovarobot strong, #trivia-userlist-user-supernovarobot span, #questionworkshop-userlist-user-supernovarobot strong em, #questionworkshop-userlist-user-supernovarobot strong, #questionworkshop-userlist-user-supernovarobot span, #test-userlist-user-supernovarobot strong em, #test-userlist-user-supernovarobot strong, #test-userlist-user-supernovarobot span{
+color: #993399 !important;
+}
+
+/* End Custom Colors CSS */
+
+.chat.chatmessage-supernovarobot strong {
+	color: #993399 !important;
+}
+
+.chat.chatmessage-steelsciz  em { 
+	color:blue !important;
 }
