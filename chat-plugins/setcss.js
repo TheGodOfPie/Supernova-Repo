@@ -31,7 +31,7 @@ exports.commands = {
 		let args = target.split(',');
 		if (args.length < 3) return this.parse('/help seticon');
 		let username = toId(args.shift());
-		let image = 'background: rgb(163, 20, 101) url("' + args.shift().trim() + '") right no-repeat;';
+		let image = 'background: rgba(205, 127, 171, 0.4) url("' + args.shift().trim() + '") right no-repeat;';
 		selectors = '\n\n' + '  #' + toId(args.shift()) + '-userlist-user-' + username;
 		args.forEach(function (room) {
 			selectors += ', #' + toId(room) + '-userlist-user-' + username;
