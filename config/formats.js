@@ -89,7 +89,12 @@ exports.Formats = [
        
         section: "ORAS Singles",
         ruleset: ['PU'],
-        banlist: ['Poliwrath','Piloswine', 'Mr.Mime','Ninetales', 'Roselia', 'Sawsbuck', 'Probopass', 'Zebstrika', 'Leafeon', 'Ursaring', 'Lickilicky', 'Machoke', 'Pelipper', 'Torterra','Volbeat','Tangela','Rapidash', 'Raichu','Carracosta','Stoutland','Togetic','Gourgeist-Super','Rotom-Frost','Avalugg','Beheeyem','Stunfisk','Munchlax','Onix','Barbaracle','Grumpig','Monferno','Rampardos','Ninjask','Floatzel','Heatmor','Marowak','Cottonee','Basculin','Vigoroth','Regice','Stoutland','Machoke','Ursaring','Chatot']
+        banlist: ['Altaria', 'Ampharos', 'Arbok', 'Armaldo', 'Articuno', 'Audino', 'Avalugg', 'Basculin', 'Beheeyem', 'Bouffalant', 
+		'Camerupt', 'Chatot', 'Clefairy', 'Crustle', 'Cryogonal', 'Dodrio', 'Drifblim', 'Dusknoir', 'Electrode', 'Flareon', 'Floatzel', 
+		'Gabite', 'Golem', 'Gorebyss', 'Gourgeist-Super', 'Grumpig', 'Jumpluff', 'Kadabra', 'Kingler', 'Lapras', 'Leafeon', 'Leavanny', 
+		'Lickilicky', 'Lumineon', 'Machoke', 'Marowak', 'Mawile', 'Metang', 'Misdreavus', 'Monferno', 'Mr. Mime', 'Ninetales', 'Ninjask', 
+		'Pawniard', 'Politoed', 'Prinplup', 'Probopass', 'Purugly', 'Raichu', 'Rampardos', 'Rapidash', 'Regice', 'Relicanth', 'Roselia', 
+		'Rotom-Frost', 'Stoutland', 'Stunfisk', 'Swanna', 'Tangela', 'Torkoal', 'Ursaring', 'Vullaby', 'Zebstrika']
     },
 	{
 		name: "PU",
