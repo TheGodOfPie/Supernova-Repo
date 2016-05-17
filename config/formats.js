@@ -84,6 +84,17 @@ exports.Formats = [
 		ruleset: ['RU'],
 		banlist: ['RU', 'BL3'],
 	},
+	{
+		name: "PU",
+		desc: [
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3560703/\">np: PU Stage 6</a>",
+			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3528743/\">PU Viability Ranking</a>",
+		],
+		section: "ORAS Singles",
+
+		ruleset: ['NU'],
+		banlist: ['NU', 'BL4', 'Chatter'],
+	},
     {
         name: "FU",
        
@@ -96,17 +107,6 @@ exports.Formats = [
 		'Pawniard', 'Politoed', 'Prinplup', 'Probopass', 'Purugly', 'Raichu', 'Rampardos', 'Rapidash', 'Regice', 'Relicanth', 'Roselia', 
 		'Rotom-Frost', 'Stoutland', 'Stunfisk', 'Swanna', 'Tangela', 'Torkoal', 'Ursaring', 'Vullaby', 'Zebstrika']
     },
-	{
-		name: "PU",
-		desc: [
-			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3560703/\">np: PU Stage 6</a>",
-			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3528743/\">PU Viability Ranking</a>",
-		],
-		section: "ORAS Singles",
-
-		ruleset: ['NU'],
-		banlist: ['NU', 'BL4', 'Chatter'],
-	},
 	{
 		name: "LC",
 		desc: [
