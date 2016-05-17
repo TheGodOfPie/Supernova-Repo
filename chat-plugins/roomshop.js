@@ -23,7 +23,7 @@ exports.commands = {
 			.set(room.id, {});
 
 			this.sendReply('Roomshop has been enabled here.');
-            this.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just added a room shop to ' + (room.id) + '. Use /help roomshop to guide you through how to manage a room shop.</b></div>');
+            this.add('|raw|<div class="broadcast-green"><b>'+user.name+' has just added a room shop to ' + (room.title) + '. Use /help roomshop to guide you through how to manage a room shop.</b></div>');
 
 		},
 		disable: function (target, room, user) {
@@ -33,7 +33,7 @@ exports.commands = {
 			db('roomshop').delete(room.id);
 
 			this.sendReply('Roomshop has been disabled here.');
-            this.add('|raw|<div class="broadcast-red"><b>'+user.name+' has removed the roomshop for ' + (room.id) + '</b></div>');
+            this.add('|raw|<div class="broadcast-red"><b>'+user.name+' has removed the roomshop for ' + (room.title) + '</b></div>');
 
 		},
 		bank: {
