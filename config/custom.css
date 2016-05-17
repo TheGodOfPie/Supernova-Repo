@@ -291,22 +291,19 @@ body {
 /* Userlist CSS */
 
 .userlist {
-	background: rgba(163, 20, 101, 0.5);
+	background: rgba(163, 20, 101, 0.3);
     border-right: 1px solid #510A32;
 }
 
 .userlist li {
-	background: rgba(205, 127, 171, 0.5);
+	background: rgba(199,114,162, 0.5);
     border-right: none;
     border-bottom: 1px inset #DB9EC0;
+    text-shadow: none;
 }
 
 .userlist li em.group {
 	color: #D0D0D0;
-}
-
-.userlist li button {
-	text-shadow: 1px 0px 2.5px #000000;
 }
 
 .userlist li button:hover em.group {
@@ -316,7 +313,6 @@ body {
 .userlist li button:hover,
 .userlist-minimized .userlist-count:hover {
 	background: rgba(205, 127, 171, 1);
-	text-shadow: 1px 0px 2.5px #000000;
 }
 
 /* Chat-log CSS */
@@ -327,7 +323,7 @@ body {
 
 .chat-log-add {
 	background: rgba(163, 20, 101, 0.5);
-    border-right: 1px solid #510A32;
+    border-top: 1px solid #510A32;
     border-left: none;
 }
 
