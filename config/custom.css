@@ -296,18 +296,26 @@ body {
 }
 
 .userlist li {
-	background: rgba(199,114,162, 0.5);
+	background: rgba(221, 134, 187, 0.5);
     border-right: none;
-    border-bottom: 1px inset #DB9EC0;
+    border-bottom: 1px inset #C678A8;
     text-shadow: none;
 }
 
 .userlist li em.group {
-	color: #D0D0D0;
+	color: #FFFFFF;
 }
 
 .userlist li button:hover em.group {
-	color: #606060;
+	color: #E5E5E5;
+}
+
+.userlist li button {
+	background: rgba(238, 238, 238, 0.8);
+}
+
+.userlist-count, .userlist-minimized .userlist-count {
+	background: rgba(238, 238, 238, 0.8);
 }
 
 .userlist li button:hover,
