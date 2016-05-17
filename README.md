@@ -22,7 +22,8 @@ For more information on Pokémon Showdown, visit the main
 - Lottery, Bingo, Uno, and more games.
 - Moderation Commands such as Shadowban and Permaban/lock
 - A Card System (PSGO) made by fender, Nineage, and naten2006
-- Tour elo and Buck earnings in the ladder (coming soon)
+- Tour elo and Buck earnings in the ladder.
+
 
 ## Quick Start
 
@@ -31,8 +32,8 @@ $ git clone https://Sundar_s@bitbucket.org/Sundar_s/supernova.git
 $ cd Supernova && npm install
 $ node app.js
 
-There are some node modules you have to install manually without npm install, such as npm install geoip-ultralight and npm install node-serialize)
 ```
+There are some node modules you have to install manually without npm install, such as npm install geoip-ultralight and npm install node-serialize)
 
 ## Supernova Developers
 
