@@ -191,12 +191,4 @@ exports.BattleAbilities = {
                         id: "letsdothis",
                         name: "Let's Do This",
                 },
-                //DarkChaoticFlare
-                "shadowstatics": {
-                        onModifyAtk: function (atk) {
-	                		return this.chainModify(1.5);
-                        },
-                        id: "shadowstatics",
-                        name: "Shadowstatics",
-                },
 };
