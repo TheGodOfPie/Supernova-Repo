@@ -150,12 +150,12 @@
         "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/b221/f/2013/323/f/e/mega_banette_by_dashinghero-d6uwmii.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/354-mega.png&quot;), auto;'>",
         "staffmon": "Banette-Mega",
         "item": "#PriorityGloves - Holder's moves have +1 priority",
-        "ability": "Shadowstatics - Pokemon's Attack stat is multiplied by 1.5x.",
+        "ability": "Adaptability",
         "nature": "Adamant (+Atk -SpA)",
         "movepool": ["Shadow Claw", "Shadow Force", "Phantom Force"],
-        "signature move": "#Sword - 10 PP / Physical / Dark-type / 80 BP / Uses Swagger before attacking / Uses target's Attack stat in damage calculation.",
+        "signature move": "#Sword - 10 PP / Physical / Ghost-type / 80 BP / Uses Swagger before attacking / Uses target's Attack stat in damage calculation.",
         "evs": ["252 Atk", "4 Def", "252 Spe"],
-        "note": "This guy defines \"wallbreaking\". High attack and unlimited priority makes this thing spookier than ever. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and has a priority move that wrecks this thing."
+        "note": "This guy defines \"wallbreaking\". Its increased STAB and unlimited increased priority makes this thing spookier than ever. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and has a priority move that wrecks this thing."
     },
     "elizabethswann": {
         "username": "<img src='http://media.pldh.net/pokexycons/282-mega.png'>Elizabeth Swann<img src='http://media.pldh.net/pokexycons/282-mega.png'>",
