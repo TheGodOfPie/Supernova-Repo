@@ -427,6 +427,6 @@ exports.BattleMovedex = {
 		flags: {protect: 1, mirror: 1},
 		secondary: false,
 		target: "normal",
-		type: "Dark"
+		type: "Ghost"
 	},
 };
