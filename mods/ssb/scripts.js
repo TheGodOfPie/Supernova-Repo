@@ -93,7 +93,7 @@ exports.BattleScripts = {
 					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
 				},
 				'DarkChaoticFlare': {
-					species: 'Banette-Mega', ability: 'Shadowstatics', item: '#PriorityGloves', gender: 'M',
+					species: 'Banette-Mega', ability: 'Adaptability', item: '#PriorityGloves', gender: 'M',
 					moves: ['shadowclaw','shadowforce', 'phantomforce'], signatureMove: "#Sword",
 					evs: {atk:252, spe:252, def:4}, nature: 'Adamant',
 				},
