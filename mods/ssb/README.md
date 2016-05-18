@@ -248,9 +248,7 @@ Banette-Mega @ #PriorityGloves
 
 - Holder's moves have +1 priority
 
-Ability: Shadowstatics
-
-- Attack stat is multiplied by 1.5x
+Ability: Adaptability
 
 EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 
@@ -260,7 +258,7 @@ EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 - #Sword
 	- 10 PP 
 	- Physical 
-	- Dark-type 
+	- Ghost-type 
 	- 80 BP
 	- Uses Swagger first before attacking
 	- Uses target's Attack stat in damage calculation.
