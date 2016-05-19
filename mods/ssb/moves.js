@@ -73,6 +73,30 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Water"
 	},
+//&TheGodOfPie
+	"dubstepdagger": {
+		accuracy: 100,
+		basePower: 130,
+		category: "Physical",
+		shortDesc: "No additional effect.",
+		id: "dubstepdagger",
+		name: "Dubstep Dagger",
+		pp: 10,
+		priority: 0,
+		onPrepareHit: function (target, source, move) {
+            this.attrLastMove('[still]');
+			this.add('-anim', source, "Boomburst", target);
+			this.add('-anim', target, "Secret Sword", target);
+		},
+		flags: {sound: 1, protect: 1, mirror: 1, authentic: 1},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'confusion'
+		},
+		self: {boosts: {def: -1, spd:-1}},
+		target: "normal",
+		type: "Psychic"
+	},
 //@StarryWindy
 	"victorycharge": {
 		accuracy: 100,
@@ -93,14 +117,14 @@ exports.BattleMovedex = {
 		secondary: [
 			{
 				chance: 70,
-				status: 'brn'
+				status: 'brn',
 			}, {
 				chance: 70,
 				boosts: {
 					def: -1,
-					spd: -1
-				}
-			}
+					spd: -1,
+				},
+			},
 		],
 		target: "normal",
 		type: "Fire"
@@ -126,44 +150,6 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Dragon"
-	},
-//@TheGodOfPie
-	"dubstepdagger": {
-		accuracy: 100,
-		basePower: 130,
-		category: "Physical",
-		shortDesc: "No additional effect.",
-		id: "dubstepdagger",
-		name: "Dubstep Dagger",
-		pp: 10,
-		priority: 0,
-		onPrepareHit: function (target, source, move) {
-            this.attrLastMove('[still]');
-			this.add('-anim', source, "Boomburst", target);
-			this.add('-anim', target, "Secret Sword", target);
-			let sentence = [
-					"Hyper Potions ft. Danyka Nadeau - Unbreakable (Monstercat Release)",
-					"Razihel ft. TeamMate - Legends (Hyper Potions Remix)", 
-					"Eminence & Supermans Feinde ft. Q'AILA - Night Goes On",
-					"Hellberg ft. Cozi Zuehlsdorff - The Girl (Monstercat Release)",
-					"Puppet - Soft Spoken (Monstercat EP Release)",
-					"Different Heaven & EH!DE - My Heart (NCS Release)",
-					"Desmeon - Hellcat (NCS Release)",
-					"Tobu - Infectious (Original Mix)",
-					"Phantom Sage - Crystal Clouds (NCS Release)",
-					"Waysons - Daydream (NCS Release)"
-						]
-					[this.random(10)];
-				this.add('c|@TheGodOfPie|Song of the Day: [[' + sentence + ']]');
-		},
-		flags: {sound: 1, protect: 1, mirror: 1, authentic: 1},
-		secondary: {
-			chance: 100,
-			volatileStatus: 'confusion'
-		},
-		self: {boosts: {accuracy: -1, def: -1, spd:-1}},
-		target: "normal",
-		type: "Psychic"
 	},
 //%Cross-Xz14
 	"darkhell": {
