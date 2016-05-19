@@ -1,6 +1,18 @@
 'use strict';
 
 exports.BattleItems = {
+		//&TheGodOfPie
+	       	"matterlesspie": {
+				id: "matterlesspie",
+				name: "Matterless Pie",
+				onBasePowerPriority: 6,
+				onBasePower: function (basePower, user, target, move) {
+					if (move.type === 'Psychic') {
+						return this.chainModify(1.4);
+					}
+				},
+				desc: "Boosts Psychic-type moves' power by 1.4."
+			},
 		//@Supernova Robot
 			"supernovastone": {
 				id: "supernovastone",
@@ -12,18 +24,6 @@ exports.BattleItems = {
 					return true;
 				},
 				desc: "If holder is Supernova Robot, this item allows it to Evolve in battle."
-			},
-    	//@TheGodOfPie
-	       	"matterlesspie": {
-				id: "matterlesspie",
-				name: "Matterless Pie",
-				onBasePowerPriority: 6,
-				onBasePower: function (basePower, user, target, move) {
-					if (move.type === 'Psychic') {
-						return this.chainModify(1.4);
-					}
-				},
-				desc: "Boosts Psychic-type moves' power by 1.4."
 			},
     	//+CLawliet
 	    	"statsb00ster": {
