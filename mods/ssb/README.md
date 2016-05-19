@@ -60,6 +60,34 @@ EVs: 216 HP, 252 Atk, 40 Spe, Nature: Jolly
 	- +1 Priority
 	- Makes contact
 
+### &TheGodOfPie
+Gallade-Mega @ Matterless Pie 
+
+- Boosts Psychic-type moves' power by 1.4x
+
+Ability: Mystic Blades 
+
+- Attacker loses 1/8 of their max HP if they make contact with this Pokemon.
+
+Innate Ability: Distortion
+
+- Inverts target's stats upon entry
+
+EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
+
+- Shadow Sneak
+- Close Combat
+- Earthquake
+- Dubstep Dagger 
+	- 10 PP
+	- 100% Accuracy
+	- Physical
+	- Psychic-type
+	- 130 BP
+	- Bypasses protect, Sounds-based, & does not make contact
+	- -1 Def & SpD to self after use
+	- 100% chance to confuse target
+
 ### @StarryWindy
 Victini @ Leftovers
 
@@ -76,7 +104,7 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 	- Special
 	- Fire-type
 	- 180 BP
-	- 70% burn, 70% -1 target's Def & SpD
+	- 70% chance to burn target burn, 70% chance to lower target's Def & SpD by 1
 	- Auto-defrosts the user
 
 ### @ Supernova Robot
@@ -106,34 +134,6 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Modest
 	- 150 BP
 	- 20% flinch
 	- Pulse-based
-
-### @TheGodOfPie
-Gallade-Mega @ Matterless Pie 
-
-- Boosts Psychic-type moves' power by 1.4x
-
-Ability: Mystic Blades 
-
-- Attacker loses 1/8 of their max HP if they make contact with this Pokemon.
-
-Innate Ability: Distortion
-
-- Inverts target's stats upon entry
-
-EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
-
-- Shadow Sneak
-- Close Combat
-- Earthquake
-- Dubstep Dagger 
-	- 10 PP
-	- 100% Accuracy
-	- Physical
-	- Psychic-type
-	- 130 BP
-	- Bypasses protect, Sounds-based, & does not make contact
-	- -1 Accuracy, Def, & SpD to self after use
-	- 100% chance to confuse target
 
 ### %Cross-Xz14
 Darkrai @ Life Orb
@@ -362,22 +362,17 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- 1/3 recoil (not in effect due to ability)
 	- Makes contact
 
-Monthly Changes (since 5/2/16)
+Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
-### Username Changes
-
-### Set Changes
+- Fixed StarryWindy's custom move secondaries not working
+- Change DarkChaoticFlare's Ability (Shadowstatics --> Adaptability)
+- Change DarkChaoticFlare's custom move type (Dark --> Ghost)
+- Remove TheGodOfPie's "using custom move" quote
+- Remove TheGodOfPie's custom move lowering its own Accuracy
+- TheGodOfPie's rank change (@ --> &)
 - Dayuh (full set)
-- Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
 - TheGodOfPie (Change custom move)
 - DarkChaoticFlare (full set)
-
-### Removals
-
-### Rank changes:
-
-### Move, item, and ability FIXES [tweaks, not complete changes]
+- Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
 - Dance Of Shadows now has 50% to get boosts instead of 30%.
-
-### Other stuff
 - Added a format description
