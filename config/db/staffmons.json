@@ -47,6 +47,19 @@
         "evs": ["216 HP", "252 Atk", "40 Spe"],
         "note": "While it can pretty much kill every other staffmon out there that is neutral or weak to Water-types because of its priority custom move, this staffmon can get OHKO'd by special moves, especially Grass-type and Electric-type ones. Potential counters include Ransei, Back At My Day..., or anything that can outspeed this staffmon."
     },
+    "thegodofpie": {
+        "username": "<img src='http://media.pldh.net/pokexycons/475-mega.png'>&TheGodOfPie<img src='http://media.pldh.net/pokexycons/475-mega.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/me7tYmC.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
+        "staffmon": "Gallade-Mega",
+        "item": "Matterless Pie - Boosts Psychic-type moves' power by 1.4x.",
+        "ability": "Mystic Blades - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.",
+        "innate ability": "Distortion - Inverts target's stats upon entry.",
+        "nature": "Jolly (+Spe -SpA)",
+        "movepool": ["Shadow Sneak", "Close Combat", "Earthquake"],
+        "signature move": "Dubstep Dagger - 10 PP / 100% Accuracy / Physical / Psychic-type / 130 BP / Sound-based, Bypasses Substitute, & Does not make contact / -1 SpD & Def to self after use / 100% chance to confuse target.",
+        "evs": ["4 HP", "252 Atk", "252 Spe"],
+        "note": "With its ability, innate ability, custom item, and custom move, it can either be a powerful sweeper or a good troll for staffmons that rely on stat boosts like Ransei. Just bring this up against the big guns with the big boosts, and watch the opponents and their hard-earned stat changes flip around like it's Opposite Day. Potential counters include CLawliet, Camilas, Cross-Xz14 or anything that outspeeds this staffmon and doesn't rely on setups."
+    },
     "starrywindy": {
         "username": "<img src='http://media.pldh.net/pokexycons/494.png'>@StarryWindy<img src='http://media.pldh.net/pokexycons/494.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/unovacollection/victini.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/494.png&quot;), auto;'>",
@@ -71,19 +84,6 @@
         "signature move": "Galaxy Blast - 10 PP / Special / Dragon-type / 150 BP / 20% chance to flinch the target / Pulse-based / 100% Accuracy.",
         "evs": ["252 HP", "4 Def", "252 SpA"],
         "note": "Supernova Robot's staffmon can be a troll to a lot of other physical staffmons that use contact moves, especially to Dragon-type moves. At the same time, it can also be a sweeper. But being a sweeper, it relies to its ability, Download. Potential counters include Ransei, Camilas, Steel Sciz and other staffmons that are not Dragon-type and is a special attacker that has higher defense."
-    },
-    "thegodofpie": {
-        "username": "<img src='http://media.pldh.net/pokexycons/475-mega.png'>@TheGodOfPie<img src='http://media.pldh.net/pokexycons/475-mega.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/me7tYmC.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/475-mega.png&quot;), auto;'>",
-        "staffmon": "Gallade-Mega",
-        "item": "Matterless Pie - Boosts Psychic-type moves' power by 1.4x.",
-        "ability": "Mystic Blades - Attacker loses 1/8 of their max HP if they make contact with this Pokemon.",
-        "innate ability": "Distortion - Inverts target's stats upon entry.",
-        "nature": "Jolly (+Spe -SpA)",
-        "movepool": ["Shadow Sneak", "Close Combat", "Earthquake"],
-        "signature move": "Dubstep Dagger - 10 PP / 100% Accuracy / Physical / Psychic-type / 130 BP / Sound-based, Bypasses Substitute, & Does not make contact / -1 Accuracy, SpD, & Def to self after use / 100% chance to confuse target.",
-        "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "With its ability, innate ability, custom item, and custom move, it can either be a powerful sweeper or a good troll for staffmons that rely on stat boosts like Ransei. Just bring this up against the big guns with the big boosts, and watch the opponents and their hard-earned stat changes flip around like it's Opposite Day. Potential counters include CLawliet, Camilas, Cross-Xz14 or anything that outspeeds this staffmon and doesn't rely on setups."
     },
     "crossxz14": {
         "username": "<img src='http://media.pldh.net/pokexycons/491.png'>%Cross-Xz14<img src='http://media.pldh.net/pokexycons/491.png'>",
@@ -153,7 +153,7 @@
         "ability": "Adaptability",
         "nature": "Adamant (+Atk -SpA)",
         "movepool": ["Shadow Claw", "Shadow Force", "Phantom Force"],
-        "signature move": "#Sword - 10 PP / Physical / Ghost-type / 80 BP / Uses Swagger before attacking / Uses target's Attack stat in damage calculation.",
+        "signature move": "#Sword - 10 PP / Physical / Ghost-type / 80 BP / Raises opponent's Attack by 2 and confuses it before attacking / Uses target's Attack stat in damage calculation.",
         "evs": ["252 Atk", "4 Def", "252 Spe"],
         "note": "This guy defines \"wallbreaking\". Its increased STAB and unlimited increased priority makes this thing spookier than ever. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and has a priority move that wrecks this thing."
     },
