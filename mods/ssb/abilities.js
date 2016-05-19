@@ -34,6 +34,19 @@ exports.BattleAbilities = {
 			id: "piercingcyclone",
 	        	name: "Piercing Cyclone",
 	        },
+            //&TheGodOfPie
+                "mysticblades": {
+                        shortDesc: "Inverts the opponent\'s stat changes upon entry.",
+                        onAfterDamageOrder: 1,
+	               	onAfterDamage: function (damage, target, source, move, pokemon) {
+		        	if (source && source !== target && move && move.flags['contact']) {
+			        	this.add('-ability', target, 'Mystic Blades');
+			        	this.damage(source.maxhp / 8, source, target, null, true);
+			        }
+	        	},
+                        id: "mysticblades",
+                        name: "Mystic Blades",
+                },
         //Moderators
                 //@Supernova Robot
                 "galacticclash": {
@@ -52,19 +65,7 @@ exports.BattleAbilities = {
 	        	id: "galacticclash",
 	        	name: "Galactic Clash",
 	        },
-	        //@TheGodOfPie
-                "mysticblades": {
-                        shortDesc: "Inverts the opponent\'s stat changes upon entry.",
-                        onAfterDamageOrder: 1,
-	               	onAfterDamage: function (damage, target, source, move, pokemon) {
-		        	if (source && source !== target && move && move.flags['contact']) {
-			        	this.add('-ability', target, 'Mystic Blades');
-			        	this.damage(source.maxhp / 8, source, target, null, true);
-			        }
-	        	},
-                        id: "mysticblades",
-                        name: "Mystic Blades",
-                },
+	        
                 
         //Drivers
                 
