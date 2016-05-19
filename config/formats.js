@@ -970,29 +970,29 @@ exports.Formats = [
 				if (name === 'kie') {
 					this.add('c|&Kie|〜(^∇^〜）DON\'T STOP THE DANCING（〜^∇^)〜');
 				}
+				if (name === 'thegodofpie') {
+					let dice = this.random(4);
+					if (dice === 1) {
+						this.add('c|&TheGodOfPie|What\'s this song stuck in my head? I forgot the name...');
+						this.add('c|&TheGodOfPie|Oh! I got it.');
+						this.add('c|&TheGodOfPie|It\'s the sound of your defeat.');
+					} else if (dice === 2) {
+						this.add('c|&TheGodOfPie|I\'ll drop the Ayylamo Army so hard that it\'ll make your mom stand from the chair.');
+					} else if (dice === 3) {
+						this.add('c|&TheGodOfPie|/me loads up his Dubstep Gun.');
+						this.add('c|&TheGodOfPie|Oh. This isn\'t music class?');
+					} else {
+						this.add('c|&TheGodOfPie|/me brings out his Dubstep Dagger');
+						this.add('c|&TheGodOfPie|Crap. I forgot you can\'t 360-No-Scope someone with a knife..');
+						this.add('c|&TheGodOfPie|/me facedesks and bleeds.');
+					}
+				}
 			// Moderators
 				if (name === 'starrywindy') {
 					this.add('c|@StarryWindy|I\'ll try to do my best.');
 				}
 				if (name === 'supernovarobot') {
 						this.add('c|@Supernova Robot|I may be small, but at this development stage, I already got galactic power.');
-				}
-				if (name === 'thegodofpie') {
-					let dice = this.random(4);
-					if (dice === 1) {
-						this.add('c|@TheGodOfPie|What\'s this song stuck in my head? I forgot the name...');
-						this.add('c|@TheGodOfPie|Oh! I got it.');
-						this.add('c|@TheGodOfPie|It\'s the sound of your defeat.');
-					} else if (dice === 2) {
-						this.add('c|@TheGodOfPie|I\'ll drop the Ayylamo Army so hard that it\'ll make your mom stand from the chair.');
-					} else if (dice === 3) {
-						this.add('c|@TheGodOfPie|/me loads up his Dubstep Gun.');
-						this.add('c|@TheGodOfPie|Oh. This isn\'t music class?');
-					} else {
-						this.add('c|@TheGodOfPie|/me brings out his Golden Knife');
-						this.add('c|@TheGodOfPie|Crap. I forgot you can\'t 360-No-Scope someone with a knife..');
-						this.add('c|@TheGodOfPie|/me facedesks and bleeds.');
-					}
 				}
 			// Drivers
 				if (name === 'crossxz14') {
@@ -1047,6 +1047,9 @@ exports.Formats = [
 				if (name === 'kie') {
 					this.add('c|&Kie|Crit mattered. (⌐■_■)');
 				}
+				if (name === 'thegodofpie') {
+					this.add('raw|<div class="chat"><small>&</small><button name="parseCommand" value="/user TheGodOfPie" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#8552C0">TheGodOfPie:</font></b></button><em class="mine">OH WOW YOU SAVAGE <img src="http://i.imgur.com/D44jUWM.png" title="feelspissed" height="50" width="50"></em></div>');
+				}
 			// Moderators
 				if (name === 'supernovarobot') {
 					this.add('c|@Supernova Robot|Server Shutdown');
@@ -1054,9 +1057,6 @@ exports.Formats = [
 				}
 				if (name === 'starrywindy') {
 					this.add('c|@StarryWindy|The power\'s too strong...');
-				}
-				if (name === 'thegodofpie') {
-					this.add('raw|<div class="chat"><small>@</small><button name="parseCommand" value="/user TheGodOfPie" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#8552C0">TheGodOfPie:</font></b></button><em class="mine">OH WOW YOU SAVAGE <img src="http://i.imgur.com/D44jUWM.png" title="feelspissed" height="50" width="50"></em></div>');
 				}
 			// Drivers
 				if (name === 'crossxz14') {
@@ -1101,11 +1101,11 @@ exports.Formats = [
 				let name = toId(target.name);
 				let sentences = [];
 				let sentence = '';
+					if (name === 'thegodofpie') {
+						this.add('raw|<div class="chat"><small>&</small><button name="parseCommand" value="/user TheGodOfPie" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#8552C0">TheGodOfPie:</font></b></button><em class="mine">MOM I NAILED A NO-SCOPE!!1! AYYLAMO! <img src="http://i.imgur.com/1ehnWjW.png" title="ayylamo" height="50" width="50"></em></div>');
+					}
 					if (name === 'starrywindy') {
 						this.add('c|@StarryWindy|V for Victory!');
-					}
-					if (name === 'thegodofpie') {
-						this.add('raw|<div class="chat"><small>@</small><button name="parseCommand" value="/user TheGodOfPie" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#8552C0">TheGodOfPie:</font></b></button><em class="mine">MOM I NAILED A NO-SCOPE!!1! AYYLAMO! <img src="http://i.imgur.com/1ehnWjW.png" title="ayylamo" height="50" width="50"></em></div>');
 					}
 					if (name === 'clawliet') {
 						this.add('c|+CLawliet|It seems that I can\'t control my turbulence....');
