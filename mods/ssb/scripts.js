@@ -22,6 +22,11 @@ exports.BattleScripts = {
 					moves: ['swordsdance', 'earthquake', 'dragonclaw'], signatureMove: "Mystletainn Kick",
 					evs: {hp:216, atk:252, spe:40}, nature: 'Jolly',
 				},
+				'&TheGodOfPie': {
+					species: 'Gallade-Mega', ability: 'Mystic Blades', item: 'Matterless Pie', gender: 'M', shiny: true,
+					moves: ['earthquake', 'shadowsneak', 'closecombat'], signatureMove: "Dubstep Dagger",
+					evs: {hp:4, atk:252, spe:252}, nature: 'Jolly',
+				},
             // Moderators
 				'@Supernova Robot': {
 					species: 'Nidoran-M', ability: 'Download', item: 'Supernova Stone', gender: 'N', shiny: true,
@@ -32,11 +37,6 @@ exports.BattleScripts = {
 					species: 'Victini', ability: 'Magic Guard', item: 'Leftovers', gender: 'M',
 					moves: ['thunderwave', 'energyball', 'thunderbolt'], signatureMove: "Victory Charge",
 					evs: {hp:252, spa:252, spe:4}, nature: 'Modest',
-				},
-				'@TheGodOfPie': {
-					species: 'Gallade-Mega', ability: 'Mystic Blades', item: 'Matterless Pie', gender: 'M', shiny: true,
-					moves: ['earthquake', 'shadowsneak', 'closecombat'], signatureMove: "Dubstep Dagger",
-					evs: {hp:4, atk:252, spe:252}, nature: 'Jolly',
 				},
 			// Drivers
 				'%Cross-Xz14': {
