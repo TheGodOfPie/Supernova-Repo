@@ -403,7 +403,7 @@ exports.BattleMovedex = {
 		useTargetOffensive: true,
 		priority: 0,
 		onPrepareHit: function (target, pokemon) {
-			this.boost({atk: 2}, pokemon);
+			this.boost({atk: 2}, target);
 	        target.addVolatile('confusion');
             this.attrLastMove('[still]');
             this.add('-anim', target, "Secret Sword", target);
