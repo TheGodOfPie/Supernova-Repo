@@ -114,7 +114,7 @@ exports.BattleMovedex = {
 			this.add('c|@StarryWindy|If this move works... go, Victory Charge!');
 		},
 		flags: {defrost: 1, protect: 1, mirror: 1},
-		secondary: [
+		secondaries: [
 			{
 				chance: 70,
 				status: 'brn',
