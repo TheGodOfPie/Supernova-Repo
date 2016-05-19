@@ -1,7 +1,7 @@
 'use strict';
 
 exports.BattleStatuses = {
-	//@TheGodOfPie
+	//&TheGodOfPie
     distortion: {
 		effectType: 'Ability',
 		onStartPriority: -10,
