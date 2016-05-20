@@ -257,7 +257,7 @@ EVs: 252 Atk, 128 Def, 128 SpD, Nature: Adamant
 
 - Bullet Seed
 - Rock Blast
-- Pin Missle
+- Pin Missile
 - Parasites
 	- 10 PP 
 	- Physical 
