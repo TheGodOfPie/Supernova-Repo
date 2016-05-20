@@ -94,7 +94,7 @@ exports.BattleScripts = {
 				},
 				'DarkChaoticFlare': {
 					species: 'Heracross', ability: 'Engineer', item: 'Bug-potion', gender: 'M',
-					moves: ['bulletseed','rockblast', 'pinmissle'], signatureMove: "Parasites",
+					moves: ['bulletseed','rockblast', 'pinmissile'], signatureMove: "Parasites",
 					evs: {atk:252, spd:128, def:128}, nature: 'Adamant',
 				},
 			};
