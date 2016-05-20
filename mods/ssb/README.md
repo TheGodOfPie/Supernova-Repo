@@ -369,6 +369,7 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Changed DarkChaoticFlare's full set
 - Fixed StarryWindy's custom move secondaries not working
 - Change DarkChaoticFlare's Ability (Shadowstatics --> Adaptability)
 - Change DarkChaoticFlare's custom move type (Dark --> Ghost)
