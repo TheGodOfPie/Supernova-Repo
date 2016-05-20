@@ -1029,7 +1029,7 @@ exports.Formats = [
 					this.add('c|Back At My Day...|Oh no! I have time traveled to the beginning of time. I have to get back to my time!');
 				}
 				if (name === 'darkchaoticflare') {
-					this.add('c|DarkChaoticFlare|⊂(▀¯▀⊂)');
+					this.add('c|DarkChaoticFlare|BizizzBzizzBzzizBizzz)');
 				}
 			},
 		onFaint: function (pokemon, source, effect) {
@@ -1093,7 +1093,7 @@ exports.Formats = [
 					this.add('raw|<div class="chat chatmessage-volco"><b><font color="#4F7AAB"><span class="username" data-name="Volco">Volco</span>:</font></b> <em class="mine"><img src="http://i.imgur.com/fXtdLtV.png" title="feelsdd" height="50" width="50"></em></div>');
 				}
 				if (name === 'darkchaoticflare') {
-					this.add('c|DarkChaoticFlare|┌༼◉ل͟◉༽┐');
+					this.add('c|DarkChaoticFlare|/declare The bug was swatted!');
 				}
 			},
 		onHit: function (pokemon, target) {
