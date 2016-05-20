@@ -393,27 +393,36 @@ exports.BattleMovedex = {
 		type: "Ground"
 	},
 //DarkChaoticFlare
-	"sword": {
+	"parasites": {
 		accuracy: 100,
-		basePower: 80,
+		basePower: 60,
 		category: "Physical",
-		id: "sword",
-		name: "#Sword",
+		id: "parasites",
+		name: "Parasites",
 		pp: 10,
-		useTargetOffensive: true,
 		priority: 0,
 		onPrepareHit: function (target, pokemon) {
-			this.boost({atk: 2}, target);
-	        target.addVolatile('confusion');
             this.attrLastMove('[still]');
-            this.add('-anim', target, "Secret Sword", target);
+            this.add('-anim', pokemon, "Struggle Bug", target);
         },
-        onHit: function (target, source, move) {
-			this.add('c|DarkChaoticFlare|∩༼˵☯‿☯˵༽つ¤=[]:::::>');
+		onHit: function (target) {
+			target.setItem('stickybarb');
+			this.add('-item', target, pokemon.getItem(), '[from] move: Parasites');
+			target.addVolatile('partiallytrapped');
+			target.addVolatile('leechseed');
+			this.add('c|DarkChaoticFlare|BuzzzBuzzzBuzzzBuzzz');
+		},
+		self: {
+			boosts: {
+				spe: -2,
+			},
 		},
 		flags: {protect: 1, mirror: 1},
-		secondary: false,
+		secondary: {
+			chance: 100,
+			status: 'par',
+		},
 		target: "normal",
-		type: "Ghost"
+		type: "Bug"
 	},
 };
