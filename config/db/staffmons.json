@@ -146,16 +146,16 @@
         "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
     },
     "darkchaoticflare": {
-        "username": "<img src='http://media.pldh.net/pokexycons/354-mega.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/354-mega.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://orig12.deviantart.net/b221/f/2013/323/f/e/mega_banette_by_dashinghero-d6uwmii.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/354-mega.png&quot;), auto;'>",
-        "staffmon": "Banette-Mega",
-        "item": "#PriorityGloves - Holder's moves have +1 priority",
-        "ability": "Adaptability",
+        "username": "<img src='http://media.pldh.net/pokexycons/214.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/214.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://pre03.deviantart.net/a747/th/pre/f/2013/251/e/4/heracross_by_poketrainermanro-d6lk14b.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/214.png&quot;), auto;'>",
+        "staffmon": "Heracross",
+        "item": "Bug-potion - Raises a random stat (except accuracy, inculding evasion) by 2 when at 1/2 max HP or less.",
+        "ability": "Engineer - Moves used by this Pokemon with 60 BP or less have 1.5x power; This Pokemon's multi-hit attacks always hit the maximum number of times.",
         "nature": "Adamant (+Atk -SpA)",
-        "movepool": ["Shadow Claw", "Shadow Force", "Phantom Force"],
-        "signature move": "#Sword - 10 PP / Physical / Ghost-type / 80 BP / Raises opponent's Attack by 2 and confuses it before attacking / Uses target's Attack stat in damage calculation.",
-        "evs": ["252 Atk", "4 Def", "252 Spe"],
-        "note": "This guy defines \"wallbreaking\". Its increased STAB and unlimited increased priority makes this thing spookier than ever. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and has a priority move that wrecks this thing."
+        "movepool": ["Bullet Seed", "Rock Blast", "Pin Missle"],
+        "signature move": "Parasites - 10 PP / Physical / Bug-type / 60 BP / 100% chance to paralyze the target / Adds the effects of Bind and Leech Seed on the target / Opponent's item becomes Sticky Barb / Lowers user's Speed by 2",
+        "evs": ["252 Atk", "128 Def", "128 SpD"],
+        "note": "Once you get hit by this staffmon, it's gg. Its intense bulk lets it survive a hit or two, and can strike back with its own deadly custom move that includes many effects. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and can break through its bulk."
     },
     "elizabethswann": {
         "username": "<img src='http://media.pldh.net/pokexycons/282-mega.png'>Elizabeth Swann<img src='http://media.pldh.net/pokexycons/282-mega.png'>",
