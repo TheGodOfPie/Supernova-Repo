@@ -49,12 +49,28 @@ exports.BattleItems = {
 				desc: "+1 to all stats at the end of each turn, then removes 25% of the holder's max HP."
 			},
 		//DarkChaoticFlare
-			"prioritygloves": {
-				id: "prioritygloves",
-				name: "#PriorityGloves",
-				onModifyPriority: function (priority, pokemon) {
-					return priority + 1;
-				},
-				desc: "Holder's moves have a +1 Priority"
-			},
+		"bugpotion": {
+		id: "bugpotion",
+		name: "Bug-potion",
+		onUpdate: function (pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				pokemon.eatItem();
+			}
+		},
+		onEat: function (pokemon) {
+			let stats = [];
+			for (let stat in pokemon.boosts) {
+				if (stat !== 'accuracy' && pokemon.boosts[stat] < 7) {
+					stats.push(stat);
+				}
+			}
+			if (stats.length) {
+				let randomStat = stats[this.random(stats.length)];
+				let boost = {};
+				boost[randomStat] = 2;
+				this.boost(boost);
+			}
+			this.add('c|DarkChaoticFlare|Sip sip sip...It was tasty...BzzzzzBzzzz');
+		},
+	},
 };
