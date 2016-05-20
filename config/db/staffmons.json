@@ -152,7 +152,7 @@
         "item": "Bug-potion - Raises a random stat (except accuracy, inculding evasion) by 2 when at 1/2 max HP or less.",
         "ability": "Engineer - Moves used by this Pokemon with 60 BP or less have 1.5x power; This Pokemon's multi-hit attacks always hit the maximum number of times.",
         "nature": "Adamant (+Atk -SpA)",
-        "movepool": ["Bullet Seed", "Rock Blast", "Pin Missle"],
+        "movepool": ["Bullet Seed", "Rock Blast", "Pin Missile"],
         "signature move": "Parasites - 10 PP / Physical / Bug-type / 60 BP / 100% chance to paralyze the target / Adds the effects of Bind and Leech Seed on the target / Opponent's item becomes Sticky Barb / Lowers user's Speed by 2",
         "evs": ["252 Atk", "128 Def", "128 SpD"],
         "note": "Once you get hit by this staffmon, it's gg. Its intense bulk lets it survive a hit or two, and can strike back with its own deadly custom move that includes many effects. Potential counters include Supernova Robot, Kie, CLawliet, or anything that outspeeds this staffmon and can break through its bulk."
