@@ -119,6 +119,8 @@ exports.BattleAbilities = {
                         onStart: function (pokemon) {
                                 this.boost({spe: 1});
                         },
+                        id: "aromaboost",
+                        name: "Aroma Boost",
                 },
         // Regulars
                 //Ransei
