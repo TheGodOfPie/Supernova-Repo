@@ -194,4 +194,25 @@ exports.BattleAbilities = {
                         id: "letsdothis",
                         name: "Let's Do This",
                 },
+                //DarkChaoticFlare
+                "engineer": {
+                        shortDesc: "Skill Link + Technician ",
+                        onBasePowerPriority: 8,
+                        onBasePower: function (basePower, attacker, defender, move) {
+                                if (basePower <= 60) {
+                                        this.debug('Technician boost');
+                                        return this.chainModify(1.5);
+                                }
+                        },
+                        onModifyMove: function (move) {
+                                if (move.multihit && move.multihit.length) {
+                                        move.multihit = move.multihit[1];
+                                }
+                                if (move.multiaccuracy) {
+                                delete move.multiaccuracy;
+                                }
+                        },
+                        id: "engineer",
+                        name: "Engineer",
+                },
 };
