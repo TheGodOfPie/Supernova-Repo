@@ -407,7 +407,7 @@ exports.BattleMovedex = {
         },
 		onHit: function (target) {
 			target.setItem('stickybarb');
-			this.add('-item', target, pokemon.getItem(), '[from] move: Parasites');
+			this.add('-item', target, target.getItem(), '[from] move: Parasites');
 			target.addVolatile('partiallytrapped');
 			target.addVolatile('leechseed');
 			this.add('c|DarkChaoticFlare|BuzzzBuzzzBuzzzBuzzz');
