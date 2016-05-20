@@ -244,24 +244,29 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 	- Ignores Type immunity and Steel resistance
 
 ### DarkChaoticFlare
-Banette-Mega @ #PriorityGloves
+Heracross @ Bug-potion
 
-- Holder's moves have +1 priority
+- Raises a random stat (except accuracy, including evasion) when at 1/2 max HP or less.
 
-Ability: Adaptability
+Ability: Engineer
 
-EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
+- Moves used by this Pokemon with 60 BP or less have 1.5x power.
+- This Pokemon's multi-hit attacks always hit the maximum number of times.
 
-- Shadow Claw
-- Shadow Force
-- Phantom Force
-- #Sword
+EVs: 252 Atk, 128 Def, 128 SpD, Nature: Adamant
+
+- Bullet Seed
+- Rock Blast
+- Pin Missle
+- Parasites
 	- 10 PP 
 	- Physical 
-	- Ghost-type 
-	- 80 BP
-	- Uses Swagger first before attacking
-	- Uses target's Attack stat in damage calculation.
+	- Bug-type 
+	- 60 BP
+	- 100% chance to paralyze the target
+	- Adds the effects of Bind and Leech Seed on the target
+	- Opponent's item becomes Sticky Barb
+	- Lowers user's Speed by 2
 
 ### Dragotic
 Garchomp @ Yache Berry
