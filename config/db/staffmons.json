@@ -11,8 +11,8 @@
         "evs": ["4 HP", "252 SpA", "252 Spe"],
         "note": "This staffmon can use it's setup move, Tidal Dance, with ease because it has enough bulk to withstand an attack without a stat boost. It can even withstand a super-effective move that is not STAB-boosted. When it gets to use Tidal Dance, it's pretty much game over for other staffmons against it that don't rely on stat boosts. Potential counters include Ransei, TheGodOfPie, or anything that has a Grass and/or Electric STAB/boosted move."
     },
-    "steelsciz": {
-        "username": "<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>~Steel Sciz<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>",
+    "mightysciz": {
+        "username": "<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>~Mighty Sciz<img src='http://media.pldh.net/pokexycons/006-mega-x.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;http://orig15.deviantart.net/04ad/f/2015/027/c/a/minimalist_mega_charizard_x_wallpaper_by_mightygos-d8fmn3n.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/006-mega-x.png&quot;), auto;'>",
         "staffmon": "Charizard-Mega-X",
         "item": "Charizardite X",
@@ -97,6 +97,30 @@
         "evs": ["252 SpA", "4 SpD", "252 Spe"],
         "note": "With its Dark Hell move, it can setup with ease, and it can be OP as <i>Hell</i>. It can be a special sweeper and can kill most staffmons. However, it's more likely to be compared to a glass cannon, which could get killed by staffmons that use powerful priority moves. Potential counters include Ransei, TheGodOfPie, or anything that can survive the sleep for 3 turns."
     },
+    "clawliet": {
+        "username": "<img src='http://media.pldh.net/pokexycons/149.png'>$CLawliet<img src='http://media.pldh.net/pokexycons/149.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/18RoWCz.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/149.png&quot;), auto;'>",
+        "staffmon": "Dragonite",
+        "item": "Stats B00ster - +1 Atk & Spe when hit by a super-effective move.",
+        "ability": "Multipower - Pokemon's Attack stat is multiplied by 1.5x.",
+        "nature": "Jolly (+Spe, -SpA)",
+        "movepool": ["Dragon Dance", "Dragon Claw", "Earthquake"],
+        "signature move": "Turbulence - 10 PP / 100% Accuracy / Physical / Flying-type / 60 BP / +2 priority / Makes contact.",
+        "evs": ["4 HP", "252 Atk", "252 Spe"],
+        "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's Multiscale ability. Multipower however, helps a ton in sweeping, and a lot more when it gets to use Dragon Dance. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
+    },
+    "backatmyday": {
+        "username": "<img src='http://media.pldh.net/pokexycons/483.png'>+Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/SaGRpyK.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
+        "staffmon": "Dialga",
+        "item": "Life Orb",
+        "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
+        "nature": "Quiet (+SpA, -Spe)",
+        "movepool": ["Flash Cannon", "Roar Of Time", "Flamethrower"],
+        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 90 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
+        "evs": ["252 HP", "4 Def", "252 SpA"],
+        "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
+    },
     "camilas": {
         "username": "<img src='http://media.pldh.net/pokexycons/384-mega.png'>+Camilas<img src='http://media.pldh.net/pokexycons/384-mega.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;http://orig02.deviantart.net/0cef/f/2014/296/b/f/mega_rayquaza_by_dashinghero-d83vpb9.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/384-mega.png&quot;), auto;'>",
@@ -108,18 +132,6 @@
         "signature move": "Git Rekt Son - 10 PP / 100% Accuracy / Physical / Flying-type / 300 BP / Takes away 50% of user's max HP per hit / Makes contact.",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
         "note": "Camilas' staffmon can attack at least 4 turns without using its custom move and 2 turns using it (This tip only works if Camilas' staffmon doesn't get attacked by that 2-4 turns). However, Git Rekt Son can pretty much OHKO almost every other staffmon out there, carrying a handful 300 base power. Potential counters include Ransei, Dayuh or anything that can outspeed it."
-    },
-    "clawliet": {
-        "username": "<img src='http://media.pldh.net/pokexycons/149.png'>+CLawliet<img src='http://media.pldh.net/pokexycons/149.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/18RoWCz.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/149.png&quot;), auto;'>",
-        "staffmon": "Dragonite",
-        "item": "Stats B00ster - +1 Atk & Spe when hit by a super-effective move.",
-        "ability": "Multipower - Pokemon's Attack stat is multiplied by 1.5x.",
-        "nature": "Jolly (+Spe, -SpA)",
-        "movepool": ["Dragon Dance", "Dragon Claw", "Earthquake"],
-        "signature move": "Turbulence - 10 PP / 100% Accuracy / Physical / Flying-type / 60 BP / +2 priority / Makes contact.",
-        "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's Multiscale ability. Multipower however, helps a ton in sweeping, and a lot more when it gets to use Dragon Dance. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
     },
     "dayuh": {
         "username": "<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>+Dayuh<img src='http://www.serebii.net/pokedex-xy/icon/586.png'>",
@@ -133,17 +145,17 @@
         "evs": ["252 Atk", "4 Def", "252 Spe"],
         "note": "Dayuh's staffmon could possibly punch a hole on the opposing team. It has a Speed boost, a better STAB boost, Life Orb boost, and if you're lucky, it could use Swords Dance. AromaLeech also heals a good amount after dealing so much DAMAGE to the opponent. Potential counters include Back At My Day..., Ransei, or any bulky staffmon that could definitely survive a single hit, and can deal some intense damage in return."
     },
-    "backatmyday": {
-        "username": "<img src='http://media.pldh.net/pokexycons/483.png'>Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/SaGRpyK.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
-        "staffmon": "Dialga",
-        "item": "Life Orb",
-        "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
-        "nature": "Quiet (+SpA, -Spe)",
-        "movepool": ["Flash Cannon", "Roar Of Time", "Flamethrower"],
-        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 90 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
-        "evs": ["252 HP", "4 Def", "252 SpA"],
-        "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
+    "zodiacragna": {
+        "username": "<img src='http://media.pldh.net/pokexycons/379.png'>+Zodiac Ragna<img src='http://media.pldh.net/pokexycons/379.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;https://pokewalls.files.wordpress.com/2012/03/379registeel1600x1200.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/379.png&quot;), auto;'>",
+        "staffmon": "Registeel",
+        "item": "Leftovers",
+        "ability": "Engage - +4 Atk and -2 Spe upon switch-in.",
+        "nature": "Impish (+Def, -SpA)",
+        "movepool": ["U-turn", "Toxic", "Gyro Ball"],
+        "signature move": "Defnesive Shift - 10 PP / Status / Steel-type / Raises own Def & SpD by 6, Spe by 3 / Lowers own Atk by 6.",
+        "evs": ["252 HP", "128 Def", "128 SpD"],
+        "note": "This guy literally defines \"bulk\". Its boss-looking Defenses and EVs makes this guy a tough guy to mess with. However, be careful deciding when you want to use its custom move, because it remodels its boosts to a stall set. Potential counters include Steel Sciz, TheGodOfPie, Dragotic, or anything that can take advantage of its intense bulk."
     },
     "darkchaoticflare": {
         "username": "<img src='http://media.pldh.net/pokexycons/214.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/214.png'>",
