@@ -963,8 +963,8 @@ exports.Formats = [
 				if (name === 'hydrostatics') {
 					this.add('c|~Hydrostatics|Get ready to get drenched in the rain ;)');
 				}
-				if (name === 'steelsciz') {
-					this.add('c|~Steel Sciz|Time for me to moderate this battle and win it.');
+				if (name === 'mightysciz') {
+					this.add('c|~Mighty Sciz|Time for me to moderate this battle and win it.');
 				}
 			// Leaders
 				if (name === 'kie') {
@@ -999,15 +999,21 @@ exports.Formats = [
 					this.add('c|%Cross-Xz14|Don\'t you dare underestimate my darkness!! So.. are you ready for the fight!?');
 				}
 			//Operators
+				if (name === 'clawliet') {
+					this.add('c|$CLawliet|Get ready to be blown away.');
+				}
 			// Voices
+				if (name === 'backatmyday') {
+					this.add('c|+Back At My Day...|Oh no! I have time traveled to the beginning of time. I have to get back to my time!');
+				}
 				if (name === 'camilas') {
 					this.add('c|+Camilas|I got more MLG in my body than the amount of stupidity in your brain. ABOUT TO KILL YOU WITH THIS SNIPE FROM THE HEAVENS.');
 				}
-				if (name === 'clawliet') {
-					this.add('c|+CLawliet|Get ready to be blown away.');
-				}
 				if (name === 'dayuh') {
 					this.add('c|+Dayuh|You can\'t kill what\'s **eternal**~!');
+				}
+				if (name === 'zodiacragna') {
+					this.add('raw|<div class="chat"><small>+</small><button name="parseCommand" value="/user Zodiac Ragna" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#A05229">Zodiac Ragna:</font></b></button><em class="mine"> IM NOT A ROBOT! I\'m just a cancerous fgt waiting for my debut on the big screen! <img src="http://i.imgur.com/1ehnWjW.png" title="ayylamo" height="50" width="50"></em></div>');
 				}
 			// Regulars
 				if (name === 'eternalmayhem') {
@@ -1025,9 +1031,6 @@ exports.Formats = [
 				if (name === 'ransei') {
 					this.add('c|Ransei|yo');
 				}
-				if (name === 'backatmyday') {
-					this.add('c|Back At My Day...|Oh no! I have time traveled to the beginning of time. I have to get back to my time!');
-				}
 				if (name === 'darkchaoticflare') {
 					this.add('c|DarkChaoticFlare|BizizzBzizzBzzizBizzz)');
 				}
@@ -1040,8 +1043,8 @@ exports.Formats = [
 				if (name === 'hydrostatics') {
 					this.add('c|~Hydrostatics|You win this time....I\'ll come back for ya m8!! muhahaha.');
 				}
-				if (name === 'steelsciz') {
-					this.add('c|~Steel Sciz|My time here is up. I wish you good luck.');
+				if (name === 'mightysciz') {
+					this.add('c|~Mighty Sciz|My time here is up. I wish you good luck.');
 				}
 			// Leaders 
 				if (name === 'kie') {
@@ -1063,15 +1066,21 @@ exports.Formats = [
 					this.add('c|%Cross-Xz14|Welp aight! How Can I lose!!!! U cheater >_> .cri');
 				}
 			//Operators
+				if (name === 'clawliet') {
+					this.add('c|$CLawliet|It seems that I can\'t control my turbulence....');
+				}
 			// Voices
+				if (name === 'backatmyday') {
+					this.add('c|+Back At My Day|Gah... Looks like I couldn\'t get back to my time...');
+				}
 				if (name === 'camilas') {
 					this.add('c|+Camilas|Pshhh lucky players haxing me and shit I call bs. WHERE IS MY LAWYER, we got a hacking madman here!');
 				}
-				if (name === 'clawliet') {
-					this.add('c|+CLawliet|It seems that I can\'t control my turbulence....');
-				}
 				if (name === 'dayuh') {
 					this.add('c|+Dayuh|I\'ll just be reborn again~!');
+				}
+				if (name === 'zodiacragna') {
+					this.add('raw|<div class="chat"><small>+</small><button name="parseCommand" value="/user Zodiac Ragna" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#A05229">Zodiac Ragna:</font></b></button><em class="mine"> Not in all my years have I known cancer to this degree! <img src="http://i.imgur.com/uIIBChH.png" title="feelschime" height="50" width="50"></em></div>');
 				}
 			// Regulars
 				if (name === 'eternalmayhem') {
@@ -1079,9 +1088,6 @@ exports.Formats = [
 				}
 				if (name === 'ransei') {
 					this.add('c|Ransei|ripsei');
-				}
-				if (name === 'backatmyday') {
-					this.add('c|Back At My Day|Gah... Looks like I couldn\'t get back to my time...');
 				}
 				if (name === 'dragotic') {
 						this.add('raw|<div class="chat chatmessage-dragotic"><b><font color="#C39713"><span class="username" data-name="Dragotic">Dragotic</span>:</b></font> <em class="mine">RIP GG NUB <img src="http://i.imgur.com/qGEot0R.png" title="feelsrs" height="50" width="50"></em></div>');
@@ -1108,11 +1114,11 @@ exports.Formats = [
 						this.add('c|@StarryWindy|V for Victory!');
 					}
 					if (name === 'clawliet') {
-						this.add('c|+CLawliet|It seems that I can\'t control my turbulence....');
-						this.add('c|+CLawliet|Nah just kidding. GET REKT LOL');
+						this.add('c|$CLawliet|It seems that I can\'t control my turbulence....');
+						this.add('c|$CLawliet|Nah just kidding. GET REKT LOL');
 					}
 					if (name === 'backatmyday') {
-						this.add('c|Back At My Day|I am sorry that in the future you will die of old age.');
+						this.add('c|+Back At My Day|I am sorry that in the future you will die of old age.');
 					}
 				}
 			},
