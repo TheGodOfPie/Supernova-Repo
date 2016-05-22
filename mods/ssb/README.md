@@ -387,6 +387,9 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Added +Zodiac Ragna
+- Changed some user ranks (+CLawliet to $, Back At My Day to +)
+- Steel Sciz's name changed to Mighty Sciz
 - Changed DarkChaoticFlare's full set
 - Fixed StarryWindy's custom move secondaries not working
 - Change DarkChaoticFlare's Ability (Shadowstatics --> Adaptability)
