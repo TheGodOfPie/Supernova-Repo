@@ -43,7 +43,7 @@ exports.commands = {
 		'': 'list',
 		list: function (target, room, user) {
 			if (!this.canTalk()) return false;
-			if (!this.canBroadcast()) return false;
+			if (!this.runBroadcast()) return false;
 			target = toId(target);
 
 			if (!target) target = user.userid;
