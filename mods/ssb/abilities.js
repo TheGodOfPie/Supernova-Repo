@@ -70,7 +70,16 @@ exports.BattleAbilities = {
         //Drivers
                 
         //Operators
-                
+                //$CLawliet
+                "multipower": {
+                        shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved. This Pokemon's Attack stat is doubled during battle.",
+                        onModifyAtkPriority: 5,
+		        onModifyAtk: function (atk) {
+		        	return this.chainModify(1.5);
+		        },
+                        id: "multipower",
+                        name: "Multipower",
+                },
         //Voices
                 //+Camilas
                 "plsban": {
@@ -100,16 +109,6 @@ exports.BattleAbilities = {
                         id: "plsban",
                         name: "Pls Ban",
                 },
-                //+CLawliet
-                "multipower": {
-                        shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved. This Pokemon's Attack stat is doubled during battle.",
-                        onModifyAtkPriority: 5,
-		        onModifyAtk: function (atk) {
-		        	return this.chainModify(1.5);
-		        },
-                        id: "multipower",
-                        name: "Multipower",
-                },
                 //+Dayuh
                 "aromaboost": {
                         shortDesc: "Adaptability & +1 Speed upon entry.",
@@ -121,6 +120,27 @@ exports.BattleAbilities = {
                         },
                         id: "aromaboost",
                         name: "Aroma Boost",
+                },
+                //+Zodiac Ragna
+                "engage": {
+                        onStart: function (pokemon) {
+                                this.boost({atk: 4});
+                                this.boost({spe: -2});
+                        },
+                        id: "engage",
+                        name: "Engage",
+                },
+                //+Back At My Day...
+                "timetraveller": {
+                        onModifyMove: function (move) {
+		        	move.infiltrates = true;
+		        },
+		        onStart: function (pokemon) {
+                                this.boost({spe:-2});
+                                this.useMove('trickroom', pokemon);
+                        },
+                        id: "timetraveller",
+                        name: "Time Traveller"
                 },
         // Regulars
                 //Ransei
@@ -148,18 +168,6 @@ exports.BattleAbilities = {
 	        	},
                          id: "wonderbarrier",
                         name: "Wonder Barrier",
-                },
-                //Back At My Day...
-                "timetraveller": {
-                        onModifyMove: function (move) {
-		        	move.infiltrates = true;
-		        },
-		        onStart: function (pokemon) {
-                                this.boost({spe:-2});
-                                this.useMove('trickroom', pokemon);
-                        },
-                        id: "timetraveller",
-                        name: "Time Traveller"
                 },
                 //Dragotic
                 "ascent": {
