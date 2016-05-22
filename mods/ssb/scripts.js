@@ -69,7 +69,7 @@ exports.BattleScripts = {
 				'+Zodiac Ragna': {
 					species: 'Registeel', ability: 'Engage', item: 'Leftovers', gender: 'M',
 					moves: ['gyroball', 'toxic', 'uturn'], signatureMove: "Defensive Shift",
-					evs: {hp:252, def:128, spd:128}, nature: 'Bold',
+					evs: {hp:252, def:128, spd:128}, nature: 'Impish',
 				},
 			//Regulars
 				'Eternal Mayhem': {
