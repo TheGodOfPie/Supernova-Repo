@@ -1,7 +1,7 @@
 "use strict";
 
 exports.BattleMovedex = {
-//~Steel Sciz
+//~Mighty Sciz
 	"dragonsattack": {
 		accuracy: 100,
 		basePower: 120,
@@ -151,6 +151,26 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dragon"
 	},
+//$CLawliet
+	"turbulence": {
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		shortDesc: "Nearly always goes first.",
+		id: "turbulence",
+		isViable: true,
+		name: "Turbulence",
+		pp: 10,
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Brave Bird", target);
+		},
+		priority: 2,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: false,
+		target: "normal",
+		type: "Flying"
+	},
 //%Cross-Xz14
 	"darkhell": {
 		accuracy: 80,
@@ -171,25 +191,29 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dark"
 	},
-//+CLawliet
-	"turbulence": {
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		shortDesc: "Nearly always goes first.",
-		id: "turbulence",
-		isViable: true,
-		name: "Turbulence",
+//+Zodiac Ragna
+	"defensiveshift": {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		id: "defensiveshift",
+		name: "Defensive Shift",
 		pp: 10,
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Brave Bird", target);
+			this.add('-anim', source, "Geomancy", source);
 		},
-		priority: 2,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		priority: 0,
+		boosts: {
+			atk:-6,
+			def:6,
+			spd:6,
+			spe:3,
+		},
+		flags: {protect: 1, mirror: 1},
 		secondary: false,
 		target: "normal",
-		type: "Flying"
+		type: "Steel"
 	},
 //+Dayuh
 	"aromaleech": {
@@ -240,6 +264,41 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Flying"
 	},
+//+Back At My Day...
+	"pastandfuture": {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		shortDesc: "Ignores Steel resistance and Dark immunity, 10% chance to raise SpA, SpD, Def, Eva, and ACC by 1.",
+		id: "pastandfuture",
+		name: "Past And Future",
+		pp: 10,
+		ignoreImmunity: true,
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('c|Back At My Day...|I am going to change time!');
+			this.add('-anim', source, "Luster Purge", target);
+		},
+		priority: 0,
+		onEffectiveness: function (typeMod, type, move) {
+			if (type === 'Steel') return 0;
+		},
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					spa: 1,
+					def: 1,
+					spd: 1,
+					accuracy: 1,
+					evasion: 1
+				}
+			}
+		},
+		target: "normal",
+		type: "Psychic"
+	},
 //Eternal Mayhem
 	"danceofshadows": {
 		accuracy: 100,
@@ -288,41 +347,6 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Normal"
-	},
-//Back At My Day...
-	"pastandfuture": {
-		accuracy: 100,
-		basePower: 90,
-		category: "Special",
-		shortDesc: "Ignores Steel resistance and Dark immunity, 10% chance to raise SpA, SpD, Def, Eva, and ACC by 1.",
-		id: "pastandfuture",
-		name: "Past And Future",
-		pp: 10,
-		ignoreImmunity: true,
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('c|Back At My Day...|I am going to change time!');
-			this.add('-anim', source, "Luster Purge", target);
-		},
-		priority: 0,
-		onEffectiveness: function (typeMod, type, move) {
-			if (type === 'Steel') return 0;
-		},
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 10,
-			self: {
-				boosts: {
-					spa: 1,
-					def: 1,
-					spd: 1,
-					accuracy: 1,
-					evasion: 1
-				}
-			}
-		},
-		target: "normal",
-		type: "Psychic"
 	},
 //Elizabeth Swann
 	"pixiepower": {
