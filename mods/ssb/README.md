@@ -21,7 +21,7 @@ EVs: 4 HP, 252 SpA, 252 Spe, Nature: Modest
 	- Water-type
 	- +1 SpA, Spe, and SpD
 
-### ~Steel Sciz
+### ~Mighty Sciz
 Charizard-Mega-X @ Charizardite X
 
 Ability: Tough Claws
@@ -152,6 +152,51 @@ EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
 	- Dark-type 
 	- Puts the target to sleep
 
+### $CLawliet
+Dragonite @ Stats B00ster
+
+- +1 Atk & Spe when hit by a super-effective move
+
+Ability: Multipower 
+
+- Pokemon's Attack stat is multiplied by 1.5
+
+EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
+
+- Dragon Dance
+- Dragon Claw
+- Earthquake
+- Turbulence 
+	- 10 PP
+	- 100% Accuracy 
+	- Physical 
+	- Flying-type 
+	- 60 BP 
+	- +2 Priority 
+	- Makes contact
+
+### +Back At My Day...
+Dialga @ Life Orb
+
+Ability: Time Traveller
+
+- Attacks bypass substitutes and screens
+- -2 Speed to self and uses Trick Room upon entry
+
+EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
+
+- Flash Cannon
+- Flamethrower
+- Roar Of Time
+- Past And Future
+	- 10 PP 
+	- 100% Accuracy 
+	- Special 
+	- Psychic-type 
+	- 90 BP 
+	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
+	- Ignores Type immunity and Steel resistance
+
 ### +Camilas
 Rayquaza-Mega @ Jade Orb 
 
@@ -176,29 +221,6 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- Takes away 50% of user's max HP per hit
 	- Makes contact
 
-### +CLawliet
-Dragonite @ Stats B00ster
-
-- +1 Atk & Spe when hit by a super-effective move
-
-Ability: Multipower 
-
-- Pokemon's Attack stat is multiplied by 1.5
-
-EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
-
-- Dragon Dance
-- Dragon Claw
-- Earthquake
-- Turbulence 
-	- 10 PP
-	- 100% Accuracy 
-	- Physical 
-	- Flying-type 
-	- 60 BP 
-	- +2 Priority 
-	- Makes contact
-
 ### +Dayuh
 Sawsbuck @ Life Orb
 
@@ -221,27 +243,23 @@ EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 	- 50% chance to +1 Spe & SpA after use
 	- Restores 50% of the damage dealt
 
-### Back At My Day...
-Dialga @ Life Orb
+### +Zodiac Ragna
+Registeel @ Leftovers
 
-Ability: Time Traveller
+Ability: Engage
 
-- Attacks bypass substitutes and screens
-- -2 Speed to self and uses Trick Room upon entry
+- +4 Atk and -2 Spe upon switch-in
 
-EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
+EVs: 252 HP, 128 Def, 128 SpD, Nature: Impish
 
-- Flash Cannon
-- Flamethrower
-- Roar Of Time
-- Past And Future
+- Toxic
+- Gyro Ball
+- U-turn
+- Defensive Shift
 	- 10 PP 
-	- 100% Accuracy 
-	- Special 
-	- Psychic-type 
-	- 90 BP 
-	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
-	- Ignores Type immunity and Steel resistance
+	- Status 
+	- Steel-type 
+	- +6 SpD & Def, +3 Spe, -6 Atk
 
 ### DarkChaoticFlare
 Heracross @ Bug-potion
