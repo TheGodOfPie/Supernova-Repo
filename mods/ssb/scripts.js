@@ -11,7 +11,7 @@ exports.BattleScripts = {
 					moves: ['thunder', 'blizzard', 'originpulse'], signatureMove: "Tidal Dance",
 					evs: {hp:4, spa:252, spe:252}, nature: 'Modest',
 				},
-				'~Steel Sciz': {
+				'~Mighty Sciz': {
 					species: 'Charizard-Mega-X', ability: 'Tough Claws', item: 'Charizardite X', gender: 'M',
 					moves: ['dragondance', 'roost', 'flareblitz'], signatureMove: "Dragon's Attack",
 					evs: {atk:252, hp:252, spd:4}, nature: 'Adamant',
@@ -45,21 +45,31 @@ exports.BattleScripts = {
 					evs: {spe:252, spa:252, spd:4}, nature: 'Timid',
 				},
 			//Operators
+				'$CLawliet': {
+					species: 'Dragonite', ability: 'Multipower', item: 'Stats B00ster', gender: 'M',
+					moves: ['dragondance', 'dragonclaw', 'earthquake'], signatureMove: "Turbulence",
+					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
+				},
 			//Voices
 				'+Camilas': {
 					species: 'Rayquaza-Mega', ability: 'Pls Ban', item: 'Jade Orb', gender: 'M',
 					moves: ['roost', 'vcreate', 'earthquake'], signatureMove: "Git Rekt Son",
 					evs: {atk:252, hp:4, spe:252}, nature: 'Adamant',
 				},
-				'+CLawliet': {
-					species: 'Dragonite', ability: 'Multipower', item: 'Stats B00ster', gender: 'M',
-					moves: ['dragondance', 'dragonclaw', 'earthquake'], signatureMove: "Turbulence",
-					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
-				},
 				'+Dayuh': {
 					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
 					moves: ['return', 'swordsdance', 'jumpkick'], signatureMove: "AromaLeech",
 					evs: {spe:252, atk:252, def:4}, nature: 'Adamant',
+				},
+				'+Back At My Day...': {
+					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
+					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
+					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
+				},
+				'+Zodiac Ragna': {
+					species: 'Registeel', ability: 'Engage', item: 'Leftovers', gender: 'M',
+					moves: ['gyroball', 'toxic', 'uturn'], signatureMove: "Defensive Shift",
+					evs: {hp:252, def:128, spd:128}, nature: 'Bold',
 				},
 			//Regulars
 				'Eternal Mayhem': {
@@ -71,11 +81,6 @@ exports.BattleScripts = {
 					species: 'Arceus', ability: 'Wonder Barrier', item: 'Life Orb', gender: 'M',
 					moves: ['swordsdance', 'calmmind', 'doubleteam'], signatureMove: "Final Blast",
 					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
-				},
-				'Back At My Day...': {
-					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
-					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
-					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
 				},
 				'Dragotic': {
 					species: 'Garchomp', ability: 'Ascent', item: 'Yache Berry', gender: 'M',
