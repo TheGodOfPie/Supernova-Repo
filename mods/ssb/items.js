@@ -25,7 +25,7 @@ exports.BattleItems = {
 				},
 				desc: "If holder is Supernova Robot, this item allows it to Evolve in battle."
 			},
-    	//+CLawliet
+		//$CLawliet
 	    	"statsb00ster": {
 				id: "statsb00ster",
 				name: "Stats B00ster",
