@@ -3917,8 +3917,6 @@ exports.BattleFormatsData = {
 			{"generation": 5, "level": 68, "shiny": 1, "isHidden": false, "moves":["scaryface", "lavaplume", "firespin", "ironhead"]},
 			{"generation": 6, "level": 50, "shiny": 1, "isHidden": false, "moves":["metalsound", "crunch", "scaryface", "lavaplume"]},
 		],
-		eventOnly: true,
-		unreleasedHidden: true,
 		tier: "OU",
 	},
 	regigigas: {
