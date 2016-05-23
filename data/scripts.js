@@ -3477,6 +3477,7 @@ exports.BattleScripts = {
 		let allowedNFE = {'Chansey':1, 'Doublade':1, 'Pikachu':1, 'Porygon2':1, 'Scyther':1};
 		let typePool = Object.keys(this.data.TypeChart);
 		let type = typePool[this.random(typePool.length)];
+		console.log([typePool, type]);
 
 		let pokemonPool = [];
 		for (let id in this.data.FormatsData) {

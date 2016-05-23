@@ -892,6 +892,7 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Standard NEXT', 'Team Preview'],
 		banlist: ['Uber'],
 	},
+	/*
 	{
 		name: "Monotype Random Battle",
 		section: "Other Metagames",
@@ -1162,7 +1163,7 @@ exports.Formats = [
 		// This allows the format to have kind of custom side effects and volatiles.
 		onResidual: function (battle) {},
 	},
-	
+	*/
 	// Turbo
 	///////////////////////////////////////////////////////////////////
 	

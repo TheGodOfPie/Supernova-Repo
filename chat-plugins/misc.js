@@ -68,6 +68,11 @@ function randomColor () {
 }
 
 exports.commands = {
+	/** just temporarr **/
+	dethronica: function (target, room, user) {
+		if (!this.runBroadcast()) return; 
+		this.sendReplyBox('<center><img src="http://i.imgur.com/PwdzIHu.gif"> <img src="http://i.imgur.com/9PO8Gke.png" width="275"> <img src="http://play.pokemonshowdown.com/sprites/xyani/nidoqueen.gif"><br /><br /><img src="http://www.cinemablend.com/images/news_img/42388/The_Fault_in_our_Stars_42388.jpg" width="400"><br /><br /><font size=3"><b>Aces: <font color="#B40404">Haxnova</font> & <font color="#3ADF00">Erica</font></b></font><br /><i>"The only thing more cancerous than our league is our relationship."</i></center>');
+	},
 	clearroomauth: function (target, room, user, cmd) {
 		if (!this.can('hotpatch') && room.founder !== user.userid) return this.errorReply("Access Denied");
 		if (!room.auth) return this.errorReply("Room does not have roomauth.");
