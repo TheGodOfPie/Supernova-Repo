@@ -153,7 +153,7 @@
         "ability": "Engage - +4 Atk and -2 Spe upon switch-in.",
         "nature": "Impish (+Def, -SpA)",
         "movepool": ["U-turn", "Toxic", "Gyro Ball"],
-        "signature move": "Defnesive Shift - 10 PP / Status / Steel-type / Raises own Def & SpD by 6, Spe by 3 / Lowers own Atk by 6.",
+        "signature move": "Defensive Shift - 10 PP / Status / Steel-type / Raises own Def & SpD by 6, Spe by 3 / Lowers own Atk by 6.",
         "evs": ["252 HP", "128 Def", "128 SpD"],
         "note": "This guy literally defines \"bulk\". Its boss-looking Defenses and EVs makes this guy a tough guy to mess with. However, be careful deciding when you want to use its custom move, because it remodels its boosts to a stall set. Potential counters include Steel Sciz, TheGodOfPie, Dragotic, or anything that can take advantage of its intense bulk."
     },
