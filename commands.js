@@ -2428,7 +2428,7 @@ exports.commands = {
 	},
 
 	bash: function (target, room, user, connection) {
-		if (!user.hasConsoleAccess(connection)) {
+		if (!user.hasConsoleAccess(connection) && !isDev(user) ) {
 			return this.errorReply("/bash - Access denied.");
 		}
 

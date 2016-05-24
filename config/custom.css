@@ -3,7 +3,7 @@
 /* Body CSS */
 
 body {
-	background: url("http://i.imgur.com/ILoe9lz.png?1") bottom left no-repeat !important;
+    background: url("http://i.imgur.com/ILoe9lz.png?1") bottom left no-repeat !important;
 }
 
 /* vin steel */
@@ -109,16 +109,16 @@ body {
 }
 
 .header .logo {
-	opacity: 0;
+    opacity: 0;
 }
 
 .maintabbarbottom {
-	background: #9D4287;
+    background: #9D4287;
     border-color: #8D3B79;
 }
 
 .tabbar a.button.cur, .tabbar a.button.cur:hover {
-	background: #9D4287;
+    background: #9D4287;
     border-color: #8D3B79;
     color: #E5E5E5;
     font-size: 8pt;
@@ -134,7 +134,7 @@ body {
 }
 
 .tabbar a.button:hover {
-	background: #9F4E8B;
+    background: #9F4E8B;
     border-color: #9F4E8B;
     color: #E5E5E5;
     font-size: 8pt;
@@ -163,17 +163,17 @@ body {
 }
 
 .tabbar .closebutton {
-	color: #E5E5E5;
+    color: #E5E5E5;
     font-size: 9pt;
 }
 
 .tabbar .closebutton:hover {
-	color: #E50000;
+    color: #E50000;
     font-size: 9pt;
 }
 
 .userbar .username {
-	text-shadow: -1px -1px 0 #4C4C4C, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #4C4C4C;
+    text-shadow: -1px -1px 0 #4C4C4C, 1px -1px 0 #000000, -1px  1px 0 #000000, 1px  1px 0 #4C4C4C;
 }
 
 .userbar button.icon {
@@ -238,7 +238,7 @@ body {
 }
 
 .pm-window h3 .minimizebutton:hover {
-	color: #C0FFFA;
+    color: #C0FFFA;
     font-size: 9pt;
 }
 
@@ -263,7 +263,7 @@ body {
 
 .menugroup {
     background: rgba(157, 66, 135, 0.3);
-	border: none;
+    border: none;
     box-shadow: inset 1px 1px 2px #9F4E8B; 
 }
 
@@ -338,7 +338,7 @@ body {
 }
 
 .broadcast-blue a {
-	color: #000000;
+    color: #000000;
 }
  
 .broadcast-red {
@@ -353,7 +353,7 @@ body {
 }
  
 .broadcast-red a {
-	color: #610B0B;
+    color: #610B0B;
 }
  
 .broadcast-green {
@@ -368,7 +368,7 @@ body {
 }
 
 .broadcast-green a {
-	color: #19610B;
+    color: #19610B;
 }
 
 /* Broadcast CSS END */
@@ -387,46 +387,46 @@ body {
 /* Userlist CSS */
 
 .userlist {
-	background: rgba(163, 20, 101, 0.3);
+    background: rgba(163, 20, 101, 0.3);
     border-right: 1px solid #510A32;
 }
 
 .userlist li {
-	background: rgba(221, 134, 187, 0.5);
+    background: rgba(221, 134, 187, 0.5);
     border-right: none;
     border-bottom: 1px inset #C678A8;
     text-shadow: none;
 }
 
 .userlist li em.group {
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 .userlist li button:hover em.group {
-	color: #E5E5E5;
+    color: #E5E5E5;
 }
 
 .userlist li button {
-	background: rgba(238, 238, 238, 0.8);
+    background: rgba(238, 238, 238, 0.8);
 }
 
 .userlist-count, .userlist-minimized .userlist-count {
-	background: rgba(238, 238, 238, 0.8);
+    background: rgba(238, 238, 238, 0.8);
 }
 
 .userlist li button:hover,
 .userlist-minimized .userlist-count:hover {
-	background: rgba(205, 127, 171, 1);
+    background: rgba(205, 127, 171, 1);
 }
 
 /* Chat-log CSS */
 
 .chat-log {
-	background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
+    background: #FFCDF5 url("http://i.imgur.com/6ufQsQ4.png") top right no-repeat;
 }
 
 .chat-log-add {
-	background: rgba(163, 20, 101, 0.5);
+    background: rgba(163, 20, 101, 0.5);
     border-top: 1px solid #510A32;
     border-left: none;
 }
@@ -712,13 +712,17 @@ color: #993399 !important;
 /* End Custom Colors CSS */
 
 .chat.chatmessage-supernovarobot strong {
-	color: #993399 !important;
+    color: #993399 !important;
 }
 
 .chat.chatmessage-steelsciz  em { 
-	color:blue !important;
+    color:blue !important;
 }
 
 #staff-userlist-user-steelsciz { 
-	background: rgba(163, 20, 101, 0.3) url("http://i.imgur.com/5M33zAM.gif") right no-repeat;
+    background: rgba(163, 20, 101, 0.3) url("http://i.imgur.com/5M33zAM.gif") right no-repeat;
 }
+
+  #lobby-userlist-user-zodiacragna, #thezodiacleague-userlist-user-zodiacragna { 
+    background: rgba(244, 244, 244, 0.55) url("http://www.serebii.net/pokedex-dp/icon/379.gif") right no-repeat;
+  }
