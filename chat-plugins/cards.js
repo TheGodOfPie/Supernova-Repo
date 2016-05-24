@@ -277,7 +277,7 @@ exports.commands = {
         if (!cards.length) return this.sendReplyBox(targetUser + " has no cards.");
  
         const cardsMapping = cards.map(function (card) {
-            return '<button name="send" value="/card ' + card.title + '" style="margin: 2px; border-radius: 10px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button"><img src="' + card.card + '" width="60" title="' + card.name + '"></button>';
+            return '<center><button name="send" value="/card ' + card.title + '" style="margin: 2px; border-radius: 10px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button"><img src="' + card.card + '" width="60" title="' + card.name + '"></button></center>';
         });
  
         const bottom = '<center><br><br><b>' + targetUser + ' Has ' + points + (points > 1 ? ' Points' : ' Point')  + ' And A Total Of ' + cards.length + (cards.length > 1 ? ' Cards' : ' Card') + '.</b><br><br><center>';
