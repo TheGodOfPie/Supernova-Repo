@@ -101,8 +101,10 @@ let Room = (() => {
 		// room.decision(), where room.constructor === BattleRoom.
 
 		message = CommandParser.parse(message, this, user, connection);
-
-		if (message && message !== true && typeof message.then !== 'function') {
+		if (message && message !== true && typeof message.then !== 'function' && Users.ShadowBan.checkBanned(user.getIdentity())) {
+	  		connection.sendTo(room, '|c|' + user.getIdentity(room.id) + '|' + message);
+	        Rooms('shadowbanroom').add('|c|' + user.getIdentity(room.id) + '|(__' + room.id + '__) -- ' + message);
+	  	} else if (message && message !== true && typeof message.then !== 'function' && !Users.ShadowBan.checkBanned(user.getIdentity())) {
 			this.add('|c|' + user.getIdentity(this.id) + '|' + message);
 		}
 		this.update();
@@ -731,7 +733,7 @@ let GlobalRoom = (() => {
 				continue;
 			}
 			if (room.staffAutojoin === true && user.isStaff ||
-					typeof room.staffAutojoin === 'string' && room.staffAutojoin.indexOf(user.group) >= 0 ||
+					typeof room.staffAutojoin === 'string' && room.staffAutojoin.includes(user.group) ||
 					room.auth && user.userid in room.auth) {
 				// if staffAutojoin is true: autojoin if isStaff
 				// if staffAutojoin is String: autojoin if user.group in staffAutojoin
@@ -764,13 +766,12 @@ let GlobalRoom = (() => {
 			this.maxUsers = this.userCount;
 			this.maxUsersDate = Date.now();
 		}
-        require('./chat-plugins/namefilter.js').notifyName(user);
+
 		return user;
 	};
 	GlobalRoom.prototype.onRename = function (user, oldid, joining) {
 		delete this.users[oldid];
 		this.users[user.userid] = user;
-		require('./chat-plugins/namefilter.js').notifyName(user);
 		return user;
 	};
 	GlobalRoom.prototype.onUpdateIdentity = function () {};
@@ -893,14 +894,6 @@ let BattleRoom = (() => {
 		this.disconnectTickDiff = [0, 0];
 
 		if (Config.forcetimer) this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'outurbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'ubersturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'uuturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'ruturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'nuturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'puturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'lcturbo') this.requestKickInactive(false);
-		if (Config.forcetimer || this.format === 'agturbo') this.requestKickInactive(false);
 	}
 	BattleRoom.prototype = Object.create(Room.prototype);
 	BattleRoom.prototype.type = 'battle';
@@ -946,31 +939,6 @@ let BattleRoom = (() => {
 			}
 			// update rankings
 			Ladders(this.battle.format).updateRating(p1name, p2name, p1score, this);
-
-			//
-			// Buck Winnings
-			//
-
-			if (this.format === 'supernovasuperstaffbros') {
-			let wid = toId(winner);
-
-			Db('money').set(wid, Db('money').get(wid, 0) + 3);
-			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>3</font> bucks for winning the Tier of the Month Rated Battle!</b>");
-
-			} else if (this.format !== 'OU' && this.format !== 'UU' && this.format !== 'RU' && this.format !== 'NU' && this.format !== 'PU' && this.format !== 'FU' && this.format !== 'LC') {
-                let wid = toId(winner);
-
-			Db('money').set(wid, Db('money').get(wid, 0) + 2);
-			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>2</font> bucks for winning an Official Format Rated Battle!</b>");
-
-			} else if (this.format !== 'randombattle' && this.format !== 'cc1v1' && this.format !== 'randomdoublesbattle' && this.format !== 'hackmonscup' && this.format !== 'randomtriplesbattle' && this.format !== 'battlefactory' && this.format !== 'gen1randombattle') {
-                let wid = toId(winner);
-
-			Db('money').set(wid, Db('money').get(wid, 0) + 1);
-			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>1</font> buck for winning an Random Format Rated Battle!</b>");
-
-	        }
-
 		} else if (Config.logchallenges) {
 			// Log challenges if the challenge logging config is enabled.
 			if (winnerid === this.p1.userid) {
@@ -1154,30 +1122,7 @@ let BattleRoom = (() => {
 			maxTicksLeft = 6;
 		}
 		if (!this.rated && !this.tour) maxTicksLeft = 30;
-                if (this.format === "outurbo") {
- 			maxTicksLeft = 2;
- 		}
-                 if (this.format === "ubersturbo") {
- 			maxTicksLeft = 2;
- 		}
-                 if (this.format === "uuturbo") {
- 			maxTicksLeft = 2;
- 		}
-                 if (this.format === "ruturbo") {
- 			maxTicksLeft = 2;
- 		}
-                 if (this.format === "nuturbo") {
- 			maxTicksLeft = 2;
- 		}
-                if (this.format === "puturbo") {
- 			maxTicksLeft = 2;
- 		}
- 	            if (this.format === "lcturbo") {
- 			maxTicksLeft = 2;
- 		}
-                if (this.format === "agturbo") {
- 			maxTicksLeft = 2;
- 		}
+
 		this.sideTurnTicks = [maxTicksLeft, maxTicksLeft];
 
 		let inactiveSide = this.getInactiveSide();
@@ -1311,7 +1256,6 @@ let BattleRoom = (() => {
 		}
 		delete this.users[oldid];
 		this.users[user.userid] = user;
-		if (this.game && this.game.onRename) this.game.onRename(user, oldid, joining);
 		this.update();
 		return user;
 	};
@@ -1558,7 +1502,7 @@ let ChatRoom = (() => {
 	};
 	ChatRoom.prototype.getIntroMessage = function (user) {
 		let message = '';
-		if (this.introMessage) message += '\n|raw|<div class="infobox infobox-roomintro"><div' + (!this.isOfficial ? ' class="infobox infobox"' : '') + '>' + this.introMessage + '</div>';
+		if (this.introMessage) message += '\n|raw|<div class="infobox infobox-roomintro"><div' + (!this.isOfficial ? ' class="infobox-limited"' : '') + '>' + this.introMessage + '</div>';
 		if (this.staffMessage && user.can('mute', null, this)) message += (message ? '<br />' : '\n|raw|<div class="infobox">') + '(Staff intro:)<br /><div>' + this.staffMessage + '</div>';
 		if (this.modchat) {
 			message += (message ? '<br />' : '\n|raw|<div class="infobox">') + '<div class="broadcast-red">' +
@@ -1577,7 +1521,7 @@ let ChatRoom = (() => {
 	ChatRoom.prototype.onJoin = function (user, connection) {
 		if (!user) return false; // ???
 		if (this.users[user.userid]) return user;
-		
+
 		if (user.named) {
 			this.reportJoin('j', user.getIdentity(this.id));
 		}
@@ -1603,7 +1547,6 @@ let ChatRoom = (() => {
 			return;
 		}
 		if (this.poll && user.userid in this.poll.voters) this.poll.updateFor(user);
-		if (this.game && this.game.onRename) this.game.onRename(user, oldid, joining);
 		return user;
 	};
 	/**

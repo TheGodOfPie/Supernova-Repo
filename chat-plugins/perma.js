@@ -1,4 +1,4 @@
-const permaDataFile = DATA_DIR + 'permaban.json';
+/*const permaDataFile = DATA_DIR + 'permaban.json';
 
 var fs = require('fs');
 
@@ -89,3 +89,4 @@ exports.commands = {
 	}
 	
 }
+*/

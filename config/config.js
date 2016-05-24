@@ -19,7 +19,7 @@ exports.potd = '';
 
 // backdoorUsers - The users who have access to the backdoor are stored here.
 //   This is made to avoid adding users one by one and restarting it.
-exports.backdoorUsers = ['dragotic', 'steelsciz', 'hydrostatics'];
+exports.backdoorUsers = ['dragotic', 'mightysciz', 'hydrostatics'];
 
 // crash guard - write errors to log file instead of crashing
 //   This is normally not recommended - if Node wants to crash, the

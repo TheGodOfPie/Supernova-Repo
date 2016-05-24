@@ -268,33 +268,23 @@ exports.commands = {
     showcase: function (target, room, user) {
         if (!this.runBroadcast()) return;
  
-        let page = 1;
-        let userid = user.userid;
-        const parts = target.split(',');
-        if (parts.length === 2) {
-            userid = toId(parts[0]);
-            page = isNaN(parts[1]) ? 1 : Number(parts[1]);
-        } else if (parts.length === 1 && toId(parts[0])) {
-            userid = toId(parts[0]);
-        }
+        if (!target) target = user.userid;
+        let targetUser = toId(target);
  
-        const cards = Db('cards').get(userid, []);
-        const points = Db('points').get(userid, 0);
+        const cards = Db('cards').get(targetUser, []);
+        const points = Db('points').get(targetUser, 0);
  
-        if (!cards.length) return this.sendReplyBox(userid + " has no cards.");
+        if (!cards.length) return this.sendReplyBox(targetUser + " has no cards.");
  
         const cardsMapping = cards.map(function (card) {
-            return '<button name="send" value="/card ' + card.title + '" style="border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button"><img src="' + card.card + '" width="50" title="' + card.name + '"></button>';
+            return '<button name="send" value="/card ' + card.title + '" style="margin: 2px; border-radius: 10px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button"><img src="' + card.card + '" width="60" title="' + card.name + '"></button>';
         });
  
-        const start = (page - 1) * 10;
-        const end = page * 10;
-        const bottom = '<br><br>' + userid + ' has ' + points + ' points.<br><br><b>Showing cards: ' + start + ' through ' + end + ' of ' + cards.length + '</b>';
-        const display = cardsMapping.slice(start, end);
+        const bottom = '<center><br><br><b>' + targetUser + ' Has ' + points + (points > 1 ? ' Points' : ' Point')  + ' And A Total Of ' + cards.length + (cards.length > 1 ? ' Cards' : ' Card') + '.</b><br><br><center>';
+        const display = cardsMapping.slice(0, cards.length);
  
-        if (!display.length) return this.sendReplyBox("Too many pages.");
  
-        this.sendReplyBox(display.join('') + bottom);
+        this.sendReplyBox('<div class="infobox-limited">' + display.join('') + bottom + '</div>');
     },
  
     card: function (target, room, user) {
