@@ -24,6 +24,10 @@ const MAX_REASON_LENGTH = 300;
 const MUTE_LENGTH = 7 * 60 * 1000;
 const HOURMUTE_LENGTH = 60 * 60 * 1000;
 
+const path = require('path');
+const parseEmoticons = require('./chat-plugins/emoticons').parseEmoticons;
+const dir = fs.readdirSync(path.resolve(__dirname, 'chat-plugins'));
+
 exports.commands = {
 
 	version: function (target, room, user) {
@@ -233,9 +237,23 @@ exports.commands = {
 			}
 		}
 
-		if (!message) message = '|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + target;
-		user.send(message);
-		if (targetUser !== user) targetUser.send(message);
+        let emoteMsg = parseEmoticons(target, room, user, true);
+
+        if ((!user.blockEmoticons && !targetUser.blockEmoticons) && emoteMsg) target = '/html ' + emoteMsg;
+
+        message = '|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + target;
+
+        if (!message) message = '|pm|' + user.getIdentity() + '|' + targetUser.getIdentity() + '|' + target;
+
+        user.send(message);
+
+        if (targetUser !== user) {
+	        if (Users.ShadowBan.checkBanned(user)) {
+	            Users.ShadowBan.addMessage(user, "Private to " + targetUser.getIdentity(), target);
+	        } else {
+	            targetUser.send(message);
+	        }
+    	}
 		targetUser.lastPM = user.userid;
 		user.lastPM = targetUser.userid;
 	},
@@ -304,7 +322,7 @@ exports.commands = {
 
 	makeprivatechatroom: 'makechatroom',
 	makechatroom: function (target, room, user, connection, cmd) {
-		if (!this.can('makeroom')) return;
+		if (!this.can('makeroom') && !isDev(user.userid)) return;
 
 		// `,` is a delimiter used by a lot of /commands
 		// `|` and `[` are delimiters used by the protocol
@@ -1715,7 +1733,7 @@ exports.commands = {
 		if (!this.can('declare', null, room)) return false;
 		if (!this.canTalk()) return;
 
-		this.add('|raw|<div class="broadcast-blue"><b>' + Tools.escapeHTML(target) + '</b></div>');
+		this.add('|raw|<div class="broadcast-blue"><b>' + target + '</b></div>');
 		this.logModCommand(user.name + " declared " + target);
 	},
 	declarehelp: ["/declare [message] - Anonymously announces a message. Requires: # & ~"],

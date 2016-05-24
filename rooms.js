@@ -894,6 +894,22 @@ let BattleRoom = (() => {
 		this.disconnectTickDiff = [0, 0];
 
 		if (Config.forcetimer) this.requestKickInactive(false);
+        if (Config.forcetimer || this.format === 'outurbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'ubersturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'uuturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'ruturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'nuturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'puturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'lcturbo') this.requestKickInactive(false);
+
+        if (Config.forcetimer || this.format === 'agturbo') this.requestKickInactive(false);
+
 	}
 	BattleRoom.prototype = Object.create(Room.prototype);
 	BattleRoom.prototype.type = 'battle';

@@ -53,6 +53,15 @@ const path = require('path');
  * Make sure we have everything set up correctly
  *********************************************************/
 
+/* ----------------Data-Directory------------*/
+
+global.DATA_DIR = (process.env.OPENSHIFT_DATA_DIR) ? process.env.OPENSHIFT_DATA_DIR : './config/';
+
+global.LOGS_DIR = (process.env.OPENSHIFT_DATA_DIR) ? (process.env.OPENSHIFT_DATA_DIR + 'logs/') : './logs/';
+
+/* ------------------------------------------*/
+
+
 // Make sure our dependencies are available, and install them if they
 // aren't
 
@@ -112,6 +121,8 @@ global.LoginServer = require('./loginserver.js');
 global.Ladders = require(Config.remoteladder ? './ladders-remote.js' : './ladders.js');
 
 global.Db = require('origindb')('config/db');
+
+global.Tells = require('./tells.js');
 
 global.Users = require('./users.js');
 
