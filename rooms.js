@@ -955,6 +955,31 @@ let BattleRoom = (() => {
 			}
 			// update rankings
 			Ladders(this.battle.format).updateRating(p1name, p2name, p1score, this);
+			
+			//
+			// Buck Winnings
+			//
+
+			if (this.format === 'supernovasuperstaffbros') {
+			let wid = toId(winner);
+
+			Db('money').set(wid, Db('money').get(wid, 0) + 3);
+			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>3</font> bucks for winning the Tier of the Month Rated Battle!</b>");
+
+			} else if (this.format !== 'OU' && this.format !== 'UU' && this.format !== 'RU' && this.format !== 'NU' && this.format !== 'PU' && this.format !== 'FU' && this.format !== 'LC') {
+                let wid = toId(winner);
+
+			Db('money').set(wid, Db('money').get(wid, 0) + 2);
+			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>2</font> bucks for winning an Official Format Rated Battle!</b>");
+
+			} else if (this.format !== 'randombattle' && this.format !== 'cc1v1' && this.format !== 'randomdoublesbattle' && this.format !== 'hackmonscup' && this.format !== 'randomtriplesbattle' && this.format !== 'battlefactory' && this.format !== 'gen1randombattle') {
+                let wid = toId(winner);
+
+			Db('money').set(wid, Db('money').get(wid, 0) + 1);
+			this.push("|raw|<b><font color='#cc0099'>" + Tools.escapeHTML(winner) + "</font> has won " + "<font color='#cc0099'>1</font> buck for winning an Random Format Rated Battle!</b>");
+
+	        }
+			
 		} else if (Config.logchallenges) {
 			// Log challenges if the challenge logging config is enabled.
 			if (winnerid === this.p1.userid) {
@@ -1138,7 +1163,30 @@ let BattleRoom = (() => {
 			maxTicksLeft = 6;
 		}
 		if (!this.rated && !this.tour) maxTicksLeft = 30;
-
+                if (this.format === "outurbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "ubersturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "uuturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "ruturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                 if (this.format === "nuturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                if (this.format === "puturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+ 	            if (this.format === "lcturbo") {
+ 			maxTicksLeft = 2;
+ 		}
+                if (this.format === "agturbo") {
+ 			maxTicksLeft = 2;
+ 		}
 		this.sideTurnTicks = [maxTicksLeft, maxTicksLeft];
 
 		let inactiveSide = this.getInactiveSide();
