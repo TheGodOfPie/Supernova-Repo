@@ -1,92 +1,103 @@
-/*const permaDataFile = DATA_DIR + 'permaban.json';
+'use strict';
 
 var fs = require('fs');
+let permaUsers;
 
-global.Permaban = {
-	permaLock: {},
-	permaBan: {}
-};
-
-if (!fs.existsSync(permaDataFile))
-	fs.writeFileSync(permaDataFile, JSON.stringify(Permaban));
-
-Permaban = JSON.parse(fs.readFileSync(permaDataFile).toString());
-
-function writePermaBanData() {
-	fs.writeFileSync(permaDataFile, JSON.stringify(Permaban));
+try {
+	permaUsers = JSON.parse(fs.readFileSync("config/perma.json"));
+} catch (e) {
+	permaUsers = {};
+	console.log("Unable to load config/perma.txt; creating empty object.");
 }
-
-exports.commands = {
-	
-	permaban: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		target = this.splitTarget(target);
-		var userT = this.targetUser;
-		if (!userT) return this.sendReply("User '" + this.targetUsername + "' is not online.");
-		if (userT.can('staff')) return this.sendReply("User '" + this.targetUsername + "' is an staff member. Demote before permaban.");
-		if (Permaban.permaBan[userT.userid]) return this.sendReply("User '" + this.targetUsername + "' already perma banned.");
-		Permaban.permaBan[userT.userid] = 1;
-		userT.popup("" + user.name + " has banned you." + (target ? "\n\nReason: " + target : ""));
-		userT.ban();
-		this.addModCommand(this.targetUsername + " was permanently banned by " + user.name + (target ? ('. (' + target + ')') : '.'));
-		writePermaBanData();
-	},
-	
-	unpermaban: 'permaunban',
-	permaunban: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		var userT = toId(target);
-		if (!Permaban.permaBan[userT]) return this.sendReply("User '" + target + "' is not perma banned.");
-		delete Permaban.permaBan[userT];
-		this.addModCommand(target + " was removed from the blacklist by " + user.name);
-		this.parse('/unban ' + target);
-		writePermaBanData();
-	},
-	
-	permalock: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		target = this.splitTarget(target);
-		var userT = this.targetUser;
-		if (!userT) return this.sendReply("User '" + this.targetUsername + "' is not online.");
-		if (userT.can('staff')) return this.sendReply("User '" + this.targetUsername + "' is an staff member. Demote before permalock.");
-		if (Permaban.permaLock[userT.userid]) return this.sendReply("User '" + this.targetUsername + "' already perma locked.");
-		Permaban.permaLock[userT.userid] = 1;
-		userT.popup("" + user.name + " has locked you from talking in chats, battles, and PMing regular users." + (target ? "\n\nReason: " + target : ""));
-		userT.lock();
-		this.addModCommand(this.targetUsername + " was permanently locked by " + user.name + (target ? ('. (' + target + ')') : '.'));
-		writePermaBanData();
-	},
-	
-	unpermalock: 'permaunlock',
-	permaunlock: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		var userT = toId(target);
-		if (!Permaban.permaLock[userT]) return this.sendReply("User '" + target + "' is not perma locked.");
-		delete Permaban.permaLock[userT];
-		this.addModCommand(target + " was removed from the permalock list by " + user.name);
-		this.parse('/unlock ' + target);
-		writePermaBanData();
-	},
-	
-	permalist: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		var banstr = '<b>Banned Users:</b> ' + Object.keys(Permaban.permaBan).sort().join(", ");
-		var lockstr = '<b>Locked Users:</b> ' + Object.keys(Permaban.permaLock).sort().join(", ");
-		this.sendReplyBox(banstr + '<br /><br />' + lockstr);
-		
-	},
-	
-	permahelp: function (target, room, user) {
-		if (!this.can('permaban')) return false;
-		return this.sendReplyBox(
-			'<b>Permaban command list</b><br /><br />' +
-			'/permaban [user] - permanently bans an user.<br />' +
-			'/permaunban [user] - removes from the blacklist.<br />' +
-			'/permalock [user] - permanently locks an user.<br />' +
-			'/permaunlock [user] - removes from the locklist.<br />' +
-			'/permalist - lists all perma bans and locks.<br />'
-		);
+Users.parsePerma = function (userid, targetUser) {
+	if (!userid) return;
+	if (userid in permaUsers) {
+		try {
+			targetUser[permaUsers[userid]](false, userid);
+		} catch (e) {
+			console.log("ERROR: unable to apply perma to " + userid);
+		}
 	}
-	
-}
-*/
+};
+exports.commands = {
+    plock: "permalock",
+	permalock: function (target, room, user, connection) {
+		if (!this.can('hotpatch')) return false;
+		if (!target) return this.parse("/help permalock");
+		let userid = toId(target);
+		let targetUser = Users(target);
+		if (userid in permaUsers) return this.errorReply("User " + userid + " is already perma" + permaUsers[userid] + (permaUsers[userid] === "ban" ? "ned" : "ed") + ".");
+		if (targetUser && targetUser.confirmed) {
+			let from = targetUser.deconfirm();
+			Monitor.log("[CrisisMonitor] " + targetUser.name + " was permalocked by " + user.name + " and demoted from " + from.join(", ") + ".");
+		}
+		permaUsers[userid] = "lock";
+		try {
+			Users.get(userid).lock(false, userid);
+		} catch (e) {}
+		this.addModCommand(userid + " was permalocked by " + user.name + ".");
+		fs.writeFileSync("config/perma.json", JSON.stringify(permaUsers));
+	},
+
+	unplock: "unpermalock",
+	unpermalock: function (target, room, user, connection) {
+		if (!this.can('hotpatch')) return false;
+		if (!target) return this.parse("/help unpermalock");
+		let userid = toId(target);
+		if (!(userid in permaUsers) || permaUsers[userid] !== "lock") return this.errorReply(userid + " is not permalocked!");
+		try {
+			Users.unlock(userid);
+		} catch (e) {}
+		delete permaUsers[userid];
+		this.addModCommand(userid + " was unpermalocked by " + user.name + ".");
+		fs.writeFileSync("config/perma.json", JSON.stringify(permaUsers));
+	},
+
+	pban: "permaban",
+	permaban: function (target, room, user, connection) {
+		if (!this.can('hotpatch')) return false;
+		if (!target) return this.parse("/help permaban");
+		let userid = toId(target);
+		let targetUser = Users(target);
+		if (userid in permaUsers && permaUsers[userid] === "ban") return this.errorReply("User " + userid + " is already permabanned.");
+		if (targetUser && targetUser.confirmed) {
+			let from = targetUser.deconfirm();
+			Monitor.log("[CrisisMonitor] " + targetUser.name + " was perma banned by " + user.name + " and demoted from " + from.join(", ") + ".");
+		}
+		permaUsers[userid] = "ban";
+		try {
+			Users.get(userid).ban(false, userid);
+		} catch (e) {}
+		this.addModCommand(userid + " was permabanned by " + user.name + ".");
+		fs.writeFileSync("config/perma.json", JSON.stringify(permaUsers));
+	},
+
+	unpban: "unpermaban",
+	unpermaban: function (target, room, user, connection) {
+		if (!this.can('hotpatch')) return false;
+		if (!target) return this.parse("/help unpermaban");
+		let userid = toId(target);
+		if (!(userid in permaUsers) || permaUsers[userid] !== "ban") return this.errorReply(userid + " is not permabanned!");
+		try {
+			Users.unban(userid);
+		} catch (e) {}
+		delete permaUsers[userid];
+		this.addModCommand(userid + " was unpermabanned by " + user.name + ".");
+		fs.writeFileSync("config/perma.json", JSON.stringify(permaUsers));
+	},
+
+	plist: "permalist",
+	permalist: function (target, room, user, connection) {
+		if (!this.can('declare')) return false;
+		let buffer = ["<b>Perma'd users:</b>", ""];
+		Object.keys(permaUsers).sort().forEach(function (u) {
+			buffer.push("<b>" + u + "</b> - " + permaUsers[u]);
+		});
+		if (buffer.length === 2) buffer.push("There are currently no perma'd users!");
+		this.sendReplyBox(buffer.join("<br>"));
+	},
+	permalockhelp: ["/permalock [user] - permanantly locks the user."],
+	permabanhelp: ["/permaban [user] - permanently bans the user."],
+	unpermabanhelp: ["/unpermaban [user] - lifts a permaban."],
+	unpermalockhelp: ["/unpermalock [user] - lifts a permalock."],
+};
