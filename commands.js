@@ -2126,7 +2126,7 @@ exports.commands = {
 
 	hotpatch: function (target, room, user) {
 		if (!target) return this.parse('/help hotpatch');
-		if (!this.can('hotpatch') && !isDev(user.userid) return false;
+		if (!this.can('hotpatch') && !isDev(user.userid)) return false;
 		if (Monitor.hotpatchLock) return this.errorReply("Hotpatch is currently been disabled. (" + Monitor.hotpatchLock + ")");
 
 		let staff = Rooms('staff');

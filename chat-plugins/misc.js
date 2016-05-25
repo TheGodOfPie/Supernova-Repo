@@ -232,78 +232,7 @@ exports.commands = {
 		}
 	},
 	roompmhelp: ["/roompm [message] - PM all users in the room."],
-
-	globalauth: 'sal',
-	stafflist: 'sal',
-	authlist: 'sal',
-	auth: 'sal',
-	supernovaauthlist: 'sal',
-	sal: function(target, room, user, connection) {
-		var ignoreUsers = ['steelsciz', 'dragotic'];
-		fs.readFile('config/usergroups.csv', 'utf8', function(err, data) {
-			var staff = {
-				"admins": [],
-				"leaders": [],
-				"mods": [],
-				"drivers": [],
-				"operators": [],
-				"voices": []
-			};
-			var row = ('' + data).split('\n');
-			for (var i = row.length; i > -1; i--) {
-				if (!row[i]) continue;
-				var rank = row[i].split(',')[1].replace("\r", '');
-				var person = row[i].split(',')[0];
-				function nameColor (name) {
-					if (Users.getExact(name) && Users(name).connected) {
-						return '<b><i><font color="'  + color(name) + '">' + Tools.escapeHTML(Users.getExact(name).name) + '</font></i></b>';
-					} else {
-						return '<font color="' + color(name) +  '">' + Tools.escapeHTML(name) + '</font>';
-					}
-				}
-				var personId = toId(person);
-				switch (rank) {
-					case '~':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['admins'].push(nameColor(person));
-						break;
-					case '&':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['leaders'].push(nameColor(person));
-						break;
-					case '@':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['mods'].push(nameColor(person));
-						break;
-					case '%':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['drivers'].push(nameColor(person));
-						break;
-					case '$':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['operators'].push(nameColor(person));
-						break;
-					case '+':
-						if (~ignoreUsers.indexOf(personId)) break;
-						staff['voices'].push(nameColor(person));
-						break;
-					default:
-						continue;
-				}
-			}
-			connection.popup('|html|' +
-				'<h3>Supernova Authority List</h3>' +
-				'<b><u>~Administrator (' + staff['admins'].length + ')</u></b>:<br />' + staff['admins'].join(', ') +
-				'<br /><b><u>&Leader (' + staff['leaders'].length + ')</u></b>:<br />' + staff['leaders'].join(', ') +
-				'<br /><b><u>@Moderators (' + staff['mods'].length + ')</u></b>:<br />' + staff['mods'].join(', ') +
-				'<br /><b><u>%Drivers (' + staff['drivers'].length + ')</u></b>:<br />' + staff['drivers'].join(', ') +
-				'<br /><b><u>$Operators (' + staff['operators'].length + ')</u></b>:<br />' + staff['operators'].join(', ') +
-				'<br /><b><u>+Voices (' + staff['voices'].length + ')</u></b>:<br />' + staff['voices'].join(', ') +
-				'<br /><br />(<b>Bold</b> / <i>italic</i> = currently online)'
-			);
-		});
-	},
-
+	
 	gclearall: 'globalclearall',
 	globalclearall: function (target, room, user) {
 		if (!this.can('gdeclare')  && !this.can('dev')) return false;
