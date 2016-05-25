@@ -464,7 +464,7 @@ exports.commands = {
 		if (room.isPersonal) {
 			if (!this.can('editroom', null, room)) return;
 		} else {
-			if (!this.can('makeroom')) return;
+			if (!this.can('makeroom') && !isDev(user.userid)) return;
 		}
 		let roomid = target.trim();
 		if (!roomid) return this.parse('/help deleteroom');
@@ -510,7 +510,7 @@ exports.commands = {
 		} else {
 			// registered chatrooms show up on the room list and so require
 			// higher permissions to modify privacy settings
-			if (!this.can('makeroom')) return;
+			if (!this.can('makeroom') && !isDev(user.userid)) return;
 		}
 		let setting;
 		switch (cmd) {
@@ -560,9 +560,9 @@ exports.commands = {
 
 	modjoin: function (target, room, user) {
 		if (room.battle || room.isPersonal) {
-			if (!this.can('editroom', null, room)) return;
+			if (!this.can('editroom', null, room) && !isDev(user.userid)) return;
 		} else {
-			if (!this.can('makeroom')) return;
+			if (!this.can('makeroom') && !isDev(user.userid)) return;
 		}
 		if (room.tour && !room.tour.modjoin) return this.errorReply("You can't do this in tournaments where modjoin is prohibited.");
 		if (target === 'off' || target === 'false') {
@@ -596,7 +596,7 @@ exports.commands = {
 
 	officialchatroom: 'officialroom',
 	officialroom: function (target, room, user) {
-		if (!this.can('makeroom')) return;
+		if (!this.can('makeroom') && !isDev(user.userid)) return;
 		if (!room.chatRoomData) {
 			return this.errorReply("/officialroom - This room can't be made official");
 		}
@@ -622,7 +622,7 @@ exports.commands = {
 			this.sendReplyBox("The room description is: " + Tools.escapeHTML(room.desc));
 			return;
 		}
-		if (!this.can('declare')) return false;
+		if (!this.can('roommod')) return false;
 		if (target.length > 80) return this.errorReply("Error: Room description is too long (must be at most 80 characters).");
 		let normalizedTarget = ' ' + target.toLowerCase().replace('[^a-zA-Z0-9]+', ' ').trim() + ' ';
 
@@ -652,7 +652,7 @@ exports.commands = {
 		if (!target) {
 			if (!this.runBroadcast()) return;
 			if (!room.introMessage) return this.sendReply("This room does not have an introduction set.");
-			this.sendReply('|raw|<div class="infobox infobox-limited">' + room.introMessage + '</div>');
+			this.sendReply('|raw|<div class="infobox infobox">' + room.introMessage + '</div>');
 			if (!this.broadcasting && user.can('declare', null, room)) {
 				this.sendReply('Source:');
 				this.sendReplyBox('<code>/roomintro ' + Tools.escapeHTML(room.introMessage) + '</code>');
@@ -671,7 +671,7 @@ exports.commands = {
 
 		room.introMessage = target;
 		this.sendReply("(The room introduction has been changed to:)");
-		this.sendReply('|raw|<div class="infobox infobox-limited">' + target + '</div>');
+		this.sendReply('|raw|<div class="infobox infobox">' + target + '</div>');
 
 		this.privateModCommand("(" + user.name + " changed the roomintro.)");
 		this.logEntry(target);
@@ -683,7 +683,7 @@ exports.commands = {
 	},
 	deletetopic: 'deleteroomintro',
 	deleteroomintro: function (target, room, user) {
-		if (!this.can('declare', null, room)) return false;
+		if (!this.can('roommod', null, room)) return false;
 		if (!room.introMessage) return this.errorReply("This room does not have a introduction set.");
 
 		this.privateModCommand("(" + user.name + " deleted the roomintro.)");
@@ -751,7 +751,7 @@ exports.commands = {
 			if (!room.aliases || !room.aliases.length) return this.sendReplyBox("This room does not have any aliases.");
 			return this.sendReplyBox("This room has the following aliases: " + room.aliases.join(", ") + "");
 		}
-		if (!this.can('makeroom')) return false;
+		if (!this.can('makeroom') && !isDev(user.userid)) return false;
 		let alias = toId(target);
 		if (!alias.length) return this.errorReply("Only alphanumeric characters are valid in an alias.");
 		if (Rooms.get(alias) || Rooms.aliases[alias]) return this.errorReply("You cannot set an alias to an existing room or alias.");
@@ -770,7 +770,7 @@ exports.commands = {
 
 	removeroomalias: function (target, room, user) {
 		if (!room.aliases) return this.sendReply("This room does not have any aliases.");
-		if (!this.can('makeroom')) return false;
+		if (!this.can('makeroom') && !isDev(user.userid)) return false;
 		let alias = toId(target);
 		if (!alias.length || !Rooms.aliases[alias]) return this.errorReply("Please specify an existing alias.");
 		if (Rooms.aliases[alias] !== room.id) return this.errorReply("You may only remove an alias from the current room.");
@@ -1002,7 +1002,7 @@ exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.errorReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		if (!this.can('ban', targetUser, room)) return false;
+		if (!this.can('ban', targetUser, room) && !isDev(user.userid)) return false;
 		if (!room.bannedUsers || !room.bannedIps) {
 			return this.errorReply("Room bans are not meant to be used in room " + room.id + ".");
 		}
@@ -1048,7 +1048,7 @@ exports.commands = {
 		let userid = room.isRoomBanned(targetUser) || toId(target);
 
 		if (!userid) return this.errorReply("User '" + target + "' is an invalid username.");
-		if (targetUser && !this.can('ban', targetUser, room)) return false;
+		if (targetUser && !this.can('ban', targetUser, room) && !isDev(user.userid)) return false;
 		let unbannedUserid = room.unRoomBan(userid);
 		if (!unbannedUserid) return this.errorReply("User " + userid + " is not banned from room " + room.id + ".");
 
@@ -1106,7 +1106,7 @@ exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.errorReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		if (!this.can('warn', targetUser, room)) return false;
+		if (!this.can('warn', targetUser, room) && !isDev(user.userid)) return false;
 
 		this.addModCommand("" + targetUser.name + " was warned by " + user.name + "." + (target ? " (" + target + ")" : ""));
 		targetUser.send('|c|~|/warn ' + target);
@@ -1127,7 +1127,7 @@ exports.commands = {
 		if (!targetRoom || targetRoom.modjoin) {
 			return this.errorReply("The room '" + target + "' does not exist.");
 		}
-		if (!this.can('warn', targetUser, room) || !this.can('warn', targetUser, targetRoom)) return false;
+		if (!this.can('warn', targetUser, room) || !this.can('warn', targetUser, targetRoom) && !isDev(user.userid)) return false;
 		if (!targetUser || !targetUser.connected) {
 			return this.errorReply("User " + this.targetUsername + " not found.");
 		}
@@ -1160,7 +1160,7 @@ exports.commands = {
 		}
 
 		let muteDuration = ((cmd === 'hm' || cmd === 'hourmute') ? HOURMUTE_LENGTH : MUTE_LENGTH);
-		if (!this.can('mute', targetUser, room)) return false;
+		if (!this.can('mute', targetUser, room) && !isDev(user.userid)) return false;
 		let canBeMutedFurther = ((room.getMuteTime(targetUser) || 0) <= (muteDuration * 5 / 6));
 		if (targetUser.locked || (room.isMuted(targetUser) && !canBeMutedFurther) || room.isRoomBanned(targetUser)) {
 			let problem = " but was already " + (targetUser.locked ? "locked" : room.isMuted(targetUser) ? "muted" : "room banned");
@@ -1193,7 +1193,7 @@ exports.commands = {
 		if (!target) return this.parse('/help unmute');
 		target = this.splitTarget(target);
 		if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
-		if (!this.can('mute', null, room)) return false;
+		if (!this.can('mute', null, room) && !isDev(user.userid)) return false;
 
 		let targetUser = this.targetUser;
 		let successfullyUnmuted = room.unmute(targetUser ? targetUser.userid : this.targetUsername, "Your mute in '" + room.title + "' has been lifted.");
@@ -1218,7 +1218,7 @@ exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.errorReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		if (!this.can('lock', targetUser)) return false;
+		if (!this.can('lock', targetUser) && !isDev(user.userid)) return false;
 		let name = targetUser.getLastName();
 		let userid = targetUser.getLastId();
 
@@ -1276,7 +1276,7 @@ exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.errorReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		if (!this.can('lock', targetUser)) return false;
+		if (!this.can('lock', targetUser) && !isDev(user.userid)) return false;
 		let name = targetUser.getLastName();
 		let userid = targetUser.getLastId();
 
@@ -1326,7 +1326,7 @@ exports.commands = {
 
 	unlock: function (target, room, user) {
 		if (!target) return this.parse('/help unlock');
-		if (!this.can('lock')) return false;
+		if (!this.can('lock') && !isDev(user.userid)) return false;
 
 		let targetUser = Users.get(target);
 		let reason = '';
@@ -1358,7 +1358,7 @@ exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.errorReply("The reason is too long. It cannot exceed " + MAX_REASON_LENGTH + " characters.");
 		}
-		if (!this.can('ban', targetUser)) return false;
+		if (!this.can('ban', targetUser) && !isDev(user.userid)) return false;
 		let name = targetUser.getLastName();
 		let userid = targetUser.getLastId();
 
@@ -1414,7 +1414,7 @@ exports.commands = {
 
 	unban: function (target, room, user) {
 		if (!target) return this.parse('/help unban');
-		if (!this.can('ban')) return false;
+		if (!this.can('ban') && !isDev(user.userid)) return false;
 
 		let name = Punishments.unban(target);
 
@@ -1428,7 +1428,7 @@ exports.commands = {
 	unbanhelp: ["/unban [username] - Unban a user. Requires: @ & ~"],
 
 	unbanall: function (target, room, user) {
-		if (!this.can('rangeban')) return false;
+		if (!this.can('rangeban') && !isDev(user.userid)) return false;
 		if (!target) {
 			user.lastCommand = '/unbanall';
 			this.errorReply("THIS WILL UNBAN AND UNLOCK ALL USERS.");
@@ -1483,7 +1483,7 @@ exports.commands = {
 		if (!target) {
 			return this.parse('/help banip');
 		}
-		if (!this.can('rangeban')) return false;
+		if (!this.can('rangeban') && !isDev(user.userid)) return false;
 		if (Punishments.bannedIps[target] === '#ipban') return this.sendReply("The IP " + (target.charAt(target.length - 1) === '*' ? "range " : "") + target + " has already been temporarily banned.");
 
 		Punishments.bannedIps[target] = '#ipban';
@@ -1496,7 +1496,7 @@ exports.commands = {
 		if (!target) {
 			return this.parse('/help unbanip');
 		}
-		if (!this.can('rangeban')) return false;
+		if (!this.can('rangeban') && !isDev(user.userid)) return false;
 		if (!Punishments.bannedIps[target]) {
 			return this.errorReply("" + target + " is not a banned IP or IP range.");
 		}
@@ -1507,7 +1507,7 @@ exports.commands = {
 
 	rangelock: function (target, room, user) {
 		if (!target) return this.errorReply("Please specify a range to lock.");
-		if (!this.can('rangeban')) return false;
+		if (!this.can('rangeban') && !isDev(user.userid)) return false;
 
 		let isIp = (target.slice(-1) === '*');
 		let range = (isIp ? target : Punishments.shortenHost(target));
@@ -1520,7 +1520,7 @@ exports.commands = {
 	unrangelock: 'rangeunlock',
 	rangeunlock: function (target, room, user) {
 		if (!target) return this.errorReply("Please specify a range to unlock.");
-		if (!this.can('rangeban')) return false;
+		if (!this.can('rangeban') && !isDev(user.userid)) return false;
 
 		let range = (target.slice(-1) === '*' ? target : Punishments.shortenHost(target));
 		if (!Punishments.lockedRanges[range]) return this.errorReply("The range " + range + " is not locked.");
@@ -1605,7 +1605,7 @@ exports.commands = {
 
 	confirmuser: function (target) {
 		if (!target) return this.parse('/help confirmuser');
-		if (!this.can('promote')) return;
+		if (!this.can('promote') && !isDev(user.userid)) return;
 
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
@@ -1667,7 +1667,7 @@ exports.commands = {
 	modchat: function (target, room, user) {
 		if (!target) return this.sendReply("Moderated chat is currently set to: " + room.modchat);
 		if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
-		if (!this.can('modchat', null, room)) return false;
+		if (!this.can('modchat', null, room) && !isDev(user.userid)) return false;
 
 		if (room.modchat && room.modchat.length <= 1 && Config.groupsranking.indexOf(room.modchat) > 1 && !user.can('modchatall', null, room)) {
 			return this.errorReply("/modchat - Access denied for removing a setting higher than " + Config.groupsranking[1] + ".");
@@ -1729,18 +1729,8 @@ exports.commands = {
 	modchathelp: ["/modchat [off/autoconfirmed/+/%/@/#/&/~] - Set the level of moderated chat. Requires: @ for off/autoconfirmed/+ options, # & ~ for all the options"],
 
 	declare: function (target, room, user) {
-		if (!target) return this.parse('/help declare');
-		if (!this.can('declare', null, room)) return false;
-		if (!this.canTalk()) return;
-
-		this.add('|raw|<div class="broadcast-blue"><b>' + target + '</b></div>');
-		this.logModCommand(user.name + " declared " + target);
-	},
-	declarehelp: ["/declare [message] - Anonymously announces a message. Requires: # & ~"],
-
-	htmldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help htmldeclare');
-		if (!this.can('gdeclare', null, room)) return false;
+		if (!this.can('declare', null, room) && !isDev(user.userid)) return false;
 		if (!this.canTalk()) return;
 		target = this.canHTML(target);
 		if (!target) return;
@@ -1748,12 +1738,12 @@ exports.commands = {
 		this.add('|raw|<div class="broadcast-blue"><b>' + target + '</b></div>');
 		this.logModCommand(user.name + " declared " + target);
 	},
-	htmldeclarehelp: ["/htmldeclare [message] - Anonymously announces a message using safe HTML. Requires: ~"],
+	htmldeclarehelp: ["/declare [message] - Anonymously announces a message using safe HTML. Requires: &#"],
 
 	gdeclare: 'globaldeclare',
 	globaldeclare: function (target, room, user) {
 		if (!target) return this.parse('/help globaldeclare');
-		if (!this.can('gdeclare')) return false;
+		if (!this.can('gdeclare') && !isDev(user.userid)) return false;
 		target = this.canHTML(target);
 		if (!target) return;
 
@@ -1767,7 +1757,7 @@ exports.commands = {
 	cdeclare: 'chatdeclare',
 	chatdeclare: function (target, room, user) {
 		if (!target) return this.parse('/help chatdeclare');
-		if (!this.can('gdeclare')) return false;
+		if (!this.can('gdeclare') && !isDev(user.userid)) return false;
 		target = this.canHTML(target);
 		if (!target) return;
 
@@ -1782,7 +1772,7 @@ exports.commands = {
 	announce: function (target, room, user) {
 		if (!target) return this.parse('/help announce');
 
-		if (!this.can('announce', null, room)) return false;
+		if (!this.can('announce', null, room) && !isDev(user.userid)) return false;
 
 		target = this.canTalk(target);
 		if (!target) return;
@@ -1804,7 +1794,7 @@ exports.commands = {
 			}
 			return this.errorReply("User '" + target + "' not found.");
 		}
-		if (!this.can('forcerename', targetUser)) return false;
+		if (!this.can('forcerename', targetUser) && !isDev(user.userid)) return false;
 
 		let entry = targetUser.name + " was forced to choose a new name by " + user.name + (reason ? ": " + reason : "");
 		this.privateModCommand("(" + entry + ")");
@@ -1825,7 +1815,7 @@ exports.commands = {
 		if (!targetUser) {
 			return this.errorReply("User '" + this.targetUsername + "' not found.");
 		}
-		if (!this.can('forcerename', targetUser)) return false;
+		if (!this.can('forcerename', targetUser) && !isDev(user.userid)) return false;
 
 		this.addModCommand("" + targetUser.name + " was namelocked by " + user.name + "." + (reason ? " (" + reason + ")" : ""));
 		this.globalModlog("NAMELOCK", targetUser, " by " + user.name + (reason ? ": " + reason : ""));
@@ -1839,7 +1829,7 @@ exports.commands = {
 	unl: 'unnamelock',
 	unnamelock: function (target, room, user) {
 		if (!target) return this.parse('/help unnamelock');
-		if (!this.can('forcerename')) return false;
+		if (!this.can('forcerename') && !isDev(user.userid)) return false;
 
 		let targetUser = Users.get(target);
 		let reason = '';
