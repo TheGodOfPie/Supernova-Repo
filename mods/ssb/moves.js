@@ -267,7 +267,7 @@ exports.BattleMovedex = {
 //+Back At My Day...
 	"pastandfuture": {
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Special",
 		shortDesc: "Ignores Steel resistance and Dark immunity, 10% chance to raise SpA, SpD, Def, Eva, and ACC by 1.",
 		id: "pastandfuture",
@@ -299,6 +299,29 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Psychic"
 	},
+//Volco
+	"woodtreesword": {
+        accuracy: 85,
+        basePower: 120,
+        category: "Physical",
+        shortDesc: "Use and Find Out.",
+		id: "woodtreesword",
+		name: "Wood Tree Sword",
+        pp: 15,
+        priority: 0,
+        flags: {contact: 1, protect: 1, mirror: 1},
+        recoil: [1, 3],
+        onPrepareHit: function (pokemon, target) {
+            this.attrLastMove('[still]');
+            this.add('-anim', pokemon, "Wood Hammer", target);
+        },
+        onHit: function (target, source, move) {
+            this.add('c|+Volco|Let\'s do this');
+        },
+        secondary: false,
+        target: "normal",
+        type: "Grass",
+    },
 //Eternal Mayhem
 	"danceofshadows": {
 		accuracy: 100,
@@ -372,31 +395,6 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Fairy"
 	},
-//Volco
-	"woodtreesword": {
-        accuracy: 85,
-        basePower: 120,
-        category: "Physical",
-        shortDesc: "Use and Find Out.",
-		id: "woodtreesword",
-		name: "Wood Tree Sword",
-        pp: 15,
-        priority: 0,
-        flags: {contact: 1, protect: 1, mirror: 1},
-        recoil: [1, 3],
-        onTryHit: function (target, source, move) {
-            this.attrLastMove('[anim]woodhammer');
-        },
-        onMoveFail: function (target, source, move) {
-            this.attrLastMove('[anim]woodhammer');
-        },
-        onHit: function (target, source, move) {
-            this.add('c|Volco|Let\'s do this');
-        },
-        secondary: false,
-        target: "normal",
-        type: "Grass",
-    },
 //Dragotic
 	"thegreatquake": {
 		accuracy: 110,
