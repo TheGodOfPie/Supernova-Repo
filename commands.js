@@ -792,26 +792,50 @@ exports.commands = {
 		if (!target) return this.parse('/help roomowner');
 		target = this.splitTarget(target, true);
 		let targetUser = this.targetUser;
-		let name = this.targetUsername;
-		let userid = toId(name);
 
-		if (!Users.isUsernameKnown(userid)) {
-			return this.errorReply("User '" + this.targetUsername + "' is offline and unrecognized, and so can't be promoted.");
-		}
+		if (!targetUser) return this.errorReply("User '" + this.targetUsername + "' is not online.");
 
-		if (!this.can('makeroom')) return false;
+        if (room.chatRoomData.founder !== user.userid && !this.can('makeroom')) return this.errorReply('/roomowner - Access denied.');
+        if (!room.chatRoomData.founder) return this.errorReply('The room needs to have a room founder before it can have a room owner.');
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
-		room.auth[userid] = '#';
+		let name = targetUser.name;
+
+		room.auth[targetUser.userid] = '#';
 		this.addModCommand("" + name + " was appointed Room Owner by " + user.name + ".");
-		if (targetUser) {
-			targetUser.popup("You were appointed Room Owner by " + user.name + " in " + room.id + ".");
-			room.onUpdateIdentity(targetUser);
-		}
+		targetUser.popup("You were appointed Room Owner by " + user.name + " in " + room.id + ".");
+		room.onUpdateIdentity(targetUser);
 		Rooms.global.writeChatRoomData();
 	},
-	roomownerhelp: ["/roomowner [username] - Appoints [username] as a room owner. Requires: & ~"],
+	roomownerhelp: ["/roomowner [username] - Appoints [username] as a room owner. Removes official status. Requires: & ~"],
+
+	roomdeowner: 'deroomowner',
+	deroomowner: function (target, room, user) {
+		if (!room.auth) {
+			return this.sendReply("/roomdeowner - This room isn't designed for per-room moderation");
+		}
+		if (!target) return this.parse('/help roomdeowner');
+		target = this.splitTarget(target, true);
+		let targetUser = this.targetUser;
+		let name = this.targetUsername;
+		let userid = toId(name);
+		if (!userid || userid === '') return this.errorReply("User '" + name + "' not found.");
+
+		if (room.auth[userid] !== '#') return this.errorReply("User '" + name + "' is not a room owner.");
+        if (room.chatRoomData.founder !== user.userid && !this.can('makeroom')) return this.errorReply('/roomowner - Access denied.');
+
+		delete room.auth[userid];
+		this.sendReply("(" + name + " is no longer Room Owner.)");
+		if (targetUser) {
+			targetUser.popup("You are no longer a Room Owner of " + room.id + ". (Demoted by " + user.name + ".)");
+			targetUser.updateIdentity();
+		}
+		if (room.chatRoomData) {
+			Rooms.global.writeChatRoomData();
+		}
+	},
+	deroomownerhelp: ["/roomdeowner [username] - Removes [username]'s status as a room owner. Requires: & ~"],
 
 	roomdemote: 'roompromote',
 	roompromote: function (target, room, user, connection, cmd) {
