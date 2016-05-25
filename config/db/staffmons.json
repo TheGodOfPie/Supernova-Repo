@@ -145,6 +145,18 @@
         "evs": ["252 Atk", "4 Def", "252 Spe"],
         "note": "Dayuh's staffmon could possibly punch a hole on the opposing team. It has a Speed boost, a better STAB boost, Life Orb boost, and if you're lucky, it could use Swords Dance. AromaLeech also heals a good amount after dealing so much DAMAGE to the opponent. Potential counters include Back At My Day..., Ransei, or any bulky staffmon that could definitely survive a single hit, and can deal some intense damage in return."
     },
+    "volco": {
+        "username": "<img src='http://media.pldh.net/pokexycons/389.png'>+Volco<img src='http://media.pldh.net/pokexycons/389.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/torterra.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/389.png&quot;), auto;'>",
+        "staffmon": "Torterra",
+        "item": "Leftovers",
+        "ability": "Let's Do This - Boosts the user's Atk and Spe by 1 upon entry; Only takes damage from direct attacks.",
+        "nature": "Adamant (+Atk -SpA)",
+        "movepool": ["Earthquake/Stone Edge", "Outrage", "Crunch"],
+        "signature move": "Wood Tree Sword - 85% Accuracy / 10 PP / Physical / Grass-type / 120 BP / 1/3 recoil (not in effect due to ability) / Makes contact.",
+        "evs": ["4 HP", "252 Atk", "252 Spe"],
+        "note": "This staffmon is pretty much labelled \"Have fun hitting hard\". Becuase of its stat boosts given upon switch-in, it can be a great stall breaker. Its also got a decent movepool for coverage. Potential counters include TheGodOfPie, Camilas, or anything that won't easily get OHKO'd by this beast, and deal serious damage to it in return."
+    },
     "zodiacragna": {
         "username": "<img src='http://media.pldh.net/pokexycons/379.png'>+Zodiac Ragna<img src='http://media.pldh.net/pokexycons/379.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;https://pokewalls.files.wordpress.com/2012/03/379registeel1600x1200.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/379.png&quot;), auto;'>",
@@ -204,17 +216,5 @@
         "signature move": "Final Blast - 10 PP / 100% Accuracy / Physical / Normal-type / 500 BP / Always a critical hit / User faints after use.",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
         "note": "If you know how to use this staffmon wisely, it'll be the greatest troll on Supernova Super Staff Bros. Otherwise, this guy's set can just make you laugh. Despite having multiple boosts, its got only 1 attack, which also kills itself in the process.  However, it can OHKO almost every member in the roster. Potential counters are TheGodOfPie, another Ransei, or anything that could not be affected by Final Blast, or counters its handful of boosts."
-    },
-    "volco": {
-        "username": "<img src='http://media.pldh.net/pokexycons/389.png'>Volco<img src='http://media.pldh.net/pokexycons/389.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/torterra.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://media.pldh.net/pokexycons/389.png&quot;), auto;'>",
-        "staffmon": "Torterra",
-        "item": "Leftovers",
-        "ability": "Let's Do This - Boosts the user's Atk and Spe by 1 upon entry; Only takes damage from direct attacks.",
-        "nature": "Adamant (+Atk -SpA)",
-        "movepool": ["Earthquake/Stone Edge", "Outrage", "Crunch"],
-        "signature move": "Wood Tree Sword - 85% Accuracy / 10 PP / Physical / Grass-type / 120 BP / 1/3 recoil (not in effect due to ability) / Makes contact.",
-        "evs": ["4 HP", "252 Atk", "252 Spe"],
-        "note": "This staffmon is pretty much labelled \"Have fun hitting hard\". Becuase of its stat boosts given upon switch-in, it can be a great stall breaker. Its also got a decent movepool for coverage. Potential counters include TheGodOfPie, Camilas, or anything that won't easily get OHKO'd by this beast, and deal serious damage to it in return."
     }
 }
