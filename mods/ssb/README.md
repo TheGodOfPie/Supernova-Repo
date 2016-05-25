@@ -243,6 +243,28 @@ EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
 	- 50% chance to +1 Spe & SpA after use
 	- Restores 50% of the damage dealt
 
+### +Volco
+Torterra @ Leftovers
+
+Ability: Let's Do This
+
+- +1 Atk & Spe upon entry
+- Only takes damage from direct attacks
+
+EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
+
+- Earthquake / Stone Edge
+- Outrage
+- Crunch
+- Wood Tree Sword
+	- 10 PP 
+	- 85% Accuracy
+	- Physical
+	- Grass-type
+	- 120 BP
+	- 1/3 recoil (not in effect due to ability)
+	- Makes contact
+
 ### +Zodiac Ragna
 Registeel @ Leftovers
 
@@ -363,30 +385,10 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- 500 BP
 	- Always critical hit, user faints after use
 
-### Volco
-Torterra @ Leftovers
-
-Ability: Let's Do This
-
-- +1 Atk & Spe upon entry
-- Only takes damage from direct attacks
-
-EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
-
-- Earthquake / Stone Edge
-- Outrage
-- Crunch
-- Wood Tree Sword
-	- 10 PP 
-	- 85% Accuracy
-	- Physical
-	- Grass-type
-	- 120 BP
-	- 1/3 recoil (not in effect due to ability)
-	- Makes contact
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Changed Volco's rank (none --> +)
 - Added +Zodiac Ragna
 - Changed some user ranks (+CLawliet to $, Back At My Day to +)
 - Steel Sciz's name changed to Mighty Sciz
