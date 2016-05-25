@@ -2659,15 +2659,15 @@ exports.Formats = [
 				if (name === 'zodiacragna') {
 					this.add('raw|<div class="chat"><small>+</small><button name="parseCommand" value="/user Zodiac Ragna" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#A05229">Zodiac Ragna:</font></b></button><em class="mine"> IM NOT A ROBOT! I\'m just a cancerous fgt waiting for my debut on the big screen! <img src="http://i.imgur.com/1ehnWjW.png" title="ayylamo" height="50" width="50"></em></div>');
 				}
+                if (name === 'volco') {
+					this.add('raw|<div class="chat chatmessage-volco"><small>+</small><button name="parseCommand" value="/user Volco" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#4F7AAB">Volco:</font></b><button><em class="mine"> <img src="http://i.imgur.com/Jf0n4BL.png" title="feelsgd" height="50" width="50"></em></div>');
+				}
 			// Regulars
 				if (name === 'eternalmayhem') {
 					this.add('c|Eternal Mayhem|Using the power of the night, I shall wreak havoc among your team, I AM UNSTOPPABLE!!! ');
 				}
 				if (name === 'elizabethswann') {
 					this.add('c|Elizabeth Swann|Get ready! cuz you cant win against my charm and beauty ;D');
-				}
-				if (name === 'volco') {
-					this.add('raw|<div class="chat chatmessage-volco"><b><font color="#4F7AAB"><span class="username" data-name="Volco">Volco</span>:</font></b> <em class="mine"><img src="http://i.imgur.com/Jf0n4BL.png" title="feelsgd" height="50" width="50"></em></div>');
 				}
 				if (name === 'dragotic') {
 					this.add('c|Dragotic|Hello Nubs'); 
@@ -2726,6 +2726,9 @@ exports.Formats = [
 				if (name === 'zodiacragna') {
 					this.add('raw|<div class="chat"><small>+</small><button name="parseCommand" value="/user Zodiac Ragna" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#A05229">Zodiac Ragna:</font></b></button><em class="mine"> Not in all my years have I known cancer to this degree! <img src="http://i.imgur.com/uIIBChH.png" title="feelschime" height="50" width="50"></em></div>');
 				}
+                if (name === 'volco') {
+					this.add('raw|<div class="chat"><small>+</small><button name="parseCommand" value="/user Volco" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#4F7AAB">Volco:</font></b></button><em class="mine"> <img src="http://i.imgur.com/fXtdLtV.png" title="feelsdd" height="50" width="50"></em></div>');
+				}
 			// Regulars
 				if (name === 'eternalmayhem') {
 					this.add('c|Eternal Mayhem|Ninjas don\'t die! ;;');
@@ -2739,11 +2742,8 @@ exports.Formats = [
 				if (name === 'elizabethswann') {
 					this.add('c|Elizabeth Swann|This was just a warm up magic sweetie. Next time you\'re gonna feel the Wrath of Pixie Magic ;D');
 				}
-				if (name === 'volco') {
-					this.add('raw|<div class="chat chatmessage-volco"><b><font color="#4F7AAB"><span class="username" data-name="Volco">Volco</span>:</font></b> <em class="mine"><img src="http://i.imgur.com/fXtdLtV.png" title="feelsdd" height="50" width="50"></em></div>');
-				}
 				if (name === 'darkchaoticflare') {
-					this.add('c|DarkChaoticFlare|/declare The bug was swatted!');
+					this.add('raw|<div class="notice"><div class="broadcast-blue"><b>The bug was swatted!</b></div></div>');
 				}
 			},
 		onHit: function (pokemon, target) {
@@ -2772,7 +2772,7 @@ exports.Formats = [
 
 			if (!pokemon.illusion) {
 				if (name === 'volco') {
-					this.add('raw|<div class="chat chatmessage-volco"><b><font color="#4F7AAB"><span class="username" data-name="Volco">Volco</span>:</font></b> <em class="mine"><img src="http://i.imgur.com/QAuUW7u.jpg" title="feelscri" height="50" width="50"></em></div>');
+					this.add('raw|<div class="chat><button name="parseCommand" value="/user Volco" style="background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer"><b><font color="#4F7AAB">Volco:</font></b></button><em class="mine"> <img src="http://i.imgur.com/QAuUW7u.jpg" title="feelscri" height="50" width="50"></em></div>');
 				}
 			}
 		},
