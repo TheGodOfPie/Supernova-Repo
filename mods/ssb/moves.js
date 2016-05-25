@@ -429,7 +429,7 @@ exports.BattleMovedex = {
             this.attrLastMove('[still]');
             this.add('-anim', pokemon, "Struggle Bug", target);
         },
-		onHit: function (target) {
+		onHit: function (target, pokemon) {
 			target.setItem('stickybarb');
 			this.add('-item', target, 'Sticky Barb', '[from] move: Parasites');
 			target.addVolatile('partiallytrapped');

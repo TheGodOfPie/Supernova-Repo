@@ -725,4 +725,8 @@ color: #993399 !important;
 
   #lobby-userlist-user-zodiacragna, #thezodiacleague-userlist-user-zodiacragna { 
     background: rgba(244, 244, 244, 0.55) url("http://www.serebii.net/pokedex-dp/icon/379.gif") right no-repeat;
+}
+
+  #lobby-userlist-user-zodiacragna, #thezodiacleague-userlist-user-zodiacragna, #casino-userlist-user-zodiacragna { 
+    background: rgba(205, 127, 171, 0.4) url("http://www.serebii.net/pokedex-xy/icon/379.png") right no-repeat;
   }
