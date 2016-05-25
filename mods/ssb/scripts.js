@@ -66,6 +66,11 @@ exports.BattleScripts = {
 					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
 					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
 				},
+				'+Volco': {
+					species: 'Torterra', ability: 'Let\'s Do This', item: 'Leftovers', gender: 'M',
+					moves: ['outrage', ['earthquake', 'stoneedge'][this.random(2)], 'crunch'], signatureMove: "Wood Tree Sword",
+					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
+				},
 				'+Zodiac Ragna': {
 					species: 'Registeel', ability: 'Engage', item: 'Leftovers', gender: 'M',
 					moves: ['gyroball', 'toxic', 'uturn'], signatureMove: "Defensive Shift",
@@ -90,11 +95,6 @@ exports.BattleScripts = {
 				'Elizabeth Swann': {
 					species: 'Gardevoir-Mega', ability: 'Pixilate', item: 'Gardevoirite', gender: 'F',
 					moves: ['hypervoice', 'shadowball', 'energyball'], signatureMove: "Pixie Power",
-					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
-				},
-				'Volco': {
-					species: 'Torterra', ability: 'Let\'s Do This', item: 'Leftovers', gender: 'M',
-					moves: ['outrage', ['earthquake', 'stoneedge'][this.random(2)], 'crunch'], signatureMove: "Wood Tree Sword",
 					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
 				},
 				'DarkChaoticFlare': {
