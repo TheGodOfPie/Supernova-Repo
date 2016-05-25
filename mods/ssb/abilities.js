@@ -142,6 +142,20 @@ exports.BattleAbilities = {
                         id: "timetraveller",
                         name: "Time Traveller"
                 },
+                //+Volco
+                "letsdothis": {
+                        shortDesc: "Magic Guard + +2 Atk & Spe upon entry + ",
+                        onStart: function (pokemon) {
+                                this.boost({atk: 1, spe: 1});
+                        },
+                        onDamage: function (damage, target, source, effect) {
+                                if (effect.effectType !== 'Move') {
+                                return false;
+                            }
+                        },
+                        id: "letsdothis",
+                        name: "Let's Do This",
+                },
         // Regulars
                 //Ransei
                 "wonderbarrier": {
@@ -187,20 +201,6 @@ exports.BattleAbilities = {
                         },
                         id: "ascent",
                         name: "Ascent",
-                },
-                //Volco
-                "letsdothis": {
-                        shortDesc: "Magic Guard + +2 Atk & Spe upon entry + ",
-                        onStart: function (pokemon) {
-                                this.boost({atk: 1, spe: 1});
-                        },
-                        onDamage: function (damage, target, source, effect) {
-                                if (effect.effectType !== 'Move') {
-                                return false;
-                            }
-                        },
-                        id: "letsdothis",
-                        name: "Let's Do This",
                 },
                 //DarkChaoticFlare
                 "engineer": {
