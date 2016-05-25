@@ -24,7 +24,7 @@ let emotes = {
 	'feelschime': 'http://i.imgur.com/uIIBChH.png',
 	'feelschamp': 'https://imgur.com/k1K1mSl.png',
 	'feelschar': 'http://i.imgur.com/TRnvzq0.gif',
-	'feelscharx': 'http://i.imgur.com/zRSUw2n.gif',
+	'feelscx': 'http://i.imgur.com/zRSUw2n.gif',
 	'feelscool': 'http://i.imgur.com/qdGngVl.jpg?1',
 	'feelscrazy': 'http://i.imgur.com/NiJsT5W.png',
 	'feelscri': 'http://i.imgur.com/QAuUW7u.jpg?1',
