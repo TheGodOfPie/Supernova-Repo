@@ -6,7 +6,7 @@ let color = require('../config/color')
 
 let shop = [
 	['Fix', 'Buys the ability to alter your current custom avatar or trainer card. (don\'t buy if you have neither)', 1],
-	['Ticket', 'Buys a lottery ticket, that adds you to the lottery draw. You could win major bucks.', 2],
+	//['Ticket', 'Buys a lottery ticket, that adds you to the lottery draw. You could win major bucks.', 2],
 	['Avatar', 'Buys an custom avatar to be applied to your name (You supply. Images larger than 80x80 may not show correctly)', 5],
 	['Symbol', 'Buys a custom symbol to go infront of name and puts you at top of userlist. (Temporary until restart, certain symbols are blocked)', 5],
 	['Night Club', 'Buys access to enabling Night Club for your room so you can have a party all night with your friends!', 10],	
