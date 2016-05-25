@@ -193,7 +193,7 @@ EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 	- 100% Accuracy 
 	- Special 
 	- Psychic-type 
-	- 90 BP 
+	- 120 BP 
 	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
 	- Ignores Type immunity and Steel resistance
 
@@ -388,6 +388,7 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Increased Past and Future's base power
 - Changed Volco's rank (none --> +)
 - Added +Zodiac Ragna
 - Changed some user ranks (+CLawliet to $, Back At My Day to +)
