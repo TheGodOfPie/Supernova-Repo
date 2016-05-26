@@ -117,7 +117,7 @@
         "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
         "nature": "Quiet (+SpA, -Spe)",
         "movepool": ["Flash Cannon", "Roar Of Time", "Flamethrower"],
-        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 90 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
+        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 120 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
         "evs": ["252 HP", "4 Def", "252 SpA"],
         "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
     },
