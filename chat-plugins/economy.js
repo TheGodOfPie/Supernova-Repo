@@ -76,7 +76,7 @@ function logMoney(message) {
  * @return {String} display
  */
 function getShopDisplay(shop) {
-	let display = '<table style="width: 100%; border-top-right-radius: 4px; border-top-left-radius: 4px; background: rgba(230, 0, 115, 0.6)"' +
+	let display = '<div class="infobox infobox-limited"><table style="width: 100%; border-top-right-radius: 4px; border-top-left-radius: 4px; background: rgba(230, 0, 115, 0.6)"' +
 					'<tr><th color="#fff">Item</th><th color="#fff">Description</th><th color="white">Cost</th></tr>';
 	let start = 0;
 	while (start < shop.length) {
@@ -85,7 +85,7 @@ function getShopDisplay(shop) {
 						'<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][1] + '</td>' +
 						'<td style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;">' + shop[start][2] + '</td>' +
 		
-					"</tr>";
+					"</tr></div>";
 		start++;
 	}
 	display += '</table><div style="border: 1px solid rgba(255, 26, 140, 0.6); border-top: none; background: rgba(255, 26, 140, 0.6); color: black; text-shadow: 0px 0px 2px ; padding: 5px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">To buy an item from the shop, use /buy command.</div>';
