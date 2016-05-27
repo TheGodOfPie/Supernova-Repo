@@ -65,6 +65,18 @@ var rareCache = []; //Used to cache cards for tours
 var cardCache = []; //Used to cache cards in packs
 var userPacks = {}; //Used to store users unopened packs
  
+let packImage = {
+    'xybase': 'http://www.snfhobbies.com/uploads/4/6/9/8/46980109/s827363015135821806_p125_i2_w330.png',
+    'xyflashfire': 'http://www.snfhobbies.com/uploads/4/6/9/8/46980109/s827363015135821806_p124_i2_w330.png',
+    'xyfuriousfists': 'http://www.snfhobbies.com/uploads/4/6/9/8/46980109/s827363015135821806_p123_i3_w330.png',
+    'xyphantomforces': 'http://cdn.bulbagarden.net/upload/thumb/8/81/XY4_Booster_Aegislash.jpg/170px-XY4_Booster_Aegislash.jpg',
+    'xyprimalclash': 'http://www.snfhobbies.com/uploads/4/6/9/8/46980109/s827363015135821806_p121_i2_w330.png',
+    'xyroaringskies': 'http://www.snfhobbies.com/uploads/4/6/9/8/46980109/s827363015135821806_p122_i1_w330.png',
+    'xyancientorigins': 'http://i.imgur.com/sC5VAhU.png',
+    'xybreakthrough': 'http://i.imgur.com/2M8yzWZ.png',
+
+};
+
 function cachePacks() {
     for (var i = 0; i < packShop.length; i++) {
         cardCache.push(new Array());
@@ -149,6 +161,15 @@ function toTitleCase(str) {
  
 cachePacks();
 cacheRarity();
+
+function buypackDisplay(target) {
+    let packId = toId(target);
+    let display = '<div class="infobox" style="background: #A975D1; border: 1px solid #8044B8; border-radius: 4px; box-shadow: inset 1px 1px 3px #FFF; padding: 10px;">' + 
+	'<center><h2>Click to open it!</h2><br>';
+	display += '<button style="background: none; border: none" name="send" value="/openpack ' + packId + '"> ' + 
+            '<img src="' + packImage[packId] + '" width="170" title="' + packId + '"></button><br>You have until the server restarts to open your pack.</center></div>';
+    return display;
+}
  
 exports.commands = {
     packs: 'pack',
@@ -160,11 +181,11 @@ exports.commands = {
         let len = userPacks[target].length;
         console.log([userPacks, userPacks[target], len]);
         if (!len) return this.errorReply((target === user.userid ? 'You have ' : target + ' has') + ' no packs.');       
-        let display = '<u><b>List of packs:</b></u><br />';
+        let display = '<div style="background: rgba(175, 73, 223, 0.65); padding: 5px; font-size: 12px"><center><u><b>Your packs:</b></u><br /><br><h4>Click to open!</h4><br></center>';
         for (let i = 0; i < len; i++) {
-            display += '<button name= "send" value= "/openpack ' + userPacks[target][i] + '"><b>Click here to Open a(n) ' + userPacks[target][i] + ' pack!</b></button><br />';
+            display += '<center><button style="background: rgba(128, 0, 64, 0.6); border: 1px solid black; padding: 5px; border-radius: 4px; text-align: center; color: white;" name= "send" value= "/openpack ' + userPacks[target][i] + '">' + userPacks[target][i] + '</button><br /></center><br>';
         }
-        this.sendReplyBox(display);
+        this.sendReplyBox(display + '</div>');
     },
 
     buypacks: 'buypack',
@@ -180,13 +201,10 @@ exports.commands = {
         if (cost > amount) return self.errorReply('You need ' + (cost - amount) + ' more bucks to buy this pack.');
         var total = Db('money').set(user.userid, amount - cost).get(user.userid);
         var pack = toId(target);
-        self.sendReply('|raw|You have bought ' + target + ' pack for ' + cost +
-            ' bucks. Use <button name="send" value="/openpack ' +
-            pack + '"><b>/openpack ' + pack + '</b></button> to open your pack.');
-        self.sendReply('You have until the server restarts to open your pack.');
         if (!userPacks[user.userid]) userPacks[user.userid] = [];
         userPacks[user.userid].push(pack);
         room.update();
+        return this.sendReply('|raw|' + buypackDisplay(target));
     },
  
     packshop: function (target, room, user) {
@@ -205,7 +223,7 @@ exports.commands = {
         if (cleanShop.indexOf(toId(target)) < 0) return this.sendReply('This pack does not exist.');
         if (!userPacks[user.userid] || userPacks[user.userid].length === 0) return this.sendReply('You have no packs.');
         if (userPacks[user.userid].indexOf(toId(target)) < 0) return this.sendReply('You do not have this pack.');
-        let display = '<marquee behavior="slide" direction="left" style="padding-left: 4%;">';
+        let display = '<div class="infobox" style="background: #A975D1; border: 1px solid #8044B8; border-radius: 4px; box-shadow: inset 1px 1px 3px #FFF; padding: 10px;"><center><h3>Here\'s what you got! Congratulations!</h3></center><br><marquee behavior="slide" direction="left" style="padding-left: 4%;">';
         for (var i = 0; i < 3; i++) {
             var pack = toId(target);
             var cacheValue = cardCache[cleanShop.indexOf(toId(target))];
@@ -213,13 +231,13 @@ exports.commands = {
             addCard(user.userid, card);
             var cardName = cards[card].name;
             var packName = packShop[cleanShop.indexOf(toId(target))];
-            display += '<button name="send" value="/card ' + cards[card].title + '" style="border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;" class="card-button">' + 
-            '<img src="' + cards[card].card + '" width="100" title="' + cardName + '"></button> &nbsp;';
+            display += '<button name="send" value="/card ' + cards[card].title + '" style="border: none; background: none">' + 
+            '<img src="' + cards[card].card + '" width="120" title="' + cardName + '"></button> &nbsp;';
         }
-        display += '</marquee>'
-        this.sendReplyBox(display);
+        display += '</marquee></div>';
         var usrIndex = userPacks[user.userid].indexOf(pack);
         userPacks[user.userid].splice(usrIndex, 1);
+        return this.sendReply('|raw|' + display);
     },
  
     givepacks: 'givepack',
@@ -293,13 +311,13 @@ exports.commands = {
         let cardName = toId(target);
         if (!cards.hasOwnProperty(cardName)) return this.sendReply(target + ': card not found.');
         let card = cards[cardName];
-        const html = '<div style=""><img src="' + card.card + '" height="220" title="'  + card.title +  '" align="right">' +
+        const html = '<div style="background: rgba(175, 73, 223, 0.65); padding: 5px"><img src="' + card.card + '" height="220" title="'  + card.title +  '" align="right">' +
             '<center><span style="border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9);  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8) inset, 0px 0px 2px rgba(0, 0, 0, 0.2);"><h1>'  + card.name +   '</h1></span></center>' +
-            '<br /><br /><center><h1><font color="' + colors[card.rarity] + '">' + card.rarity + '</font></h1></center>' +
+            '<br><center><h1><font color="' + colors[card.rarity] + '">' + card.rarity + '</font></h1></center>' +
             '<center><h3><font color="black"><i>Points: </i></b></font> ' + card.points + '</h3>' +
             '</center><center><h3><b><font color="black"><i>Found in Packs: </h3></i></b></font></center><center>' + card.collection.join(', ') +
-            '</center><br /></div>';
-        this.sendReplyBox(' ' + html);
+            '</center><br></div>';
+        this.sendReplyBox(html);
     },
  
     cardladder: function (target, room, user) {
