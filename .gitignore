@@ -1,3 +1,4 @@
+/config/usergroups.csv
 /config/*
 /logs/*
 /node_modules
