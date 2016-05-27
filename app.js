@@ -46,8 +46,8 @@
 
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 
 /*********************************************************
  * Make sure we have everything set up correctly
