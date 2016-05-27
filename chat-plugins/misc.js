@@ -68,11 +68,34 @@ function randomColor () {
 }
 
 exports.commands = {
-	/** just temporarr **/
-	dethronica: function (target, room, user) {
-		if (!this.runBroadcast()) return; 
-		this.sendReplyBox('<center><img src="http://i.imgur.com/PwdzIHu.gif"> <img src="http://i.imgur.com/9PO8Gke.png" width="275"> <img src="http://play.pokemonshowdown.com/sprites/xyani/nidoqueen.gif"><br /><br /><img src="http://www.cinemablend.com/images/news_img/42388/The_Fault_in_our_Stars_42388.jpg" width="400"><br /><br /><font size=3"><b>Aces: <font color="#B40404">Haxnova</font> & <font color="#3ADF00">Erica</font></b></font><br /><i>"The only thing more cancerous than our league is our relationship."</i></center>');
-	},
+
+	stafflist: 'authority',
+	auth: 'authority',
+	authlist: 'authority',
+	authority: function (target, room, user, connection) {
+		let rankLists = {};
+		let ranks = Object.keys(Config.groups);
+		for (let u in Users.usergroups) {
+			let rank = Users.usergroups[u].charAt(0);
+			// In case the usergroups.csv file is not proper, we check for the server ranks.
+			if (ranks.indexOf(rank) > -1) {
+				let name = Users.usergroups[u].substr(1);
+				if (!rankLists[rank]) rankLists[rank] = [];
+				if (name) rankLists[rank].push(((Users.getExact(name) && Users.getExact(name).connected) ? '**' + name + '**' : name));
+			}
+		}
+
+		let buffer = [];
+		Object.keys(rankLists).sort(function (a, b) {
+			return (Config.groups[b] || {rank: 0}).rank - (Config.groups[a] || {rank: 0}).rank;
+		}).forEach(function (r) {
+			buffer.push((Config.groups[r] ? r + Config.groups[r].name + "s (" + rankLists[r].length + ")" : r) + ":\n" + rankLists[r].sort().join(", "));
+		});
+
+		if (!buffer.length) {
+			return connection.popup("This server has no auth.");
+		}
+		connection.popup(buffer.join("\n\n"));	},
 	clearroomauth: function (target, room, user, cmd) {
 		if (!this.can('hotpatch') && room.founder !== user.userid) return this.errorReply("Access Denied");
 		if (!room.auth) return this.errorReply("Room does not have roomauth.");
