@@ -46,7 +46,7 @@
 
 'use strict';
 
-const fs = require('fs');
+let fs = require('fs');
 const path = require('path');
 
 /*********************************************************
