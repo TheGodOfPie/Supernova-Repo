@@ -68,28 +68,28 @@ exports.commands = {
 	  
    },
 
-	list: function (target, room, user) {
+list: function (target, room, user) {
 		if (!this.can('hotpatch')) return false;
 		if (!Object.keys(Db('tc').object()).length) return this.errorReply('There seems to be no trainer cards present at the moment.');
 		this.sendReplyBox('<center><b><u>Trainer Card List:</u></b></center>' + '<br /><br />' + Object.keys(Db('tc').object()).join('<br />'));
 
     },
 
-    '': 'show',
-    show: function (target, room, user) {
-      if (!this.runBroadcast()) return; 
-	  if (target.length < 1) return this.parse("/tc help"); 
-      let tc = toId(target);
- 	  if (!Db('tc').has(tc)) return this.errorReply('This trainer card does not exist.');
-	  let name = Db('tc').get(target);         
-      this.sendReplyBox('' + name + '');
+show: function (target, room, user) {
+   if (!this.runBroadcast()) return; 
+	 if (target.length < 1) return this.parse("/tc help"); 
+   let tc = toId(target);
+   if (!Db('tc').has(tc)) return this.errorReply('This trainer card does not exist.');
+	 let name = Db('tc').get(target);         
+   this.sendReplyBox('' + name + '');
+ 
+   }, 
 
-
+    '': 'help',
     'help': function (target, room, user) {
       if (!this.runBroadcast()) return;
       this.sendReplyBox(
-      	"<center><b>Trainer Cards that Utilizes OriginDB</b></center><br>" +
-      	"<center><b>Made by: Steel Sciz</b></center><br>" +
+      	"<center><b>Trainer Cards Plugin - Made by Mighty Sciz</b></center><br>" +
       	"<b>/tc add or edit [name], [HTML]</b> - Adds a trainer card to the list of current tcs.<br>" +
       	"<b>/tc delete [name]</b> - Deletes a tc that currently exists.<br>" +
       	"<b>/tc html [command]</b> - Gives out the HTML code of a Trainer Card.<br>" +
