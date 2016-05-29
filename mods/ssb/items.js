@@ -13,19 +13,19 @@ exports.BattleItems = {
 				},
 				desc: "Boosts Psychic-type moves' power by 1.4."
 			},
-		//@Supernova Robot
-			"supernovastone": {
-				id: "supernovastone",
-				name: "Supernova Stone",
-				megaStone: "Palkia",
-				megaEvolves: "Nidoran-M",
-				onTakeItem: function (item, source) {
-					if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
-					return true;
+		//+party's over
+	    	"oldrod": {
+				id: "oldrod",
+				name: "Old Rod",
+				onSwitchIn: function (target, source, move) {
+					this.boost({def: 2});
+					this.boost({spd: 2});
+					this.boost({spe: -6});
+					this.boost({atk: 1});
+					source.addVolatile('aquaring');
 				},
-				desc: "If holder is Supernova Robot, this item allows it to Evolve in battle."
 			},
-		//$CLawliet
+		//CLawliet
 	    	"statsb00ster": {
 				id: "statsb00ster",
 				name: "Stats B00ster",
@@ -36,7 +36,7 @@ exports.BattleItems = {
 				},
 				desc: "+1 to Atk and Spe when damaged by a super effective move."
 			},
-		//+Camilas
+		//Camilas
 			"jadeorb": {
 				id: "jadeorb",
 				name: "Jade Orb",
@@ -49,28 +49,19 @@ exports.BattleItems = {
 				desc: "+1 to all stats at the end of each turn, then removes 25% of the holder's max HP."
 			},
 		//DarkChaoticFlare
-		"bugpotion": {
-		id: "bugpotion",
-		name: "Bug-potion",
-		onUpdate: function (pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 2) {
-				pokemon.eatItem();
-			}
-		},
-		onEat: function (pokemon) {
-			let stats = [];
-			for (let stat in pokemon.boosts) {
-				if (stat !== 'accuracy' && pokemon.boosts[stat] < 7) {
-					stats.push(stat);
-				}
-			}
-			if (stats.length) {
-				let randomStat = stats[this.random(stats.length)];
-				let boost = {};
-				boost[randomStat] = 2;
-				this.boost(boost);
-			}
-			this.add('c|DarkChaoticFlare|Sip sip sip...It was tasty...BzzzzzBzzzz');
-		},
-	},
+			"solarstone": {
+				id: "solarstone",
+				name: "Solar Stone",
+				megaStone: "Reshiram",
+				megaEvolves: "Litleo",
+				onTakeItem: function (item, source) {
+					if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+					return true;
+				},
+				onModifyAccuracy: function (accuracy) {
+					if (typeof accuracy !== 'number') return;
+					this.debug('brightpowder - decreasing accuracy');
+					return accuracy * 0.9;
+				},
+			},
 };
