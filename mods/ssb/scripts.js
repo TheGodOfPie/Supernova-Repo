@@ -5,7 +5,6 @@ exports.BattleScripts = {
 		let team = [];
 		let variant = (this.random(2) === 1);
 		let sets = {
-			// Admins.
 				'~Hydrostatics': {
 					species: 'Kyogre', ability: 'Drizzle', item: 'Life Orb', gender: 'M',
 					moves: ['thunder', 'blizzard', 'originpulse'], signatureMove: "Tidal Dance",
@@ -16,7 +15,6 @@ exports.BattleScripts = {
 					moves: ['dragondance', 'roost', 'flareblitz'], signatureMove: "Dragon's Attack",
 					evs: {atk:252, hp:252, spd:4}, nature: 'Adamant',
 				},
-			// Leaders
 				'&Kie': {
 					species: 'Feraligatr', ability: 'Piercing Cyclone', item: 'Lum Berry', gender: 'M',
 					moves: ['swordsdance', 'earthquake', 'dragonclaw'], signatureMove: "Mystletainn Kick",
@@ -32,6 +30,11 @@ exports.BattleScripts = {
 					moves: ['thunderwave', 'energyball', 'thunderbolt'], signatureMove: "Victory Charge",
 					evs: {hp:252, spa:252, spe:4}, nature: 'Modest',
 				},
+				'+Camilas': {
+					species: 'Rayquaza-Mega', ability: 'Pls Ban', item: 'Jade Orb', gender: 'M',
+					moves: ['roost', 'vcreate', 'earthquake'], signatureMove: "Git Rekt Son",
+					evs: {atk:252, hp:4, spe:252}, nature: 'Adamant',
+				},
 				'+party\'s over': {
 					species: 'Goldeen', ability: 'Lightning Rod', item: 'Old Rod', gender: 'M',
 					moves: ['knockoff', 'drillrun', 'megahorn'], signatureMove: "Ultra Scald",
@@ -46,11 +49,6 @@ exports.BattleScripts = {
 					species: 'Dragonite', ability: 'Multipower', item: 'Stats B00ster', gender: 'M',
 					moves: ['dragondance', 'dragonclaw', 'earthquake'], signatureMove: "Turbulence",
 					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
-				},
-				'Camilas': {
-					species: 'Rayquaza-Mega', ability: 'Pls Ban', item: 'Jade Orb', gender: 'M',
-					moves: ['roost', 'vcreate', 'earthquake'], signatureMove: "Git Rekt Son",
-					evs: {atk:252, hp:4, spe:252}, nature: 'Adamant',
 				},
 				'Dayuh': {
 					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
