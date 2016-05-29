@@ -17,12 +17,12 @@ exports.BattleItems = {
 	    	"oldrod": {
 				id: "oldrod",
 				name: "Old Rod",
-				onSwitchIn: function (target, source, move) {
+				onSwitchIn: function (target, pokemon) {
 					this.boost({def: 2});
 					this.boost({spd: 2});
 					this.boost({spe: -6});
 					this.boost({atk: 1});
-					source.addVolatile('aquaring');
+					pokemon.addVolatile('aquaring');
 				},
 			},
 		//CLawliet
