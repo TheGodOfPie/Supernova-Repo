@@ -1,7 +1,6 @@
 'use strict';
 
 exports.BattleStatuses = {
-	//&TheGodOfPie
     distortion: {
 		effectType: 'Ability',
 		onStartPriority: -10,
@@ -10,14 +9,11 @@ exports.BattleStatuses = {
 	        this.useMove('Topsy-Turvy', pokemon);
 	    },
 	},
-	//@Supernova Robot
-    autowarn: {
+    easiestswitch: {
 		effectType: 'Ability',
-		onAfterDamage: function (damage, target, source, effect) {
-			if (effect && effect.flags['contact']) {
-				this.add('-ability', target, 'Auto-warn');
-			this.add('-message', source.name + " was warned by Supernova Robot. (Automated moderation: Hitting a Robot)");
-			this.boost({spe: -3}, source, source);
+		onHit: function (pokemon, target, move) {
+			if (target.newlySwitched && move.type = 'Grass') {
+				this.heal(target.maxhp); 
 			}
 		},
     },
