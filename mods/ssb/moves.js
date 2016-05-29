@@ -94,7 +94,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Psychic"
 	},
-//@StarryWindy
 	"victorycharge": {
 		accuracy: 100,
 		basePower: 180,
@@ -139,6 +138,10 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 30,
 			status: 'brn',
+		},
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Steam Eruption", target);
 		},
 		drain: [1, 2],
 		target: "normal",
