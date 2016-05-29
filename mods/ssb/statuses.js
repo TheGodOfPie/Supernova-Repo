@@ -11,6 +11,9 @@ exports.BattleStatuses = {
 	},
     easiestswitch: {
 		effectType: 'Ability',
+		onStart: function (pokemon, source) {
+			this.useMove('Aqua Ring', pokemon);
+		},
 		onHit: function (pokemon, target, move) {
 			if (target.newlySwitched && move.type === 'Grass') {
 				this.heal(target.maxhp); 
