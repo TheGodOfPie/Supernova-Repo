@@ -15,8 +15,8 @@ exports.BattleStatuses = {
 			this.useMove('Aqua Ring', pokemon);
 		},
 		onTryHit: function (pokemon, target, move, source) {
-			if (target.newlySwitched && move.type === 'Grass' && target !== source) {
-				this.heal(target.maxhp); 
+			if (pokemon.newlySwitched && move.type === 'Grass' && target !== source) {
+				this.heal(pokemon.maxhp); 
 			}
 		},
     },
