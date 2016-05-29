@@ -57,6 +57,7 @@ exports.BattleItems = {
 				onTakeItem: function (item, source) {
 					if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 					return true;
+					this.add('raw|<div class="notice"><div class="broadcast-blue"><b>This evolution.. is THE BEST</b></div></div>');
 				},
 				onModifyAccuracy: function (accuracy) {
 					if (typeof accuracy !== 'number') return;
