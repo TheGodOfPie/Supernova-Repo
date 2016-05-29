@@ -48,40 +48,15 @@ exports.BattleAbilities = {
                         name: "Mystic Blades",
                 },
         //Moderators
-                //@Supernova Robot
-                "galacticclash": {
-	        	shortDesc: "Pokemon making contact against this Pokemon lose 3 stages of their Speed stat.",
-	        	onAfterDamageOrder: 1,
-	        	onAfterDamage: function (damage, target, source, move) {
-                                if (source && source !== target && move && move.type !== 'Dragon') {
-                                        this.add('-ability', target, 'Galactic Clash');
-                                        this.damage(source.maxhp / 10, source, target, null, true);
-                                }
-                                if (target !== source && move.type === 'Dragon' && move) {
-                                        this.add('-ability', target, 'Galactic Clash');
-                                        this.damage(source.maxhp / 2, source, target, null, true);
-                                }
-                        },
-	        	id: "galacticclash",
-	        	name: "Galactic Clash",
-	        },
-	        
                 
         //Drivers
                 
         //Operators
-                //$CLawliet
-                "multipower": {
-                        shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved. This Pokemon's Attack stat is doubled during battle.",
-                        onModifyAtkPriority: 5,
-		        onModifyAtk: function (atk) {
-		        	return this.chainModify(1.5);
-		        },
-                        id: "multipower",
-                        name: "Multipower",
-                },
+                
         //Voices
-                //+Camilas
+               
+        // Regulars
+                 //Camilas
                 "plsban": {
                         shortDesc: "This Pokemon's damaging moves hit twice. The second hit has its damage halved. This Pokemon's Attack stat is doubled during battle.",
                         onModifyAtkPriority: 5,
@@ -109,7 +84,7 @@ exports.BattleAbilities = {
                         id: "plsban",
                         name: "Pls Ban",
                 },
-                //+Dayuh
+                //Dayuh
                 "aromaboost": {
                         shortDesc: "Adaptability & +1 Speed upon entry.",
                         onModifyMove: function (move) {
@@ -121,7 +96,7 @@ exports.BattleAbilities = {
                         id: "aromaboost",
                         name: "Aroma Boost",
                 },
-                //+Zodiac Ragna
+                //Zodiac Ragna
                 "engage": {
                         onStart: function (pokemon) {
                                 this.boost({atk: 4});
@@ -130,7 +105,7 @@ exports.BattleAbilities = {
                         id: "engage",
                         name: "Engage",
                 },
-                //+Back At My Day...
+                //Back At My Day...
                 "timetraveller": {
                         onModifyMove: function (move) {
 		        	move.infiltrates = true;
@@ -142,7 +117,7 @@ exports.BattleAbilities = {
                         id: "timetraveller",
                         name: "Time Traveller"
                 },
-                //+Volco
+                //Volco
                 "letsdothis": {
                         shortDesc: "Magic Guard + +2 Atk & Spe upon entry + ",
                         onStart: function (pokemon) {
@@ -156,7 +131,16 @@ exports.BattleAbilities = {
                         id: "letsdothis",
                         name: "Let's Do This",
                 },
-        // Regulars
+                //CLawliet
+                "multipower": {
+                        shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved. This Pokemon's Attack stat is doubled during battle.",
+                        onModifyAtkPriority: 5,
+		        onModifyAtk: function (atk) {
+		        	return this.chainModify(1.5);
+		        },
+                        id: "multipower",
+                        name: "Multipower",
+                },
                 //Ransei
                 "wonderbarrier": {
                         shortDesc: "This Pokemon can only be damaged by super-effective attacks and indirect damage, can hit Ghost-types using Normal-typed moves, and +6 to all stats upon entry",
@@ -203,24 +187,32 @@ exports.BattleAbilities = {
                         name: "Ascent",
                 },
                 //DarkChaoticFlare
-                "engineer": {
-                        shortDesc: "Skill Link + Technician ",
-                        onBasePowerPriority: 8,
-                        onBasePower: function (basePower, attacker, defender, move) {
-                                if (basePower <= 60) {
-                                        this.debug('Technician boost');
+                "evolutionhope": {
+                        onStart: function (source) {
+                                this.boost({evasion: 2});
+                                this.setWeather('sunnyday');
+		                },
+                        id: "evolutionhope",
+                        name: "Evolution Hope",
+                },
+                "solaroverpower": {
+                        onModifySpAPriority: 5,
+                        onModifySpA: function (spa, pokemon) {
+                                if (this.isWeather(['sunnyday', 'desolateland'])) {
                                         return this.chainModify(1.5);
+                                }        
+                        },
+                        onWeather: function (target, source, effect) {
+                                if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+		                                this.damage(target.maxhp / 8, target, target);
+		                        }
+                        },
+                        onDamage: function (damage, target, source, effect) {
+                                if (effect.effectType !== 'Move') {
+                                        return false;
                                 }
                         },
-                        onModifyMove: function (move) {
-                                if (move.multihit && move.multihit.length) {
-                                        move.multihit = move.multihit[1];
-                                }
-                                if (move.multiaccuracy) {
-                                delete move.multiaccuracy;
-                                }
-                        },
-                        id: "engineer",
-                        name: "Engineer",
+                        id: "solaroverpower",
+                        name: "Solar Overpower",
                 },
 };
