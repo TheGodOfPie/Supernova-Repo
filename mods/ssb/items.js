@@ -22,7 +22,6 @@ exports.BattleItems = {
 					this.boost({spd: 2});
 					this.boost({spe: -6});
 					this.boost({atk: 1});
-					pokemon.addVolatile('aquaring');
 				},
 			},
 		//CLawliet
