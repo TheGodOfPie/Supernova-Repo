@@ -131,7 +131,7 @@ exports.BattleMovedex = {
 		category: "Physical",
 		id: "ultrscald",
 		name: "Ultra Scald",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
 		thawsTarget: true,
