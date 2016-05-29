@@ -224,7 +224,6 @@ Litleo @ Solar Stone
 
 - Mega-evolves Litleo to Reshiram
 - Attacks used against this Pokemon have 0.9x accuracy
-- 
 
 Ability: Evolution Hope
 
