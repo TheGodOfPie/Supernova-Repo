@@ -220,29 +220,35 @@ EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
 	- Puts the target to sleep
 
 ### DarkChaoticFlare
-Heracross @ Bug-potion
+Litleo @ Solar Stone
 
-- Raises a random stat (except accuracy, including evasion) when at 1/2 max HP or less.
+- Mega-evolves Litleo to Reshiram
+- Attacks used against this Pokemon have 0.9x accuracy
+- 
 
-Ability: Engineer
+Ability: Evolution Hope
 
-- Moves used by this Pokemon with 60 BP or less have 1.5x power.
-- This Pokemon's multi-hit attacks always hit the maximum number of times.
+- Raises evasion b 2 and summons Sunny Day on switch-in
 
-EVs: 252 Atk, 128 Def, 128 SpD, Nature: Adamant
+Mega Ability: Solar Overpower
 
-- Bullet Seed
-- Rock Blast
-- Pin Missile
-- Parasites
+- If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x.
+- Can only be damaged by direct attacks.
+
+EVs: 128 Def, 252 SpA, 128 SpD Nature: Modest
+
+- Blue Flare
+- Dragon Pulse
+- Earth Power
+- OPtastic
 	- 10 PP 
-	- Physical 
-	- Bug-type 
-	- 60 BP
+	- Status 
+	- Normal-type 
 	- 100% chance to paralyze the target
 	- Adds the effects of Bind and Leech Seed on the target
 	- Opponent's item becomes Sticky Barb
-	- Lowers user's Speed by 2
+	- Lowers user's Attack by 4
+	- Lowers target's accuracy by 1
 
 ### Dayuh
 Sawsbuck @ Life Orb
