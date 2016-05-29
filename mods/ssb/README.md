@@ -134,13 +134,14 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 ### +party's over
 Goldeen @ Old Rod 
 
-- Gets +2 Def & SpD, +1 Atk, -6 Spe, and the effects of Aqua Ring upon switch-in.
+- Gets +2 Def & SpD, +1 Atk, and -6 Spe upon switch-in
 
 Ability: Lightning Rod 
 
 Innate Ability: Easiest Switch
 
 - If this Pokemon switches into a Grass-type move, it restores all of its health.
+- Uses Aqua Ring upon switch-in
 
 EVs: 248 HP, 252 Atk, 8 SpD, Nature: Adamant
 
