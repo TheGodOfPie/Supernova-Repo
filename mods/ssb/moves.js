@@ -1,7 +1,6 @@
 "use strict";
 
 exports.BattleMovedex = {
-//~Mighty Sciz
 	"dragonsattack": {
 		accuracy: 100,
 		basePower: 120,
@@ -34,7 +33,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dragon"
 	},
-//~Hydrostatics
 	"tidaldance": {
 		accuracy: true,
 		basePower: 0,
@@ -47,13 +45,13 @@ exports.BattleMovedex = {
 		flags: {snatch: 1, mirror: 1},
 		boosts: {spa: 1, spd: 1, spe: 1},
 		onPrepareHit: function (move, pokemon) {
+			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Geomancy", pokemon);
 		},
 		secondary: false,
 		target: "self",
 		type: "Water"
 	},
-//&Kie
 	"mystletainnkick": {
 		accuracy: 100,
 		basePower: 100,
@@ -73,7 +71,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Water"
 	},
-//&TheGodOfPie
 	"dubstepdagger": {
 		accuracy: 100,
 		basePower: 130,
@@ -129,29 +126,24 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Fire"
 	},
-//@Supernova Robot
-	"galaxyblast": {
+	"ultrascald": {
 		accuracy: 100,
-		basePower: 150,
-		category: "Special",
-		shortDesc: "20% chance to flinch the target",
-		id: "galaxyblast",
-		name: "Galaxy Blast",
-		pp: 10,
+		basePower: 80,
+		category: "Physical",
+		id: "ultrscald",
+		name: "Ultra Scald",
+		pp: 15,
 		priority: 0,
-		onPrepareHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Techno Blast", target);
-		},
-		flags: {protect: 1, mirror: 1, pulse: 1},
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		thawsTarget: true,
 		secondary: {
-			chance: 20,
-			volatileStatus: 'flinch'
+			chance: 30,
+			status: 'brn',
 		},
+		drain: [1, 2],
 		target: "normal",
-		type: "Dragon"
+		type: "Water",
 	},
-//$CLawliet
 	"turbulence": {
 		accuracy: 100,
 		basePower: 60,
@@ -171,7 +163,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Flying"
 	},
-//%Cross-Xz14
 	"darkhell": {
 		accuracy: 80,
 		basePower: 0,
@@ -191,7 +182,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dark"
 	},
-//+Zodiac Ragna
 	"defensiveshift": {
 		accuracy: true,
 		basePower: 0,
@@ -215,7 +205,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Steel"
 	},
-//+Dayuh
 	"aromaleech": {
 		accuracy: 100,
 		basePower: 75,
@@ -243,7 +232,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 	},
-//+Camilas
 	"gitrektson": {
 		accuracy: 100,
 		basePower: 300,
@@ -264,7 +252,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Flying"
 	},
-//+Back At My Day...
 	"pastandfuture": {
 		accuracy: 100,
 		basePower: 120,
@@ -299,7 +286,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Psychic"
 	},
-//Volco
 	"woodtreesword": {
         accuracy: 85,
         basePower: 120,
@@ -322,7 +308,6 @@ exports.BattleMovedex = {
         target: "normal",
         type: "Grass",
     },
-//Eternal Mayhem
 	"danceofshadows": {
 		accuracy: 100,
 		basePower: 90,
@@ -350,7 +335,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dark"
 	},
-//Ransei
 	"finalblast": {
 		accuracy: 100,
 		basePower: 500,
@@ -371,7 +355,6 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Normal"
 	},
-//Elizabeth Swann
 	"pixiepower": {
 		accuracy: true,
 		basePower: 0,
@@ -395,7 +378,6 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Fairy"
 	},
-//Dragotic
 	"thegreatquake": {
 		accuracy: 110,
 		basePower: 100,
@@ -414,30 +396,32 @@ exports.BattleMovedex = {
 		target: "allAdjacent",
 		type: "Ground"
 	},
-//DarkChaoticFlare
-	"parasites": {
+	"optastic": {
 		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		id: "parasites",
-		name: "Parasites",
+		basePower: 0,
+		category: "Status",
+		id: "optastic",
+		name: "OPtastic",
 		pp: 10,
 		priority: 0,
 		onPrepareHit: function (target, pokemon) {
             this.attrLastMove('[still]');
-            this.add('-anim', pokemon, "Struggle Bug", target);
+            this.add('-anim', pokemon, "Simple Beam", target);
         },
 		onHit: function (target, pokemon) {
 			target.setItem('stickybarb');
 			this.add('-item', target, 'Sticky Barb', '[from] move: Parasites');
 			target.addVolatile('partiallytrapped');
 			target.addVolatile('leechseed');
-			this.add('c|DarkChaoticFlare|BuzzzBuzzzBuzzzBuzzz');
+			this.add('raw|<div class="notice"><div class="broadcast-blue"><b>Alright. I love this.</b></div></div>');
 		},
 		self: {
 			boosts: {
-				spe: -2,
+				atk: -4,
 			},
+		},
+		boosts: {
+			accuracy: -1,
 		},
 		flags: {protect: 1, mirror: 1},
 		secondary: {
@@ -445,6 +429,6 @@ exports.BattleMovedex = {
 			status: 'par',
 		},
 		target: "normal",
-		type: "Bug"
+		type: "Normal"
 	},
 };
