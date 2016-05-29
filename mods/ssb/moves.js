@@ -129,7 +129,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		id: "ultrscald",
+		id: "ultrascald",
 		name: "Ultra Scald",
 		pp: 10,
 		priority: 0,
