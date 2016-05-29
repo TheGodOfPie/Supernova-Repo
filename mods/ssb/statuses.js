@@ -12,7 +12,7 @@ exports.BattleStatuses = {
     easiestswitch: {
 		effectType: 'Ability',
 		onHit: function (pokemon, target, move) {
-			if (target.newlySwitched && move.type = 'Grass') {
+			if (target.newlySwitched && move.type === 'Grass') {
 				this.heal(target.maxhp); 
 			}
 		},
