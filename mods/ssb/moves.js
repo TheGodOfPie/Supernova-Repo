@@ -197,11 +197,13 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Geomancy", source);
 		},
 		priority: 0,
-		boosts: {
-			atk:-6,
-			def:6,
-			spd:6,
-			spe:3,
+		self: {
+			boosts: {
+				atk:-6,
+				def:6,
+				spd:6,
+				spe:3,
+			}
 		},
 		flags: {protect: 1, mirror: 1},
 		secondary: false,
