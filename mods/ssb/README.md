@@ -107,96 +107,6 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 	- 70% chance to burn target burn, 70% chance to lower target's Def & SpD by 1
 	- Auto-defrosts the user
 
-### @ Supernova Robot
-Nidoran-M @ Supernova Stone 
-
-- Mega-evolves Nidoran-M into Palkia
-
-Ability: Download
-Mega Ability: Galactic Clash
-
-- -10% HP to the opponent when hit by a move. -50% instead if hit by a Dragon-type move
-
-Innate Ability: Auto-warn
-
-- -3 Spe to opponent if hit by a contact move
-
-EVs: 252 HP, 4 Def, 252 SpA, Nature: Modest
-
-- Fire Blast
-- Hydro Pump
-- Earth Power
-- Galaxy Blast 
-	- 10 PP
-	- 100% Accuracy
-	- Special 
-	- Dragon-type
-	- 150 BP
-	- 20% flinch
-	- Pulse-based
-
-### %Cross-Xz14
-Darkrai @ Life Orb
-
-Ability: Bad Dreams
-
-EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
-
-- Nasty Plot
-- Sludge Bomb
-- Dark Pulse
-- Dark Hell 
-	- 10 PP
-	- 80% Accuracy
-	- Status
-	- Dark-type 
-	- Puts the target to sleep
-
-### $CLawliet
-Dragonite @ Stats B00ster
-
-- +1 Atk & Spe when hit by a super-effective move
-
-Ability: Multipower 
-
-- Pokemon's Attack stat is multiplied by 1.5
-
-EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
-
-- Dragon Dance
-- Dragon Claw
-- Earthquake
-- Turbulence 
-	- 10 PP
-	- 100% Accuracy 
-	- Physical 
-	- Flying-type 
-	- 60 BP 
-	- +2 Priority 
-	- Makes contact
-
-### +Back At My Day...
-Dialga @ Life Orb
-
-Ability: Time Traveller
-
-- Attacks bypass substitutes and screens
-- -2 Speed to self and uses Trick Room upon entry
-
-EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
-
-- Flash Cannon
-- Flamethrower
-- Roar Of Time
-- Past And Future
-	- 10 PP 
-	- 100% Accuracy 
-	- Special 
-	- Psychic-type 
-	- 120 BP 
-	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
-	- Ignores Type immunity and Steel resistance
-
 ### +Camilas
 Rayquaza-Mega @ Jade Orb 
 
@@ -221,67 +131,93 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- Takes away 50% of user's max HP per hit
 	- Makes contact
 
-### +Dayuh
-Sawsbuck @ Life Orb
+### +party's over
+Goldeen @ Old Rod 
 
-Ability: Aroma Boost
+- Gets +2 Def & SpD, +1 Atk, -6 Spe, and the effects of Aqua Ring upon switch-in.
 
-- +1 Speed upon entry
-- This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5.
+Ability: Lightning Rod 
 
-EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
+Innate Ability: Easiest Switch
 
-- Return
-- Swords Dance
-- Jump Kick
-- AromaLeech
+- If this Pokemon switches into a Grass-type move, it restores all of its health.
+
+EVs: 248 HP, 252 Atk, 8 SpD, Nature: Adamant
+
+- Knock Off
+- Drill Run
+- Megahorn
+- Ultra Scald
 	- 10 PP 
 	- 100% Accuracy 
 	- Physical 
-	- Grass-type 
-	- 75 BP 
-	- 50% chance to +1 Spe & SpA after use
-	- Restores 50% of the damage dealt
+	- Water-type 
+	- 80 BP 
+	- Auto-defrosts user and target
+	- 30% chance to burn target
+	- Heals 50% of the damage dealt
 
-### +Volco
-Torterra @ Leftovers
+### Back At My Day...
+Dialga @ Life Orb
 
-Ability: Let's Do This
+Ability: Time Traveller
 
-- +1 Atk & Spe upon entry
-- Only takes damage from direct attacks
+- Attacks bypass substitutes and screens
+- -2 Speed to self and uses Trick Room upon entry
 
-EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
+EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
 
-- Earthquake / Stone Edge
-- Outrage
-- Crunch
-- Wood Tree Sword
+- Flash Cannon
+- Flamethrower
+- Roar Of Time
+- Past And Future
 	- 10 PP 
-	- 85% Accuracy
-	- Physical
-	- Grass-type
-	- 120 BP
-	- 1/3 recoil (not in effect due to ability)
+	- 100% Accuracy 
+	- Special 
+	- Psychic-type 
+	- 120 BP 
+	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
+	- Ignores Type immunity and Steel resistance
+
+### CLawliet
+Dragonite @ Stats B00ster
+
+- +1 Atk & Spe when hit by a super-effective move
+
+Ability: Multipower 
+
+- Pokemon's Attack stat is multiplied by 1.5
+
+EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
+
+- Dragon Dance
+- Dragon Claw
+- Earthquake
+- Turbulence 
+	- 10 PP
+	- 100% Accuracy 
+	- Physical 
+	- Flying-type 
+	- 60 BP 
+	- +2 Priority 
 	- Makes contact
 
-### +Zodiac Ragna
-Registeel @ Leftovers
+### Cross-Xz14
+Darkrai @ Life Orb
 
-Ability: Engage
+Ability: Bad Dreams
 
-- +4 Atk and -2 Spe upon switch-in
+EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
 
-EVs: 252 HP, 128 Def, 128 SpD, Nature: Impish
-
-- Toxic
-- Gyro Ball
-- U-turn
-- Defensive Shift
-	- 10 PP 
-	- Status 
-	- Steel-type 
-	- +6 SpD & Def, +3 Spe, -6 Atk
+- Nasty Plot
+- Sludge Bomb
+- Dark Pulse
+- Dark Hell 
+	- 10 PP
+	- 80% Accuracy
+	- Status
+	- Dark-type 
+	- Puts the target to sleep
 
 ### DarkChaoticFlare
 Heracross @ Bug-potion
@@ -307,6 +243,28 @@ EVs: 252 Atk, 128 Def, 128 SpD, Nature: Adamant
 	- Adds the effects of Bind and Leech Seed on the target
 	- Opponent's item becomes Sticky Barb
 	- Lowers user's Speed by 2
+
+### Dayuh
+Sawsbuck @ Life Orb
+
+Ability: Aroma Boost
+
+- +1 Speed upon entry
+- This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5.
+
+EVs: 252 Atk, 4 Def, 252 Spe, Nature: Adamant
+
+- Return
+- Swords Dance
+- Jump Kick
+- AromaLeech
+	- 10 PP 
+	- 100% Accuracy 
+	- Physical 
+	- Grass-type 
+	- 75 BP 
+	- 50% chance to +1 Spe & SpA after use
+	- Restores 50% of the damage dealt
 
 ### Dragotic
 Garchomp @ Yache Berry
@@ -385,9 +343,53 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
 	- 500 BP
 	- Always critical hit, user faints after use
 
+### Volco
+Torterra @ Leftovers
+
+Ability: Let's Do This
+
+- +1 Atk & Spe upon entry
+- Only takes damage from direct attacks
+
+EVs: 4 HP, 252 Atk, 252 Spe, Nature: Adamant
+
+- Earthquake / Stone Edge
+- Outrage
+- Crunch
+- Wood Tree Sword
+	- 10 PP 
+	- 85% Accuracy
+	- Physical
+	- Grass-type
+	- 120 BP
+	- 1/3 recoil (not in effect due to ability)
+	- Makes contact
+
+### Zodiac Ragna
+Registeel @ Leftovers
+
+Ability: Engage
+
+- +4 Atk and -2 Spe upon switch-in
+
+EVs: 252 HP, 128 Def, 128 SpD, Nature: Impish
+
+- Toxic
+- Gyro Ball
+- U-turn
+- Defensive Shift
+	- 10 PP 
+	- Status 
+	- Steel-type 
+	- +6 SpD & Def, +3 Spe, -6 Atk
+
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Removed Supernova Robot
+- Added party's over
+- Changed DCF's set... again
+- Changed a truck-load of ranks
 - Increased Past and Future's base power
 - Changed Volco's rank (none --> +)
 - Added +Zodiac Ragna
