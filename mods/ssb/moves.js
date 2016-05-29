@@ -302,9 +302,9 @@ exports.BattleMovedex = {
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
         recoil: [1, 3],
-        onPrepareHit: function (pokemon, target) {
+        onPrepareHit: function (source, target) {
             this.attrLastMove('[still]');
-            this.add('-anim', pokemon, "Wood Hammer", target);
+            this.add('-anim', source, "Wood Hammer", target);
         },
         onHit: function (target, source, move) {
             this.add('c|+Volco|Let\'s do this');
