@@ -27,56 +27,51 @@ exports.BattleScripts = {
 					moves: ['earthquake', 'shadowsneak', 'closecombat'], signatureMove: "Dubstep Dagger",
 					evs: {hp:4, atk:252, spe:252}, nature: 'Jolly',
 				},
-            // Moderators
-				'@Supernova Robot': {
-					species: 'Nidoran-M', ability: 'Download', item: 'Supernova Stone', gender: 'N', shiny: true,
-					moves: ['hydropump', 'fireblast', 'earthpower'], signatureMove: "Galaxy Blast",
-					evs: {def:4, spa:252, hp:252}, nature: 'Modest',
-				},
 				'@StarryWindy': {
 					species: 'Victini', ability: 'Magic Guard', item: 'Leftovers', gender: 'M',
 					moves: ['thunderwave', 'energyball', 'thunderbolt'], signatureMove: "Victory Charge",
 					evs: {hp:252, spa:252, spe:4}, nature: 'Modest',
 				},
-			// Drivers
-				'%Cross-Xz14': {
+				'+party\'s over': {
+					species: 'Goldeen', ability: 'Lightning Rod', item: 'Old Rod', gender: 'M',
+					moves: ['knockoff', 'drillrun', 'megahorn'], signatureMove: "Ultra Scald",
+					evs: {hp:248, atk:252, spd:8}, nature: 'Adamant',
+				},
+				'Cross-Xz14': {
 					species: 'Darkrai', ability: 'Bad Dreams', item: 'Life Orb', gender: 'F',
 					moves: ['darkpulse', 'nastyplot', 'sludgebomb'], signatureMove: "Dark Hell",
 					evs: {spe:252, spa:252, spd:4}, nature: 'Timid',
 				},
-			//Operators
-				'$CLawliet': {
+				'CLawliet': {
 					species: 'Dragonite', ability: 'Multipower', item: 'Stats B00ster', gender: 'M',
 					moves: ['dragondance', 'dragonclaw', 'earthquake'], signatureMove: "Turbulence",
 					evs: {spe:252, atk:252, hp:4}, nature: 'Jolly',
 				},
-			//Voices
-				'+Camilas': {
+				'Camilas': {
 					species: 'Rayquaza-Mega', ability: 'Pls Ban', item: 'Jade Orb', gender: 'M',
 					moves: ['roost', 'vcreate', 'earthquake'], signatureMove: "Git Rekt Son",
 					evs: {atk:252, hp:4, spe:252}, nature: 'Adamant',
 				},
-				'+Dayuh': {
+				'Dayuh': {
 					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
 					moves: ['return', 'swordsdance', 'jumpkick'], signatureMove: "AromaLeech",
 					evs: {spe:252, atk:252, def:4}, nature: 'Adamant',
 				},
-				'+Back At My Day...': {
+				'Back At My Day...': {
 					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
 					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
 					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
 				},
-				'+Volco': {
+				'Volco': {
 					species: 'Torterra', ability: 'Let\'s Do This', item: 'Leftovers', gender: 'M',
 					moves: ['outrage', ['earthquake', 'stoneedge'][this.random(2)], 'crunch'], signatureMove: "Wood Tree Sword",
 					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
 				},
-				'+Zodiac Ragna': {
+				'Zodiac Ragna': {
 					species: 'Registeel', ability: 'Engage', item: 'Leftovers', gender: 'M',
 					moves: ['gyroball', 'toxic', 'uturn'], signatureMove: "Defensive Shift",
 					evs: {hp:252, def:128, spd:128}, nature: 'Impish',
 				},
-			//Regulars
 				'Eternal Mayhem': {
 					species: 'Greninja', ability: 'Protean', item: 'Life Orb', gender: 'M', shiny: true,
 					moves: ['icebeam', 'hydropump', 'gunkshot'], signatureMove: "Dance Of Shadows",
@@ -98,9 +93,9 @@ exports.BattleScripts = {
 					evs: {spe:252, spa:252, hp:4}, nature: 'Modest',
 				},
 				'DarkChaoticFlare': {
-					species: 'Heracross', ability: 'Engineer', item: 'Bug-potion', gender: 'M',
-					moves: ['bulletseed','rockblast', 'pinmissile'], signatureMove: "Parasites",
-					evs: {atk:252, spd:128, def:128}, nature: 'Adamant',
+					species: 'Litleo', ability: 'Evolution Hope', item: 'Solar Stone', gender: 'M',
+					moves: ['blueflare','dragonpulse', 'earthpower'], signatureMove: "OPtastic",
+					evs: {def:128, spa:252, spd:128}, nature: 'Modest',
 				},
 			};
 		// Generate the team randomly.
