@@ -1,16 +1,15 @@
 'use strict';
 
 exports.BattlePokedex = {
-	//@Supernova Robot
-	palkia: {
+	reshiram: {
 		inherit: true,
-		basespecies: "Nidoran-M",
+		basespecies: "Litleo",
 		forme: "Mega",
 		formeLetter: "M",
-		abilities:{0:"Galactic Clash"},
+		abilities:{0:"Solar Overpower"},
 	},
-	nidoranm: {
+	litleo: {
 		inherit: true,
-		otherForms: ["Palkia"],
+		otherForms: ["Reshiram"],
 	},
 };
