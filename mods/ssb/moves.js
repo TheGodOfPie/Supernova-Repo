@@ -415,7 +415,7 @@ exports.BattleMovedex = {
         },
 		onHit: function (target, pokemon) {
 			target.setItem('stickybarb');
-			this.add('-item', target, 'Sticky Barb', '[from] move: Parasites');
+			this.add('-item', target, 'Sticky Barb', '[from] move: OPtastic');
 			target.addVolatile('partiallytrapped');
 			target.addVolatile('leechseed');
 			this.add('raw|<div class="notice"><div class="broadcast-blue"><b>Alright. I love this.</b></div></div>');
