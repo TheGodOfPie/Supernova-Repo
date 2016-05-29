@@ -1678,5 +1678,5 @@ spr: 'sprite',
     },
     ssbhelp: ['/ssb [staff name] - Shows the complete set of a member in Supernova Super Staff Bros.',
     'List of current members in Supernova Super Staff Bros.:',
-    '~Hydrostatics, ~Mighty Sciz, &Kie, &TheGodOfPie, @StarryWindy, Back At My Day..., +Camilas, +party\'s over, CLawliet, Cross-Xz14, DarkChaoticFlare, Dayuh, Dragotic, Elizabeth Swann, Eternal Mayhem, Ransei, Volco, and Zodiac Ragna.'],
+    '~Hydrostatics, ~Mighty Sciz, &Kie, &TheGodOfPie, @StarryWindy, +Camilas, +party\'s over, Back At My Day..., CLawliet, Cross-Xz14, DarkChaoticFlare, Dayuh, Dragotic, Elizabeth Swann, Eternal Mayhem, Ransei, Volco, and Zodiac Ragna.'],
 };
