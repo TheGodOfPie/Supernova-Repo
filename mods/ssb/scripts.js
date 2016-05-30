@@ -30,6 +30,16 @@ exports.BattleScripts = {
 					moves: ['thunderwave', 'energyball', 'thunderbolt'], signatureMove: "Victory Charge",
 					evs: {hp:252, spa:252, spe:4}, nature: 'Modest',
 				},
+				'%Cross-Xz14': {
+					species: 'Darkrai', ability: 'Bad Dreams', item: 'Life Orb', gender: 'F',
+					moves: ['darkpulse', 'nastyplot', 'sludgebomb'], signatureMove: "Dark Hell",
+					evs: {spe:252, spa:252, spd:4}, nature: 'Timid',
+				},
+				'+Back At My Day...': {
+					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
+					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
+					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
+				},
 				'+Camilas': {
 					species: 'Rayquaza-Mega', ability: 'Pls Ban', item: 'Jade Orb', gender: 'M',
 					moves: ['roost', 'vcreate', 'earthquake'], signatureMove: "Git Rekt Son",
@@ -40,11 +50,6 @@ exports.BattleScripts = {
 					moves: ['knockoff', 'drillrun', 'megahorn'], signatureMove: "Ultra Scald",
 					evs: {hp:248, atk:252, spd:8}, nature: 'Adamant',
 				},
-				'Cross-Xz14': {
-					species: 'Darkrai', ability: 'Bad Dreams', item: 'Life Orb', gender: 'F',
-					moves: ['darkpulse', 'nastyplot', 'sludgebomb'], signatureMove: "Dark Hell",
-					evs: {spe:252, spa:252, spd:4}, nature: 'Timid',
-				},
 				'CLawliet': {
 					species: 'Dragonite', ability: 'Multipower', item: 'Stats B00ster', gender: 'M',
 					moves: ['dragondance', 'dragonclaw', 'earthquake'], signatureMove: "Turbulence",
@@ -54,11 +59,6 @@ exports.BattleScripts = {
 					species: 'Sawsbuck', ability: 'Aroma Boost', item: 'Life Orb', gender: 'F',
 					moves: ['return', 'swordsdance', 'jumpkick'], signatureMove: "AromaLeech",
 					evs: {spe:252, atk:252, def:4}, nature: 'Adamant',
-				},
-				'Back At My Day...': {
-					species: 'Dialga', ability: 'Time Traveller', item: 'Life Orb', gender: 'M', shiny: true,
-					moves: ['flamethrower', 'roaroftime', 'flashcannon'], signatureMove: "Past And Future",
-					evs: {spa:252, def:4, hp:252}, nature: 'Quiet',
 				},
 				'Volco': {
 					species: 'Torterra', ability: 'Let\'s Do This', item: 'Leftovers', gender: 'M',
