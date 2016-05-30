@@ -392,25 +392,10 @@ EVs: 252 HP, 128 Def, 128 SpD, Nature: Impish
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Changed Back At My Day's and Cross-xZ14's ranks
+- Added Easiest Switch activation message
 - Removed Supernova Robot
 - Added party's over
 - Changed DCF's set... again
 - Changed a truck-load of ranks
 - Increased Past and Future's base power
-- Changed Volco's rank (none --> +)
-- Added +Zodiac Ragna
-- Changed some user ranks (+CLawliet to $, Back At My Day to +)
-- Steel Sciz's name changed to Mighty Sciz
-- Changed DarkChaoticFlare's full set
-- Fixed StarryWindy's custom move secondaries not working
-- Change DarkChaoticFlare's Ability (Shadowstatics --> Adaptability)
-- Change DarkChaoticFlare's custom move type (Dark --> Ghost)
-- Remove TheGodOfPie's "using custom move" quote
-- Remove TheGodOfPie's custom move lowering its own Accuracy
-- TheGodOfPie's rank change (@ --> &)
-- Dayuh (full set)
-- TheGodOfPie (Change custom move)
-- DarkChaoticFlare (full set)
-- Eternal Mayhem (Replaced Sludge Bomb with Gunk Shot, fixed EVs)
-- Dance Of Shadows now has 50% to get boosts instead of 30%.
-- Added a format description
