@@ -16,7 +16,8 @@ exports.BattleStatuses = {
 		},
 		onTryHit: function (pokemon, target, move, source) {
 			if (pokemon.newlySwitched && move.type === 'Grass' && target !== source) {
-				this.heal(pokemon.maxhp); 
+				this.add('-ability', pokemon, 'Easiest Switch');
+				this.heal(pokemon.maxhp);
 			}
 		},
     },
