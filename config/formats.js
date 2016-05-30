@@ -2636,10 +2636,15 @@ exports.Formats = [
 					this.add('c|@StarryWindy|I\'ll try to do my best.');
 				}
 			// Drivers
-				
+				if (name === 'crossxz14') {
+					this.add('c|%Cross-Xz14|Don\'t you dare underestimate my darkness!! So.. are you ready for the fight!?');
+				}
 			//Operators
 				
 			// Voices
+                if (name === 'backatmyday') {
+					this.add('c|+Back At My Day...|Oh no! I have time traveled to the beginning of time. I have to get back to my time!');
+				}
 				if (name === 'camilas') {
 					this.add('c|+Camilas|I got more MLG in my body than the amount of stupidity in your brain. ABOUT TO KILL YOU WITH THIS SNIPE FROM THE HEAVENS.');
 				}
@@ -2647,12 +2652,6 @@ exports.Formats = [
 					this.add('c|+party\'s over|hi');
 				}
 			// Regulars
-                if (name === 'crossxz14') {
-					this.add('c|Cross-Xz14|Don\'t you dare underestimate my darkness!! So.. are you ready for the fight!?');
-				}
-                if (name === 'backatmyday') {
-					this.add('c|Back At My Day...|Oh no! I have time traveled to the beginning of time. I have to get back to my time!');
-				}
                 if (name === 'dayuh') {
 					this.add('c|Dayuh|You can\'t kill what\'s **eternal**~!');
 				}
@@ -2704,10 +2703,15 @@ exports.Formats = [
 					this.add('c|@StarryWindy|The power\'s too strong...');
 				}
 			// Drivers
-				
+				if (name === 'crossxz14') {
+					this.add('c|%Cross-Xz14|Welp aight! How Can I lose!!!! U cheater >_> .cri');
+				}
 			//Operators
 				
 			// Voices
+                if (name === 'backatmyday') {
+					this.add('c|+Back At My Day|Gah... Looks like I couldn\'t get back to my time...');
+				}
 				if (name === 'camilas') {
 					this.add('c|+Camilas|Pshhh lucky players haxing me and shit I call bs. WHERE IS MY LAWYER, we got a hacking madman here!');
 				}
@@ -2715,14 +2719,8 @@ exports.Formats = [
 					this.add('c|+party\'s over|I guess the __party\'s over__');
 				}
 			// Regulars
-                if (name === 'crossxz14') {
-					this.add('c|Cross-Xz14|Welp aight! How Can I lose!!!! U cheater >_> .cri');
-				}
                 if (name === 'clawliet') {
 					this.add('c|CLawliet|It seems that I can\'t control my turbulence....');
-				}
-                if (name === 'backatmyday') {
-					this.add('c|Back At My Day|Gah... Looks like I couldn\'t get back to my time...');
 				}
                 if (name === 'dayuh') {
 					this.add('c|Dayuh|I\'ll just be reborn again~!');
@@ -2766,7 +2764,7 @@ exports.Formats = [
 						this.add('c|CLawliet|Nah just kidding. GET REKT LOL');
 					}
 					if (name === 'backatmyday') {
-						this.add('c|Back At My Day|I am sorry that in the future you will die of old age.');
+						this.add('c|+Back At My Day|I am sorry that in the future you will die of old age.');
 					}
 				}
 			},
