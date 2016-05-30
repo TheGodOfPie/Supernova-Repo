@@ -42,7 +42,7 @@
         "item": "Lum Berry",
         "ability": "Piercing Cyclone - Summons intense rain on switch-in; Speed is boosted by 1.5x if rain is active.",
         "nature": "Jolly (+Spe -SpA)",
-        "movepool": ["Swords Dance", "Dragon Claw", "Earthquake"],
+        "movepool": ["Swords Dance", "Ice Punch", "Earthquake"],
         "signature move": "Mystletainn Kick! - 10 PP / Physical / Water-type / Makes contact / 100 BP / +1 Priority / 100% Accuracy.",
         "evs": ["216 HP", "252 Atk", "40 Spe"],
         "note": "While it can pretty much kill every other staffmon out there that is neutral or weak to Water-types because of its priority custom move, this staffmon can get OHKO'd by special moves, especially Grass-type and Electric-type ones. Potential counters include Ransei, Back At My Day..., or anything that can outspeed this staffmon."
