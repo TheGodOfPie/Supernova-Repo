@@ -50,7 +50,7 @@ EVs: 216 HP, 252 Atk, 40 Spe, Nature: Jolly
 
 - Swords Dance  
 - Earthquake
-- Dragon Claw
+- Ice Punch
 - Mystletainn Kick!
     - 100 BP
 	- 10 PP 
@@ -392,6 +392,7 @@ EVs: 252 HP, 128 Def, 128 SpD, Nature: Impish
 
 Recent Changes (by order, top is most recent)
 ----------------------------------------------------------------------
+- Change Kie's Dragon Claw to Ice Punch
 - Changed Back At My Day's and Cross-xZ14's ranks
 - Added Easiest Switch activation message
 - Removed Supernova Robot
