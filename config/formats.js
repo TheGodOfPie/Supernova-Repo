@@ -2576,6 +2576,9 @@ exports.Formats = [
 		onUpdate: function (pokemon) {
 			let name = toId(pokemon.name);
 			if (pokemon.template.isMega) {
+                if (name === 'darkchaoticflare') {
+                    this.add('raw|<div class="notice"><div class="broadcast-blue"><b>This evolution.. is THE BEST</b></div></div>');
+                }
 			}
 		},
 		
@@ -2591,7 +2594,7 @@ exports.Formats = [
 			}
 			
 			if (pokemon.template.isMega) {
-				if (name === 'darkchaoticflare' && pokemon.getAbility().id === 'solaroverpower') {
+				if (name === 'darkchaoticflare' && pokemon.getAbility().id !== 'solaroverpower') {
 					pokemon.setAbility('solaroverpower');
 				}
 			} else {
