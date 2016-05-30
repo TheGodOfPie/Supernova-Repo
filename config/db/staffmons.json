@@ -72,6 +72,30 @@
         "evs": ["252 HP", "252 SpA", "4 Spe"],
         "note": "It can hit hard using it's special move, Victory Charge. It has some decent bulk, and could defeat an opposing staffmon or two. Thunder Wave can help slow down faster mons, as long it survives one attack, then it can hit back with POWER with Victory Charge. Potential counters include Ransei, Camilas, Steel Sciz or anything that hits hard and outspeeds this staffmon."
     },
+    "crossxz14": {
+        "username": "<img src='http://media.pldh.net/pokexycons/491.png'>%Cross-Xz14<img src='http://media.pldh.net/pokexycons/491.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/darkrai.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/491.png&quot;), auto;'>",
+        "staffmon": "Darkrai",
+        "item": "Life Orb",
+        "ability": "Bad Dreams",
+        "nature": "Timid (+Spe -Atk)",
+        "movepool": ["Nasty Plot", "Sludge Bomb", "Dark Pulse"],
+        "signature move": "Dark Hell - 10 PP / 80% Accuracy / Status / Dark-type / Puts the target to sleep.",
+        "evs": ["252 SpA", "4 SpD", "252 Spe"],
+        "note": "With its Dark Hell move, it can setup with ease, and it can be OP as <i>Hell</i>. It can be a special sweeper and can kill most staffmons. However, it's more likely to be compared to a glass cannon, which could get killed by staffmons that use powerful priority moves. Potential counters include Ransei, TheGodOfPie, or anything that can survive the sleep for 3 turns."
+    },
+    "backatmyday": {
+        "username": "<img src='http://media.pldh.net/pokexycons/483.png'>+Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
+        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/SaGRpyK.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
+        "staffmon": "Dialga",
+        "item": "Life Orb",
+        "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
+        "nature": "Quiet (+SpA, -Spe)",
+        "movepool": ["Flash Cannon", "Roar Of Time", "Flamethrower"],
+        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 120 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
+        "evs": ["252 HP", "4 Def", "252 SpA"],
+        "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
+    },
     "camilas": {
         "username": "<img src='http://media.pldh.net/pokexycons/384-mega.png'>+Camilas<img src='http://media.pldh.net/pokexycons/384-mega.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;http://orig02.deviantart.net/0cef/f/2014/296/b/f/mega_rayquaza_by_dashinghero-d83vpb9.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/384-mega.png&quot;), auto;'>",
@@ -97,18 +121,6 @@
         "evs": ["248 HP", "252 Atk", "8 SpD"],
         "note": "This staffmon may seem tasty to defeat at first, but its bulk can pack quite a punch. Its custom move, ability and innate ability can be broken, as long as you know how to use this guy properly. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of its bulk."
     },
-	"backatmyday": {
-        "username": "<img src='http://media.pldh.net/pokexycons/483.png'>Back At My Day...<img src='http://media.pldh.net/pokexycons/483.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/SaGRpyK.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/483.png&quot;), auto;'>",
-        "staffmon": "Dialga",
-        "item": "Life Orb",
-        "ability": "Time Traveller - Attacks bypass substitutes and screens; -2 Speed to self and uses Trick Room upon entry.",
-        "nature": "Quiet (+SpA, -Spe)",
-        "movepool": ["Flash Cannon", "Roar Of Time", "Flamethrower"],
-        "signature move": "Past and Future - 10 PP / Special / Psychic-type / 120 BP / 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1 / 100% Accuracy / Ignores Type immunity and Steel resistance.",
-        "evs": ["252 HP", "4 Def", "252 SpA"],
-        "note": "This is that one time the slowness actually matters in this metagame. Back At My Day's staffmon is a major troll to faster mons. However, despite its ability having to decrease its own Speed and summon Trick Room, it only lasts for 5 turns. But in between those 5 turns, this guy wrecks almost everything in its path, leaving them back in the <i>past</i>. Potential counters include Ransei, TheGodOfPie, or anything that can take advantage of Trick Room, and can last a hit from it, otherwise you'd wish that you were back in time, redoing your plays."
-    },
 	"clawliet": {
         "username": "<img src='http://media.pldh.net/pokexycons/149.png'>CLawliet<img src='http://media.pldh.net/pokexycons/149.png'>",
         "styling": "<div style='padding: 5px; background: url(&quot;http://i.imgur.com/18RoWCz.png&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/149.png&quot;), auto;'>",
@@ -120,18 +132,6 @@
         "signature move": "Turbulence - 10 PP / 100% Accuracy / Physical / Flying-type / 60 BP / +2 priority / Makes contact.",
         "evs": ["4 HP", "252 Atk", "252 Spe"],
         "note": "While it can pretty much OHKO staffmons that doesn't have stat boosts using it's priority move, it's pretty much a glass cannon without it's Multiscale ability. Multipower however, helps a ton in sweeping, and a lot more when it gets to use Dragon Dance. Potential counters include Ransei, Camilas, Hydrostatics or anything that can't get killed by it's priority move."
-    },
-	"crossxz14": {
-        "username": "<img src='http://media.pldh.net/pokexycons/491.png'>Cross-Xz14<img src='http://media.pldh.net/pokexycons/491.png'>",
-        "styling": "<div style='padding: 5px; background: url(&quot;http://media.pldh.net/gallery/the493/darkrai.jpg&quot;) no-repeat; background-size: cover; cursor: url(&quot;http://pldh.net/media/pokexycons/491.png&quot;), auto;'>",
-        "staffmon": "Darkrai",
-        "item": "Life Orb",
-        "ability": "Bad Dreams",
-        "nature": "Timid (+Spe -Atk)",
-        "movepool": ["Nasty Plot", "Sludge Bomb", "Dark Pulse"],
-        "signature move": "Dark Hell - 10 PP / 80% Accuracy / Status / Dark-type / Puts the target to sleep.",
-        "evs": ["252 SpA", "4 SpD", "252 Spe"],
-        "note": "With its Dark Hell move, it can setup with ease, and it can be OP as <i>Hell</i>. It can be a special sweeper and can kill most staffmons. However, it's more likely to be compared to a glass cannon, which could get killed by staffmons that use powerful priority moves. Potential counters include Ransei, TheGodOfPie, or anything that can survive the sleep for 3 turns."
     },
     "darkchaoticflare": {
         "username": "<img src='http://media.pldh.net/pokexycons/667.png'>DarkChaoticFlare<img src='http://media.pldh.net/pokexycons/667.png'>",
