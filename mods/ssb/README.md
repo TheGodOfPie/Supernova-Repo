@@ -107,6 +107,45 @@ EVs: 252 HP, 252 SpA, 4 Spe, Nature: Modest
 	- 70% chance to burn target burn, 70% chance to lower target's Def & SpD by 1
 	- Auto-defrosts the user
 
+### %Cross-Xz14
+Darkrai @ Life Orb
+
+Ability: Bad Dreams
+
+EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
+
+- Nasty Plot
+- Sludge Bomb
+- Dark Pulse
+- Dark Hell 
+	- 10 PP
+	- 80% Accuracy
+	- Status
+	- Dark-type 
+	- Puts the target to sleep
+
+### +Back At My Day...
+Dialga @ Life Orb
+
+Ability: Time Traveller
+
+- Attacks bypass substitutes and screens
+- -2 Speed to self and uses Trick Room upon entry
+
+EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
+
+- Flash Cannon
+- Flamethrower
+- Roar Of Time
+- Past And Future
+	- 10 PP 
+	- 100% Accuracy 
+	- Special 
+	- Psychic-type 
+	- 120 BP 
+	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
+	- Ignores Type immunity and Steel resistance
+
 ### +Camilas
 Rayquaza-Mega @ Jade Orb 
 
@@ -158,28 +197,6 @@ EVs: 248 HP, 252 Atk, 8 SpD, Nature: Adamant
 	- 30% chance to burn target
 	- Heals 50% of the damage dealt
 
-### Back At My Day...
-Dialga @ Life Orb
-
-Ability: Time Traveller
-
-- Attacks bypass substitutes and screens
-- -2 Speed to self and uses Trick Room upon entry
-
-EVs: 252 HP, 4 Def, 252 SpA, Nature: Quiet
-
-- Flash Cannon
-- Flamethrower
-- Roar Of Time
-- Past And Future
-	- 10 PP 
-	- 100% Accuracy 
-	- Special 
-	- Psychic-type 
-	- 120 BP 
-	- 10% chance to raise own SpD, Def, SpA, Accuracy, and evasion by 1
-	- Ignores Type immunity and Steel resistance
-
 ### CLawliet
 Dragonite @ Stats B00ster
 
@@ -202,23 +219,6 @@ EVs: 4 HP, 252 Atk, 252 Spe, Nature: Jolly
 	- 60 BP 
 	- +2 Priority 
 	- Makes contact
-
-### Cross-Xz14
-Darkrai @ Life Orb
-
-Ability: Bad Dreams
-
-EVs: 252 SpA, 4 SpD, 252 Spe, Nature: Timid
-
-- Nasty Plot
-- Sludge Bomb
-- Dark Pulse
-- Dark Hell 
-	- 10 PP
-	- 80% Accuracy
-	- Status
-	- Dark-type 
-	- Puts the target to sleep
 
 ### DarkChaoticFlare
 Litleo @ Solar Stone
