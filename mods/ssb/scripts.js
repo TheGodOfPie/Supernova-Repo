@@ -17,7 +17,7 @@ exports.BattleScripts = {
 				},
 				'&Kie': {
 					species: 'Feraligatr', ability: 'Piercing Cyclone', item: 'Lum Berry', gender: 'M',
-					moves: ['swordsdance', 'earthquake', 'dragonclaw'], signatureMove: "Mystletainn Kick",
+					moves: ['swordsdance', 'earthquake', 'icepunch'], signatureMove: "Mystletainn Kick",
 					evs: {hp:216, atk:252, spe:40}, nature: 'Jolly',
 				},
 				'&TheGodOfPie': {
