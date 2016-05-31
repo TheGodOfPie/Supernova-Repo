@@ -303,7 +303,7 @@ exports.BattleMovedex = {
         recoil: [1, 3],
         onPrepareHit: function (source, target) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Leaf Blade", target);
+            this.add('-anim', source, "Leaf Blade", source);
         },
         onHit: function (target, source, move) {
             this.add('c|Volco|Let\'s do this');
