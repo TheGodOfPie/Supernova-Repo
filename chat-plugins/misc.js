@@ -1664,10 +1664,12 @@ spr: 'sprite',
         	let staffMonEvs = '<b>EVs: </b>' + Db('staffmons').get([monName, 'evs']).join(' / ');
         	// A note on how the staffmon works and counters
         	let note = '<b>NOTE: </b>' + Db('staffmons').get([monName, 'note']);
+			// Staffmon's viability rank
+			let staffMonViabilityRank = '<b>Viability Rank:</b>' + Db('staffmons').get([monName, 'viability rank']);
         	// Line Break
         	let BR = '<br /><br />';
         	// Lets patch it all up here
-        	display += styling + staffName + '<br />' + staffMon + BR + staffMonItem + BR 
+        	display += styling + staffName + '<br />' + staffMon + BR + staffMonViabilityRank + BR + staffMonItem + BR 
         	+ staffMonAbility + BR + (Db('staffmons').has([monName, 'innate ability']) ? staffMonInnateAbility + BR : '') + staffMonNature + BR + staffMonMovePool + BR + 
         	staffMonSignatureMove + BR + staffMonEvs + BR + note + '</div>';
         	// Output it
