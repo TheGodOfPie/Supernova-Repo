@@ -268,7 +268,7 @@ exports.BattleMovedex = {
 		ignoreImmunity: true,
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('c|Back At My Day...|I am going to change time!');
+			this.add('c|+Back At My Day...|I am going to change time!');
 			this.add('-anim', source, "Luster Purge", target);
 		},
 		priority: 0,
@@ -295,19 +295,18 @@ exports.BattleMovedex = {
         accuracy: 85,
         basePower: 120,
         category: "Physical",
-        shortDesc: "Use and Find Out.",
 		id: "woodtreesword",
 		name: "Wood Tree Sword",
-        pp: 15,
+        pp: 10,
         priority: 0,
         flags: {contact: 1, protect: 1, mirror: 1},
         recoil: [1, 3],
         onPrepareHit: function (source, target) {
             this.attrLastMove('[still]');
-            this.add('-anim', source, "Wood Hammer", target);
+            this.add('-anim', source, "Leaf Blade", target);
         },
         onHit: function (target, source, move) {
-            this.add('c|+Volco|Let\'s do this');
+            this.add('c|Volco|Let\'s do this');
         },
         secondary: false,
         target: "normal",
