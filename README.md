@@ -35,8 +35,7 @@ There are some node modules you have to install manually without npm install, su
 
 ## Hydrocity Developers
 
-So currently, me (Steel Sciz) and Dragotic are currently managing this repository. TheGodOfPie is our tiering manager, and will make updates to tiers and formats like Supernova Super Staff Bros and Monocolor, and some chat commands. We need more Developers at the moment. If people want to 
-contribute to the Supernova Repository Source, they must have the following skills:
+Sciz and XpRienzo are the only coders for this server. We need more Developers at the moment. If people want to contribute to the Supernova Repository Source, they must have the following skills:
 
 - They must know how to code and not break anything in the server, as this server will be updated daily. 
 - They need to know that they need to fix their own problem if they caused many crashes.
